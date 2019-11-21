@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  GuessTheWorld
+//  AliasGame
 //
-//  Created by Андрей Зорькин on 05/11/2019.
+//  Created by Андрей Зорькин on 21/11/2019.
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 

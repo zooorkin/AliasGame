@@ -1,15 +1,15 @@
 //
-//  GuessTheWorldTests.swift
-//  GuessTheWorldTests
+//  AliasGameTests.swift
+//  AliasGameTests
 //
-//  Created by Андрей Зорькин on 05/11/2019.
+//  Created by Андрей Зорькин on 21/11/2019.
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
 import XCTest
-@testable import GuessTheWorld
+@testable import AliasGame
 
-class GuessTheWorldTests: XCTestCase {
+class AliasGameTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -7,48 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		886E91912371C264003B2835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886E91902371C264003B2835 /* AppDelegate.swift */; };
-		886E91932371C264003B2835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886E91922371C264003B2835 /* ViewController.swift */; };
-		886E91962371C264003B2835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886E91942371C264003B2835 /* Main.storyboard */; };
-		886E91992371C264003B2835 /* GuessTheWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 886E91972371C264003B2835 /* GuessTheWorld.xcdatamodeld */; };
-		886E919B2371C265003B2835 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886E919A2371C265003B2835 /* Assets.xcassets */; };
-		886E919E2371C265003B2835 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886E919C2371C265003B2835 /* LaunchScreen.storyboard */; };
-		886E91A92371C265003B2835 /* GuessTheWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886E91A82371C265003B2835 /* GuessTheWorldTests.swift */; };
+		881216802386F3620091B5C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812167F2386F3620091B5C4 /* AppDelegate.swift */; };
+		881216822386F3620091B5C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216812386F3620091B5C4 /* ViewController.swift */; };
+		881216852386F3620091B5C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881216832386F3620091B5C4 /* Main.storyboard */; };
+		881216872386F3630091B5C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 881216862386F3630091B5C4 /* Assets.xcassets */; };
+		8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881216882386F3630091B5C4 /* LaunchScreen.storyboard */; };
+		881216952386F3630091B5C4 /* AliasGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216942386F3630091B5C4 /* AliasGameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		886E91A52371C265003B2835 /* PBXContainerItemProxy */ = {
+		881216912386F3630091B5C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 886E91852371C264003B2835 /* Project object */;
+			containerPortal = 881216742386F3620091B5C4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 886E918C2371C264003B2835;
-			remoteInfo = GuessTheWorld;
+			remoteGlobalIDString = 8812167B2386F3620091B5C4;
+			remoteInfo = AliasGame;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		886E918D2371C264003B2835 /* GuessTheWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		886E91902371C264003B2835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		886E91922371C264003B2835 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		886E91952371C264003B2835 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		886E91982371C264003B2835 /* GuessTheWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuessTheWorld.xcdatamodel; sourceTree = "<group>"; };
-		886E919A2371C265003B2835 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		886E919D2371C265003B2835 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		886E919F2371C265003B2835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		886E91A42371C265003B2835 /* GuessTheWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessTheWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		886E91A82371C265003B2835 /* GuessTheWorldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheWorldTests.swift; sourceTree = "<group>"; };
-		886E91AA2371C265003B2835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8812167C2386F3620091B5C4 /* AliasGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AliasGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8812167F2386F3620091B5C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		881216812386F3620091B5C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		881216842386F3620091B5C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		881216862386F3630091B5C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		881216892386F3630091B5C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8812168B2386F3630091B5C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		881216902386F3630091B5C4 /* AliasGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AliasGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		881216942386F3630091B5C4 /* AliasGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasGameTests.swift; sourceTree = "<group>"; };
+		881216962386F3630091B5C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		886E918A2371C264003B2835 /* Frameworks */ = {
+		881216792386F3620091B5C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		886E91A12371C265003B2835 /* Frameworks */ = {
+		8812168D2386F3630091B5C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,105 +56,104 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		886E91842371C264003B2835 = {
+		881216732386F3620091B5C4 = {
 			isa = PBXGroup;
 			children = (
-				886E918F2371C264003B2835 /* GuessTheWorld */,
-				886E91A72371C265003B2835 /* GuessTheWorldTests */,
-				886E918E2371C264003B2835 /* Products */,
+				8812167E2386F3620091B5C4 /* AliasGame */,
+				881216932386F3630091B5C4 /* AliasGameTests */,
+				8812167D2386F3620091B5C4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		886E918E2371C264003B2835 /* Products */ = {
+		8812167D2386F3620091B5C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				886E918D2371C264003B2835 /* GuessTheWorld.app */,
-				886E91A42371C265003B2835 /* GuessTheWorldTests.xctest */,
+				8812167C2386F3620091B5C4 /* AliasGame.app */,
+				881216902386F3630091B5C4 /* AliasGameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		886E918F2371C264003B2835 /* GuessTheWorld */ = {
+		8812167E2386F3620091B5C4 /* AliasGame */ = {
 			isa = PBXGroup;
 			children = (
-				886E91902371C264003B2835 /* AppDelegate.swift */,
-				886E91922371C264003B2835 /* ViewController.swift */,
-				886E91942371C264003B2835 /* Main.storyboard */,
-				886E919A2371C265003B2835 /* Assets.xcassets */,
-				886E919C2371C265003B2835 /* LaunchScreen.storyboard */,
-				886E919F2371C265003B2835 /* Info.plist */,
-				886E91972371C264003B2835 /* GuessTheWorld.xcdatamodeld */,
+				8812167F2386F3620091B5C4 /* AppDelegate.swift */,
+				881216812386F3620091B5C4 /* ViewController.swift */,
+				881216832386F3620091B5C4 /* Main.storyboard */,
+				881216862386F3630091B5C4 /* Assets.xcassets */,
+				881216882386F3630091B5C4 /* LaunchScreen.storyboard */,
+				8812168B2386F3630091B5C4 /* Info.plist */,
 			);
-			path = GuessTheWorld;
+			path = AliasGame;
 			sourceTree = "<group>";
 		};
-		886E91A72371C265003B2835 /* GuessTheWorldTests */ = {
+		881216932386F3630091B5C4 /* AliasGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				886E91A82371C265003B2835 /* GuessTheWorldTests.swift */,
-				886E91AA2371C265003B2835 /* Info.plist */,
+				881216942386F3630091B5C4 /* AliasGameTests.swift */,
+				881216962386F3630091B5C4 /* Info.plist */,
 			);
-			path = GuessTheWorldTests;
+			path = AliasGameTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		886E918C2371C264003B2835 /* GuessTheWorld */ = {
+		8812167B2386F3620091B5C4 /* AliasGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 886E91AD2371C265003B2835 /* Build configuration list for PBXNativeTarget "GuessTheWorld" */;
+			buildConfigurationList = 881216992386F3630091B5C4 /* Build configuration list for PBXNativeTarget "AliasGame" */;
 			buildPhases = (
-				886E91892371C264003B2835 /* Sources */,
-				886E918A2371C264003B2835 /* Frameworks */,
-				886E918B2371C264003B2835 /* Resources */,
+				881216782386F3620091B5C4 /* Sources */,
+				881216792386F3620091B5C4 /* Frameworks */,
+				8812167A2386F3620091B5C4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GuessTheWorld;
-			productName = GuessTheWorld;
-			productReference = 886E918D2371C264003B2835 /* GuessTheWorld.app */;
+			name = AliasGame;
+			productName = AliasGame;
+			productReference = 8812167C2386F3620091B5C4 /* AliasGame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		886E91A32371C265003B2835 /* GuessTheWorldTests */ = {
+		8812168F2386F3630091B5C4 /* AliasGameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 886E91B02371C265003B2835 /* Build configuration list for PBXNativeTarget "GuessTheWorldTests" */;
+			buildConfigurationList = 8812169C2386F3630091B5C4 /* Build configuration list for PBXNativeTarget "AliasGameTests" */;
 			buildPhases = (
-				886E91A02371C265003B2835 /* Sources */,
-				886E91A12371C265003B2835 /* Frameworks */,
-				886E91A22371C265003B2835 /* Resources */,
+				8812168C2386F3630091B5C4 /* Sources */,
+				8812168D2386F3630091B5C4 /* Frameworks */,
+				8812168E2386F3630091B5C4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				886E91A62371C265003B2835 /* PBXTargetDependency */,
+				881216922386F3630091B5C4 /* PBXTargetDependency */,
 			);
-			name = GuessTheWorldTests;
-			productName = GuessTheWorldTests;
-			productReference = 886E91A42371C265003B2835 /* GuessTheWorldTests.xctest */;
+			name = AliasGameTests;
+			productName = AliasGameTests;
+			productReference = 881216902386F3630091B5C4 /* AliasGameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		886E91852371C264003B2835 /* Project object */ = {
+		881216742386F3620091B5C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Андрей Зорькин";
 				TargetAttributes = {
-					886E918C2371C264003B2835 = {
+					8812167B2386F3620091B5C4 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
-					886E91A32371C265003B2835 = {
+					8812168F2386F3630091B5C4 = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = 886E918C2371C264003B2835;
+						TestTargetID = 8812167B2386F3620091B5C4;
 					};
 				};
 			};
-			buildConfigurationList = 886E91882371C264003B2835 /* Build configuration list for PBXProject "GuessTheWorld" */;
+			buildConfigurationList = 881216772386F3620091B5C4 /* Build configuration list for PBXProject "AliasGame" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -164,29 +161,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 886E91842371C264003B2835;
-			productRefGroup = 886E918E2371C264003B2835 /* Products */;
+			mainGroup = 881216732386F3620091B5C4;
+			productRefGroup = 8812167D2386F3620091B5C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				886E918C2371C264003B2835 /* GuessTheWorld */,
-				886E91A32371C265003B2835 /* GuessTheWorldTests */,
+				8812167B2386F3620091B5C4 /* AliasGame */,
+				8812168F2386F3630091B5C4 /* AliasGameTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		886E918B2371C264003B2835 /* Resources */ = {
+		8812167A2386F3620091B5C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				886E919E2371C265003B2835 /* LaunchScreen.storyboard in Resources */,
-				886E919B2371C265003B2835 /* Assets.xcassets in Resources */,
-				886E91962371C264003B2835 /* Main.storyboard in Resources */,
+				8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */,
+				881216872386F3630091B5C4 /* Assets.xcassets in Resources */,
+				881216852386F3620091B5C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		886E91A22371C265003B2835 /* Resources */ = {
+		8812168E2386F3630091B5C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,47 +193,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		886E91892371C264003B2835 /* Sources */ = {
+		881216782386F3620091B5C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				886E91932371C264003B2835 /* ViewController.swift in Sources */,
-				886E91992371C264003B2835 /* GuessTheWorld.xcdatamodeld in Sources */,
-				886E91912371C264003B2835 /* AppDelegate.swift in Sources */,
+				881216822386F3620091B5C4 /* ViewController.swift in Sources */,
+				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		886E91A02371C265003B2835 /* Sources */ = {
+		8812168C2386F3630091B5C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				886E91A92371C265003B2835 /* GuessTheWorldTests.swift in Sources */,
+				881216952386F3630091B5C4 /* AliasGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		886E91A62371C265003B2835 /* PBXTargetDependency */ = {
+		881216922386F3630091B5C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 886E918C2371C264003B2835 /* GuessTheWorld */;
-			targetProxy = 886E91A52371C265003B2835 /* PBXContainerItemProxy */;
+			target = 8812167B2386F3620091B5C4 /* AliasGame */;
+			targetProxy = 881216912386F3630091B5C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		886E91942371C264003B2835 /* Main.storyboard */ = {
+		881216832386F3620091B5C4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				886E91952371C264003B2835 /* Base */,
+				881216842386F3620091B5C4 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		886E919C2371C265003B2835 /* LaunchScreen.storyboard */ = {
+		881216882386F3630091B5C4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				886E919D2371C265003B2835 /* Base */,
+				881216892386F3630091B5C4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -244,7 +240,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		886E91AB2371C265003B2835 /* Debug */ = {
+		881216972386F3630091B5C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -305,7 +301,7 @@
 			};
 			name = Debug;
 		};
-		886E91AC2371C265003B2835 /* Release */ = {
+		881216982386F3630091B5C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -360,128 +356,115 @@
 			};
 			name = Release;
 		};
-		886E91AE2371C265003B2835 /* Debug */ = {
+		8812169A2386F3630091B5C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
-				INFOPLIST_FILE = GuessTheWorld/Info.plist;
+				INFOPLIST_FILE = AliasGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.GuessTheWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.AliasGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		886E91AF2371C265003B2835 /* Release */ = {
+		8812169B2386F3630091B5C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
-				INFOPLIST_FILE = GuessTheWorld/Info.plist;
+				INFOPLIST_FILE = AliasGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.GuessTheWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.AliasGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		886E91B12371C265003B2835 /* Debug */ = {
+		8812169D2386F3630091B5C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
-				INFOPLIST_FILE = GuessTheWorldTests/Info.plist;
+				INFOPLIST_FILE = AliasGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.GuessTheWorldTests;
+				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.AliasGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuessTheWorld.app/GuessTheWorld";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AliasGame.app/AliasGame";
 			};
 			name = Debug;
 		};
-		886E91B22371C265003B2835 /* Release */ = {
+		8812169E2386F3630091B5C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
-				INFOPLIST_FILE = GuessTheWorldTests/Info.plist;
+				INFOPLIST_FILE = AliasGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.GuessTheWorldTests;
+				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.AliasGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuessTheWorld.app/GuessTheWorld";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AliasGame.app/AliasGame";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		886E91882371C264003B2835 /* Build configuration list for PBXProject "GuessTheWorld" */ = {
+		881216772386F3620091B5C4 /* Build configuration list for PBXProject "AliasGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				886E91AB2371C265003B2835 /* Debug */,
-				886E91AC2371C265003B2835 /* Release */,
+				881216972386F3630091B5C4 /* Debug */,
+				881216982386F3630091B5C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		886E91AD2371C265003B2835 /* Build configuration list for PBXNativeTarget "GuessTheWorld" */ = {
+		881216992386F3630091B5C4 /* Build configuration list for PBXNativeTarget "AliasGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				886E91AE2371C265003B2835 /* Debug */,
-				886E91AF2371C265003B2835 /* Release */,
+				8812169A2386F3630091B5C4 /* Debug */,
+				8812169B2386F3630091B5C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		886E91B02371C265003B2835 /* Build configuration list for PBXNativeTarget "GuessTheWorldTests" */ = {
+		8812169C2386F3630091B5C4 /* Build configuration list for PBXNativeTarget "AliasGameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				886E91B12371C265003B2835 /* Debug */,
-				886E91B22371C265003B2835 /* Release */,
+				8812169D2386F3630091B5C4 /* Debug */,
+				8812169E2386F3630091B5C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		886E91972371C264003B2835 /* GuessTheWorld.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				886E91982371C264003B2835 /* GuessTheWorld.xcdatamodel */,
-			);
-			currentVersion = 886E91982371C264003B2835 /* GuessTheWorld.xcdatamodel */;
-			path = GuessTheWorld.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = 886E91852371C264003B2835 /* Project object */;
+	rootObject = 881216742386F3620091B5C4 /* Project object */;
 }
