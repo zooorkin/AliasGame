@@ -9,6 +9,9 @@
 import UIKit
 
 class PlayViewController: UIViewController, IPlayPresenterDelegate {
+    
+    let label: UILabel
+    let exitButton: UIButton
 
     private let presentationAssembly: IPresentationAssembly
 
@@ -18,7 +21,9 @@ class PlayViewController: UIViewController, IPlayPresenterDelegate {
     init(presentationAssembly: IPresentationAssembly, presenter: IPlayPresenter) {
         self.presentationAssembly = presentationAssembly
         self.presenter = presenter
-        super.init(nibName: "PlayViewController", bundle: nil)
+        self.label = UILabel(frame: .zero)
+        self.exitButton = UIButton(type: .system)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -28,9 +33,35 @@ class PlayViewController: UIViewController, IPlayPresenterDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        // View
+        view.backgroundColor = .white
+        
+        // Label
+        view.addSubview(label)
+        label.text = "Play"
+        label.font = .preferredFont(forTextStyle: .largeTitle)
+        let labelIntrinsicContentSize = label.intrinsicContentSize
+        label.frame = CGRect(origin: .zero, size: labelIntrinsicContentSize)
+        
+        // Exit button
+        view.addSubview(exitButton)
+        exitButton.setTitle("Выход", for: .normal)
+        exitButton.addTarget(self, action: #selector(exitTapped(_:)), for: .touchUpInside)
+        let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
+        exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        label.center = view.center
+        exitButton.center = CGPoint(x: label.center.x, y: label.frame.maxY + 16.0 + exitButton.frame.height / 2)
     }
 
-    @IBAction func exitTapped(_ sender: UIButton) {
+    
+    @objc func exitTapped(_ sender: UIButton) {
         presenter.exitTapped()
     }
     

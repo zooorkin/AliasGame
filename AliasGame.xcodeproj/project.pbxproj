@@ -21,10 +21,8 @@
 		881216FD2386FDFA0091B5C4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C92386FDF90091B5C4 /* Coordinator.swift */; };
 		881216FE2386FDFA0091B5C4 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CC2386FDF90091B5C4 /* SettingsModel.swift */; };
 		881216FF2386FDFA0091B5C4 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */; };
-		881217002386FDFA0091B5C4 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216CE2386FDF90091B5C4 /* SettingsViewController.xib */; };
 		881217012386FDFA0091B5C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CF2386FDF90091B5C4 /* SettingsViewController.swift */; };
 		881217022386FDFA0091B5C4 /* RecordsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D12386FDF90091B5C4 /* RecordsPresenter.swift */; };
-		881217032386FDFA0091B5C4 /* RecordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216D22386FDF90091B5C4 /* RecordsViewController.xib */; };
 		881217042386FDFA0091B5C4 /* RecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D32386FDF90091B5C4 /* RecordsModel.swift */; };
 		881217052386FDFA0091B5C4 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D42386FDF90091B5C4 /* RecordsViewController.swift */; };
 		881217062386FDFA0091B5C4 /* IPresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D62386FDF90091B5C4 /* IPresentationAssembly.swift */; };
@@ -35,14 +33,11 @@
 		8812170B2386FDFA0091B5C4 /* StartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DC2386FDF90091B5C4 /* StartModel.swift */; };
 		8812170C2386FDFA0091B5C4 /* ReservedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DE2386FDF90091B5C4 /* ReservedViewController.swift */; };
 		8812170D2386FDFA0091B5C4 /* ReservedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DF2386FDF90091B5C4 /* ReservedModel.swift */; };
-		8812170E2386FDFA0091B5C4 /* ReservedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216E02386FDF90091B5C4 /* ReservedViewController.xib */; };
 		8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E12386FDF90091B5C4 /* ReservedPresenter.swift */; };
 		881217102386FDFA0091B5C4 /* AboutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E32386FDF90091B5C4 /* AboutModel.swift */; };
 		881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E42386FDF90091B5C4 /* AboutPresenter.swift */; };
-		881217122386FDFA0091B5C4 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216E52386FDF90091B5C4 /* AboutViewController.xib */; };
 		881217132386FDFA0091B5C4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E62386FDF90091B5C4 /* AboutViewController.swift */; };
 		881217142386FDFA0091B5C4 /* PlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E82386FDF90091B5C4 /* PlayPresenter.swift */; };
-		881217152386FDFA0091B5C4 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216E92386FDF90091B5C4 /* PlayViewController.xib */; };
 		881217162386FDFA0091B5C4 /* PlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EA2386FDF90091B5C4 /* PlayModel.swift */; };
 		881217172386FDFA0091B5C4 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EB2386FDF90091B5C4 /* PlayViewController.swift */; };
 		881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EC2386FDFA0091B5C4 /* RootAssembly.swift */; };
@@ -83,10 +78,8 @@
 		881216C92386FDF90091B5C4 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		881216CC2386FDF90091B5C4 /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
-		881216CE2386FDF90091B5C4 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		881216CF2386FDF90091B5C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		881216D12386FDF90091B5C4 /* RecordsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsPresenter.swift; sourceTree = "<group>"; };
-		881216D22386FDF90091B5C4 /* RecordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordsViewController.xib; sourceTree = "<group>"; };
 		881216D32386FDF90091B5C4 /* RecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsModel.swift; sourceTree = "<group>"; };
 		881216D42386FDF90091B5C4 /* RecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		881216D62386FDF90091B5C4 /* IPresentationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPresentationAssembly.swift; sourceTree = "<group>"; };
@@ -97,14 +90,11 @@
 		881216DC2386FDF90091B5C4 /* StartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartModel.swift; sourceTree = "<group>"; };
 		881216DE2386FDF90091B5C4 /* ReservedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedViewController.swift; sourceTree = "<group>"; };
 		881216DF2386FDF90091B5C4 /* ReservedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedModel.swift; sourceTree = "<group>"; };
-		881216E02386FDF90091B5C4 /* ReservedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReservedViewController.xib; sourceTree = "<group>"; };
 		881216E12386FDF90091B5C4 /* ReservedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedPresenter.swift; sourceTree = "<group>"; };
 		881216E32386FDF90091B5C4 /* AboutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutModel.swift; sourceTree = "<group>"; };
 		881216E42386FDF90091B5C4 /* AboutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
-		881216E52386FDF90091B5C4 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		881216E62386FDF90091B5C4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		881216E82386FDF90091B5C4 /* PlayPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPresenter.swift; sourceTree = "<group>"; };
-		881216E92386FDF90091B5C4 /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
 		881216EA2386FDF90091B5C4 /* PlayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayModel.swift; sourceTree = "<group>"; };
 		881216EB2386FDF90091B5C4 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		881216EC2386FDFA0091B5C4 /* RootAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
@@ -239,7 +229,6 @@
 		881216CB2386FDF90091B5C4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				881216CE2386FDF90091B5C4 /* SettingsViewController.xib */,
 				881216CF2386FDF90091B5C4 /* SettingsViewController.swift */,
 				881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */,
 				881216CC2386FDF90091B5C4 /* SettingsModel.swift */,
@@ -250,7 +239,6 @@
 		881216D02386FDF90091B5C4 /* Records */ = {
 			isa = PBXGroup;
 			children = (
-				881216D22386FDF90091B5C4 /* RecordsViewController.xib */,
 				881216D42386FDF90091B5C4 /* RecordsViewController.swift */,
 				881216D12386FDF90091B5C4 /* RecordsPresenter.swift */,
 				881216D32386FDF90091B5C4 /* RecordsModel.swift */,
@@ -281,7 +269,6 @@
 		881216DD2386FDF90091B5C4 /* Reserved */ = {
 			isa = PBXGroup;
 			children = (
-				881216E02386FDF90091B5C4 /* ReservedViewController.xib */,
 				881216DE2386FDF90091B5C4 /* ReservedViewController.swift */,
 				881216E12386FDF90091B5C4 /* ReservedPresenter.swift */,
 				881216DF2386FDF90091B5C4 /* ReservedModel.swift */,
@@ -292,7 +279,6 @@
 		881216E22386FDF90091B5C4 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				881216E52386FDF90091B5C4 /* AboutViewController.xib */,
 				881216E62386FDF90091B5C4 /* AboutViewController.swift */,
 				881216E42386FDF90091B5C4 /* AboutPresenter.swift */,
 				881216E32386FDF90091B5C4 /* AboutModel.swift */,
@@ -303,7 +289,6 @@
 		881216E72386FDF90091B5C4 /* Play */ = {
 			isa = PBXGroup;
 			children = (
-				881216E92386FDF90091B5C4 /* PlayViewController.xib */,
 				881216EB2386FDF90091B5C4 /* PlayViewController.swift */,
 				881216E82386FDF90091B5C4 /* PlayPresenter.swift */,
 				881216EA2386FDF90091B5C4 /* PlayModel.swift */,
@@ -431,12 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */,
-				881217122386FDFA0091B5C4 /* AboutViewController.xib in Resources */,
-				881217002386FDFA0091B5C4 /* SettingsViewController.xib in Resources */,
-				8812170E2386FDFA0091B5C4 /* ReservedViewController.xib in Resources */,
-				881217152386FDFA0091B5C4 /* PlayViewController.xib in Resources */,
 				881216872386F3630091B5C4 /* Assets.xcassets in Resources */,
-				881217032386FDFA0091B5C4 /* RecordsViewController.xib in Resources */,
 				881217082386FDFA0091B5C4 /* StartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,12 +555,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -630,12 +610,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DISABLE_SAFETY_CHECKS = YES;
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = off;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
