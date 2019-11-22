@@ -28,9 +28,9 @@ protocol IAboutCoordinator: class {
 
 class AboutPresenter: IAboutPresenter, IAboutModelDelegate {
 
-    public weak var coordinator: IAboutCoordinator?
+    weak var coordinator: IAboutCoordinator?
 
-    public weak var delegate: IAboutPresenterDelegate?
+    weak var delegate: IAboutPresenterDelegate?
 
     private var model: IAboutModel
 

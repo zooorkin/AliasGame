@@ -24,9 +24,9 @@ protocol IReservedCoordinator: class {
 
 class ReservedPresenter: IReservedPresenter, IReservedModelDelegate {
 
-    public weak var coordinator: IReservedCoordinator?
+    weak var coordinator: IReservedCoordinator?
 
-    public weak var delegate: IReservedPresenterDelegate?
+    weak var delegate: IReservedPresenterDelegate?
 
     private var model: IReservedModel
 

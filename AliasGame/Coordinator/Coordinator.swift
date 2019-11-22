@@ -11,7 +11,7 @@ import UIKit
 class Coordinator: ICoordinator {
 
 
-    public var viewController: UIViewController {
+    var viewController: UIViewController {
         return navigationController
     }
 

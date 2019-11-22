@@ -156,8 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				8812167F2386F3620091B5C4 /* AppDelegate.swift */,
-				881216BE2386FDF90091B5C4 /* IRootAssembly.swift */,
-				881216EC2386FDFA0091B5C4 /* RootAssembly.swift */,
+				887126932388019B0061FB57 /* Assembly */,
 				881216C72386FDF90091B5C4 /* Coordinator */,
 				881216CA2386FDF90091B5C4 /* Presentation Layer */,
 				881216ED2386FDFA0091B5C4 /* Services Layer */,
@@ -339,6 +338,15 @@
 				881216F52386FDFA0091B5C4 /* WordsService.swift */,
 			);
 			path = Implementations;
+			sourceTree = "<group>";
+		};
+		887126932388019B0061FB57 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				881216BE2386FDF90091B5C4 /* IRootAssembly.swift */,
+				881216EC2386FDFA0091B5C4 /* RootAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -639,7 +647,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
 				INFOPLIST_FILE = "AliasGame/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -658,7 +665,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
 				INFOPLIST_FILE = "AliasGame/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

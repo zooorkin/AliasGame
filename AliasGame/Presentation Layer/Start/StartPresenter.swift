@@ -42,9 +42,9 @@ protocol IStartCoordinator: class {
 
 class StartPresenter: IStartPresenter, IStartModelDelegate {
 
-    public weak var coordinator: IStartCoordinator?
+    weak var coordinator: IStartCoordinator?
 
-    public weak var delegate: IStartPresenterDelegate?
+    weak var delegate: IStartPresenterDelegate?
 
     private var model: IStartModel
 

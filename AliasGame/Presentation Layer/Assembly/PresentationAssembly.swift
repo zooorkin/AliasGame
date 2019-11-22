@@ -10,9 +10,9 @@ import UIKit
 
 class PresentationAssembly: IPresentationAssembly {
 
-    public var coordinator: ICoordinator?
+    var coordinator: ICoordinator?
     
-    public var coordinatorViewController: UIViewController? {
+    var coordinatorViewController: UIViewController? {
         if let coordinator = coordinator {
             return coordinator.viewController
         } else {

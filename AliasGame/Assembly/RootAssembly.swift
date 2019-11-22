@@ -11,7 +11,7 @@ class RootAssembly: IRootAssembly {
 
     private let coordinator: ICoordinator
 
-    public let presentationAssembly: IPresentationAssembly
+    let presentationAssembly: IPresentationAssembly
 
     private let servicesAssembly: IServicesAssembly
 

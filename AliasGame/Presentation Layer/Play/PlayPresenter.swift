@@ -28,9 +28,9 @@ protocol IPlayCoordinator: class {
 
 class PlayPresenter: IPlayPresenter, IPlayModelDelegate {
 
-    public weak var coordinator: IPlayCoordinator?
+    weak var coordinator: IPlayCoordinator?
 
-    public weak var delegate: IPlayPresenterDelegate?
+    weak var delegate: IPlayPresenterDelegate?
 
     private var model: IPlayModel
 

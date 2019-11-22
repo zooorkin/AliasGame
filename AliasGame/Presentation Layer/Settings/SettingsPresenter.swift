@@ -28,9 +28,9 @@ protocol ISettingsCoordinator: class {
 
 class SettingsPresenter: ISettingsPresenter, ISettingsModelDelegate {
 
-    public weak var coordinator: ISettingsCoordinator?
+    weak var coordinator: ISettingsCoordinator?
 
-    public weak var delegate: ISettingsPresenterDelegate?
+    weak var delegate: ISettingsPresenterDelegate?
 
     private var model: ISettingsModel
 

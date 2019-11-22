@@ -28,9 +28,9 @@ protocol IRecordsCoordinator: class {
 
 class RecordsPresenter: IRecordsPresenter, IRecordsModelDelegate {
 
-    public weak var coordinator: IRecordsCoordinator?
+    weak var coordinator: IRecordsCoordinator?
 
-    public weak var delegate: IRecordsPresenterDelegate?
+    weak var delegate: IRecordsPresenterDelegate?
 
     private var model: IRecordsModel
 
