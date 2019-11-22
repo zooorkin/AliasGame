@@ -57,7 +57,9 @@ class StartPresenter: IStartPresenter, IStartModelDelegate {
         if let coordinator = coordinator {
             coordinator.play()
         } else {
-            print("[StartPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[StartPresenter]: coordinator is nil")
+            #endif
         }
     }
     
@@ -65,7 +67,9 @@ class StartPresenter: IStartPresenter, IStartModelDelegate {
         if let coordinator = coordinator {
             coordinator.records()
         } else {
-            print("[StartPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[StartPresenter]: coordinator is nil")
+            #endif
         }
     }
     
@@ -73,7 +77,9 @@ class StartPresenter: IStartPresenter, IStartModelDelegate {
         if let coordinator = coordinator {
             coordinator.settings()
         } else {
-            print("[StartPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[StartPresenter]: coordinator is nil")
+            #endif
         }
     }
     
@@ -81,12 +87,16 @@ class StartPresenter: IStartPresenter, IStartModelDelegate {
         if let coordinator = coordinator {
             coordinator.aboutGame()
         } else {
-            print("[StartPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[StartPresenter]: coordinator is nil")
+            #endif
         }
     }
     
     func reservedButtonTapped() {
-        print("[StartPresenter]: function reservedButtonTapped not implemented")
+        #if DEBUG
+        debugPrint("[StartPresenter]: function reservedButtonTapped not implemented")
+        #endif
     }
 
 }

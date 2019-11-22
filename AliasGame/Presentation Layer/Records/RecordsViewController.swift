@@ -50,7 +50,7 @@ class RecordsViewController: UIViewController, IRecordsPresenterDelegate {
         // Exit button
         view.addSubview(exitButton)
         exitButton.setTitle("Выход", for: .normal)
-        exitButton.addTarget(self, action: #selector(exitTapped(_:)), for: .touchUpInside)
+        exitButton.addTarget(presenter, action: #selector(IRecordsPresenter.exitTapped), for: .touchUpInside)
         let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
         exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
     }
@@ -58,11 +58,6 @@ class RecordsViewController: UIViewController, IRecordsPresenterDelegate {
     override func viewWillLayoutSubviews() {
         label.center = view.center
         exitButton.center = CGPoint(x: label.center.x, y: label.frame.maxY + 16.0 + exitButton.frame.height / 2)
-    }
-    
-    
-    @objc func exitTapped(_ sender: UIButton) {
-        presenter.exitTapped()
     }
     
 }

@@ -6,7 +6,9 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IRecordsPresenter {
+import Foundation
+
+@objc protocol IRecordsPresenter {
 
     var coordinator: IRecordsCoordinator? { get set }
 
@@ -16,11 +18,11 @@ protocol IRecordsPresenter {
 
 }
 
-protocol IRecordsPresenterDelegate: class {
+@objc protocol IRecordsPresenterDelegate {
 
 }
 
-protocol IRecordsCoordinator: class {
+@objc protocol IRecordsCoordinator {
     
     func exitFromRecordsModule()
 
@@ -43,7 +45,9 @@ class RecordsPresenter: IRecordsPresenter, IRecordsModelDelegate {
         if let coordinator = coordinator {
             coordinator.exitFromRecordsModule()
         } else {
-            print("[RecordsPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[RecordsPresenter]: coordinator is nil")
+            #endif
         }
     }
 

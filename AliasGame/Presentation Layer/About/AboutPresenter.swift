@@ -6,7 +6,9 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IAboutPresenter {
+import Foundation
+
+@objc protocol IAboutPresenter {
 
     var coordinator: IAboutCoordinator? { get set }
 
@@ -16,11 +18,11 @@ protocol IAboutPresenter {
 
 }
 
-protocol IAboutPresenterDelegate: class {
+@objc protocol IAboutPresenterDelegate {
 
 }
 
-protocol IAboutCoordinator: class {
+@objc protocol IAboutCoordinator {
     
     func exitFromAboutModule()
 
@@ -43,7 +45,9 @@ class AboutPresenter: IAboutPresenter, IAboutModelDelegate {
         if let coordinator = coordinator {
             coordinator.exitFromAboutModule()
         } else {
-            print("[AboutPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[AboutPresenter]: coordinator is nil")
+            #endif
         }
     }
 

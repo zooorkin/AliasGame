@@ -16,7 +16,9 @@ class PresentationAssembly: IPresentationAssembly {
         if let coordinator = coordinator {
             return coordinator.viewController
         } else {
-            print("[PresentationAssembly]: coordinator не задан")
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: coordinator не задан")
+            #endif
             return nil
         }
     }
@@ -50,10 +52,14 @@ class PresentationAssembly: IPresentationAssembly {
             if let coordinator = coordinator as? IStartCoordinator {
                 presenter.coordinator = coordinator
             } else {
-                print("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IStartCoordinator")
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IStartCoordinator")
+                #endif
             }
         } else {
-            print("[PresentationAssembly]: coordinator не задан")
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: coordinator не задан")
+            #endif
         }
         return view
     }
@@ -75,10 +81,14 @@ class PresentationAssembly: IPresentationAssembly {
             if let coordinator = coordinator as? IPlayCoordinator {
                 presenter.coordinator = coordinator
             } else {
-                print("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IPlayCoordinator")
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IPlayCoordinator")
+                #endif
             }
         } else {
-            print("[PresentationAssembly]: coordinator не задан")
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: coordinator не задан")
+            #endif
         }
         return view
     }
@@ -100,10 +110,14 @@ class PresentationAssembly: IPresentationAssembly {
             if let coordinator = coordinator as? IRecordsCoordinator {
                 presenter.coordinator = coordinator
             } else {
-                print("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IRecordsCoordinator")
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IRecordsCoordinator")
+                #endif
             }
         } else {
-            print("[PresentationAssembly]: coordinator не задан")
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: coordinator не задан")
+            #endif
         }
         return view
     }
@@ -125,10 +139,14 @@ class PresentationAssembly: IPresentationAssembly {
             if let coordinator = coordinator as? ISettingsCoordinator {
                 presenter.coordinator = coordinator
             } else {
-                print("[PresentationAssembly]: coordinator не поддерживает маршрутизацию ISettingsCoordinator")
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: coordinator не поддерживает маршрутизацию ISettingsCoordinator")
+                #endif
             }
         } else {
-            print("[PresentationAssembly]: coordinator не задан")
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: coordinator не задан")
+            #endif
         }
         return view
     }
@@ -150,10 +168,14 @@ class PresentationAssembly: IPresentationAssembly {
             if let coordinator = coordinator as? IAboutCoordinator {
                 presenter.coordinator = coordinator
             } else {
-                print("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IAboutCoordinator")
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IAboutCoordinator")
+                #endif
             }
         } else {
-            print("[PresentationAssembly]: coordinator не задан")
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: coordinator не задан")
+            #endif
         }
         return view
     }
@@ -175,10 +197,14 @@ class PresentationAssembly: IPresentationAssembly {
             if let coordinator = coordinator as? IReservedCoordinator {
                 presenter.coordinator = coordinator
             } else {
-                print("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IReservedCoordinator")
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: coordinator не поддерживает маршрутизацию IReservedCoordinator")
+                #endif
             }
         } else {
-            print("[PresentationAssembly]: coordinator не задан")
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: coordinator не задан")
+            #endif
         }
         return view
     }

@@ -62,7 +62,9 @@ class ReservedViewController: UIViewController, IReservedPresenterDelegate {
     
     
     @objc func exitTapped(_ sender: UIButton) {
+        #if DEBUG
         debugPrint("\(#function) not implemented")
+        #endif
     }
     
 }

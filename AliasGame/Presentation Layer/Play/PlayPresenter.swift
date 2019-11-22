@@ -6,7 +6,9 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IPlayPresenter {
+import Foundation
+
+@objc protocol IPlayPresenter {
 
     var coordinator: IPlayCoordinator? { get set }
 
@@ -16,11 +18,11 @@ protocol IPlayPresenter {
 
 }
 
-protocol IPlayPresenterDelegate: class {
+@objc protocol IPlayPresenterDelegate {
 
 }
 
-protocol IPlayCoordinator: class {
+@objc protocol IPlayCoordinator {
     
     func exitFromPlayModule()
 
@@ -39,11 +41,13 @@ class PlayPresenter: IPlayPresenter, IPlayModelDelegate {
         self.model = model
     }
     
-    func exitTapped() {
+    @objc func exitTapped() {
         if let coordinator = coordinator {
             coordinator.exitFromPlayModule()
         } else {
-            print("[PlayPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[PlayPresenter]: coordinator is nil")
+            #endif
         }
     }
 

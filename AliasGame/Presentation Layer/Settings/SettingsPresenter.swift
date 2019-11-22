@@ -6,7 +6,9 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol ISettingsPresenter {
+import Foundation
+
+@objc protocol ISettingsPresenter {
 
     var coordinator: ISettingsCoordinator? { get set }
 
@@ -16,11 +18,11 @@ protocol ISettingsPresenter {
 
 }
 
-protocol ISettingsPresenterDelegate: class {
+@objc protocol ISettingsPresenterDelegate {
 
 }
 
-protocol ISettingsCoordinator: class {
+@objc protocol ISettingsCoordinator {
     
     func exitFromSettingsModule()
 
@@ -43,7 +45,9 @@ class SettingsPresenter: ISettingsPresenter, ISettingsModelDelegate {
         if let coordinator = coordinator {
             coordinator.exitFromSettingsModule()
         } else {
-            print("[SettingsPresenter]: coordinator is nil")
+            #if DEBUG
+            debugPrint("[SettingsPresenter]: coordinator is nil")
+            #endif
         }
     }
 
