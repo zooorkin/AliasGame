@@ -37,10 +37,12 @@
 		881217172386FDFA0091B5C4 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EB2386FDF90091B5C4 /* PlayView.swift */; };
 		881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EC2386FDFA0091B5C4 /* RootAssembly.swift */; };
 		881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */; };
-		8812171B2386FDFA0091B5C4 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F22386FDFA0091B5C4 /* ImageService.swift */; };
-		8812171C2386FDFA0091B5C4 /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F32386FDFA0091B5C4 /* TranslateService.swift */; };
-		8812171D2386FDFA0091B5C4 /* RecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F42386FDFA0091B5C4 /* RecognizerService.swift */; };
-		8812171E2386FDFA0091B5C4 /* WordsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F52386FDFA0091B5C4 /* WordsService.swift */; };
+		8812171B2386FDFA0091B5C4 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F22386FDFA0091B5C4 /* ImageProvider.swift */; };
+		8812171C2386FDFA0091B5C4 /* Translater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F32386FDFA0091B5C4 /* Translater.swift */; };
+		8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F42386FDFA0091B5C4 /* ImageClassificator.swift */; };
+		8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F52386FDFA0091B5C4 /* WordsProvider.swift */; };
+		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
+		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,10 +90,12 @@
 		881216EB2386FDF90091B5C4 /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		881216EC2386FDFA0091B5C4 /* RootAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
 		881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
-		881216F22386FDFA0091B5C4 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
-		881216F32386FDFA0091B5C4 /* TranslateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
-		881216F42386FDFA0091B5C4 /* RecognizerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizerService.swift; sourceTree = "<group>"; };
-		881216F52386FDFA0091B5C4 /* WordsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsService.swift; sourceTree = "<group>"; };
+		881216F22386FDFA0091B5C4 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		881216F32386FDFA0091B5C4 /* Translater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translater.swift; sourceTree = "<group>"; };
+		881216F42386FDFA0091B5C4 /* ImageClassificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClassificator.swift; sourceTree = "<group>"; };
+		881216F52386FDFA0091B5C4 /* WordsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsProvider.swift; sourceTree = "<group>"; };
+		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
+		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,10 +280,12 @@
 		881216F12386FDFA0091B5C4 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				881216F22386FDFA0091B5C4 /* ImageService.swift */,
-				881216F32386FDFA0091B5C4 /* TranslateService.swift */,
-				881216F42386FDFA0091B5C4 /* RecognizerService.swift */,
-				881216F52386FDFA0091B5C4 /* WordsService.swift */,
+				881216F22386FDFA0091B5C4 /* ImageProvider.swift */,
+				8827206A238DA560002E8648 /* GameDataSaver.swift */,
+				8827206C238DA5AA002E8648 /* GameDataProvider.swift */,
+				881216F32386FDFA0091B5C4 /* Translater.swift */,
+				881216F42386FDFA0091B5C4 /* ImageClassificator.swift */,
+				881216F52386FDFA0091B5C4 /* WordsProvider.swift */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -387,12 +393,14 @@
 				881217042386FDFA0091B5C4 /* RecordsInteractor.swift in Sources */,
 				881217162386FDFA0091B5C4 /* PlayInteractor.swift in Sources */,
 				8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */,
+				8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */,
 				881216F92386FDFA0091B5C4 /* CoreDataStack.swift in Sources */,
-				8812171D2386FDFA0091B5C4 /* RecognizerService.swift in Sources */,
-				8812171C2386FDFA0091B5C4 /* TranslateService.swift in Sources */,
+				8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */,
+				8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */,
+				8812171C2386FDFA0091B5C4 /* Translater.swift in Sources */,
 				881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
-				8812171B2386FDFA0091B5C4 /* ImageService.swift in Sources */,
+				8812171B2386FDFA0091B5C4 /* ImageProvider.swift in Sources */,
 				8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */,
 				881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */,
 				881217102386FDFA0091B5C4 /* AboutInteractor.swift in Sources */,
@@ -403,7 +411,7 @@
 				881217172386FDFA0091B5C4 /* PlayView.swift in Sources */,
 				881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */,
 				881216FF2386FDFA0091B5C4 /* SettingsPresenter.swift in Sources */,
-				8812171E2386FDFA0091B5C4 /* WordsService.swift in Sources */,
+				8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */,
 				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
 				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,

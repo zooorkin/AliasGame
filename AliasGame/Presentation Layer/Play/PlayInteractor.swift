@@ -20,40 +20,48 @@ class PlayInteractor: PlayInteractorInput {
 
     weak var output: PlayInteractorOutput?
 
-    private var wordsService: IWordsService
-
-    private var imageService: IImageService
-
-    private var translateService: ITranslateService
-
-    private var recognizerService: IRecognizerService
-
-
-    init(wordsService: IWordsService, imageService: IImageService, translateService: ITranslateService, recognizerService: IRecognizerService) {
-        self.wordsService = wordsService
-        self.imageService = imageService
-        self.translateService = translateService
-        self.recognizerService = recognizerService
-        self.wordsService.delegate = self
-        self.imageService.delegate = self
-        self.translateService.delegate = self
-        self.recognizerService.delegate = self
+    private var wordsProvider: WordsProviderProtocol
+    
+    private var imageProvider: ImageProviderProtocol
+    
+    private var translater: TranslaterProtocol
+    
+    private var imageClassificator: ImageClassificatorProtocol
+    
+    private var gameDataSaver: GameDataSaverProtocol
+    
+    
+    init(wordsProvider: WordsProviderProtocol, imageProvider: ImageProviderProtocol, translater: TranslaterProtocol, imageClassificator: ImageClassificatorProtocol, gameDataSaver: GameDataSaverProtocol) {
+        self.wordsProvider = wordsProvider
+        self.imageProvider = imageProvider
+        self.translater = translater
+        self.imageClassificator = imageClassificator
+        self.gameDataSaver = gameDataSaver
+        self.wordsProvider.delegate = self
+        self.imageProvider.delegate = self
+        self.translater.delegate = self
+        self.imageClassificator.delegate = self
+        self.gameDataSaver.delegate = self
     }
-
-}
-
-extension PlayInteractor: IWordsServiceDelegate {
     
 }
 
-extension PlayInteractor: IImageServiceDelegate {
+extension PlayInteractor: WordsProviderDelegate {
     
 }
 
-extension PlayInteractor: ITranslateServiceDelegate {
+extension PlayInteractor: ImageProviderDelegate {
     
 }
 
-extension PlayInteractor: IRecognizerServiceDelegate {
+extension PlayInteractor: TranslaterDelegate {
+    
+}
+
+extension PlayInteractor: ImageClassificatorDelegate {
+    
+}
+
+extension PlayInteractor: GameDataSaverDelegate {
     
 }

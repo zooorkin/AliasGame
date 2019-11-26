@@ -10,13 +10,17 @@ protocol ServicesAssemblyProtocol {
     
     init(coreAssembly: CoreAssemblyProtocol)
     
-    var wordsService: IWordsService { get }
+    var wordsProvider: WordsProviderProtocol { get }
     
-    var imageService: IImageService { get }
+    var imageProvider: ImageProviderProtocol { get }
     
-    var translateService: ITranslateService { get }
+    var translater: TranslaterProtocol { get }
     
-    var recognizerService: IRecognizerService { get }
+    var imageClassificator: ImageClassificatorProtocol { get }
+    
+    var gameDataSaver: GameDataSaverProtocol { get }
+    
+    var gameDataProvider: GameDataProviderProtocol { get }
     
 }
 
@@ -30,32 +34,46 @@ class ServicesAssembly: ServicesAssemblyProtocol {
     }
 
 
-    lazy var wordsService: IWordsService =  {
+    lazy var wordsProvider: WordsProviderProtocol = {
         let networking = coreAssembly.networking
         let machineLearning = coreAssembly.machineLearning
         let coreDataStack = coreAssembly.coreDataStack
-        return WordsService(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return WordsProvider(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
     }()
 
-    lazy var imageService: IImageService =  {
+    lazy var imageProvider: ImageProviderProtocol = {
         let networking = coreAssembly.networking
         let machineLearning = coreAssembly.machineLearning
         let coreDataStack = coreAssembly.coreDataStack
-        return ImageService(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return ImageProvider(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
     }()
 
-    lazy var translateService: ITranslateService =  {
+    lazy var translater: TranslaterProtocol = {
         let networking = coreAssembly.networking
         let machineLearning = coreAssembly.machineLearning
         let coreDataStack = coreAssembly.coreDataStack
-        return TranslateService(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return Translater(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
     }()
 
-    lazy var recognizerService: IRecognizerService =  {
+    lazy var imageClassificator: ImageClassificatorProtocol = {
         let networking = coreAssembly.networking
         let machineLearning = coreAssembly.machineLearning
         let coreDataStack = coreAssembly.coreDataStack
-        return RecognizerService(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return ImageClassificator(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+    }()
+    
+    lazy var gameDataSaver: GameDataSaverProtocol = {
+        let networking = coreAssembly.networking
+        let machineLearning = coreAssembly.machineLearning
+        let coreDataStack = coreAssembly.coreDataStack
+        return GameDataSaver(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+    }()
+    
+    lazy var gameDataProvider: GameDataProviderProtocol = {
+        let networking = coreAssembly.networking
+        let machineLearning = coreAssembly.machineLearning
+        let coreDataStack = coreAssembly.coreDataStack
+        return GameDataProvider(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
     }()
 
 

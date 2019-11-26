@@ -6,20 +6,20 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol INetworking {
+protocol NetworkingProtocol {
 
-    var delegate: INetworkingDelegate? { get set }
-
-}
-
-
-protocol INetworkingDelegate {
+    var delegate: NetworkingDelegate? { get set }
 
 }
 
 
-class Networking: INetworking {
+protocol NetworkingDelegate {
 
-    var delegate: INetworkingDelegate?
+}
+
+
+class Networking: NetworkingProtocol {
+
+    var delegate: NetworkingDelegate?
 
 }

@@ -20,40 +20,16 @@ class RecordsInteractor: RecordsInteractorInput {
     
     weak var output: RecordsInteractorOutput?
     
-    private var wordsService: IWordsService
-    
-    private var imageService: IImageService
-    
-    private var translateService: ITranslateService
-    
-    private var recognizerService: IRecognizerService
+    private var gameDataProvider: GameDataProviderProtocol
     
     
-    init(wordsService: IWordsService, imageService: IImageService, translateService: ITranslateService, recognizerService: IRecognizerService) {
-        self.wordsService = wordsService
-        self.imageService = imageService
-        self.translateService = translateService
-        self.recognizerService = recognizerService
-        self.wordsService.delegate = self
-        self.imageService.delegate = self
-        self.translateService.delegate = self
-        self.recognizerService.delegate = self
+    init(gameDataProvider: GameDataProviderProtocol) {
+        self.gameDataProvider = gameDataProvider
+        self.gameDataProvider.delegate = self
     }
     
 }
 
-extension RecordsInteractor: IWordsServiceDelegate {
-    
-}
-
-extension RecordsInteractor: IImageServiceDelegate {
-    
-}
-
-extension RecordsInteractor: ITranslateServiceDelegate {
-    
-}
-
-extension RecordsInteractor: IRecognizerServiceDelegate {
+extension RecordsInteractor: GameDataProviderDelegate {
     
 }

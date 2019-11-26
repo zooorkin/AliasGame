@@ -6,20 +6,20 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IMachineLearning {
+protocol MachineLearningProtocol {
 
-    var delegate: IMachineLearningDelegate? { get set }
-
-}
-
-
-protocol IMachineLearningDelegate {
+    var delegate: MachineLearningDelegate? { get set }
 
 }
 
 
-class MachineLearning: IMachineLearning {
+protocol MachineLearningDelegate {
 
-    var delegate: IMachineLearningDelegate?
+}
+
+
+class MachineLearning: MachineLearningProtocol {
+
+    var delegate: MachineLearningDelegate?
 
 }

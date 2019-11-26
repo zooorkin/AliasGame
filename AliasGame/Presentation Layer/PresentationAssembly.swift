@@ -62,15 +62,7 @@ class PresentationAssembly: PresentationAssemblyProtocol {
     }
 
     func startModule() -> StartView {
-        let wordsService = servicesAssembly.wordsService
-        let imageService = servicesAssembly.imageService
-        let translateService = servicesAssembly.translateService
-        let recognizerService = servicesAssembly.recognizerService
-
-        let interactor = StartInteractor(wordsService: wordsService,
-                                         imageService: imageService,
-                                         translateService: translateService,
-                                         recognizerService: recognizerService)
+        let interactor = StartInteractor()
         let presenter = StartPresenter(interactor: interactor)
         let view = StartView(presenter: presenter)
 
@@ -94,15 +86,17 @@ class PresentationAssembly: PresentationAssemblyProtocol {
     }
 
     func playModule() -> PlayView {
-        let wordsService = servicesAssembly.wordsService
-        let imageService = servicesAssembly.imageService
-        let translateService = servicesAssembly.translateService
-        let recognizerService = servicesAssembly.recognizerService
+        let wordsProvider = servicesAssembly.wordsProvider
+        let imageProvider = servicesAssembly.imageProvider
+        let translater = servicesAssembly.translater
+        let imageClassificator = servicesAssembly.imageClassificator
+        let gameDataSaver = servicesAssembly.gameDataSaver
 
-        let interactor = PlayInteractor(wordsService: wordsService,
-                                        imageService: imageService,
-                                        translateService: translateService,
-                                        recognizerService: recognizerService)
+        let interactor = PlayInteractor(wordsProvider: wordsProvider,
+                                        imageProvider: imageProvider,
+                                        translater: translater,
+                                        imageClassificator: imageClassificator,
+                                        gameDataSaver: gameDataSaver)
         let presenter = PlayPresenter(interactor: interactor)
         let view = PlayView(presenter: presenter)
 
@@ -126,15 +120,9 @@ class PresentationAssembly: PresentationAssemblyProtocol {
     }
 
     func recordsModule() -> RecordsView {
-        let wordsService = servicesAssembly.wordsService
-        let imageService = servicesAssembly.imageService
-        let translateService = servicesAssembly.translateService
-        let recognizerService = servicesAssembly.recognizerService
+        let gameDataProvider = servicesAssembly.gameDataProvider
 
-        let interactor = RecordsInteractor(wordsService: wordsService,
-                                           imageService: imageService,
-                                           translateService: translateService,
-                                           recognizerService: recognizerService)
+        let interactor = RecordsInteractor(gameDataProvider: gameDataProvider)
         let presenter = RecordsPresenter(interactor: interactor)
         let view = RecordsView(presenter: presenter)
 
@@ -158,15 +146,7 @@ class PresentationAssembly: PresentationAssemblyProtocol {
     }
 
     func settingsModule() -> SettingsView {
-        let wordsService = servicesAssembly.wordsService
-        let imageService = servicesAssembly.imageService
-        let translateService = servicesAssembly.translateService
-        let recognizerService = servicesAssembly.recognizerService
-
-        let interactor = SettingsInteractor(wordsService: wordsService,
-                                            imageService: imageService,
-                                            translateService: translateService,
-                                            recognizerService: recognizerService)
+        let interactor = SettingsInteractor()
         let presenter = SettingsPresenter(interactor: interactor)
         let view = SettingsView(presenter: presenter)
 
@@ -190,15 +170,7 @@ class PresentationAssembly: PresentationAssemblyProtocol {
     }
 
     func aboutModule() -> AboutView {
-        let wordsService = servicesAssembly.wordsService
-        let imageService = servicesAssembly.imageService
-        let translateService = servicesAssembly.translateService
-        let recognizerService = servicesAssembly.recognizerService
-
-        let interactor = AboutInteractor(wordsService: wordsService,
-                                         imageService: imageService,
-                                         translateService: translateService,
-                                         recognizerService: recognizerService)
+        let interactor = AboutInteractor()
         let presenter = AboutPresenter(interactor: interactor)
         let view = AboutView(presenter: presenter)
 
@@ -222,15 +194,7 @@ class PresentationAssembly: PresentationAssemblyProtocol {
     }
 
     func reservedModule() -> ReservedView {
-        let wordsService = servicesAssembly.wordsService
-        let imageService = servicesAssembly.imageService
-        let translateService = servicesAssembly.translateService
-        let recognizerService = servicesAssembly.recognizerService
-
-        let interactor = ReservedInteractor(wordsService: wordsService,
-                                            imageService: imageService,
-                                            translateService: translateService,
-                                            recognizerService: recognizerService)
+        let interactor = ReservedInteractor()
         let presenter = ReservedPresenter(interactor: interactor)
         let view = ReservedView(presenter: presenter)
 

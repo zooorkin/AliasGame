@@ -6,20 +6,20 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol ICoreDataStack {
+protocol CoreDataStackProtocol {
 
-    var delegate: ICoreDataStackDelegate? { get set }
-
-}
-
-
-protocol ICoreDataStackDelegate {
+    var delegate: CoreDataStackDelegate? { get set }
 
 }
 
 
-class CoreDataStack: ICoreDataStack {
+protocol CoreDataStackDelegate {
 
-    var delegate: ICoreDataStackDelegate?
+}
+
+
+class CoreDataStack: CoreDataStackProtocol {
+
+    var delegate: CoreDataStackDelegate?
 
 }

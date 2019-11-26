@@ -8,20 +8,20 @@
 
 protocol CoreAssemblyProtocol {
     
-    var networking: INetworking { get }
+    var networking: NetworkingProtocol { get }
     
-    var machineLearning: IMachineLearning { get }
+    var machineLearning: MachineLearningProtocol { get }
     
-    var coreDataStack: ICoreDataStack { get }
+    var coreDataStack: CoreDataStackProtocol { get }
     
 }
 
 class CoreAssembly: CoreAssemblyProtocol {
 
-    lazy var networking: INetworking = Networking()
+    lazy var networking: NetworkingProtocol = Networking()
 
-    lazy var machineLearning: IMachineLearning = MachineLearning()
+    lazy var machineLearning: MachineLearningProtocol = MachineLearning()
 
-    lazy var coreDataStack: ICoreDataStack = CoreDataStack()
+    lazy var coreDataStack: CoreDataStackProtocol = CoreDataStack()
 
 }
