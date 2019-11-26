@@ -43,6 +43,7 @@
 		8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F52386FDFA0091B5C4 /* WordsProvider.swift */; };
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
+		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		881216F52386FDFA0091B5C4 /* WordsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsProvider.swift; sourceTree = "<group>"; };
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
+		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				8812167F2386F3620091B5C4 /* AppDelegate.swift */,
-				881216EC2386FDFA0091B5C4 /* RootAssembly.swift */,
-				881216C72386FDF90091B5C4 /* Router */,
+				88272071238DAAC9002E8648 /* Assembly */,
 				881216CA2386FDF90091B5C4 /* Presentation Layer */,
 				881216ED2386FDFA0091B5C4 /* Services Layer */,
 				881216BF2386FDF90091B5C4 /* Core Layer */,
@@ -169,65 +170,49 @@
 		881216BF2386FDF90091B5C4 /* Core Layer */ = {
 			isa = PBXGroup;
 			children = (
-				881216C12386FDF90091B5C4 /* CoreAssembly.swift */,
-				881216C32386FDF90091B5C4 /* Implementations */,
-			);
-			path = "Core Layer";
-			sourceTree = "<group>";
-		};
-		881216C32386FDF90091B5C4 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
 				881216C42386FDF90091B5C4 /* CoreDataStack.swift */,
 				881216C52386FDF90091B5C4 /* Networking.swift */,
 				881216C62386FDF90091B5C4 /* MachineLearning.swift */,
 			);
-			path = Implementations;
-			sourceTree = "<group>";
-		};
-		881216C72386FDF90091B5C4 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				881216C92386FDF90091B5C4 /* Router.swift */,
-			);
-			path = Router;
+			path = "Core Layer";
 			sourceTree = "<group>";
 		};
 		881216CA2386FDF90091B5C4 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
-				881216D72386FDF90091B5C4 /* PresentationAssembly.swift */,
-				881216D82386FDF90091B5C4 /* Start */,
-				881216E72386FDF90091B5C4 /* Play */,
-				881216D02386FDF90091B5C4 /* Records */,
-				881216CB2386FDF90091B5C4 /* Settings */,
-				881216E22386FDF90091B5C4 /* About */,
-				881216DD2386FDF90091B5C4 /* Reserved */,
+				8827206F238DA9F8002E8648 /* Entity.swift */,
+				881216C92386FDF90091B5C4 /* Router.swift */,
+				881216D82386FDF90091B5C4 /* Start Module */,
+				881216E72386FDF90091B5C4 /* Play Module */,
+				881216D02386FDF90091B5C4 /* Records Module */,
+				881216CB2386FDF90091B5C4 /* Settings Module */,
+				881216E22386FDF90091B5C4 /* About Module */,
+				881216DD2386FDF90091B5C4 /* Reserved Module */,
 			);
 			path = "Presentation Layer";
 			sourceTree = "<group>";
 		};
-		881216CB2386FDF90091B5C4 /* Settings */ = {
+		881216CB2386FDF90091B5C4 /* Settings Module */ = {
 			isa = PBXGroup;
 			children = (
 				881216CF2386FDF90091B5C4 /* SettingsView.swift */,
 				881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */,
 				881216CC2386FDF90091B5C4 /* SettingsInteractor.swift */,
 			);
-			path = Settings;
+			path = "Settings Module";
 			sourceTree = "<group>";
 		};
-		881216D02386FDF90091B5C4 /* Records */ = {
+		881216D02386FDF90091B5C4 /* Records Module */ = {
 			isa = PBXGroup;
 			children = (
 				881216D42386FDF90091B5C4 /* RecordsView.swift */,
 				881216D12386FDF90091B5C4 /* RecordsPresenter.swift */,
 				881216D32386FDF90091B5C4 /* RecordsInteractor.swift */,
 			);
-			path = Records;
+			path = "Records Module";
 			sourceTree = "<group>";
 		};
-		881216D82386FDF90091B5C4 /* Start */ = {
+		881216D82386FDF90091B5C4 /* Start Module */ = {
 			isa = PBXGroup;
 			children = (
 				881216D92386FDF90091B5C4 /* StartView.xib */,
@@ -235,49 +220,40 @@
 				881216DB2386FDF90091B5C4 /* StartPresenter.swift */,
 				881216DC2386FDF90091B5C4 /* StartInteractor.swift */,
 			);
-			path = Start;
+			path = "Start Module";
 			sourceTree = "<group>";
 		};
-		881216DD2386FDF90091B5C4 /* Reserved */ = {
+		881216DD2386FDF90091B5C4 /* Reserved Module */ = {
 			isa = PBXGroup;
 			children = (
 				881216DE2386FDF90091B5C4 /* ReservedView.swift */,
 				881216E12386FDF90091B5C4 /* ReservedPresenter.swift */,
 				881216DF2386FDF90091B5C4 /* ReservedInteractor.swift */,
 			);
-			path = Reserved;
+			path = "Reserved Module";
 			sourceTree = "<group>";
 		};
-		881216E22386FDF90091B5C4 /* About */ = {
+		881216E22386FDF90091B5C4 /* About Module */ = {
 			isa = PBXGroup;
 			children = (
 				881216E62386FDF90091B5C4 /* AboutView.swift */,
 				881216E42386FDF90091B5C4 /* AboutPresenter.swift */,
 				881216E32386FDF90091B5C4 /* AboutInteractor.swift */,
 			);
-			path = About;
+			path = "About Module";
 			sourceTree = "<group>";
 		};
-		881216E72386FDF90091B5C4 /* Play */ = {
+		881216E72386FDF90091B5C4 /* Play Module */ = {
 			isa = PBXGroup;
 			children = (
 				881216EB2386FDF90091B5C4 /* PlayView.swift */,
 				881216E82386FDF90091B5C4 /* PlayPresenter.swift */,
 				881216EA2386FDF90091B5C4 /* PlayInteractor.swift */,
 			);
-			path = Play;
+			path = "Play Module";
 			sourceTree = "<group>";
 		};
 		881216ED2386FDFA0091B5C4 /* Services Layer */ = {
-			isa = PBXGroup;
-			children = (
-				881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */,
-				881216F12386FDFA0091B5C4 /* Implementations */,
-			);
-			path = "Services Layer";
-			sourceTree = "<group>";
-		};
-		881216F12386FDFA0091B5C4 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
 				881216F22386FDFA0091B5C4 /* ImageProvider.swift */,
@@ -287,7 +263,18 @@
 				881216F42386FDFA0091B5C4 /* ImageClassificator.swift */,
 				881216F52386FDFA0091B5C4 /* WordsProvider.swift */,
 			);
-			path = Implementations;
+			path = "Services Layer";
+			sourceTree = "<group>";
+		};
+		88272071238DAAC9002E8648 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				881216EC2386FDFA0091B5C4 /* RootAssembly.swift */,
+				881216D72386FDF90091B5C4 /* PresentationAssembly.swift */,
+				881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */,
+				881216C12386FDF90091B5C4 /* CoreAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +401,7 @@
 				8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */,
 				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
 				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
+				88272070238DA9F8002E8648 /* Entity.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,

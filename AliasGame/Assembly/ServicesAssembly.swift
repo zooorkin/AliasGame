@@ -36,44 +36,32 @@ class ServicesAssembly: ServicesAssemblyProtocol {
 
     lazy var wordsProvider: WordsProviderProtocol = {
         let networking = coreAssembly.networking
-        let machineLearning = coreAssembly.machineLearning
-        let coreDataStack = coreAssembly.coreDataStack
-        return WordsProvider(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return WordsProvider(networking: networking)
     }()
 
     lazy var imageProvider: ImageProviderProtocol = {
         let networking = coreAssembly.networking
-        let machineLearning = coreAssembly.machineLearning
-        let coreDataStack = coreAssembly.coreDataStack
-        return ImageProvider(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return ImageProvider(networking: networking)
     }()
 
     lazy var translater: TranslaterProtocol = {
         let networking = coreAssembly.networking
-        let machineLearning = coreAssembly.machineLearning
-        let coreDataStack = coreAssembly.coreDataStack
-        return Translater(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return Translater(networking: networking)
     }()
 
     lazy var imageClassificator: ImageClassificatorProtocol = {
-        let networking = coreAssembly.networking
         let machineLearning = coreAssembly.machineLearning
-        let coreDataStack = coreAssembly.coreDataStack
-        return ImageClassificator(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return ImageClassificator(machineLearning: machineLearning)
     }()
     
     lazy var gameDataSaver: GameDataSaverProtocol = {
-        let networking = coreAssembly.networking
-        let machineLearning = coreAssembly.machineLearning
         let coreDataStack = coreAssembly.coreDataStack
-        return GameDataSaver(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return GameDataSaver(coreDataStack: coreDataStack)
     }()
     
     lazy var gameDataProvider: GameDataProviderProtocol = {
-        let networking = coreAssembly.networking
-        let machineLearning = coreAssembly.machineLearning
         let coreDataStack = coreAssembly.coreDataStack
-        return GameDataProvider(networking: networking, machineLearning: machineLearning, coreDataStack: coreDataStack)
+        return GameDataProvider(coreDataStack: coreDataStack)
     }()
 
 

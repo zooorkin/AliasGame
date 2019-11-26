@@ -24,30 +24,13 @@ class Translater: TranslaterProtocol {
 
     private var networking: NetworkingProtocol
 
-    private var machineLearning: MachineLearningProtocol
-
-    private var coreDataStack: CoreDataStackProtocol
-
-
-    init(networking: NetworkingProtocol, machineLearning: MachineLearningProtocol, coreDataStack: CoreDataStackProtocol) {
+    init(networking: NetworkingProtocol) {
         self.networking = networking
-        self.machineLearning = machineLearning
-        self.coreDataStack = coreDataStack
         self.networking.delegate = self
-        self.machineLearning.delegate = self
-        self.coreDataStack.delegate = self
     }
 
 }
 
 extension Translater: NetworkingDelegate {
-    
-}
-
-extension Translater: MachineLearningDelegate {
-    
-}
-
-extension Translater: CoreDataStackDelegate {
     
 }
