@@ -6,7 +6,17 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-class CoreAssembly: ICoreAssembly {
+protocol CoreAssemblyProtocol {
+    
+    var networking: INetworking { get }
+    
+    var machineLearning: IMachineLearning { get }
+    
+    var coreDataStack: ICoreDataStack { get }
+    
+}
+
+class CoreAssembly: CoreAssemblyProtocol {
 
     lazy var networking: INetworking = Networking()
 

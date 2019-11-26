@@ -1,24 +1,24 @@
 //
-//  StartModel.swift
+//  StartInteractor.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IStartModel {
+protocol StartInteractorInput {
 
-    var delegate: IStartModelDelegate? { get set }
-
-}
-
-protocol IStartModelDelegate: class {
+    var output: StartInteractorOutput? { get set }
 
 }
 
-class StartModel: IStartModel, IWordsServiceDelegate, IImageServiceDelegate, ITranslateServiceDelegate, IRecognizerServiceDelegate {
+protocol StartInteractorOutput: class {
 
-    weak var delegate: IStartModelDelegate?
+}
+
+class StartInteractor: StartInteractorInput, IWordsServiceDelegate, IImageServiceDelegate, ITranslateServiceDelegate, IRecognizerServiceDelegate {
+
+    weak var output: StartInteractorOutput?
 
     private var wordsService: IWordsService
 

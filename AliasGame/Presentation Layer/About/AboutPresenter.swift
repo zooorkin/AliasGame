@@ -8,47 +8,51 @@
 
 import Foundation
 
-@objc protocol IAboutPresenter {
-
-    var coordinator: IAboutCoordinator? { get set }
-
-    var delegate: IAboutPresenterDelegate? { get set }
+@objc protocol AboutPresenterInput {
+    
+    var router: AboutRouterInput? { get set }
+    
+    var output: AboutPresenterOutput? { get set }
     
     func exitTapped()
-
+    
 }
 
-@objc protocol IAboutPresenterDelegate {
-
+@objc protocol AboutPresenterOutput {
+    
 }
 
-@objc protocol IAboutCoordinator {
+@objc protocol AboutRouterInput {
     
     func exitFromAboutModule()
-
+    
 }
 
-class AboutPresenter: IAboutPresenter, IAboutModelDelegate {
-
-    weak var coordinator: IAboutCoordinator?
-
-    weak var delegate: IAboutPresenterDelegate?
-
-    private var model: IAboutModel
-
-
-    init(model: IAboutModel) {
-        self.model = model
+class AboutPresenter: AboutPresenterInput {
+    
+    weak var router: AboutRouterInput?
+    
+    weak var output: AboutPresenterOutput?
+    
+    private var interactor: AboutInteractorInput
+    
+    
+    init(interactor: AboutInteractorInput) {
+        self.interactor = interactor
     }
     
-    func exitTapped() {
-        if let coordinator = coordinator {
-            coordinator.exitFromAboutModule()
+    @objc func exitTapped() {
+        if let router = router {
+            router.exitFromAboutModule()
         } else {
             #if DEBUG
-            debugPrint("[AboutPresenter]: coordinator is nil")
+            debugPrint("[AboutPresenter]: router is nil")
             #endif
         }
     }
+    
+}
 
+extension AboutPresenter: AboutInteractorOutput {
+    
 }

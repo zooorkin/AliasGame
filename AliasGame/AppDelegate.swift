@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private let rootAssembly: IRootAssembly = RootAssembly()
+    private let rootAssembly: RootAssemblyProtocol = RootAssembly()
 
     var window: UIWindow?
 
@@ -25,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true 
         }
         
-        if let coordinatorViewController = rootAssembly.presentationAssembly.coordinatorViewController {
-            window.rootViewController = coordinatorViewController
+        if let routerViewController = rootAssembly.presentationAssembly.routerViewController {
+            window.rootViewController = routerViewController
         } else {
-            assertionFailure("[AppDelegate] coordinatorViewController is not available")
+            assertionFailure("[AppDelegate] routerViewController is not available")
         }
         
         window.makeKeyAndVisible()

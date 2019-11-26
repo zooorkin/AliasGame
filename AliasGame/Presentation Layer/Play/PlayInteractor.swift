@@ -1,24 +1,24 @@
 //
-//  AboutModel.swift
+//  PlayInteractor.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IAboutModel {
+protocol PlayInteractorInput {
 
-    var delegate: IAboutModelDelegate? { get set }
-
-}
-
-protocol IAboutModelDelegate: class {
+    var output: PlayInteractorOutput? { get set }
 
 }
 
-class AboutModel: IAboutModel, IWordsServiceDelegate, IImageServiceDelegate, ITranslateServiceDelegate, IRecognizerServiceDelegate {
+protocol PlayInteractorOutput: class {
 
-    weak var delegate: IAboutModelDelegate?
+}
+
+class PlayInteractor: PlayInteractorInput {
+
+    weak var output: PlayInteractorOutput?
 
     private var wordsService: IWordsService
 
@@ -40,4 +40,20 @@ class AboutModel: IAboutModel, IWordsServiceDelegate, IImageServiceDelegate, ITr
         self.recognizerService.delegate = self
     }
 
+}
+
+extension PlayInteractor: IWordsServiceDelegate {
+    
+}
+
+extension PlayInteractor: IImageServiceDelegate {
+    
+}
+
+extension PlayInteractor: ITranslateServiceDelegate {
+    
+}
+
+extension PlayInteractor: IRecognizerServiceDelegate {
+    
 }

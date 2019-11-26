@@ -10,38 +10,33 @@
 		881216802386F3620091B5C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812167F2386F3620091B5C4 /* AppDelegate.swift */; };
 		8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881216882386F3630091B5C4 /* LaunchScreen.storyboard */; };
 		881216952386F3630091B5C4 /* AliasGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216942386F3630091B5C4 /* AliasGameTests.swift */; };
-		881216F62386FDFA0091B5C4 /* IRootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216BE2386FDF90091B5C4 /* IRootAssembly.swift */; };
 		881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C12386FDF90091B5C4 /* CoreAssembly.swift */; };
-		881216F82386FDFA0091B5C4 /* ICoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C22386FDF90091B5C4 /* ICoreAssembly.swift */; };
 		881216F92386FDFA0091B5C4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C42386FDF90091B5C4 /* CoreDataStack.swift */; };
 		881216FA2386FDFA0091B5C4 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C52386FDF90091B5C4 /* Networking.swift */; };
 		881216FB2386FDFA0091B5C4 /* MachineLearning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C62386FDF90091B5C4 /* MachineLearning.swift */; };
-		881216FC2386FDFA0091B5C4 /* ICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C82386FDF90091B5C4 /* ICoordinator.swift */; };
-		881216FD2386FDFA0091B5C4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C92386FDF90091B5C4 /* Coordinator.swift */; };
-		881216FE2386FDFA0091B5C4 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CC2386FDF90091B5C4 /* SettingsModel.swift */; };
+		881216FD2386FDFA0091B5C4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C92386FDF90091B5C4 /* Router.swift */; };
+		881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CC2386FDF90091B5C4 /* SettingsInteractor.swift */; };
 		881216FF2386FDFA0091B5C4 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */; };
-		881217012386FDFA0091B5C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CF2386FDF90091B5C4 /* SettingsViewController.swift */; };
+		881217012386FDFA0091B5C4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CF2386FDF90091B5C4 /* SettingsView.swift */; };
 		881217022386FDFA0091B5C4 /* RecordsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D12386FDF90091B5C4 /* RecordsPresenter.swift */; };
-		881217042386FDFA0091B5C4 /* RecordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D32386FDF90091B5C4 /* RecordsModel.swift */; };
-		881217052386FDFA0091B5C4 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D42386FDF90091B5C4 /* RecordsViewController.swift */; };
-		881217062386FDFA0091B5C4 /* IPresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D62386FDF90091B5C4 /* IPresentationAssembly.swift */; };
+		881217042386FDFA0091B5C4 /* RecordsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D32386FDF90091B5C4 /* RecordsInteractor.swift */; };
+		881217052386FDFA0091B5C4 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D42386FDF90091B5C4 /* RecordsView.swift */; };
 		881217072386FDFA0091B5C4 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D72386FDF90091B5C4 /* PresentationAssembly.swift */; };
-		881217082386FDFA0091B5C4 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216D92386FDF90091B5C4 /* StartViewController.xib */; };
-		881217092386FDFA0091B5C4 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DA2386FDF90091B5C4 /* StartViewController.swift */; };
+		881217082386FDFA0091B5C4 /* StartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216D92386FDF90091B5C4 /* StartView.xib */; };
+		881217092386FDFA0091B5C4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DA2386FDF90091B5C4 /* StartView.swift */; };
 		8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DB2386FDF90091B5C4 /* StartPresenter.swift */; };
-		8812170B2386FDFA0091B5C4 /* StartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DC2386FDF90091B5C4 /* StartModel.swift */; };
-		8812170C2386FDFA0091B5C4 /* ReservedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DE2386FDF90091B5C4 /* ReservedViewController.swift */; };
-		8812170D2386FDFA0091B5C4 /* ReservedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DF2386FDF90091B5C4 /* ReservedModel.swift */; };
+		8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DC2386FDF90091B5C4 /* StartInteractor.swift */; };
+		8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DE2386FDF90091B5C4 /* ReservedView.swift */; };
+		8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DF2386FDF90091B5C4 /* ReservedInteractor.swift */; };
 		8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E12386FDF90091B5C4 /* ReservedPresenter.swift */; };
-		881217102386FDFA0091B5C4 /* AboutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E32386FDF90091B5C4 /* AboutModel.swift */; };
+		881217102386FDFA0091B5C4 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E32386FDF90091B5C4 /* AboutInteractor.swift */; };
 		881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E42386FDF90091B5C4 /* AboutPresenter.swift */; };
-		881217132386FDFA0091B5C4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E62386FDF90091B5C4 /* AboutViewController.swift */; };
+		881217132386FDFA0091B5C4 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E62386FDF90091B5C4 /* AboutView.swift */; };
 		881217142386FDFA0091B5C4 /* PlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E82386FDF90091B5C4 /* PlayPresenter.swift */; };
-		881217162386FDFA0091B5C4 /* PlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EA2386FDF90091B5C4 /* PlayModel.swift */; };
-		881217172386FDFA0091B5C4 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EB2386FDF90091B5C4 /* PlayViewController.swift */; };
+		881217162386FDFA0091B5C4 /* PlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EA2386FDF90091B5C4 /* PlayInteractor.swift */; };
+		881217172386FDFA0091B5C4 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EB2386FDF90091B5C4 /* PlayView.swift */; };
 		881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EC2386FDFA0091B5C4 /* RootAssembly.swift */; };
 		881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */; };
-		8812171A2386FDFA0091B5C4 /* IServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F02386FDFA0091B5C4 /* IServicesAssembly.swift */; };
 		8812171B2386FDFA0091B5C4 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F22386FDFA0091B5C4 /* ImageService.swift */; };
 		8812171C2386FDFA0091B5C4 /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F32386FDFA0091B5C4 /* TranslateService.swift */; };
 		8812171D2386FDFA0091B5C4 /* RecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F42386FDFA0091B5C4 /* RecognizerService.swift */; };
@@ -66,38 +61,33 @@
 		881216902386F3630091B5C4 /* AliasGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AliasGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		881216942386F3630091B5C4 /* AliasGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasGameTests.swift; sourceTree = "<group>"; };
 		881216962386F3630091B5C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		881216BE2386FDF90091B5C4 /* IRootAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRootAssembly.swift; sourceTree = "<group>"; };
 		881216C12386FDF90091B5C4 /* CoreAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
-		881216C22386FDF90091B5C4 /* ICoreAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICoreAssembly.swift; sourceTree = "<group>"; };
 		881216C42386FDF90091B5C4 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		881216C52386FDF90091B5C4 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		881216C62386FDF90091B5C4 /* MachineLearning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineLearning.swift; sourceTree = "<group>"; };
-		881216C82386FDF90091B5C4 /* ICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICoordinator.swift; sourceTree = "<group>"; };
-		881216C92386FDF90091B5C4 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		881216CC2386FDF90091B5C4 /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		881216C92386FDF90091B5C4 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		881216CC2386FDF90091B5C4 /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
-		881216CF2386FDF90091B5C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		881216CF2386FDF90091B5C4 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		881216D12386FDF90091B5C4 /* RecordsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsPresenter.swift; sourceTree = "<group>"; };
-		881216D32386FDF90091B5C4 /* RecordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsModel.swift; sourceTree = "<group>"; };
-		881216D42386FDF90091B5C4 /* RecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
-		881216D62386FDF90091B5C4 /* IPresentationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPresentationAssembly.swift; sourceTree = "<group>"; };
+		881216D32386FDF90091B5C4 /* RecordsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsInteractor.swift; sourceTree = "<group>"; };
+		881216D42386FDF90091B5C4 /* RecordsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 		881216D72386FDF90091B5C4 /* PresentationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
-		881216D92386FDF90091B5C4 /* StartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
-		881216DA2386FDF90091B5C4 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		881216D92386FDF90091B5C4 /* StartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartView.xib; sourceTree = "<group>"; };
+		881216DA2386FDF90091B5C4 /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		881216DB2386FDF90091B5C4 /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
-		881216DC2386FDF90091B5C4 /* StartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartModel.swift; sourceTree = "<group>"; };
-		881216DE2386FDF90091B5C4 /* ReservedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedViewController.swift; sourceTree = "<group>"; };
-		881216DF2386FDF90091B5C4 /* ReservedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedModel.swift; sourceTree = "<group>"; };
+		881216DC2386FDF90091B5C4 /* StartInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartInteractor.swift; sourceTree = "<group>"; };
+		881216DE2386FDF90091B5C4 /* ReservedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedView.swift; sourceTree = "<group>"; };
+		881216DF2386FDF90091B5C4 /* ReservedInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedInteractor.swift; sourceTree = "<group>"; };
 		881216E12386FDF90091B5C4 /* ReservedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedPresenter.swift; sourceTree = "<group>"; };
-		881216E32386FDF90091B5C4 /* AboutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutModel.swift; sourceTree = "<group>"; };
+		881216E32386FDF90091B5C4 /* AboutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
 		881216E42386FDF90091B5C4 /* AboutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
-		881216E62386FDF90091B5C4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		881216E62386FDF90091B5C4 /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		881216E82386FDF90091B5C4 /* PlayPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPresenter.swift; sourceTree = "<group>"; };
-		881216EA2386FDF90091B5C4 /* PlayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayModel.swift; sourceTree = "<group>"; };
-		881216EB2386FDF90091B5C4 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		881216EA2386FDF90091B5C4 /* PlayInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayInteractor.swift; sourceTree = "<group>"; };
+		881216EB2386FDF90091B5C4 /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		881216EC2386FDFA0091B5C4 /* RootAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
 		881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
-		881216F02386FDFA0091B5C4 /* IServicesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServicesAssembly.swift; sourceTree = "<group>"; };
 		881216F22386FDFA0091B5C4 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		881216F32386FDFA0091B5C4 /* TranslateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
 		881216F42386FDFA0091B5C4 /* RecognizerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizerService.swift; sourceTree = "<group>"; };
@@ -144,8 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				8812167F2386F3620091B5C4 /* AppDelegate.swift */,
-				887126932388019B0061FB57 /* Assembly */,
-				881216C72386FDF90091B5C4 /* Coordinator */,
+				881216EC2386FDFA0091B5C4 /* RootAssembly.swift */,
+				881216C72386FDF90091B5C4 /* Router */,
 				881216CA2386FDF90091B5C4 /* Presentation Layer */,
 				881216ED2386FDFA0091B5C4 /* Services Layer */,
 				881216BF2386FDF90091B5C4 /* Core Layer */,
@@ -175,19 +165,10 @@
 		881216BF2386FDF90091B5C4 /* Core Layer */ = {
 			isa = PBXGroup;
 			children = (
-				881216C02386FDF90091B5C4 /* Assembly */,
+				881216C12386FDF90091B5C4 /* CoreAssembly.swift */,
 				881216C32386FDF90091B5C4 /* Implementations */,
 			);
 			path = "Core Layer";
-			sourceTree = "<group>";
-		};
-		881216C02386FDF90091B5C4 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				881216C22386FDF90091B5C4 /* ICoreAssembly.swift */,
-				881216C12386FDF90091B5C4 /* CoreAssembly.swift */,
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		881216C32386FDF90091B5C4 /* Implementations */ = {
@@ -200,19 +181,18 @@
 			path = Implementations;
 			sourceTree = "<group>";
 		};
-		881216C72386FDF90091B5C4 /* Coordinator */ = {
+		881216C72386FDF90091B5C4 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				881216C82386FDF90091B5C4 /* ICoordinator.swift */,
-				881216C92386FDF90091B5C4 /* Coordinator.swift */,
+				881216C92386FDF90091B5C4 /* Router.swift */,
 			);
-			path = Coordinator;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		881216CA2386FDF90091B5C4 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
-				881216D52386FDF90091B5C4 /* Assembly */,
+				881216D72386FDF90091B5C4 /* PresentationAssembly.swift */,
 				881216D82386FDF90091B5C4 /* Start */,
 				881216E72386FDF90091B5C4 /* Play */,
 				881216D02386FDF90091B5C4 /* Records */,
@@ -226,9 +206,9 @@
 		881216CB2386FDF90091B5C4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				881216CF2386FDF90091B5C4 /* SettingsViewController.swift */,
+				881216CF2386FDF90091B5C4 /* SettingsView.swift */,
 				881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */,
-				881216CC2386FDF90091B5C4 /* SettingsModel.swift */,
+				881216CC2386FDF90091B5C4 /* SettingsInteractor.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -236,29 +216,20 @@
 		881216D02386FDF90091B5C4 /* Records */ = {
 			isa = PBXGroup;
 			children = (
-				881216D42386FDF90091B5C4 /* RecordsViewController.swift */,
+				881216D42386FDF90091B5C4 /* RecordsView.swift */,
 				881216D12386FDF90091B5C4 /* RecordsPresenter.swift */,
-				881216D32386FDF90091B5C4 /* RecordsModel.swift */,
+				881216D32386FDF90091B5C4 /* RecordsInteractor.swift */,
 			);
 			path = Records;
-			sourceTree = "<group>";
-		};
-		881216D52386FDF90091B5C4 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				881216D62386FDF90091B5C4 /* IPresentationAssembly.swift */,
-				881216D72386FDF90091B5C4 /* PresentationAssembly.swift */,
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		881216D82386FDF90091B5C4 /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				881216D92386FDF90091B5C4 /* StartViewController.xib */,
-				881216DA2386FDF90091B5C4 /* StartViewController.swift */,
+				881216D92386FDF90091B5C4 /* StartView.xib */,
+				881216DA2386FDF90091B5C4 /* StartView.swift */,
 				881216DB2386FDF90091B5C4 /* StartPresenter.swift */,
-				881216DC2386FDF90091B5C4 /* StartModel.swift */,
+				881216DC2386FDF90091B5C4 /* StartInteractor.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -266,9 +237,9 @@
 		881216DD2386FDF90091B5C4 /* Reserved */ = {
 			isa = PBXGroup;
 			children = (
-				881216DE2386FDF90091B5C4 /* ReservedViewController.swift */,
+				881216DE2386FDF90091B5C4 /* ReservedView.swift */,
 				881216E12386FDF90091B5C4 /* ReservedPresenter.swift */,
-				881216DF2386FDF90091B5C4 /* ReservedModel.swift */,
+				881216DF2386FDF90091B5C4 /* ReservedInteractor.swift */,
 			);
 			path = Reserved;
 			sourceTree = "<group>";
@@ -276,9 +247,9 @@
 		881216E22386FDF90091B5C4 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				881216E62386FDF90091B5C4 /* AboutViewController.swift */,
+				881216E62386FDF90091B5C4 /* AboutView.swift */,
 				881216E42386FDF90091B5C4 /* AboutPresenter.swift */,
-				881216E32386FDF90091B5C4 /* AboutModel.swift */,
+				881216E32386FDF90091B5C4 /* AboutInteractor.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -286,9 +257,9 @@
 		881216E72386FDF90091B5C4 /* Play */ = {
 			isa = PBXGroup;
 			children = (
-				881216EB2386FDF90091B5C4 /* PlayViewController.swift */,
+				881216EB2386FDF90091B5C4 /* PlayView.swift */,
 				881216E82386FDF90091B5C4 /* PlayPresenter.swift */,
-				881216EA2386FDF90091B5C4 /* PlayModel.swift */,
+				881216EA2386FDF90091B5C4 /* PlayInteractor.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -296,19 +267,10 @@
 		881216ED2386FDFA0091B5C4 /* Services Layer */ = {
 			isa = PBXGroup;
 			children = (
-				881216EE2386FDFA0091B5C4 /* Assembly */,
+				881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */,
 				881216F12386FDFA0091B5C4 /* Implementations */,
 			);
 			path = "Services Layer";
-			sourceTree = "<group>";
-		};
-		881216EE2386FDFA0091B5C4 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				881216F02386FDFA0091B5C4 /* IServicesAssembly.swift */,
-				881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */,
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		881216F12386FDFA0091B5C4 /* Implementations */ = {
@@ -320,15 +282,6 @@
 				881216F52386FDFA0091B5C4 /* WordsService.swift */,
 			);
 			path = Implementations;
-			sourceTree = "<group>";
-		};
-		887126932388019B0061FB57 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				881216BE2386FDF90091B5C4 /* IRootAssembly.swift */,
-				881216EC2386FDFA0091B5C4 /* RootAssembly.swift */,
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,7 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */,
-				881217082386FDFA0091B5C4 /* StartViewController.xib in Resources */,
+				881217082386FDFA0091B5C4 /* StartView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,42 +384,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				881217042386FDFA0091B5C4 /* RecordsModel.swift in Sources */,
-				881217162386FDFA0091B5C4 /* PlayModel.swift in Sources */,
+				881217042386FDFA0091B5C4 /* RecordsInteractor.swift in Sources */,
+				881217162386FDFA0091B5C4 /* PlayInteractor.swift in Sources */,
 				8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */,
 				881216F92386FDFA0091B5C4 /* CoreDataStack.swift in Sources */,
 				8812171D2386FDFA0091B5C4 /* RecognizerService.swift in Sources */,
 				8812171C2386FDFA0091B5C4 /* TranslateService.swift in Sources */,
 				881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
-				881216F82386FDFA0091B5C4 /* ICoreAssembly.swift in Sources */,
-				881216FC2386FDFA0091B5C4 /* ICoordinator.swift in Sources */,
 				8812171B2386FDFA0091B5C4 /* ImageService.swift in Sources */,
-				8812170D2386FDFA0091B5C4 /* ReservedModel.swift in Sources */,
+				8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */,
 				881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */,
-				881217102386FDFA0091B5C4 /* AboutModel.swift in Sources */,
-				881217092386FDFA0091B5C4 /* StartViewController.swift in Sources */,
+				881217102386FDFA0091B5C4 /* AboutInteractor.swift in Sources */,
+				881217092386FDFA0091B5C4 /* StartView.swift in Sources */,
 				881217022386FDFA0091B5C4 /* RecordsPresenter.swift in Sources */,
 				881216FA2386FDFA0091B5C4 /* Networking.swift in Sources */,
 				881216FB2386FDFA0091B5C4 /* MachineLearning.swift in Sources */,
-				881217172386FDFA0091B5C4 /* PlayViewController.swift in Sources */,
-				881216FE2386FDFA0091B5C4 /* SettingsModel.swift in Sources */,
+				881217172386FDFA0091B5C4 /* PlayView.swift in Sources */,
+				881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */,
 				881216FF2386FDFA0091B5C4 /* SettingsPresenter.swift in Sources */,
 				8812171E2386FDFA0091B5C4 /* WordsService.swift in Sources */,
 				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
-				8812170C2386FDFA0091B5C4 /* ReservedViewController.swift in Sources */,
+				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
-				881217062386FDFA0091B5C4 /* IPresentationAssembly.swift in Sources */,
-				8812170B2386FDFA0091B5C4 /* StartModel.swift in Sources */,
+				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,
 				881217142386FDFA0091B5C4 /* PlayPresenter.swift in Sources */,
-				881216F62386FDFA0091B5C4 /* IRootAssembly.swift in Sources */,
-				881216FD2386FDFA0091B5C4 /* Coordinator.swift in Sources */,
+				881216FD2386FDFA0091B5C4 /* Router.swift in Sources */,
 				881217072386FDFA0091B5C4 /* PresentationAssembly.swift in Sources */,
-				881217012386FDFA0091B5C4 /* SettingsViewController.swift in Sources */,
-				881217132386FDFA0091B5C4 /* AboutViewController.swift in Sources */,
-				881217052386FDFA0091B5C4 /* RecordsViewController.swift in Sources */,
-				8812171A2386FDFA0091B5C4 /* IServicesAssembly.swift in Sources */,
+				881217012386FDFA0091B5C4 /* SettingsView.swift in Sources */,
+				881217132386FDFA0091B5C4 /* AboutView.swift in Sources */,
+				881217052386FDFA0091B5C4 /* RecordsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

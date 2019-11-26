@@ -1,5 +1,5 @@
 //
-//  ReservedViewController.swift
+//  AboutView.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
@@ -8,18 +8,15 @@
 
 import UIKit
 
-class ReservedViewController: UIViewController, IReservedPresenterDelegate {
-
+class AboutView: UIViewController {
+    
     let label: UILabel
     let exitButton: UIButton
     
-    private let presentationAssembly: IPresentationAssembly
-    
-    private var presenter: IReservedPresenter
+    private var presenter: AboutPresenterInput
     
     
-    init(presentationAssembly: IPresentationAssembly, presenter: IReservedPresenter) {
-        self.presentationAssembly = presentationAssembly
+    init(presenter: AboutPresenterInput) {
         self.presenter = presenter
         self.label = UILabel(frame: .zero)
         self.exitButton = UIButton(type: .system)
@@ -42,7 +39,7 @@ class ReservedViewController: UIViewController, IReservedPresenterDelegate {
         
         // Label
         view.addSubview(label)
-        label.text = "Reserved"
+        label.text = "About"
         label.font = .preferredFont(forTextStyle: .largeTitle)
         let labelIntrinsicContentSize = label.intrinsicContentSize
         label.frame = CGRect(origin: .zero, size: labelIntrinsicContentSize)
@@ -50,7 +47,7 @@ class ReservedViewController: UIViewController, IReservedPresenterDelegate {
         // Exit button
         view.addSubview(exitButton)
         exitButton.setTitle("Выход", for: .normal)
-        exitButton.addTarget(self, action: #selector(exitTapped(_:)), for: .touchUpInside)
+        exitButton.addTarget(presenter, action: #selector(AboutPresenterInput.exitTapped), for: .touchUpInside)
         let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
         exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
     }
@@ -60,11 +57,9 @@ class ReservedViewController: UIViewController, IReservedPresenterDelegate {
         exitButton.center = CGPoint(x: label.center.x, y: label.frame.maxY + 16.0 + exitButton.frame.height / 2)
     }
     
-    
-    @objc func exitTapped(_ sender: UIButton) {
-        #if DEBUG
-        debugPrint("\(#function) not implemented")
-        #endif
-    }
+}
+
+
+extension AboutView: AboutPresenterOutput {
     
 }

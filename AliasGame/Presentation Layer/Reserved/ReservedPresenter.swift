@@ -6,33 +6,53 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IReservedPresenter {
+import Foundation
 
-    var coordinator: IReservedCoordinator? { get set }
-
-    var delegate: IReservedPresenterDelegate? { get set }
-
+@objc protocol ReservedPresenterInput {
+    
+    var router: ReservedRouterInput? { get set }
+    
+    var output: ReservedPresenterOutput? { get set }
+    
+    func exitTapped()
+    
 }
 
-protocol IReservedPresenterDelegate: class {
-
+@objc protocol ReservedPresenterOutput {
+    
 }
 
-protocol IReservedCoordinator: class {
-
+@objc protocol ReservedRouterInput {
+    
+    func exitFromReservedModule()
+    
 }
 
-class ReservedPresenter: IReservedPresenter, IReservedModelDelegate {
-
-    weak var coordinator: IReservedCoordinator?
-
-    weak var delegate: IReservedPresenterDelegate?
-
-    private var model: IReservedModel
-
-
-    init(model: IReservedModel) {
-        self.model = model
+class ReservedPresenter: ReservedPresenterInput {
+    
+    weak var router: ReservedRouterInput?
+    
+    weak var output: ReservedPresenterOutput?
+    
+    private var interactor: ReservedInteractorInput
+    
+    
+    init(interactor: ReservedInteractorInput) {
+        self.interactor = interactor
     }
+    
+    @objc func exitTapped() {
+        if let router = router {
+            router.exitFromReservedModule()
+        } else {
+            #if DEBUG
+            debugPrint("[ReservedPresenter]: router is nil")
+            #endif
+        }
+    }
+    
+}
 
+extension ReservedPresenter: ReservedInteractorOutput {
+    
 }

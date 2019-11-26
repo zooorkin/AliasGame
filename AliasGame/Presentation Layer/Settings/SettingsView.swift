@@ -1,5 +1,5 @@
 //
-//  AboutViewController.swift
+//  SettingsView.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
@@ -8,29 +8,26 @@
 
 import UIKit
 
-class AboutViewController: UIViewController, IAboutPresenterDelegate {
-
+class SettingsView: UIViewController {
+    
     let label: UILabel
     let exitButton: UIButton
     
-    private let presentationAssembly: IPresentationAssembly
-
-    private var presenter: IAboutPresenter
-
-
-    init(presentationAssembly: IPresentationAssembly, presenter: IAboutPresenter) {
-        self.presentationAssembly = presentationAssembly
+    private var presenter: SettingsPresenterInput
+    
+    
+    init(presenter: SettingsPresenterInput) {
         self.presenter = presenter
         self.label = UILabel(frame: .zero)
         self.exitButton = UIButton(type: .system)
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -42,7 +39,7 @@ class AboutViewController: UIViewController, IAboutPresenterDelegate {
         
         // Label
         view.addSubview(label)
-        label.text = "About"
+        label.text = "Settings"
         label.font = .preferredFont(forTextStyle: .largeTitle)
         let labelIntrinsicContentSize = label.intrinsicContentSize
         label.frame = CGRect(origin: .zero, size: labelIntrinsicContentSize)
@@ -50,7 +47,7 @@ class AboutViewController: UIViewController, IAboutPresenterDelegate {
         // Exit button
         view.addSubview(exitButton)
         exitButton.setTitle("Выход", for: .normal)
-        exitButton.addTarget(presenter, action: #selector(IAboutPresenter.exitTapped), for: .touchUpInside)
+        exitButton.addTarget(presenter, action: #selector(SettingsPresenterInput.exitTapped), for: .touchUpInside)
         let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
         exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
     }
@@ -59,5 +56,10 @@ class AboutViewController: UIViewController, IAboutPresenterDelegate {
         label.center = view.center
         exitButton.center = CGPoint(x: label.center.x, y: label.frame.maxY + 16.0 + exitButton.frame.height / 2)
     }
+    
+}
+
+
+extension SettingsView: SettingsPresenterOutput {
     
 }

@@ -8,47 +8,51 @@
 
 import Foundation
 
-@objc protocol ISettingsPresenter {
-
-    var coordinator: ISettingsCoordinator? { get set }
-
-    var delegate: ISettingsPresenterDelegate? { get set }
+@objc protocol SettingsPresenterInput {
+    
+    var router: SettingsRouterInput? { get set }
+    
+    var output: SettingsPresenterOutput? { get set }
     
     func exitTapped()
-
+    
 }
 
-@objc protocol ISettingsPresenterDelegate {
-
+@objc protocol SettingsPresenterOutput {
+    
 }
 
-@objc protocol ISettingsCoordinator {
+@objc protocol SettingsRouterInput {
     
     func exitFromSettingsModule()
-
+    
 }
 
-class SettingsPresenter: ISettingsPresenter, ISettingsModelDelegate {
-
-    weak var coordinator: ISettingsCoordinator?
-
-    weak var delegate: ISettingsPresenterDelegate?
-
-    private var model: ISettingsModel
-
-
-    init(model: ISettingsModel) {
-        self.model = model
+class SettingsPresenter: SettingsPresenterInput {
+    
+    weak var router: SettingsRouterInput?
+    
+    weak var output: SettingsPresenterOutput?
+    
+    private var interactor: SettingsInteractorInput
+    
+    
+    init(interactor: SettingsInteractorInput) {
+        self.interactor = interactor
     }
     
-    func exitTapped() {
-        if let coordinator = coordinator {
-            coordinator.exitFromSettingsModule()
+    @objc func exitTapped() {
+        if let router = router {
+            router.exitFromSettingsModule()
         } else {
             #if DEBUG
-            debugPrint("[SettingsPresenter]: coordinator is nil")
+            debugPrint("[SettingsPresenter]: router is nil")
             #endif
         }
     }
+    
+}
 
+extension SettingsPresenter: SettingsInteractorOutput {
+    
 }

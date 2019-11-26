@@ -1,5 +1,5 @@
 //
-//  StartViewController.swift
+//  StartView.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
@@ -8,23 +8,20 @@
 
 import UIKit
 
-class StartViewController: UIViewController, IStartPresenterDelegate {
+class StartView: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var recordsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var aboutGameButton: UIButton!
     @IBOutlet weak var reservedButton: UIButton!
-    
-    private let presentationAssembly: IPresentationAssembly
 
-    private var presenter: IStartPresenter
+    private var presenter: StartPresenterInput
 
 
-    init(presentationAssembly: IPresentationAssembly, presenter: IStartPresenter) {
-        self.presentationAssembly = presentationAssembly
+    init(presenter: StartPresenterInput) {
         self.presenter = presenter
-        super.init(nibName: "StartViewController", bundle: nil)
+        super.init(nibName: "StartView", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -56,5 +53,9 @@ class StartViewController: UIViewController, IStartPresenterDelegate {
     @IBAction func reservedButtonTapped(_ sender: UIButton) {
         presenter.reservedButtonTapped()
     }
+    
+}
+
+extension StartView: StartPresenterOutput {
     
 }

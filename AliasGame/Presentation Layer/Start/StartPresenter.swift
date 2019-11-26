@@ -6,11 +6,11 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IStartPresenter {
+protocol StartPresenterInput {
 
-    var coordinator: IStartCoordinator? { get set }
+    var router: StartRouterInput? { get set }
 
-    var delegate: IStartPresenterDelegate? { get set }
+    var output: StartPresenterOutput? { get set }
     
     func playButtonTapped()
 
@@ -24,11 +24,11 @@ protocol IStartPresenter {
     
 }
 
-protocol IStartPresenterDelegate: class {
+protocol StartPresenterOutput: class {
 
 }
 
-protocol IStartCoordinator: class {
+protocol StartRouterInput: class {
     
     func play()
     
@@ -40,55 +40,55 @@ protocol IStartCoordinator: class {
     
 }
 
-class StartPresenter: IStartPresenter, IStartModelDelegate {
+class StartPresenter: StartPresenterInput {
 
-    weak var coordinator: IStartCoordinator?
+    weak var router: StartRouterInput?
 
-    weak var delegate: IStartPresenterDelegate?
+    weak var output: StartPresenterOutput?
 
-    private var model: IStartModel
+    private var interactor: StartInteractor
 
 
-    init(model: IStartModel) {
-        self.model = model
+    init(interactor: StartInteractor) {
+        self.interactor = interactor
     }
     
     func playButtonTapped() {
-        if let coordinator = coordinator {
-            coordinator.play()
+        if let router = router {
+            router.play()
         } else {
             #if DEBUG
-            debugPrint("[StartPresenter]: coordinator is nil")
+            debugPrint("[StartPresenter]: router is nil")
             #endif
         }
     }
     
     func recordsButtonTapped() {
-        if let coordinator = coordinator {
-            coordinator.records()
+        if let router = router {
+            router.records()
         } else {
             #if DEBUG
-            debugPrint("[StartPresenter]: coordinator is nil")
+            debugPrint("[StartPresenter]: router is nil")
             #endif
         }
     }
     
     func settingsButtonTapped() {
-        if let coordinator = coordinator {
-            coordinator.settings()
+        if let router = router {
+            router.settings()
         } else {
             #if DEBUG
-            debugPrint("[StartPresenter]: coordinator is nil")
+            debugPrint("[StartPresenter]: router is nil")
             #endif
         }
     }
     
     func aboutGameButtonTapped() {
-        if let coordinator = coordinator {
-            coordinator.aboutGame()
+        if let router = router {
+            router.aboutGame()
         } else {
             #if DEBUG
-            debugPrint("[StartPresenter]: coordinator is nil")
+            debugPrint("[StartPresenter]: router is nil")
             #endif
         }
     }
@@ -99,4 +99,8 @@ class StartPresenter: IStartPresenter, IStartModelDelegate {
         #endif
     }
 
+}
+
+extension StartPresenter: StartInteractorOutput {
+    
 }

@@ -6,29 +6,35 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-class RootAssembly: IRootAssembly {
+protocol RootAssemblyProtocol {
+    
+    var presentationAssembly: PresentationAssemblyProtocol { get }
+    
+}
+
+class RootAssembly: RootAssemblyProtocol {
 
 
-    private let coordinator: ICoordinator
+    private let router: RouterInput
 
-    let presentationAssembly: IPresentationAssembly
+    let presentationAssembly: PresentationAssemblyProtocol
 
-    private let servicesAssembly: IServicesAssembly
+    private let servicesAssembly: ServicesAssemblyProtocol
 
-    private let coreAssembly: ICoreAssembly
+    private let coreAssembly: CoreAssemblyProtocol
 
 
     init() {
         let coreAssembly = CoreAssembly()
         let servicesAssembly = ServicesAssembly(coreAssembly: coreAssembly)
         let presentationAssembly = PresentationAssembly(servicesAssembly: servicesAssembly)
-        let coordinator = Coordinator(presentationAssembly: presentationAssembly)
-        presentationAssembly.coordinator = coordinator
-        coordinator.start()
+        let router = Router(presentationAssembly: presentationAssembly)
+        presentationAssembly.router = router
+        router.start()
         self.coreAssembly = coreAssembly
         self.servicesAssembly = servicesAssembly
         self.presentationAssembly = presentationAssembly
-        self.coordinator = coordinator
+        self.router = router
     }
 
 

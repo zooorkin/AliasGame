@@ -1,34 +1,34 @@
 //
-//  ReservedModel.swift
+//  AboutInteractor.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol IReservedModel {
-
-    var delegate: IReservedModelDelegate? { get set }
-
+protocol AboutInteractorInput {
+    
+    var output: AboutInteractorOutput? { get set }
+    
 }
 
-protocol IReservedModelDelegate: class {
-
+protocol AboutInteractorOutput: class {
+    
 }
 
-class ReservedModel: IReservedModel, IWordsServiceDelegate, IImageServiceDelegate, ITranslateServiceDelegate, IRecognizerServiceDelegate {
-
-    weak var delegate: IReservedModelDelegate?
-
+class AboutInteractor: AboutInteractorInput {
+    
+    weak var output: AboutInteractorOutput?
+    
     private var wordsService: IWordsService
-
+    
     private var imageService: IImageService
-
+    
     private var translateService: ITranslateService
-
+    
     private var recognizerService: IRecognizerService
-
-
+    
+    
     init(wordsService: IWordsService, imageService: IImageService, translateService: ITranslateService, recognizerService: IRecognizerService) {
         self.wordsService = wordsService
         self.imageService = imageService
@@ -39,5 +39,21 @@ class ReservedModel: IReservedModel, IWordsServiceDelegate, IImageServiceDelegat
         self.translateService.delegate = self
         self.recognizerService.delegate = self
     }
+    
+}
 
+extension AboutInteractor: IWordsServiceDelegate {
+    
+}
+
+extension AboutInteractor: IImageServiceDelegate {
+    
+}
+
+extension AboutInteractor: ITranslateServiceDelegate {
+    
+}
+
+extension AboutInteractor: IRecognizerServiceDelegate {
+    
 }

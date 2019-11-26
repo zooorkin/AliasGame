@@ -1,34 +1,34 @@
 //
-//  SettingsModel.swift
+//  SettingsInteractor.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-protocol ISettingsModel {
-
-    var delegate: ISettingsModelDelegate? { get set }
-
+protocol SettingsInteractorInput {
+    
+    var output: SettingsInteractorOutput? { get set }
+    
 }
 
-protocol ISettingsModelDelegate: class {
-
+protocol SettingsInteractorOutput: class {
+    
 }
 
-class SettingsModel: ISettingsModel, IWordsServiceDelegate, IImageServiceDelegate, ITranslateServiceDelegate, IRecognizerServiceDelegate {
-
-    weak var delegate: ISettingsModelDelegate?
-
+class SettingsInteractor: SettingsInteractorInput {
+    
+    weak var output: SettingsInteractorOutput?
+    
     private var wordsService: IWordsService
-
+    
     private var imageService: IImageService
-
+    
     private var translateService: ITranslateService
-
+    
     private var recognizerService: IRecognizerService
-
-
+    
+    
     init(wordsService: IWordsService, imageService: IImageService, translateService: ITranslateService, recognizerService: IRecognizerService) {
         self.wordsService = wordsService
         self.imageService = imageService
@@ -39,5 +39,21 @@ class SettingsModel: ISettingsModel, IWordsServiceDelegate, IImageServiceDelegat
         self.translateService.delegate = self
         self.recognizerService.delegate = self
     }
+    
+}
 
+extension SettingsInteractor: IWordsServiceDelegate {
+    
+}
+
+extension SettingsInteractor: IImageServiceDelegate {
+    
+}
+
+extension SettingsInteractor: ITranslateServiceDelegate {
+    
+}
+
+extension SettingsInteractor: IRecognizerServiceDelegate {
+    
 }

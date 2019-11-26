@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  Router.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
@@ -8,14 +8,21 @@
 
 import UIKit
 
-class Coordinator: ICoordinator {
+protocol RouterInput {
+    
+    var viewController: UIViewController { get }
+    
+    func start()
+    
+}
 
+class Router: RouterInput {
 
     var viewController: UIViewController {
         return navigationController
     }
 
-    private let presentationAssembly: IPresentationAssembly
+    private let presentationAssembly: PresentationAssemblyProtocol
 
     private lazy var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
@@ -23,42 +30,42 @@ class Coordinator: ICoordinator {
         return navigationController
     }()
 
-    init(presentationAssembly: IPresentationAssembly) {
+    init(presentationAssembly: PresentationAssemblyProtocol) {
         self.presentationAssembly = presentationAssembly
     }
 
     public func start() {
-        let viewController = presentationAssembly.startViewController()
+        let viewController = presentationAssembly.startModule()
         navigationController.pushViewController(viewController, animated: false)
     }
 
 }
 
-extension Coordinator: IStartCoordinator {
+extension Router: StartRouterInput {
     
     func play() {
-        let playViewController = presentationAssembly.playViewController()
+        let playViewController = presentationAssembly.playModule()
         navigationController.pushViewController(playViewController, animated: true)
     }
     
     func records() {
-        let recordsViewController = presentationAssembly.recordsViewController()
+        let recordsViewController = presentationAssembly.recordsModule()
         navigationController.pushViewController(recordsViewController, animated: true)
     }
     
     func settings() {
-        let settingsViewController = presentationAssembly.settingsViewController()
+        let settingsViewController = presentationAssembly.settingsModule()
         navigationController.pushViewController(settingsViewController, animated: true)
     }
     
     func aboutGame() {
-        let aboutViewController = presentationAssembly.aboutViewController()
+        let aboutViewController = presentationAssembly.aboutModule()
         navigationController.pushViewController(aboutViewController, animated: true)
     }
     
 }
 
-extension Coordinator: IPlayCoordinator {
+extension Router: PlayRouterInput {
     
     func exitFromPlayModule() {
         navigationController.popViewController(animated: true)
@@ -66,7 +73,7 @@ extension Coordinator: IPlayCoordinator {
 
 }
 
-extension Coordinator: IRecordsCoordinator {
+extension Router: RecordsRouterInput {
     
     func exitFromRecordsModule() {
         navigationController.popViewController(animated: true)
@@ -74,7 +81,7 @@ extension Coordinator: IRecordsCoordinator {
 
 }
 
-extension Coordinator: ISettingsCoordinator {
+extension Router: SettingsRouterInput {
     
     func exitFromSettingsModule() {
         navigationController.popViewController(animated: true)
@@ -82,7 +89,7 @@ extension Coordinator: ISettingsCoordinator {
 
 }
 
-extension Coordinator: IAboutCoordinator {
+extension Router: AboutRouterInput {
     
     func exitFromAboutModule() {
         navigationController.popViewController(animated: true)
@@ -90,7 +97,11 @@ extension Coordinator: IAboutCoordinator {
 
 }
 
-extension Coordinator: IReservedCoordinator {
+extension Router: ReservedRouterInput {
+    func exitFromReservedModule() {
+        navigationController.popViewController(animated: true)
+    }
+    
 
 }
 

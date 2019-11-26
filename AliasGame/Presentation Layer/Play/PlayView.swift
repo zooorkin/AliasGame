@@ -1,5 +1,5 @@
 //
-//  PlayViewController.swift
+//  PlayView.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 21/11/2019.
@@ -8,18 +8,15 @@
 
 import UIKit
 
-class PlayViewController: UIViewController, IPlayPresenterDelegate {
+class PlayView: UIViewController {
     
     let label: UILabel
     let exitButton: UIButton
 
-    private let presentationAssembly: IPresentationAssembly
-
-    private var presenter: IPlayPresenter
+    private var presenter: PlayPresenterInput
 
 
-    init(presentationAssembly: IPresentationAssembly, presenter: IPlayPresenter) {
-        self.presentationAssembly = presentationAssembly
+    init(presenter: PlayPresenterInput) {
         self.presenter = presenter
         self.label = UILabel(frame: .zero)
         self.exitButton = UIButton(type: .system)
@@ -50,7 +47,7 @@ class PlayViewController: UIViewController, IPlayPresenterDelegate {
         // Exit button
         view.addSubview(exitButton)
         exitButton.setTitle("Выход", for: .normal)
-        exitButton.addTarget(presenter, action: #selector(IPlayPresenter.exitTapped), for: .touchUpInside)
+        exitButton.addTarget(presenter, action: #selector(PlayPresenterInput.exitTapped), for: .touchUpInside)
         let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
         exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
     }
@@ -59,5 +56,10 @@ class PlayViewController: UIViewController, IPlayPresenterDelegate {
         label.center = view.center
         exitButton.center = CGPoint(x: label.center.x, y: label.frame.maxY + 16.0 + exitButton.frame.height / 2)
     }
+    
+}
+
+
+extension PlayView: PlayPresenterOutput {
     
 }

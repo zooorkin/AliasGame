@@ -6,12 +6,26 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-class ServicesAssembly: IServicesAssembly {
+protocol ServicesAssemblyProtocol {
+    
+    init(coreAssembly: CoreAssemblyProtocol)
+    
+    var wordsService: IWordsService { get }
+    
+    var imageService: IImageService { get }
+    
+    var translateService: ITranslateService { get }
+    
+    var recognizerService: IRecognizerService { get }
+    
+}
 
-    private var coreAssembly: ICoreAssembly
+class ServicesAssembly: ServicesAssemblyProtocol {
+
+    private var coreAssembly: CoreAssemblyProtocol
 
 
-    required init(coreAssembly: ICoreAssembly) {
+    required init(coreAssembly: CoreAssemblyProtocol) {
         self.coreAssembly = coreAssembly
     }
 

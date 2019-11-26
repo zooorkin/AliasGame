@@ -8,47 +8,51 @@
 
 import Foundation
 
-@objc protocol IRecordsPresenter {
-
-    var coordinator: IRecordsCoordinator? { get set }
-
-    var delegate: IRecordsPresenterDelegate? { get set }
+@objc protocol RecordsPresenterInput {
+    
+    var router: RecordsRouterInput? { get set }
+    
+    var output: RecordsPresenterOutput? { get set }
     
     func exitTapped()
-
+    
 }
 
-@objc protocol IRecordsPresenterDelegate {
-
+@objc protocol RecordsPresenterOutput {
+    
 }
 
-@objc protocol IRecordsCoordinator {
+@objc protocol RecordsRouterInput {
     
     func exitFromRecordsModule()
-
+    
 }
 
-class RecordsPresenter: IRecordsPresenter, IRecordsModelDelegate {
-
-    weak var coordinator: IRecordsCoordinator?
-
-    weak var delegate: IRecordsPresenterDelegate?
-
-    private var model: IRecordsModel
-
-
-    init(model: IRecordsModel) {
-        self.model = model
+class RecordsPresenter: RecordsPresenterInput {
+    
+    weak var router: RecordsRouterInput?
+    
+    weak var output: RecordsPresenterOutput?
+    
+    private var interactor: RecordsInteractorInput
+    
+    
+    init(interactor: RecordsInteractorInput) {
+        self.interactor = interactor
     }
     
-    func exitTapped() {
-        if let coordinator = coordinator {
-            coordinator.exitFromRecordsModule()
+    @objc func exitTapped() {
+        if let router = router {
+            router.exitFromRecordsModule()
         } else {
             #if DEBUG
-            debugPrint("[RecordsPresenter]: coordinator is nil")
+            debugPrint("[RecordsPresenter]: router is nil")
             #endif
         }
     }
+    
+}
 
+extension RecordsPresenter: RecordsInteractorOutput {
+    
 }

@@ -8,47 +8,51 @@
 
 import Foundation
 
-@objc protocol IPlayPresenter {
+@objc protocol PlayPresenterInput {
 
-    var coordinator: IPlayCoordinator? { get set }
+    var router: PlayRouterInput? { get set }
 
-    var delegate: IPlayPresenterDelegate? { get set }
+    var output: PlayPresenterOutput? { get set }
     
     func exitTapped()
 
 }
 
-@objc protocol IPlayPresenterDelegate {
+@objc protocol PlayPresenterOutput {
 
 }
 
-@objc protocol IPlayCoordinator {
+@objc protocol PlayRouterInput {
     
     func exitFromPlayModule()
 
 }
 
-class PlayPresenter: IPlayPresenter, IPlayModelDelegate {
+class PlayPresenter: PlayPresenterInput {
 
-    weak var coordinator: IPlayCoordinator?
+    weak var router: PlayRouterInput?
 
-    weak var delegate: IPlayPresenterDelegate?
+    weak var output: PlayPresenterOutput?
 
-    private var model: IPlayModel
+    private var interactor: PlayInteractorInput
 
 
-    init(model: IPlayModel) {
-        self.model = model
+    init(interactor: PlayInteractorInput) {
+        self.interactor = interactor
     }
     
     @objc func exitTapped() {
-        if let coordinator = coordinator {
-            coordinator.exitFromPlayModule()
+        if let router = router {
+            router.exitFromPlayModule()
         } else {
             #if DEBUG
-            debugPrint("[PlayPresenter]: coordinator is nil")
+            debugPrint("[PlayPresenter]: router is nil")
             #endif
         }
     }
 
+}
+
+extension PlayPresenter: PlayInteractorOutput {
+    
 }
