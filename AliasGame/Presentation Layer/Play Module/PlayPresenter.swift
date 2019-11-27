@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc protocol PlayPresenterInput {
+protocol PlayPresenterInput {
 
     var router: PlayRouterInput? { get set }
 
@@ -18,11 +18,11 @@ import Foundation
 
 }
 
-@objc protocol PlayPresenterOutput {
+protocol PlayPresenterOutput: class {
 
 }
 
-@objc protocol PlayRouterInput {
+protocol PlayRouterInput: class {
     
     func exitFromPlayModule()
 

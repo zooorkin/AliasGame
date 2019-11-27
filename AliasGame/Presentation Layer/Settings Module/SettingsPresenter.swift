@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc protocol SettingsPresenterInput {
+protocol SettingsPresenterInput {
     
     var router: SettingsRouterInput? { get set }
     
@@ -18,11 +18,11 @@ import Foundation
     
 }
 
-@objc protocol SettingsPresenterOutput {
+protocol SettingsPresenterOutput: class {
     
 }
 
-@objc protocol SettingsRouterInput {
+protocol SettingsRouterInput: class {
     
     func exitFromSettingsModule()
     

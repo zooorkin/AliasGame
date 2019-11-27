@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc protocol AboutPresenterInput {
+protocol AboutPresenterInput {
     
     var router: AboutRouterInput? { get set }
     
@@ -18,11 +18,11 @@ import Foundation
     
 }
 
-@objc protocol AboutPresenterOutput {
+protocol AboutPresenterOutput: class {
     
 }
 
-@objc protocol AboutRouterInput {
+protocol AboutRouterInput: class {
     
     func exitFromAboutModule()
     

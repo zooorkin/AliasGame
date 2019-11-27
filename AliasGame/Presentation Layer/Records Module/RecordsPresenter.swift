@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc protocol RecordsPresenterInput {
+protocol RecordsPresenterInput {
     
     var router: RecordsRouterInput? { get set }
     
@@ -18,11 +18,11 @@ import Foundation
     
 }
 
-@objc protocol RecordsPresenterOutput {
+protocol RecordsPresenterOutput: class {
     
 }
 
-@objc protocol RecordsRouterInput {
+protocol RecordsRouterInput: class {
     
     func exitFromRecordsModule()
     
