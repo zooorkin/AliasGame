@@ -21,7 +21,6 @@ class AliasTableViewController: AliasViewController {
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         tableView.addSubview(plainView)
-        //        tableView.isScrollEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.indicatorStyle = .black

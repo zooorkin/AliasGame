@@ -16,8 +16,8 @@ protocol RouterInput {
     
 }
 
-class Router: RouterInput {
-
+class Router: AliasTransitionSupport, RouterInput {
+    
     var viewController: UIViewController {
         return navigationController
     }
@@ -44,7 +44,7 @@ extension Router: StartRouterInput {
     
     func play() {
         let playViewController = presentationAssembly.playModule()
-        navigationController.pushViewController(playViewController, animated: true)
+        performAliasTransition(viewController: playViewController)
     }
     
     func records() {
@@ -67,9 +67,9 @@ extension Router: StartRouterInput {
 extension Router: PlayRouterInput {
     
     func exitFromPlayModule() {
-        navigationController.popViewController(animated: true)
+        performAliasUntransition()
     }
-
+    
 }
 
 extension Router: RecordsRouterInput {

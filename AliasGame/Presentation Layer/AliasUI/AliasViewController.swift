@@ -21,6 +21,7 @@ class AliasViewController: UIViewController {
         plainView.layer.cornerRadius = 16.0
         view.addSubview(plainView)
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         plainView.frame = view.bounds
@@ -31,6 +32,5 @@ class AliasViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
 
 }

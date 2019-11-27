@@ -43,6 +43,8 @@
 		881C8CBD238E8DBF00A6E8DE /* AliasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */; };
 		881C8CC3238E98DA00A6E8DE /* AliasNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */; };
 		881C8CC5238EDA2E00A6E8DE /* AliasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */; };
+		881C8CCC238EFDB400A6E8DE /* LightStatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */; };
+		881C8CD0238F030600A6E8DE /* AliasTransitionSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */; };
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
@@ -99,6 +101,8 @@
 		881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTableViewController.swift; sourceTree = "<group>"; };
 		881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasNavigationController.swift; sourceTree = "<group>"; };
 		881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasViewController.swift; sourceTree = "<group>"; };
+		881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarViewController.swift; sourceTree = "<group>"; };
+		881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTransitionSupport.swift; sourceTree = "<group>"; };
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 				881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */,
 				881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */,
 				881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */,
+				881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */,
+				881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */,
 			);
 			path = AliasUI;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				881217092386FDFA0091B5C4 /* StartView.swift in Sources */,
 				881217022386FDFA0091B5C4 /* RecordsPresenter.swift in Sources */,
 				881216FA2386FDFA0091B5C4 /* Networking.swift in Sources */,
+				881C8CCC238EFDB400A6E8DE /* LightStatusBarViewController.swift in Sources */,
 				881216FB2386FDFA0091B5C4 /* MachineLearning.swift in Sources */,
 				881217172386FDFA0091B5C4 /* PlayView.swift in Sources */,
 				881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */,
@@ -419,6 +426,7 @@
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,
+				881C8CD0238F030600A6E8DE /* AliasTransitionSupport.swift in Sources */,
 				881217142386FDFA0091B5C4 /* PlayPresenter.swift in Sources */,
 				881216FD2386FDFA0091B5C4 /* Router.swift in Sources */,
 				881C8CBD238E8DBF00A6E8DE /* AliasTableViewController.swift in Sources */,

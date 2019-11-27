@@ -33,6 +33,7 @@ class PlayView: AliasViewController {
         stopBarButtonItem.action = #selector(stopBarButtonTapped)
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = stopBarButtonItem
+//        navigationItem.largeTitleDisplayMode = .never
         title = "Играть"
     }
     
