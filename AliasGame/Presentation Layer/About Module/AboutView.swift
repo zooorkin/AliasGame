@@ -8,18 +8,14 @@
 
 import UIKit
 
-class AboutView: UIViewController {
+class AboutView: AliasViewController {
     
-    let label: UILabel
-    let exitButton: UIButton
     
     private var presenter: AboutPresenterInput
     
     
     init(presenter: AboutPresenterInput) {
         self.presenter = presenter
-        self.label = UILabel(frame: .zero)
-        self.exitButton = UIButton(type: .system)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,34 +23,9 @@ class AboutView: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-    
-    private func setupUI() {
-        // View
-        view.backgroundColor = .white
-        
-        // Label
-        view.addSubview(label)
-        label.text = "About"
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-        let labelIntrinsicContentSize = label.intrinsicContentSize
-        label.frame = CGRect(origin: .zero, size: labelIntrinsicContentSize)
-        
-        // Exit button
-        view.addSubview(exitButton)
-        exitButton.setTitle("Выход", for: .normal)
-        exitButton.addTarget(presenter, action: #selector(AboutPresenterInput.exitTapped), for: .touchUpInside)
-        let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
-        exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        label.center = view.center
-        exitButton.center = CGPoint(x: label.center.x, y: label.frame.maxY + 16.0 + exitButton.frame.height / 2)
+        title = "Об игре"
     }
     
 }

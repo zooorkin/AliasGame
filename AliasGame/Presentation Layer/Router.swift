@@ -25,8 +25,7 @@ class Router: RouterInput {
     private let presentationAssembly: PresentationAssemblyProtocol
 
     private lazy var navigationController: UINavigationController = {
-        let navigationController = UINavigationController()
-        navigationController.setNavigationBarHidden(true, animated: false)
+        let navigationController = AliasNavigationController()
         return navigationController
     }()
 

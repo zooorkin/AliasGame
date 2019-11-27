@@ -22,7 +22,6 @@
 		881217042386FDFA0091B5C4 /* RecordsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D32386FDF90091B5C4 /* RecordsInteractor.swift */; };
 		881217052386FDFA0091B5C4 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D42386FDF90091B5C4 /* RecordsView.swift */; };
 		881217072386FDFA0091B5C4 /* PresentationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D72386FDF90091B5C4 /* PresentationAssembly.swift */; };
-		881217082386FDFA0091B5C4 /* StartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881216D92386FDF90091B5C4 /* StartView.xib */; };
 		881217092386FDFA0091B5C4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DA2386FDF90091B5C4 /* StartView.swift */; };
 		8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DB2386FDF90091B5C4 /* StartPresenter.swift */; };
 		8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DC2386FDF90091B5C4 /* StartInteractor.swift */; };
@@ -41,6 +40,9 @@
 		8812171C2386FDFA0091B5C4 /* Translater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F32386FDFA0091B5C4 /* Translater.swift */; };
 		8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F42386FDFA0091B5C4 /* ImageClassificator.swift */; };
 		8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F52386FDFA0091B5C4 /* WordsProvider.swift */; };
+		881C8CBD238E8DBF00A6E8DE /* AliasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */; };
+		881C8CC3238E98DA00A6E8DE /* AliasNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */; };
+		881C8CC5238EDA2E00A6E8DE /* AliasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */; };
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
@@ -76,7 +78,6 @@
 		881216D32386FDF90091B5C4 /* RecordsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsInteractor.swift; sourceTree = "<group>"; };
 		881216D42386FDF90091B5C4 /* RecordsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 		881216D72386FDF90091B5C4 /* PresentationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAssembly.swift; sourceTree = "<group>"; };
-		881216D92386FDF90091B5C4 /* StartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartView.xib; sourceTree = "<group>"; };
 		881216DA2386FDF90091B5C4 /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		881216DB2386FDF90091B5C4 /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		881216DC2386FDF90091B5C4 /* StartInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartInteractor.swift; sourceTree = "<group>"; };
@@ -95,6 +96,9 @@
 		881216F32386FDFA0091B5C4 /* Translater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translater.swift; sourceTree = "<group>"; };
 		881216F42386FDFA0091B5C4 /* ImageClassificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClassificator.swift; sourceTree = "<group>"; };
 		881216F52386FDFA0091B5C4 /* WordsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsProvider.swift; sourceTree = "<group>"; };
+		881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTableViewController.swift; sourceTree = "<group>"; };
+		881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasNavigationController.swift; sourceTree = "<group>"; };
+		881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasViewController.swift; sourceTree = "<group>"; };
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 		881216CA2386FDF90091B5C4 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
+				881C8CCA238EE13800A6E8DE /* AliasUI */,
 				8827206F238DA9F8002E8648 /* Entity.swift */,
 				881216C92386FDF90091B5C4 /* Router.swift */,
 				881216D82386FDF90091B5C4 /* Start Module */,
@@ -215,7 +220,6 @@
 		881216D82386FDF90091B5C4 /* Start Module */ = {
 			isa = PBXGroup;
 			children = (
-				881216D92386FDF90091B5C4 /* StartView.xib */,
 				881216DA2386FDF90091B5C4 /* StartView.swift */,
 				881216DB2386FDF90091B5C4 /* StartPresenter.swift */,
 				881216DC2386FDF90091B5C4 /* StartInteractor.swift */,
@@ -264,6 +268,16 @@
 				881216F52386FDFA0091B5C4 /* WordsProvider.swift */,
 			);
 			path = "Services Layer";
+			sourceTree = "<group>";
+		};
+		881C8CCA238EE13800A6E8DE /* AliasUI */ = {
+			isa = PBXGroup;
+			children = (
+				881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */,
+				881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */,
+				881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */,
+			);
+			path = AliasUI;
 			sourceTree = "<group>";
 		};
 		88272071238DAAC9002E8648 /* Assembly */ = {
@@ -359,7 +373,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */,
-				881217082386FDFA0091B5C4 /* StartView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,16 +414,19 @@
 				8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */,
 				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
 				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
+				881C8CC3238E98DA00A6E8DE /* AliasNavigationController.swift in Sources */,
 				88272070238DA9F8002E8648 /* Entity.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,
 				881217142386FDFA0091B5C4 /* PlayPresenter.swift in Sources */,
 				881216FD2386FDFA0091B5C4 /* Router.swift in Sources */,
+				881C8CBD238E8DBF00A6E8DE /* AliasTableViewController.swift in Sources */,
 				881217072386FDFA0091B5C4 /* PresentationAssembly.swift in Sources */,
 				881217012386FDFA0091B5C4 /* SettingsView.swift in Sources */,
 				881217132386FDFA0091B5C4 /* AboutView.swift in Sources */,
 				881217052386FDFA0091B5C4 /* RecordsView.swift in Sources */,
+				881C8CC5238EDA2E00A6E8DE /* AliasViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

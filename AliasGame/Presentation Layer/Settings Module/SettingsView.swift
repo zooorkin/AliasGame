@@ -8,18 +8,16 @@
 
 import UIKit
 
-class SettingsView: UIViewController {
+class SettingsView: AliasTableViewController {
     
-    let label: UILabel
-    let exitButton: UIButton
     
     private var presenter: SettingsPresenterInput
+    
+    var data = ["Выход"]
     
     
     init(presenter: SettingsPresenterInput) {
         self.presenter = presenter
-        self.label = UILabel(frame: .zero)
-        self.exitButton = UIButton(type: .system)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,31 +28,29 @@ class SettingsView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        title = "Настройки"
     }
     
-    private func setupUI() {
-        // View
-        view.backgroundColor = .white
-        
-        // Label
-        view.addSubview(label)
-        label.text = "Settings"
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-        let labelIntrinsicContentSize = label.intrinsicContentSize
-        label.frame = CGRect(origin: .zero, size: labelIntrinsicContentSize)
-        
-        // Exit button
-        view.addSubview(exitButton)
-        exitButton.setTitle("Выход", for: .normal)
-        exitButton.addTarget(presenter, action: #selector(SettingsPresenterInput.exitTapped), for: .touchUpInside)
-        let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
-        exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
     }
     
-    override func viewWillLayoutSubviews() {
-        label.center = view.center
-        exitButton.center = CGPoint(x: label.center.x, y: label.frame.maxY + 16.0 + exitButton.frame.height / 2)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.text = data[indexPath.row]
+        cell.backgroundColor = .clear
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableView.sendSubviewToBack(plainView)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0: presenter.exitTapped()
+        default: tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
 }
