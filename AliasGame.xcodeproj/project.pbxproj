@@ -47,6 +47,7 @@
 		881C8CD0238F030600A6E8DE /* AliasTransitionSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */; };
 		881C8CD2238FBE0000A6E8DE /* AliasDarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */; };
 		881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */; };
+		881C8CD8238FE82800A6E8DE /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD7238FE82800A6E8DE /* RecordCell.swift */; };
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
@@ -107,6 +108,7 @@
 		881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTransitionSupport.swift; sourceTree = "<group>"; };
 		881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasDarkNavigationController.swift; sourceTree = "<group>"; };
 		881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasLightViewController.swift; sourceTree = "<group>"; };
+		881C8CD7238FE82800A6E8DE /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		881216D02386FDF90091B5C4 /* Records Module */ = {
 			isa = PBXGroup;
 			children = (
+				881C8CD9238FF37000A6E8DE /* Custom Elements */,
 				881216D42386FDF90091B5C4 /* RecordsView.swift */,
 				881216D12386FDF90091B5C4 /* RecordsPresenter.swift */,
 				881216D32386FDF90091B5C4 /* RecordsInteractor.swift */,
@@ -290,6 +293,14 @@
 				881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */,
 			);
 			path = AliasUI;
+			sourceTree = "<group>";
+		};
+		881C8CD9238FF37000A6E8DE /* Custom Elements */ = {
+			isa = PBXGroup;
+			children = (
+				881C8CD7238FE82800A6E8DE /* RecordCell.swift */,
+			);
+			path = "Custom Elements";
 			sourceTree = "<group>";
 		};
 		88272071238DAAC9002E8648 /* Assembly */ = {
@@ -412,6 +423,7 @@
 				8812171C2386FDFA0091B5C4 /* Translater.swift in Sources */,
 				881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */,
 				881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */,
+				881C8CD8238FE82800A6E8DE /* RecordCell.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
 				8812171B2386FDFA0091B5C4 /* ImageProvider.swift in Sources */,
 				8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */,

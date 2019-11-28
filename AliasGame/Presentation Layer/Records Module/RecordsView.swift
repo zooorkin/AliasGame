@@ -13,7 +13,7 @@ class RecordsView: AliasTableViewController {
     
     private var presenter: RecordsPresenterInput
     
-    var data = ["Выход"]
+    var data = ["Игра на двоих", "Игра на четверых", "Командная игра на двоих"]
     
     
     init(presenter: RecordsPresenterInput) {
@@ -28,6 +28,9 @@ class RecordsView: AliasTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        plainView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.register(RecordCell.self, forCellReuseIdentifier: "RecordCell")
         title = "Рекорды"
     }
     
@@ -36,9 +39,10 @@ class RecordsView: AliasTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
-        cell.backgroundColor = .clear
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath) as? RecordCell else {
+            fatalError("[RecordsView]: cell is nil")
+        }
+        cell.gameModeLabel.text = data[indexPath.row]
         return cell
     }
     
@@ -48,9 +52,12 @@ class RecordsView: AliasTableViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case 0: presenter.exitTapped()
         default: tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96
     }
     
 }
