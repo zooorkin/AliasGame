@@ -12,7 +12,11 @@ class StartView: AliasTableViewController {
 
     private var presenter: StartPresenterInput
 
-    let data = ["Играть", "Рекорды", "Настройки", "Об игре", "Зарезервировано"]
+    let data = ["Выберите режим игры", "Командные режим", "Рекорды", "Настройки", "Об игре", "Зарезервировано"]
+    
+    let generalGameModes: [AliasGameMode] = [.twoPlayers, .threePlayers, .fourPlayers, .fivePlayers, .sixPlayers, .sevenPlayers, .eightPlayers, .ninePlayers]
+    
+    let teamGameModes: [AliasGameMode] = [.twoTeams, .threeTeams, .fourTeams]
 
     init(presenter: StartPresenterInput) {
         self.presenter = presenter
@@ -26,7 +30,17 @@ class StartView: AliasTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(GameModesTableCell.self, forCellReuseIdentifier: "GameModesTableCell")
         title = "Alias"
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0: fallthrough
+        case 1: return 32 + 21 + 16 + 96 + 16
+        default: return 44
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +54,20 @@ class StartView: AliasTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row < 2 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameModesTableCell", for: indexPath) as? GameModesTableCell else {
+                fatalError()
+            }
+            cell.titleLabel.text = data[indexPath.row]
+            switch indexPath.row {
+            case 0: cell.gameModes = generalGameModes
+            case 1: cell.gameModes = teamGameModes
+            default: break
+            }
+            cell.delegate = self
+            cell.backgroundColor = .clear
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row]
         cell.backgroundColor = .clear
@@ -52,13 +80,20 @@ class StartView: AliasTableViewController {
         tableView.sendSubviewToBack(plainView)
     }
     
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        switch indexPath.row {
+        case 0: fallthrough
+        case 1: return false
+        default: return true
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case 0: presenter.playButtonTapped()
-        case 1: presenter.recordsButtonTapped()
-        case 2: presenter.settingsButtonTapped()
-        case 3: presenter.aboutGameButtonTapped()
-        case 4: fallthrough
+        case 2: presenter.recordsButtonTapped()
+        case 3: presenter.settingsButtonTapped()
+        case 4: presenter.aboutGameButtonTapped()
+        case 5: fallthrough
         default: tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -68,6 +103,14 @@ class StartView: AliasTableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+}
+
+extension StartView: GameModesTableCellDelegate {
+    
+    func gameModesCell(_ gameModesTableCell: GameModesTableCell, didSelect gameMode: AliasGameMode) {
+        presenter.gameModeTapped(withMode: gameMode)
     }
     
 }

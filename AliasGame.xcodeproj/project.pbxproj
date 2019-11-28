@@ -48,6 +48,10 @@
 		881C8CD2238FBE0000A6E8DE /* AliasDarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */; };
 		881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */; };
 		881C8CD8238FE82800A6E8DE /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD7238FE82800A6E8DE /* RecordCell.swift */; };
+		881C8CDB23902D0D00A6E8DE /* GameModesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CDA23902D0D00A6E8DE /* GameModesTableCell.swift */; };
+		881C8CDD23902E4B00A6E8DE /* GameModeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CDC23902E4B00A6E8DE /* GameModeCollectionCell.swift */; };
+		881C8CDF23903CD700A6E8DE /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CDE23903CD700A6E8DE /* RandomColor.swift */; };
+		881C8CE1239041F000A6E8DE /* GameModes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 881C8CE0239041F000A6E8DE /* GameModes.xcassets */; };
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
@@ -109,6 +113,10 @@
 		881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasDarkNavigationController.swift; sourceTree = "<group>"; };
 		881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasLightViewController.swift; sourceTree = "<group>"; };
 		881C8CD7238FE82800A6E8DE /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		881C8CDA23902D0D00A6E8DE /* GameModesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTableCell.swift; sourceTree = "<group>"; };
+		881C8CDC23902E4B00A6E8DE /* GameModeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeCollectionCell.swift; sourceTree = "<group>"; };
+		881C8CDE23903CD700A6E8DE /* RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
+		881C8CE0239041F000A6E8DE /* GameModes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameModes.xcassets; sourceTree = "<group>"; };
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 		881216D82386FDF90091B5C4 /* Start Module */ = {
 			isa = PBXGroup;
 			children = (
+				881C8CE22390454700A6E8DE /* Custom Elements */,
 				881216DA2386FDF90091B5C4 /* StartView.swift */,
 				881216DB2386FDF90091B5C4 /* StartPresenter.swift */,
 				881216DC2386FDF90091B5C4 /* StartInteractor.swift */,
@@ -291,6 +300,7 @@
 				881C8CC2238E98DA00A6E8DE /* AliasLightNavigationController.swift */,
 				881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */,
 				881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */,
+				881C8CDE23903CD700A6E8DE /* RandomColor.swift */,
 			);
 			path = AliasUI;
 			sourceTree = "<group>";
@@ -299,6 +309,16 @@
 			isa = PBXGroup;
 			children = (
 				881C8CD7238FE82800A6E8DE /* RecordCell.swift */,
+			);
+			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
+		881C8CE22390454700A6E8DE /* Custom Elements */ = {
+			isa = PBXGroup;
+			children = (
+				881C8CDC23902E4B00A6E8DE /* GameModeCollectionCell.swift */,
+				881C8CDA23902D0D00A6E8DE /* GameModesTableCell.swift */,
+				881C8CE0239041F000A6E8DE /* GameModes.xcassets */,
 			);
 			path = "Custom Elements";
 			sourceTree = "<group>";
@@ -395,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881C8CE1239041F000A6E8DE /* GameModes.xcassets in Resources */,
 				8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +437,7 @@
 				881217042386FDFA0091B5C4 /* RecordsInteractor.swift in Sources */,
 				881217162386FDFA0091B5C4 /* PlayInteractor.swift in Sources */,
 				8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */,
+				881C8CDD23902E4B00A6E8DE /* GameModeCollectionCell.swift in Sources */,
 				8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */,
 				881216F92386FDFA0091B5C4 /* CoreDataStack.swift in Sources */,
 				8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */,
@@ -438,10 +460,12 @@
 				881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */,
 				881216FF2386FDFA0091B5C4 /* SettingsPresenter.swift in Sources */,
 				8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */,
+				881C8CDB23902D0D00A6E8DE /* GameModesTableCell.swift in Sources */,
 				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
 				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
 				881C8CC3238E98DA00A6E8DE /* AliasLightNavigationController.swift in Sources */,
 				88272070238DA9F8002E8648 /* Entity.swift in Sources */,
+				881C8CDF23903CD700A6E8DE /* RandomColor.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,

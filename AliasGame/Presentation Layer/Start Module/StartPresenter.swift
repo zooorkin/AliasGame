@@ -12,7 +12,7 @@ protocol StartPresenterInput {
 
     var output: StartPresenterOutput? { get set }
     
-    func playButtonTapped()
+    func gameModeTapped(withMode mode: AliasGameMode)
 
     func recordsButtonTapped()
     
@@ -53,7 +53,7 @@ class StartPresenter: StartPresenterInput {
         self.interactor = interactor
     }
     
-    func playButtonTapped() {
+    func gameModeTapped(withMode mode: AliasGameMode) {
         if let router = router {
             router.play()
         } else {

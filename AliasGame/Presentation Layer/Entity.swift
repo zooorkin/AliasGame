@@ -8,6 +8,22 @@
 
 import Foundation
 
+/// Режимы игры
+enum AliasGameMode {
+    case twoPlayers
+    case threePlayers
+    case fourPlayers
+    case fivePlayers
+    case sixPlayers
+    case sevenPlayers
+    case eightPlayers
+    case ninePlayers
+    /// Командные режимы
+    case twoTeams
+    case threeTeams
+    case fourTeams
+}
+
 /// Результат игры
 struct AliasGameResult {
     /// Идентификатор игры
