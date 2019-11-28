@@ -8,14 +8,17 @@
 
 import UIKit
 
-class AboutView: AliasViewController {
+class AboutView: AliasDarkViewController {
     
     
     private var presenter: AboutPresenterInput
     
+    let closeBarButtonItem: UIBarButtonItem
+    
     
     init(presenter: AboutPresenterInput) {
         self.presenter = presenter
+        closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: nil, action: nil)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,7 +28,15 @@ class AboutView: AliasViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        closeBarButtonItem.target = self
+        closeBarButtonItem.action = #selector(closeBarButtonTapped)
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = closeBarButtonItem
         title = "Об игре"
+    }
+    
+    @objc func closeBarButtonTapped() {
+        presenter.exitTapped()
     }
     
 }

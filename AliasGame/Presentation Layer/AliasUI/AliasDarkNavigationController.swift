@@ -1,14 +1,14 @@
 //
-//  AliasNavigationController.swift
+//  AliasDarkNavigationController.swift
 //  AliasGame
 //
-//  Created by Андрей Зорькин on 27/11/2019.
+//  Created by Андрей Зорькин on 28/11/2019.
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
 import UIKit
 
-class AliasNavigationController: UINavigationController {
+class AliasDarkNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

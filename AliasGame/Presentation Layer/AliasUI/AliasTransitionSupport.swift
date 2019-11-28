@@ -16,13 +16,18 @@ class AliasTransitionSupport {
     
     var coveredWindow = UIWindow(frame: UIScreen.main.bounds)
     
-    func performAliasTransition(viewController: UIViewController) {
+    func performAliasTransition(viewController: UIViewController, fullscreen: Bool) {
         mainWindow = UIApplication.shared.keyWindow!
         backgroundWindow.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 1)
         backgroundWindow.makeKeyAndVisible()
         mainWindow.makeKeyAndVisible()
-        viewController.view.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 0.8)
-        let playNavigationController = AliasNavigationController(rootViewController: viewController)
+        let playNavigationController: UINavigationController
+        if fullscreen {
+            playNavigationController = AliasLightNavigationController(rootViewController: viewController)
+        } else {
+            viewController.view.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 0.8)
+            playNavigationController = AliasDarkNavigationController(rootViewController: viewController)
+        }
         let presentingViewController = LightStatusBarViewController()
         self.coveredWindow.rootViewController = presentingViewController
         self.coveredWindow.makeKeyAndVisible()

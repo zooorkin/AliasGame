@@ -47,7 +47,6 @@ class ReservedView: UIViewController {
         // Exit button
         view.addSubview(exitButton)
         exitButton.setTitle("Выход", for: .normal)
-        exitButton.addTarget(presenter, action: #selector(ReservedPresenterInput.exitTapped), for: .touchUpInside)
         let exitButtonIntrinsicContentSize = exitButton.intrinsicContentSize
         exitButton.frame = CGRect(origin: .zero, size: exitButtonIntrinsicContentSize)
     }

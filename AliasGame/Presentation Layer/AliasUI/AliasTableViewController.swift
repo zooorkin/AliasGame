@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AliasTableViewController: AliasViewController {
+class AliasTableViewController: AliasDarkViewController {
 
     let tableView = UITableView(frame: .zero)
 

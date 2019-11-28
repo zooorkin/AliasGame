@@ -1,5 +1,5 @@
 //
-//  AliasViewController.swift
+//  AliasDarkViewController.swift
 //  AliasGame
 //
 //  Created by Андрей Зорькин on 27/11/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AliasViewController: UIViewController {
+class AliasDarkViewController: UIViewController {
 
     let aliasInsets = UIEdgeInsets(top: 0, left: 8, bottom: 8, right: 8)
     

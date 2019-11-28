@@ -41,10 +41,12 @@
 		8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F42386FDFA0091B5C4 /* ImageClassificator.swift */; };
 		8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F52386FDFA0091B5C4 /* WordsProvider.swift */; };
 		881C8CBD238E8DBF00A6E8DE /* AliasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */; };
-		881C8CC3238E98DA00A6E8DE /* AliasNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */; };
-		881C8CC5238EDA2E00A6E8DE /* AliasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */; };
+		881C8CC3238E98DA00A6E8DE /* AliasLightNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC2238E98DA00A6E8DE /* AliasLightNavigationController.swift */; };
+		881C8CC5238EDA2E00A6E8DE /* AliasDarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC4238EDA2E00A6E8DE /* AliasDarkViewController.swift */; };
 		881C8CCC238EFDB400A6E8DE /* LightStatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */; };
 		881C8CD0238F030600A6E8DE /* AliasTransitionSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */; };
+		881C8CD2238FBE0000A6E8DE /* AliasDarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */; };
+		881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */; };
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
@@ -99,10 +101,12 @@
 		881216F42386FDFA0091B5C4 /* ImageClassificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClassificator.swift; sourceTree = "<group>"; };
 		881216F52386FDFA0091B5C4 /* WordsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsProvider.swift; sourceTree = "<group>"; };
 		881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTableViewController.swift; sourceTree = "<group>"; };
-		881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasNavigationController.swift; sourceTree = "<group>"; };
-		881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasViewController.swift; sourceTree = "<group>"; };
+		881C8CC2238E98DA00A6E8DE /* AliasLightNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasLightNavigationController.swift; sourceTree = "<group>"; };
+		881C8CC4238EDA2E00A6E8DE /* AliasDarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasDarkViewController.swift; sourceTree = "<group>"; };
 		881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarViewController.swift; sourceTree = "<group>"; };
 		881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTransitionSupport.swift; sourceTree = "<group>"; };
+		881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasDarkNavigationController.swift; sourceTree = "<group>"; };
+		881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasLightViewController.swift; sourceTree = "<group>"; };
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -278,8 +282,10 @@
 			isa = PBXGroup;
 			children = (
 				881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */,
-				881C8CC4238EDA2E00A6E8DE /* AliasViewController.swift */,
-				881C8CC2238E98DA00A6E8DE /* AliasNavigationController.swift */,
+				881C8CC4238EDA2E00A6E8DE /* AliasDarkViewController.swift */,
+				881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */,
+				881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */,
+				881C8CC2238E98DA00A6E8DE /* AliasLightNavigationController.swift */,
 				881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */,
 				881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */,
 			);
@@ -405,6 +411,7 @@
 				8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */,
 				8812171C2386FDFA0091B5C4 /* Translater.swift in Sources */,
 				881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */,
+				881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
 				8812171B2386FDFA0091B5C4 /* ImageProvider.swift in Sources */,
 				8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */,
@@ -421,11 +428,12 @@
 				8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */,
 				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
 				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
-				881C8CC3238E98DA00A6E8DE /* AliasNavigationController.swift in Sources */,
+				881C8CC3238E98DA00A6E8DE /* AliasLightNavigationController.swift in Sources */,
 				88272070238DA9F8002E8648 /* Entity.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,
+				881C8CD2238FBE0000A6E8DE /* AliasDarkNavigationController.swift in Sources */,
 				881C8CD0238F030600A6E8DE /* AliasTransitionSupport.swift in Sources */,
 				881217142386FDFA0091B5C4 /* PlayPresenter.swift in Sources */,
 				881216FD2386FDFA0091B5C4 /* Router.swift in Sources */,
@@ -434,7 +442,7 @@
 				881217012386FDFA0091B5C4 /* SettingsView.swift in Sources */,
 				881217132386FDFA0091B5C4 /* AboutView.swift in Sources */,
 				881217052386FDFA0091B5C4 /* RecordsView.swift in Sources */,
-				881C8CC5238EDA2E00A6E8DE /* AliasViewController.swift in Sources */,
+				881C8CC5238EDA2E00A6E8DE /* AliasDarkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

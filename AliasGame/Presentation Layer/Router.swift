@@ -25,7 +25,7 @@ class Router: AliasTransitionSupport, RouterInput {
     private let presentationAssembly: PresentationAssemblyProtocol
 
     private lazy var navigationController: UINavigationController = {
-        let navigationController = AliasNavigationController()
+        let navigationController = AliasDarkNavigationController()
         return navigationController
     }()
 
@@ -44,7 +44,7 @@ extension Router: StartRouterInput {
     
     func play() {
         let playViewController = presentationAssembly.playModule()
-        performAliasTransition(viewController: playViewController)
+        performAliasTransition(viewController: playViewController, fullscreen: true)
     }
     
     func records() {
@@ -59,7 +59,7 @@ extension Router: StartRouterInput {
     
     func aboutGame() {
         let aboutViewController = presentationAssembly.aboutModule()
-        navigationController.pushViewController(aboutViewController, animated: true)
+        performAliasTransition(viewController: aboutViewController, fullscreen: false)
     }
     
 }
@@ -91,7 +91,7 @@ extension Router: SettingsRouterInput {
 extension Router: AboutRouterInput {
     
     func exitFromAboutModule() {
-        navigationController.popViewController(animated: true)
+        performAliasUntransition()
     }
 
 }

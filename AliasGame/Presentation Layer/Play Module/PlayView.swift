@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayView: AliasViewController {
+class PlayView: AliasLightViewController {
 
     
     private let presenter: PlayPresenterInput
@@ -29,12 +29,12 @@ class PlayView: AliasViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .groupTableViewBackground
         stopBarButtonItem.target = self
         stopBarButtonItem.action = #selector(stopBarButtonTapped)
-        navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = stopBarButtonItem
-//        navigationItem.largeTitleDisplayMode = .never
-        title = "Играть"
+        self.navigationItem.largeTitleDisplayMode = .never
+        title = "Раунд 1"
     }
     
     @objc func stopBarButtonTapped() {
