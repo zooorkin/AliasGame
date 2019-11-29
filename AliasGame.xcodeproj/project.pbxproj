@@ -55,6 +55,9 @@
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
 		88E36F412391594200F8F8F3 /* SafeTranslaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */; };
 		88E36F442391607D00F8F8F3 /* SafeTranslater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F432391607D00F8F8F3 /* SafeTranslater.swift */; };
+		88E36F46239165C200F8F8F3 /* RandomWordAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */; };
+		88E36F4923917B8F00F8F8F3 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4823917B8F00F8F8F3 /* StringHelper.swift */; };
+		88E36F4B23917D0C00F8F8F3 /* ArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4A23917D0C00F8F8F3 /* ArrayHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,9 @@
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeTranslaterTests.swift; sourceTree = "<group>"; };
 		88E36F432391607D00F8F8F3 /* SafeTranslater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeTranslater.swift; sourceTree = "<group>"; };
+		88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordAPI.swift; sourceTree = "<group>"; };
+		88E36F4823917B8F00F8F8F3 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		88E36F4A23917D0C00F8F8F3 /* ArrayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +198,7 @@
 		881216BF2386FDF90091B5C4 /* Core Layer */ = {
 			isa = PBXGroup;
 			children = (
+				88E36F47239165C900F8F8F3 /* API */,
 				881216C42386FDF90091B5C4 /* CoreDataStack.swift */,
 				881216C52386FDF90091B5C4 /* Networking.swift */,
 				881216C62386FDF90091B5C4 /* MachineLearning.swift */,
@@ -270,6 +277,7 @@
 		881216E72386FDF90091B5C4 /* Play Module */ = {
 			isa = PBXGroup;
 			children = (
+				88E36F4D23917EBC00F8F8F3 /* Helpers */,
 				881216EB2386FDF90091B5C4 /* PlayView.swift */,
 				881216E82386FDF90091B5C4 /* PlayPresenter.swift */,
 				881216EA2386FDF90091B5C4 /* PlayInteractor.swift */,
@@ -280,6 +288,7 @@
 		881216ED2386FDFA0091B5C4 /* Services Layer */ = {
 			isa = PBXGroup;
 			children = (
+				88E36F4C23917EAF00F8F8F3 /* Helpers */,
 				881216F22386FDFA0091B5C4 /* ImageProvider.swift */,
 				8827206A238DA560002E8648 /* GameDataSaver.swift */,
 				8827206C238DA5AA002E8648 /* GameDataProvider.swift */,
@@ -332,6 +341,30 @@
 				881216C12386FDF90091B5C4 /* CoreAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		88E36F47239165C900F8F8F3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		88E36F4C23917EAF00F8F8F3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				88E36F4A23917D0C00F8F8F3 /* ArrayHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		88E36F4D23917EBC00F8F8F3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				88E36F4823917B8F00F8F8F3 /* StringHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +470,7 @@
 				881217042386FDFA0091B5C4 /* RecordsInteractor.swift in Sources */,
 				881217162386FDFA0091B5C4 /* PlayInteractor.swift in Sources */,
 				8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */,
+				88E36F4923917B8F00F8F8F3 /* StringHelper.swift in Sources */,
 				881C8CDD23902E4B00A6E8DE /* GameModeCollectionCell.swift in Sources */,
 				8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */,
 				881216F92386FDFA0091B5C4 /* CoreDataStack.swift in Sources */,
@@ -444,6 +478,7 @@
 				8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */,
 				881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */,
 				881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */,
+				88E36F4B23917D0C00F8F8F3 /* ArrayHelper.swift in Sources */,
 				881C8CD8238FE82800A6E8DE /* RecordCell.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
 				8812171B2386FDFA0091B5C4 /* ImageProvider.swift in Sources */,
@@ -457,6 +492,7 @@
 				881216FB2386FDFA0091B5C4 /* MachineLearning.swift in Sources */,
 				881217172386FDFA0091B5C4 /* PlayView.swift in Sources */,
 				881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */,
+				88E36F46239165C200F8F8F3 /* RandomWordAPI.swift in Sources */,
 				881216FF2386FDFA0091B5C4 /* SettingsPresenter.swift in Sources */,
 				8812171E2386FDFA0091B5C4 /* WordsProvider.swift in Sources */,
 				881C8CDB23902D0D00A6E8DE /* GameModesTableCell.swift in Sources */,

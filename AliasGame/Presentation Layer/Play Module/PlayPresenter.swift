@@ -20,6 +20,8 @@ protocol PlayPresenterInput {
 
 protocol PlayPresenterOutput: class {
 
+    func showAlert(with message: String, completion: @escaping () -> Void)
+    
 }
 
 protocol PlayRouterInput: class {
@@ -39,6 +41,7 @@ class PlayPresenter: PlayPresenterInput {
 
     init(interactor: PlayInteractorInput) {
         self.interactor = interactor
+        interactor.loadWords(number: 20)
     }
     
     @objc func exitTapped() {
@@ -54,5 +57,27 @@ class PlayPresenter: PlayPresenterInput {
 }
 
 extension PlayPresenter: PlayInteractorOutput {
+    
+    func interactorFailedAction(with message: String) {
+        if let output = output {
+            output.showAlert(with: message) {
+                if let router = self.router {
+                    router.exitFromPlayModule()
+                } else {
+                    assertionFailure("[PlayPresenter]: router is nil")
+                }
+            }
+        } else {
+            assertionFailure("[PlayPresenter]: output is nil")
+        }
+    }
+    
+    func interactorLoadedWords(words: [String]) {
+        guard let output = output else {
+            assertionFailure("[PlayPresenter]: output is nil")
+            return
+        }
+        output.showAlert(with: "Загруженные слова:\n" + words.joined(separator: "\n"), completion: { })
+    }
     
 }

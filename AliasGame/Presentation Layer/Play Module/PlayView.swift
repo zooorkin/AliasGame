@@ -235,4 +235,17 @@ class PlayView: AliasLightViewController {
 
 extension PlayView: PlayPresenterOutput {
     
+    func showAlert(with message: String, completion: @escaping () -> Void) {
+        let alertController = UIAlertController(title: "Уведомление",
+                                                message: message,
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            completion()
+        }
+        alertController.addAction(okAction)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
 }
