@@ -30,7 +30,7 @@ protocol StartPresenterOutput: class {
 
 protocol StartRouterInput: class {
     
-    func play()
+    func play(mode: AliasGameMode)
     
     func records()
     
@@ -55,7 +55,7 @@ class StartPresenter: StartPresenterInput {
     
     func gameModeTapped(withMode mode: AliasGameMode) {
         if let router = router {
-            router.play()
+            router.play(mode: mode)
         } else {
             #if DEBUG
             debugPrint("[StartPresenter]: router is nil")

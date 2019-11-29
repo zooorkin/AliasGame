@@ -10,7 +10,19 @@ protocol PlayInteractorInput {
 
     var output: PlayInteractorOutput? { get set }
     
-    func loadWords(number: Int)
+    func loadWords()
+    
+    func getNextWord() -> String?
+    
+    var words: [String] { get }
+    
+    func wordWasGuessed()
+    
+    func wordWasNotGuessed()
+    
+    var team: Int { get }
+    
+    var round: Int { get }
 
 }
 
@@ -18,13 +30,16 @@ protocol PlayInteractorOutput: class {
     
     func interactorFailedAction(with message: String)
     
-    func interactorLoadedWords(words: [String])
+    func interactorLoadedWords()
 
 }
 
 class PlayInteractor: PlayInteractorInput {
 
     weak var output: PlayInteractorOutput?
+    
+    private var gameMode: AliasGameMode
+    
 
     private var wordsProvider: WordsProviderProtocol
     
@@ -36,12 +51,52 @@ class PlayInteractor: PlayInteractorInput {
     
     private var gameDataSaver: GameDataSaverProtocol
     
+    
     private var keyIsValid = false
     
     private var taskToDo: (() -> Void)?
     
+    var words: [String] = []
     
-    init(wordsProvider: WordsProviderProtocol, imageProvider: ImageProviderProtocol, translater: TranslaterProtocol, imageClassificator: ImageClassificatorProtocol, gameDataSaver: GameDataSaverProtocol) {
+    private var currentWord: String?
+    
+    private var guessedWords: [String] = []
+    
+    private var notGuessedWords: [String] = []
+    
+    var team: Int = 0
+    
+    var round: Int = 0
+    
+    func getNextWord() -> String? {
+        if !words.isEmpty {
+            let currentWord = words.removeFirst()
+            self.currentWord = currentWord
+            return currentWord
+        } else {
+            return nil
+        }
+    }
+    
+    func wordWasGuessed() {
+        if let currentWord = currentWord {
+            guessedWords.append(currentWord)
+        } else {
+            print("[PlayInteractor]: curentWord is nil")
+        }
+    }
+    
+    func wordWasNotGuessed() {
+        if let currentWord = currentWord {
+            notGuessedWords.append(currentWord)
+        } else {
+            print("[PlayInteractor]: curentWord is nil")
+        }
+    }
+    
+    
+    init(mode: AliasGameMode, wordsProvider: WordsProviderProtocol, imageProvider: ImageProviderProtocol, translater: TranslaterProtocol, imageClassificator: ImageClassificatorProtocol, gameDataSaver: GameDataSaverProtocol) {
+        self.gameMode = mode
         self.wordsProvider = wordsProvider
         self.imageProvider = imageProvider
         self.translater = translater
@@ -54,13 +109,13 @@ class PlayInteractor: PlayInteractorInput {
         wordsProvider.requestKey()
     }
     
-    func loadWords(number: Int) {
+    func loadWords() {
         if keyIsValid {
-            wordsProvider.getWords(number: number)
+            wordsProvider.getWords(number: 20)
         } else {
             wordsProvider.requestKey()
             taskToDo = {
-                self.wordsProvider.getWords(number: number)
+                self.wordsProvider.getWords(number: 20)
             }
         }
     }
@@ -96,7 +151,8 @@ extension PlayInteractor: WordsProviderDelegate {
             case .success(let translation):
                 let translatedWords = translation.split(separator: "\n")
                 let translatedWordsAsArrayOfStrings = translatedWords.map { String($0).uppercasedFirstLetter() }
-                output.interactorLoadedWords(words: translatedWordsAsArrayOfStrings)
+                self.words = translatedWordsAsArrayOfStrings
+                output.interactorLoadedWords()
             case .failure(let error):
                 output.interactorFailedAction(with: error.localizedDescription)
             }

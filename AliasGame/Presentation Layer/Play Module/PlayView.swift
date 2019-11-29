@@ -26,12 +26,12 @@ class PlayView: AliasLightViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Раунд 1"
         setupBarButtons()
         setupMainWordLabel()
         setupScoreLabel()
         setupImageViews()
         setupButtons()
+        presenter.viewDidLoad()
     }
     
     override func viewWillLayoutSubviews() {
@@ -86,8 +86,9 @@ class PlayView: AliasLightViewController {
     
     /// Настройка слова
     private func setupMainWordLabel() {
-        mainWordLabel.text = "Слово"
+        mainWordLabel.text = " "
         mainWordLabel.font = .systemFont(ofSize: 34.0, weight: .bold)
+        mainWordLabel.textAlignment = .center
         view.addSubview(mainWordLabel)
     }
     
@@ -149,9 +150,10 @@ class PlayView: AliasLightViewController {
     private func layoutMainWordLabel() {
         let topSafeInset = view.safeAreaInsets.top
         let mainWordLabelIntrinsicSize = mainWordLabel.intrinsicContentSize
-        mainWordLabel.frame = CGRect(origin: .zero, size: mainWordLabelIntrinsicSize)
-        mainWordLabel.center = CGPoint(x: view.center.x,
-                                       y: topSafeInset + mainWordLabelIntrinsicSize.height / 2 + 32.0)
+        mainWordLabel.frame = CGRect(x: 0,
+                                     y: topSafeInset + mainWordLabelIntrinsicSize.height / 2 + 32.0,
+                                     width: view.frame.width,
+                                     height: mainWordLabelIntrinsicSize.height)
     }
     
     private func layoutImageViews() {
@@ -219,21 +221,39 @@ class PlayView: AliasLightViewController {
     }
     
     @objc func pauseBarButtonTapped() {
-        print("\(#function) is called")
+        presenter.pauseButtonTapped()
     }
     
     @objc func successButtonTapped() {
-        print("\(#function) is called")
+        presenter.successButtonTapped()
     }
     
     @objc func failureButtonTapped() {
-        print("\(#function) is called")
+        presenter.failureButtonTapped()
     }
     
 }
 
 
 extension PlayView: PlayPresenterOutput {
+    
+    func setCurrentWord(word: String) {
+        DispatchQueue.main.async {
+            self.mainWordLabel.text = word.uppercasedFirstLetter()
+        }
+    }
+    
+    func setCurrentTeam(name: String) {
+        DispatchQueue.main.async {
+            self.teamLabel.text = name
+        }
+    }
+    
+    func setCurrentRound(number: Int) {
+        DispatchQueue.main.async {
+            self.title = "Раунд \(number)"
+        }
+    }
     
     func showAlert(with message: String, completion: @escaping () -> Void) {
         let alertController = UIAlertController(title: "Уведомление",

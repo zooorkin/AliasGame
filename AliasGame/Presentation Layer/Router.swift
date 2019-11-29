@@ -42,8 +42,8 @@ class Router: AliasTransitionSupport, RouterInput {
 
 extension Router: StartRouterInput {
     
-    func play() {
-        let playViewController = presentationAssembly.playModule()
+    func play(mode: AliasGameMode) {
+        let playViewController = presentationAssembly.playModule(mode: mode)
         performAliasTransition(viewController: playViewController, fullscreen: true)
     }
     

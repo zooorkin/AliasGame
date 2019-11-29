@@ -22,7 +22,7 @@ protocol PresentationAssemblyProtocol {
     
     func startModule() -> StartView
     
-    func playModule() -> PlayView
+    func playModule(mode: AliasGameMode) -> PlayView
     
     func recordsModule() -> RecordsView
     
@@ -85,14 +85,15 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         return view
     }
 
-    func playModule() -> PlayView {
+    func playModule(mode: AliasGameMode) -> PlayView {
         let wordsProvider = servicesAssembly.wordsProvider
         let imageProvider = servicesAssembly.imageProvider
         let translater = servicesAssembly.translater
         let imageClassificator = servicesAssembly.imageClassificator
         let gameDataSaver = servicesAssembly.gameDataSaver
 
-        let interactor = PlayInteractor(wordsProvider: wordsProvider,
+        let interactor = PlayInteractor(mode: mode,
+                                        wordsProvider: wordsProvider,
                                         imageProvider: imageProvider,
                                         translater: translater,
                                         imageClassificator: imageClassificator,
