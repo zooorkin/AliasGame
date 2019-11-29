@@ -39,7 +39,6 @@ class PlayInteractor: PlayInteractorInput {
         self.gameDataSaver = gameDataSaver
         self.wordsProvider.delegate = self
         self.imageProvider.delegate = self
-        self.translater.delegate = self
         self.imageClassificator.delegate = self
         self.gameDataSaver.delegate = self
     }
@@ -51,10 +50,6 @@ extension PlayInteractor: WordsProviderDelegate {
 }
 
 extension PlayInteractor: ImageProviderDelegate {
-    
-}
-
-extension PlayInteractor: TranslaterDelegate {
     
 }
 

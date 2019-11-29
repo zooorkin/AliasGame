@@ -46,7 +46,7 @@ class ServicesAssembly: ServicesAssemblyProtocol {
 
     lazy var translater: TranslaterProtocol = {
         let networking = coreAssembly.networking
-        return Translater(networking: networking)
+        return SafeTranslater(networking: networking)
     }()
 
     lazy var imageClassificator: ImageClassificatorProtocol = {

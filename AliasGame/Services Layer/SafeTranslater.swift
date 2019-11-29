@@ -8,7 +8,15 @@
 
 import Foundation
 
-class SafeTranslater {
+protocol TranslaterProtocol {
+    
+    func translate(englishWord: String, completion: @escaping (Result<String, Error>) -> Void)
+    
+}
+
+class SafeTranslater: TranslaterProtocol {
+    
+    let session: URLSession
     
     enum SafeTranslaterError: Error {
         
@@ -32,11 +40,11 @@ class SafeTranslater {
         let text: [String]
     }
     
-    static let shared = SafeTranslater()
+    init(networking: NetworkingProtocol) {
+        session = networking.session
+    }
     
-    private init() { }
-    
-    func safeTranslate(english_text: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func translate(englishWord: String, completion: @escaping (Result<String, Error>) -> Void) {
         
         /**************************************************************************************************************/
         /*                                                                                                            */
@@ -44,7 +52,7 @@ class SafeTranslater {
         /*                                                                                                            */
         /**************************************************************************************************************/
         
-        let fdjsgfjgfjdff = "trnsl.1.1.20191103T153017Z."
+        let fdjsgfjgfjdff = "trnsl.1.1.20191103T153017Z."; let english_text = englishWord
         let asddsasdsd = "2c0173d7"; let sdssadsdsd = "78327957bb57c7ef"; let sdjflkdjfd = "4a6d935ca21df651"
         let kfjasdjfd = "7c7ef782379557bb"; let jasdlkfjdklf = "044efd0a"; let sadkflddsdkf = "5904e8aa"
         let djsflkdjfjff = "6777778899"; let lskdjafkldfj = "aaaaabbcccc"; let dslkjfdlkfjdf = "eeefgiiklmnooorsz"

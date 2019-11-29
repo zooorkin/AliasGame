@@ -6,6 +6,8 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
+import Foundation
+
 protocol CoreAssemblyProtocol {
     
     var networking: NetworkingProtocol { get }
@@ -18,7 +20,7 @@ protocol CoreAssemblyProtocol {
 
 class CoreAssembly: CoreAssemblyProtocol {
 
-    lazy var networking: NetworkingProtocol = Networking()
+    lazy var networking: NetworkingProtocol = Networking(session: URLSession.shared)
 
     lazy var machineLearning: MachineLearningProtocol = MachineLearning()
 
