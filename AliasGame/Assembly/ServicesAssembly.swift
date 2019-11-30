@@ -10,7 +10,7 @@ protocol ServicesAssemblyProtocol {
     
     init(coreAssembly: CoreAssemblyProtocol)
     
-    var wordsProvider: WordsProviderProtocol { get }
+    var internetWordsProvider: WordsProviderProtocol { get }
     
     var imageProvider: ImageProviderProtocol { get }
     
@@ -34,9 +34,9 @@ class ServicesAssembly: ServicesAssemblyProtocol {
     }
 
 
-    lazy var wordsProvider: WordsProviderProtocol = {
+    lazy var internetWordsProvider: WordsProviderProtocol = {
         let networking = coreAssembly.networking
-        return WordsProvider(networking: networking)
+        return InternetWordsProvider(networking: networking)
     }()
 
     lazy var imageProvider: ImageProviderProtocol = {

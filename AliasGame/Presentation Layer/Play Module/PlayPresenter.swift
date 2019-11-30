@@ -55,7 +55,6 @@ class PlayPresenter: PlayPresenterInput {
 
     init(interactor: PlayInteractorInput) {
         self.interactor = interactor
-        interactor.loadWords()
     }
     
     func viewDidLoad() {

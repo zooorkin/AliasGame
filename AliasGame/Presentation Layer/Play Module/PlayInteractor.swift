@@ -52,10 +52,6 @@ class PlayInteractor: PlayInteractorInput {
     private var gameDataSaver: GameDataSaverProtocol
     
     
-    private var keyIsValid = false
-    
-    private var taskToDo: (() -> Void)?
-    
     var words: [String] = []
     
     private var currentWord: String?
@@ -106,39 +102,15 @@ class PlayInteractor: PlayInteractorInput {
         self.imageProvider.delegate = self
         self.imageClassificator.delegate = self
         self.gameDataSaver.delegate = self
-        wordsProvider.requestKey()
     }
     
     func loadWords() {
-        if keyIsValid {
-            wordsProvider.getWords(number: 20)
-        } else {
-            wordsProvider.requestKey()
-            taskToDo = {
-                self.wordsProvider.getWords(number: 20)
-            }
-        }
+        wordsProvider.getWords(number: 20)
     }
     
 }
 
 extension PlayInteractor: WordsProviderDelegate {
-    func wordsProviderDidGetKey() {
-        keyIsValid = true
-        if let taskToDo = taskToDo {
-            taskToDo()
-            self.taskToDo = nil
-        }
-        
-    }
-    
-    func wordsProviderDidNotGetKey() {
-        if let output = output {
-            output.interactorFailedAction(with: "Не удалось загрузить ключ доступа к серверу слов")
-        } else {
-            assertionFailure("[PlayInteractor]: output is nil")
-        }
-    }
     
     func wordsProviderDidGetWords(words: [String]) {
         guard let output = output else {
@@ -166,7 +138,6 @@ extension PlayInteractor: WordsProviderDelegate {
             assertionFailure("[PlayInteractor]: output is nil")
         }
     }
-    
     
 }
 

@@ -12,18 +12,12 @@ protocol WordsProviderProtocol {
 
     var delegate: WordsProviderDelegate? { get set }
     
-    func requestKey()
-    
     func getWords(number: Int)
 
 }
 
 
 protocol WordsProviderDelegate {
-
-    func wordsProviderDidGetKey()
-    
-    func wordsProviderDidNotGetKey()
     
     func wordsProviderDidGetWords(words: [String])
     
@@ -32,19 +26,26 @@ protocol WordsProviderDelegate {
 }
 
 
-class WordsProvider: WordsProviderProtocol {
+class InternetWordsProvider: WordsProviderProtocol {
 
     var delegate: WordsProviderDelegate?
 
     private var session: URLSession
     
-    private var key = ""
+    private var key: String?
 
     init(networking: NetworkingProtocol) {
         self.session = networking.session
     }
     
     func getWords(number: Int) {
+        guard let key = key  else {
+            loadNewKey {
+                self.getWords(number: number)
+            }
+            return
+        }
+        
         guard let delegate = delegate else {
             assertionFailure("[WordsProvider]: delegate is nil")
             return
@@ -81,19 +82,7 @@ class WordsProvider: WordsProviderProtocol {
         task.resume()
     }
     
-    func requestKey() {
-        key.isEmpty ? loadNewKey() : loadCachedKey()
-    }
-    
-    private func loadCachedKey() {
-        guard let delegate = delegate else {
-            assertionFailure("[WordsProvider]: delegate is nil")
-            return
-        }
-        delegate.wordsProviderDidGetKey()
-    }
-    
-    private func loadNewKey() {
+    private func loadNewKey(completion: @escaping () -> Void) {
         guard let delegate = delegate else {
             assertionFailure("[WordsProvider]: delegate is nil")
             return
@@ -106,12 +95,12 @@ class WordsProvider: WordsProviderProtocol {
             if let data = data {
                 if let key = String(data: data, encoding: .utf8) {
                     self.key = key
-                    delegate.wordsProviderDidGetKey()
+                    completion()
                 } else {
-                    delegate.wordsProviderDidNotGetKey()
+                    delegate.wordsProviderDidNotGetWords()
                 }
             } else {
-                delegate.wordsProviderDidNotGetKey()
+                delegate.wordsProviderDidNotGetWords()
             }
         }
         task.resume()
