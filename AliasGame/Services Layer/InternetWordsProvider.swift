@@ -8,24 +8,6 @@
 
 import Foundation
 
-protocol WordsProviderProtocol {
-
-    var delegate: WordsProviderDelegate? { get set }
-    
-    func getWords(number: Int)
-
-}
-
-
-protocol WordsProviderDelegate {
-    
-    func wordsProviderDidGetWords(words: [String])
-    
-    func wordsProviderDidNotGetWords()
-    
-}
-
-
 class InternetWordsProvider: WordsProviderProtocol {
 
     var delegate: WordsProviderDelegate?
@@ -38,31 +20,35 @@ class InternetWordsProvider: WordsProviderProtocol {
         self.session = networking.session
     }
     
-    func getWords(number: Int) {
+    func getWords(number: Int, language: Word.Language, category: Word.Category) {
+        guard let delegate = delegate else {
+            assertionFailure("[InternetWordsProvider]: delegate is nil")
+            return
+        }
+        guard language != .english && category != .any else {
+            delegate.wordsProviderDidNotGetWords()
+            return
+        }
         guard let key = key  else {
             loadNewKey {
-                self.getWords(number: number)
+                self.getWords(number: number, language: language, category: category)
             }
             return
         }
-        
-        guard let delegate = delegate else {
-            assertionFailure("[WordsProvider]: delegate is nil")
-            return
-        }
+
         // 10 %
         let extraWordsToDeleteRareDublicates = number / 10
         let totalWordsToDownload = extraWordsToDeleteRareDublicates + number
         
         guard let getWordsURL = RandomWordAPI.getWordsURL(key: key, number: totalWordsToDownload) else {
-            print("[WordsProvider]: getWordsURL is nil")
+            print("[InternetWordsProvider]: getWordsURL is nil")
             delegate.wordsProviderDidNotGetWords()
             return
         }
         
         let task = session.dataTask(with: getWordsURL) { (data, response, error) in
             guard let data = data else {
-                print("[WordsProvider]: data is nil")
+                print("[InternetWordsProvider]: data is nil")
                 delegate.wordsProviderDidNotGetWords()
                 return
             }
@@ -75,7 +61,7 @@ class InternetWordsProvider: WordsProviderProtocol {
                     delegate.wordsProviderDidNotGetWords()
                 }
             } catch {
-                print("[WordsProvider]: words were not decoded")
+                print("[InternetWordsProvider]: words were not decoded")
                 delegate.wordsProviderDidNotGetWords()
             }
         }
@@ -84,11 +70,11 @@ class InternetWordsProvider: WordsProviderProtocol {
     
     private func loadNewKey(completion: @escaping () -> Void) {
         guard let delegate = delegate else {
-            assertionFailure("[WordsProvider]: delegate is nil")
+            assertionFailure("[InternetWordsProvider]: delegate is nil")
             return
         }
         guard let getKeyURL = URL(string: RandomWordAPI.getKeyURL) else {
-            assertionFailure("[WordsProvider]: url is nil")
+            assertionFailure("[InternetWordsProvider]: url is nil")
             return
         }
         let task = session.dataTask(with: getKeyURL) { (data, response, error) in

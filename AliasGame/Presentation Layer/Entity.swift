@@ -8,6 +8,14 @@
 
 import Foundation
 
+/// Alias-слово
+struct AliasWord {
+    /// Слово
+    let word: String
+    /// Перевод
+    let translate: String?
+}
+
 /// Режимы игры
 enum AliasGameMode {
     case twoPlayers

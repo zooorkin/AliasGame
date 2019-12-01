@@ -92,7 +92,7 @@ class PlayPresenter: PlayPresenterInput {
             return
         }
         if let word = interactor.getNextWord() {
-            output.setCurrentWord(word: word)
+            output.setCurrentWord(word: word.word)
         } else {
             output.showAlert(with: "Слова закончились", completion: { })
         }
@@ -131,10 +131,8 @@ extension PlayPresenter: PlayInteractorOutput {
             assertionFailure("[PlayPresenter]: output is nil")
             return
         }
-        let words = interactor.words
-        output.showAlert(with: "Загруженные слова:\n" + words.joined(separator: "\n"), completion: { })
         if let word = interactor.getNextWord() {
-            output.setCurrentWord(word: word)
+            output.setCurrentWord(word: word.word)
         } else {
             output.showAlert(with: "Слова закончились", completion: { })
         }

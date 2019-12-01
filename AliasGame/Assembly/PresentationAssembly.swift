@@ -86,14 +86,14 @@ class PresentationAssembly: PresentationAssemblyProtocol {
     }
 
     func playModule(mode: AliasGameMode) -> PlayView {
-        let internetWordsProvider = servicesAssembly.internetWordsProvider
+        let wordsProvider = servicesAssembly.storedWordsProvider
         let imageProvider = servicesAssembly.imageProvider
         let translater = servicesAssembly.translater
         let imageClassificator = servicesAssembly.imageClassificator
         let gameDataSaver = servicesAssembly.gameDataSaver
 
         let interactor = PlayInteractor(mode: mode,
-                                        wordsProvider: internetWordsProvider,
+                                        wordsProvider: wordsProvider,
                                         imageProvider: imageProvider,
                                         translater: translater,
                                         imageClassificator: imageClassificator,

@@ -12,9 +12,9 @@ protocol PlayInteractorInput {
     
     func loadWords()
     
-    func getNextWord() -> String?
+    func getNextWord() -> AliasWord?
     
-    var words: [String] { get }
+    var words: [AliasWord] { get }
     
     func wordWasGuessed()
     
@@ -52,19 +52,21 @@ class PlayInteractor: PlayInteractorInput {
     private var gameDataSaver: GameDataSaverProtocol
     
     
-    var words: [String] = []
+    var words: [AliasWord] = []
     
-    private var currentWord: String?
+    private var currentWord: AliasWord?
     
-    private var guessedWords: [String] = []
+    private var guessedWords: [AliasWord] = []
     
-    private var notGuessedWords: [String] = []
+    private var notGuessedWords: [AliasWord] = []
     
     var team: Int = 0
     
     var round: Int = 0
     
-    func getNextWord() -> String? {
+    private var configurationToTranslate = false
+    
+    func getNextWord() -> AliasWord? {
         if !words.isEmpty {
             let currentWord = words.removeFirst()
             self.currentWord = currentWord
@@ -105,7 +107,7 @@ class PlayInteractor: PlayInteractorInput {
     }
     
     func loadWords() {
-        wordsProvider.getWords(number: 20)
+        wordsProvider.getWords(number: 100, language: .russian, category: .noun)
     }
     
 }
@@ -118,16 +120,27 @@ extension PlayInteractor: WordsProviderDelegate {
             return
         }
         
-        translater.translate(englishWord: words.joined(separator: "\n")) { result in
-            switch result {
-            case .success(let translation):
-                let translatedWords = translation.split(separator: "\n")
-                let translatedWordsAsArrayOfStrings = translatedWords.map { String($0).uppercasedFirstLetter() }
-                self.words = translatedWordsAsArrayOfStrings
-                output.interactorLoadedWords()
-            case .failure(let error):
-                output.interactorFailedAction(with: error.localizedDescription)
+        if configurationToTranslate {
+            translater.translate(englishWord: words.joined(separator: "\n")) { result in
+                switch result {
+                case .success(let translation):
+                    let translatedWords = translation.split(separator: "\n").map { String($0).uppercasedFirstLetter() }
+                    guard words.count == translatedWords.count else {
+                        output.interactorFailedAction(with: "Произошла ошибка при переводе")
+                        return
+                    }
+                    for index in 0 ..< words.count {
+                        let wordWithTranslation = AliasWord(word: words[index], translate: translatedWords[index])
+                        self.words.append(wordWithTranslation)
+                    }
+                    output.interactorLoadedWords()
+                case .failure(let error):
+                    output.interactorFailedAction(with: error.localizedDescription)
+                }
             }
+        } else {
+            self.words = words.map { AliasWord(word: $0, translate: nil)}
+            output.interactorLoadedWords()
         }
     }
     
