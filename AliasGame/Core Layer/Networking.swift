@@ -14,6 +14,8 @@ protocol NetworkingProtocol {
     
     var session: URLSession { get }
 
+    func getData(at path: URL, completion: @escaping (Data?) -> Void)
+    
 }
 
 
@@ -30,6 +32,13 @@ class Networking: NetworkingProtocol {
     
     init(session: URLSession) {
         self.session = session
+    }
+    
+    func getData(at path: URL, completion: @escaping (Data?) -> Void) {
+        let dataTask = session.dataTask(with: path) { data, _, _ in
+            completion(data)
+        }
+        dataTask.resume()
     }
 
 }

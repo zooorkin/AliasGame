@@ -48,7 +48,7 @@ class ServicesAssembly: ServicesAssemblyProtocol {
 
     lazy var imageProvider: ImageProviderProtocol = {
         let networking = coreAssembly.networking
-        return ImageProvider(networking: networking)
+        return FlickrImageProvider(networking: networking)
     }()
 
     lazy var translater: TranslaterProtocol = {

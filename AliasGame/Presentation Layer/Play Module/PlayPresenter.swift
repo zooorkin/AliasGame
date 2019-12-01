@@ -6,7 +6,7 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PlayPresenterInput {
 
@@ -33,6 +33,12 @@ protocol PlayPresenterOutput: class {
     func setCurrentTeam(name: String)
     
     func setCurrentRound(number: Int)
+    
+    func setCenterImage(image: UIImage?)
+    
+    func setRightImage(image: UIImage?)
+    
+    func setRightRightImage(image: UIImage?)
     
     func showAlert(with message: String, completion: @escaping () -> Void)
     
@@ -66,14 +72,16 @@ class PlayPresenter: PlayPresenterInput {
         
     }
     
+    private var guessedWords: [AliasWord] = []
+    
+    private var notGuessedWords: [AliasWord] = []
+    
     func successButtonTapped() {
-        interactor.wordWasGuessed()
-        nextWord()
+        nextWord(previousWasGuessed: true)
     }
     
     func failureButtonTapped() {
-        interactor.wordWasNotGuessed()
-        nextWord()
+        nextWord(previousWasGuessed: false)
     }
     
     private func updateUI() {
@@ -86,16 +94,31 @@ class PlayPresenter: PlayPresenterInput {
         output.setCurrentTeam(name: teamName)
     }
     
-    private func nextWord() {
+    var currentWordIndex = -1
+    
+    private func nextWord(previousWasGuessed: Bool) {
         guard let output = output else {
             assertionFailure("[PlayPresenter]: output is nil")
             return
         }
-        if let word = interactor.getNextWord() {
-            output.setCurrentWord(word: word.word)
-        } else {
-            output.showAlert(with: "Слова закончились", completion: { })
+        currentWordIndex += 1
+        if currentWordIndex >= interactor.words.count {
+            output.showAlert(with: "Слова закончились", completion: { self.router?.exitFromPlayModule() })
+            
+            return
         }
+        if currentWordIndex != 0 {
+            if previousWasGuessed {
+                guessedWords.append(interactor.words[currentWordIndex - 1])
+            } else {
+                notGuessedWords.append(interactor.words[currentWordIndex - 1])
+            }
+        }
+        let defaultImage = UIImage(color: getRandomColor())
+        output    .setCurrentWord(word: interactor.words[currentWordIndex].word)
+        output    .setCenterImage(image: interactor.words[currentWordIndex].image ?? defaultImage)
+        output     .setRightImage(image: currentWordIndex + 1 < interactor.words.count ? interactor.words[currentWordIndex + 1].image ?? defaultImage : nil)
+        output.setRightRightImage(image: currentWordIndex + 2 < interactor.words.count ? interactor.words[currentWordIndex + 2].image ?? defaultImage: nil)
     }
     
     func exitTapped() {
@@ -111,7 +134,7 @@ class PlayPresenter: PlayPresenterInput {
 }
 
 extension PlayPresenter: PlayInteractorOutput {
-    
+
     func interactorFailedAction(with message: String) {
         if let output = output {
             output.showAlert(with: message) {
@@ -126,15 +149,21 @@ extension PlayPresenter: PlayInteractorOutput {
         }
     }
     
-    func interactorLoadedWords() {
+    func interactorDidLoadWords() {
+        nextWord(previousWasGuessed: true)
+    }
+    
+    func interactorDidNotLoadWords() {
+        guard let router = router else {
+            debugPrint("[PlayPresenter]: router is nil")
+            return
+        }
         guard let output = output else {
             assertionFailure("[PlayPresenter]: output is nil")
             return
         }
-        if let word = interactor.getNextWord() {
-            output.setCurrentWord(word: word.word)
-        } else {
-            output.showAlert(with: "Слова закончились", completion: { })
+        output.showAlert(with: "Не удалось загрузить слова") {
+            router.exitFromPlayModule()
         }
     }
     

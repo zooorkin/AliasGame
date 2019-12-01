@@ -6,19 +6,15 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
+import UIKit
+
 protocol PlayInteractorInput {
 
     var output: PlayInteractorOutput? { get set }
     
     func loadWords()
     
-    func getNextWord() -> AliasWord?
-    
     var words: [AliasWord] { get }
-    
-    func wordWasGuessed()
-    
-    func wordWasNotGuessed()
     
     var team: Int { get }
     
@@ -30,11 +26,16 @@ protocol PlayInteractorOutput: class {
     
     func interactorFailedAction(with message: String)
     
-    func interactorLoadedWords()
+    func interactorDidLoadWords()
+    
+    func interactorDidNotLoadWords()
 
 }
 
 class PlayInteractor: PlayInteractorInput {
+    
+    private let wordsCountForSet = 40
+    
 
     weak var output: PlayInteractorOutput?
     
@@ -51,47 +52,15 @@ class PlayInteractor: PlayInteractorInput {
     
     private var gameDataSaver: GameDataSaverProtocol
     
-    
     var words: [AliasWord] = []
     
-    private var currentWord: AliasWord?
-    
-    private var guessedWords: [AliasWord] = []
-    
-    private var notGuessedWords: [AliasWord] = []
+    private var currentImage: UIImage?
     
     var team: Int = 0
     
     var round: Int = 0
     
     private var configurationToTranslate = false
-    
-    func getNextWord() -> AliasWord? {
-        if !words.isEmpty {
-            let currentWord = words.removeFirst()
-            self.currentWord = currentWord
-            return currentWord
-        } else {
-            return nil
-        }
-    }
-    
-    func wordWasGuessed() {
-        if let currentWord = currentWord {
-            guessedWords.append(currentWord)
-        } else {
-            print("[PlayInteractor]: curentWord is nil")
-        }
-    }
-    
-    func wordWasNotGuessed() {
-        if let currentWord = currentWord {
-            notGuessedWords.append(currentWord)
-        } else {
-            print("[PlayInteractor]: curentWord is nil")
-        }
-    }
-    
     
     init(mode: AliasGameMode, wordsProvider: WordsProviderProtocol, imageProvider: ImageProviderProtocol, translater: TranslaterProtocol, imageClassificator: ImageClassificatorProtocol, gameDataSaver: GameDataSaverProtocol) {
         self.gameMode = mode
@@ -107,7 +76,9 @@ class PlayInteractor: PlayInteractorInput {
     }
     
     func loadWords() {
-        wordsProvider.getWords(number: 100, language: .russian, category: .noun)
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.wordsProvider.getWords(number: self.wordsCountForSet, language: .russian, category: .noun)
+        }
     }
     
 }
@@ -119,6 +90,10 @@ extension PlayInteractor: WordsProviderDelegate {
             assertionFailure("[PlayInteractor]: output is nil")
             return
         }
+        guard words.count == wordsCountForSet else {
+            output.interactorDidNotLoadWords()
+            return
+        }
         
         if configurationToTranslate {
             translater.translate(englishWord: words.joined(separator: "\n")) { result in
@@ -126,22 +101,34 @@ extension PlayInteractor: WordsProviderDelegate {
                 case .success(let translation):
                     let translatedWords = translation.split(separator: "\n").map { String($0).uppercasedFirstLetter() }
                     guard words.count == translatedWords.count else {
-                        output.interactorFailedAction(with: "Произошла ошибка при переводе")
+                        output.interactorDidNotLoadWords()
                         return
                     }
                     for index in 0 ..< words.count {
-                        let wordWithTranslation = AliasWord(word: words[index], translate: translatedWords[index])
+                        let wordWithTranslation = AliasWord(word: words[index], translate: translatedWords[index], image: nil)
                         self.words.append(wordWithTranslation)
                     }
-                    output.interactorLoadedWords()
+                    
                 case .failure(let error):
                     output.interactorFailedAction(with: error.localizedDescription)
+                    return
                 }
             }
         } else {
-            self.words = words.map { AliasWord(word: $0, translate: nil)}
-            output.interactorLoadedWords()
+            self.words = words.map { AliasWord(word: $0, translate: nil, image: nil) }
         }
+        let group = DispatchGroup()
+        for index in 0 ..< wordsCountForSet {
+            group.enter()
+            imageProvider.getImage(with: self.words[index].word) { image in
+                self.words[index].image = image
+                group.leave()
+            }
+        }
+        let image = UIImage(color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
+        self.words.append(AliasWord(word: "Огонь! 🔥", translate: nil, image: image))
+        group.wait()
+        output.interactorDidLoadWords()
     }
     
     func wordsProviderDidNotGetWords() {

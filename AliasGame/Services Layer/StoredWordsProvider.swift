@@ -22,6 +22,7 @@ class StoredWordsProvider: WordsProviderProtocol {
     private var stack: CoreDataStackProtocol
     
     let wordListFiles: [WordListFile] = [
+        WordListFile(fileName: "russian_words_presentation", language: .russian, category: .presentation),
         WordListFile(fileName: "russian_words_nouns", language: .russian, category: .noun),
         WordListFile(fileName: "russian_words_verbs", language: .russian, category: .verb),
         WordListFile(fileName: "russian_words_adjectives", language: .russian, category: .adjective),

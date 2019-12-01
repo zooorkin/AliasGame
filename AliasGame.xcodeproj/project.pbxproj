@@ -17,6 +17,10 @@
 		880B801B2393EF420036211B /* russian_words_adjectives.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80162393EF410036211B /* russian_words_adjectives.csv */; };
 		880B801C2393EF420036211B /* russian_words_verbs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80172393EF410036211B /* russian_words_verbs.csv */; };
 		880B801D2393EF420036211B /* russian_words_nouns.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80182393EF410036211B /* russian_words_nouns.csv */; };
+		880B8023239409A40036211B /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8022239409A40036211B /* FlickrAPI.swift */; };
+		880B802523940A870036211B /* ImageProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B802423940A870036211B /* ImageProviderProtocol.swift */; };
+		880B8029239433170036211B /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8028239433170036211B /* UIImageHelper.swift */; };
+		880B802B23945C430036211B /* russian_words_presentation.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B802A23945C430036211B /* russian_words_presentation.csv */; };
 		881216802386F3620091B5C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812167F2386F3620091B5C4 /* AppDelegate.swift */; };
 		8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881216882386F3630091B5C4 /* LaunchScreen.storyboard */; };
 		881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C12386FDF90091B5C4 /* CoreAssembly.swift */; };
@@ -45,7 +49,7 @@
 		881217172386FDFA0091B5C4 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EB2386FDF90091B5C4 /* PlayView.swift */; };
 		881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EC2386FDFA0091B5C4 /* RootAssembly.swift */; };
 		881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */; };
-		8812171B2386FDFA0091B5C4 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F22386FDFA0091B5C4 /* ImageProvider.swift */; };
+		8812171B2386FDFA0091B5C4 /* FlickrImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F22386FDFA0091B5C4 /* FlickrImageProvider.swift */; };
 		8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F42386FDFA0091B5C4 /* ImageClassificator.swift */; };
 		8812171E2386FDFA0091B5C4 /* InternetWordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F52386FDFA0091B5C4 /* InternetWordsProvider.swift */; };
 		881C8CBD238E8DBF00A6E8DE /* AliasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */; };
@@ -92,6 +96,10 @@
 		880B80162393EF410036211B /* russian_words_adjectives.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = russian_words_adjectives.csv; sourceTree = "<group>"; };
 		880B80172393EF410036211B /* russian_words_verbs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = russian_words_verbs.csv; sourceTree = "<group>"; };
 		880B80182393EF410036211B /* russian_words_nouns.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = russian_words_nouns.csv; sourceTree = "<group>"; };
+		880B8022239409A40036211B /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
+		880B802423940A870036211B /* ImageProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProviderProtocol.swift; sourceTree = "<group>"; };
+		880B8028239433170036211B /* UIImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
+		880B802A23945C430036211B /* russian_words_presentation.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = russian_words_presentation.csv; sourceTree = "<group>"; };
 		8812167C2386F3620091B5C4 /* AliasGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AliasGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8812167F2386F3620091B5C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		881216892386F3630091B5C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,7 +132,7 @@
 		881216EB2386FDF90091B5C4 /* PlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		881216EC2386FDFA0091B5C4 /* RootAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
 		881216EF2386FDFA0091B5C4 /* ServicesAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
-		881216F22386FDFA0091B5C4 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		881216F22386FDFA0091B5C4 /* FlickrImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImageProvider.swift; sourceTree = "<group>"; };
 		881216F42386FDFA0091B5C4 /* ImageClassificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageClassificator.swift; sourceTree = "<group>"; };
 		881216F52386FDFA0091B5C4 /* InternetWordsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetWordsProvider.swift; sourceTree = "<group>"; };
 		881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasTableViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +189,7 @@
 		880B801E2393EF520036211B /* Data Files */ = {
 			isa = PBXGroup;
 			children = (
+				880B802A23945C430036211B /* russian_words_presentation.csv */,
 				880B80182393EF410036211B /* russian_words_nouns.csv */,
 				880B80172393EF410036211B /* russian_words_verbs.csv */,
 				880B80162393EF410036211B /* russian_words_adjectives.csv */,
@@ -344,7 +353,8 @@
 			isa = PBXGroup;
 			children = (
 				88E36F4C23917EAF00F8F8F3 /* Helpers */,
-				881216F22386FDFA0091B5C4 /* ImageProvider.swift */,
+				880B802423940A870036211B /* ImageProviderProtocol.swift */,
+				881216F22386FDFA0091B5C4 /* FlickrImageProvider.swift */,
 				8827206A238DA560002E8648 /* GameDataSaver.swift */,
 				8827206C238DA5AA002E8648 /* GameDataProvider.swift */,
 				88E36F432391607D00F8F8F3 /* SafeTranslater.swift */,
@@ -404,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */,
+				880B8022239409A40036211B /* FlickrAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -420,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				88E36F4823917B8F00F8F8F3 /* StringHelper.swift */,
+				880B8028239433170036211B /* UIImageHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -511,6 +523,7 @@
 				880B801D2393EF420036211B /* russian_words_nouns.csv in Resources */,
 				8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */,
 				880B801B2393EF420036211B /* russian_words_adjectives.csv in Resources */,
+				880B802B23945C430036211B /* russian_words_presentation.csv in Resources */,
 				880B801C2393EF420036211B /* russian_words_verbs.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +546,7 @@
 				881217162386FDFA0091B5C4 /* PlayInteractor.swift in Sources */,
 				8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */,
 				88E36F4923917B8F00F8F8F3 /* StringHelper.swift in Sources */,
+				880B8023239409A40036211B /* FlickrAPI.swift in Sources */,
 				881C8CDD23902E4B00A6E8DE /* GameModeCollectionCell.swift in Sources */,
 				880B80092393DB600036211B /* Word+CoreDataClass.swift in Sources */,
 				8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */,
@@ -542,11 +556,12 @@
 				8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */,
 				881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */,
 				88E36F502393D46800F8F8F3 /* DataModel.xcdatamodeld in Sources */,
+				880B802523940A870036211B /* ImageProviderProtocol.swift in Sources */,
 				881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */,
 				88E36F4B23917D0C00F8F8F3 /* ArrayHelper.swift in Sources */,
 				881C8CD8238FE82800A6E8DE /* RecordCell.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
-				8812171B2386FDFA0091B5C4 /* ImageProvider.swift in Sources */,
+				8812171B2386FDFA0091B5C4 /* FlickrImageProvider.swift in Sources */,
 				8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */,
 				881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */,
 				881217102386FDFA0091B5C4 /* AboutInteractor.swift in Sources */,
@@ -566,6 +581,7 @@
 				881C8CC3238E98DA00A6E8DE /* AliasLightNavigationController.swift in Sources */,
 				88E36F442391607D00F8F8F3 /* SafeTranslater.swift in Sources */,
 				88272070238DA9F8002E8648 /* Entity.swift in Sources */,
+				880B8029239433170036211B /* UIImageHelper.swift in Sources */,
 				881C8CDF23903CD700A6E8DE /* RandomColor.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,

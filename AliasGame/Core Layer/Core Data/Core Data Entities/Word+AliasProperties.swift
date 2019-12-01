@@ -32,6 +32,8 @@ extension Word {
         
         case any = 3
         
+        case presentation = 4
+        
         case unknown = -1
         
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Андрей Зорькин. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// Alias-слово
 struct AliasWord {
@@ -14,6 +14,8 @@ struct AliasWord {
     let word: String
     /// Перевод
     let translate: String?
+    /// Картинка
+    var image: UIImage?
 }
 
 /// Режимы игры
