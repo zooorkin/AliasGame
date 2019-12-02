@@ -12,7 +12,7 @@ class AliasLightViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .groupTableViewBackground
+        view.backgroundColor = .white
     }
 
 }

@@ -51,7 +51,6 @@ class AliasTableViewController: AliasDarkViewController {
         }
         tableView.frame = frame
             .inset(by: aliasInsets)
-            .inset(by: view.safeAreaInsets)
     }
     
 }

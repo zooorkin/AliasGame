@@ -31,6 +31,7 @@ class Router: AliasTransitionSupport, RouterInput {
 
     init(presentationAssembly: PresentationAssemblyProtocol) {
         self.presentationAssembly = presentationAssembly
+        super.init()
     }
 
     public func start() {
@@ -43,8 +44,8 @@ class Router: AliasTransitionSupport, RouterInput {
 extension Router: StartRouterInput {
     
     func play(mode: AliasGameMode) {
-        let playViewController = presentationAssembly.playModule(mode: mode)
-        performAliasTransition(viewController: playViewController, fullscreen: true)
+        let prePlayViewController = presentationAssembly.prePlayModule()
+        performAliasTransition(viewController: prePlayViewController, animated: true)
     }
     
     func records() {
@@ -59,7 +60,20 @@ extension Router: StartRouterInput {
     
     func aboutGame() {
         let aboutViewController = presentationAssembly.aboutModule()
-        performAliasTransition(viewController: aboutViewController, fullscreen: false)
+        performAliasTransition(viewController: aboutViewController, animated: true)
+    }
+    
+}
+
+extension Router: PrePlayRouterInput {
+    
+    func exitFromPrePlayModule() {
+        performAliasUntransition()
+    }
+    
+    func startGameFromPrePlayModule() {
+        let playView = presentationAssembly.playModule(mode: .twoTeams)
+        coveredNavigationController.pushViewController(playView, animated: true)
     }
     
 }

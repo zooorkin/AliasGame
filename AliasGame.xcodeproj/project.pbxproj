@@ -21,6 +21,9 @@
 		880B802523940A870036211B /* ImageProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B802423940A870036211B /* ImageProviderProtocol.swift */; };
 		880B8029239433170036211B /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8028239433170036211B /* UIImageHelper.swift */; };
 		880B802B23945C430036211B /* russian_words_presentation.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B802A23945C430036211B /* russian_words_presentation.csv */; };
+		880B802F239575AD0036211B /* PrePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B802E239575AD0036211B /* PrePlayView.swift */; };
+		880B8032239587680036211B /* PrePlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8031239587680036211B /* PrePlayPresenter.swift */; };
+		880B8034239587B30036211B /* PrePlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8033239587B30036211B /* PrePlayInteractor.swift */; };
 		881216802386F3620091B5C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812167F2386F3620091B5C4 /* AppDelegate.swift */; };
 		8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881216882386F3630091B5C4 /* LaunchScreen.storyboard */; };
 		881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C12386FDF90091B5C4 /* CoreAssembly.swift */; };
@@ -100,6 +103,9 @@
 		880B802423940A870036211B /* ImageProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProviderProtocol.swift; sourceTree = "<group>"; };
 		880B8028239433170036211B /* UIImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
 		880B802A23945C430036211B /* russian_words_presentation.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = russian_words_presentation.csv; sourceTree = "<group>"; };
+		880B802E239575AD0036211B /* PrePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayView.swift; sourceTree = "<group>"; };
+		880B8031239587680036211B /* PrePlayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayPresenter.swift; sourceTree = "<group>"; };
+		880B8033239587B30036211B /* PrePlayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayInteractor.swift; sourceTree = "<group>"; };
 		8812167C2386F3620091B5C4 /* AliasGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AliasGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8812167F2386F3620091B5C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		881216892386F3630091B5C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -209,6 +215,16 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
+		880B8030239586B90036211B /* PrePlay Module */ = {
+			isa = PBXGroup;
+			children = (
+				880B802E239575AD0036211B /* PrePlayView.swift */,
+				880B8031239587680036211B /* PrePlayPresenter.swift */,
+				880B8033239587B30036211B /* PrePlayInteractor.swift */,
+			);
+			path = "PrePlay Module";
+			sourceTree = "<group>";
+		};
 		881216732386F3620091B5C4 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +293,7 @@
 				8827206F238DA9F8002E8648 /* Entity.swift */,
 				881216C92386FDF90091B5C4 /* Router.swift */,
 				881216D82386FDF90091B5C4 /* Start Module */,
+				880B8030239586B90036211B /* PrePlay Module */,
 				881216E72386FDF90091B5C4 /* Play Module */,
 				881216D02386FDF90091B5C4 /* Records Module */,
 				881216CB2386FDF90091B5C4 /* Settings Module */,
@@ -580,8 +597,10 @@
 				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
 				881C8CC3238E98DA00A6E8DE /* AliasLightNavigationController.swift in Sources */,
 				88E36F442391607D00F8F8F3 /* SafeTranslater.swift in Sources */,
+				880B8034239587B30036211B /* PrePlayInteractor.swift in Sources */,
 				88272070238DA9F8002E8648 /* Entity.swift in Sources */,
 				880B8029239433170036211B /* UIImageHelper.swift in Sources */,
+				880B8032239587680036211B /* PrePlayPresenter.swift in Sources */,
 				881C8CDF23903CD700A6E8DE /* RandomColor.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
@@ -594,6 +613,7 @@
 				881217072386FDFA0091B5C4 /* PresentationAssembly.swift in Sources */,
 				880B800A2393DB600036211B /* Word+CoreDataProperties.swift in Sources */,
 				881217012386FDFA0091B5C4 /* SettingsView.swift in Sources */,
+				880B802F239575AD0036211B /* PrePlayView.swift in Sources */,
 				881217132386FDFA0091B5C4 /* AboutView.swift in Sources */,
 				880B80112393DEA20036211B /* WordsProviderProtocol.swift in Sources */,
 				881217052386FDFA0091B5C4 /* RecordsView.swift in Sources */,

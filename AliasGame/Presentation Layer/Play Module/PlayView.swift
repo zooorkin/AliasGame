@@ -26,7 +26,7 @@ class PlayView: AliasLightViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBarButtons()
+        setupNavigationBar()
         setupMainWordLabel()
         setupScoreLabel()
         setupImageViews()
@@ -89,12 +89,13 @@ class PlayView: AliasLightViewController {
     // MARK: - Настройка элементов UI
     
     /// Настройка кнопок паузы и выхода
-    private func setupBarButtons() {
+    private func setupNavigationBar() {
         stopBarButtonItem.target = self
         stopBarButtonItem.action = #selector(stopBarButtonTapped)
         pauseBarButtonItem.target = self
         pauseBarButtonItem.action = #selector(pauseBarButtonTapped)
         navigationItem.rightBarButtonItems = [stopBarButtonItem, pauseBarButtonItem]
+        navigationItem.hidesBackButton = true
         self.navigationItem.largeTitleDisplayMode = .never
     }
     
@@ -110,7 +111,7 @@ class PlayView: AliasLightViewController {
     private func setupScoreLabel() {
         scoreLabel.text = "17"
         scoreLabel.font = .systemFont(ofSize: 128.0, weight: .bold)
-        scoreLabel.textColor = #colorLiteral(red: 0.9117276424, green: 0.9130286635, blue: 0.9328820709, alpha: 1)
+        scoreLabel.textColor = #colorLiteral(red: 0.9580479547, green: 0.9594150742, blue: 0.9802771338, alpha: 1)
         scoreLabel.textAlignment = .center
         view.addSubview(scoreLabel)
     }
@@ -119,7 +120,6 @@ class PlayView: AliasLightViewController {
     private func setupImageViews() {
         for imageView in imageViews {
             view.addSubview(imageView)
-            imageView.backgroundColor = .groupTableViewBackground
             imageView.layer.cornerRadius = 16.0
             imageView.clipsToBounds = true
             imageView.contentMode = .scaleAspectFill
@@ -152,8 +152,8 @@ class PlayView: AliasLightViewController {
         successButton.setTitleColor(#colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 1), for: .normal)
         failureButton.setTitleColor(#colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 1), for: .normal)
         
-        successButton.backgroundColor = #colorLiteral(red: 0.9117276424, green: 0.9130286635, blue: 0.9328820709, alpha: 1)
-        failureButton.backgroundColor = #colorLiteral(red: 0.9117276424, green: 0.9130286635, blue: 0.9328820709, alpha: 1)
+        successButton.backgroundColor = #colorLiteral(red: 0.9580479547, green: 0.9594150742, blue: 0.9802771338, alpha: 1)
+        failureButton.backgroundColor = #colorLiteral(red: 0.9580479547, green: 0.9594150742, blue: 0.9802771338, alpha: 1)
         
         successButton.layer.cornerRadius = 40.0
         failureButton.layer.cornerRadius = 40.0

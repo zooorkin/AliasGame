@@ -10,32 +10,38 @@ import UIKit
 
 class AliasTransitionSupport {
     
-    var backgroundWindow = UIWindow(frame: UIScreen.main.bounds)
+    lazy var backgroundWindow: UIWindow = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        mainWindow = UIApplication.shared.keyWindow!
+        window.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 1)
+        window.makeKeyAndVisible()
+        mainWindow.makeKeyAndVisible()
+        return window
+    }()
     
     var mainWindow: UIWindow!
     
-    var coveredWindow = UIWindow(frame: UIScreen.main.bounds)
+    lazy var coveredWindow: UIWindow = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = coveredRootViewController
+        return window
+    }()
+
+    var coveredNavigationController: UINavigationController!
+    
+    private lazy var coveredRootViewController: UINavigationController = {
+        let navigationController = AliasDarkNavigationController()
+        return navigationController
+    }()
     
     private var savedFrame: CGRect = .zero
     
-    func performAliasTransition(viewController: UIViewController, fullscreen: Bool) {
-        mainWindow = UIApplication.shared.keyWindow!
-        backgroundWindow.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 1)
-        backgroundWindow.makeKeyAndVisible()
-        mainWindow.makeKeyAndVisible()
-        let playNavigationController: UINavigationController
-        if fullscreen {
-            playNavigationController = AliasLightNavigationController(rootViewController: viewController)
-        } else {
-            viewController.view.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.1294117719, blue: 0.1411764771, alpha: 0.8)
-            playNavigationController = AliasDarkNavigationController(rootViewController: viewController)
-        }
-        let presentingViewController = LightStatusBarViewController()
-        self.coveredWindow.rootViewController = presentingViewController
+    func performAliasTransition(viewController: UIViewController, animated: Bool) {
+        let _ = backgroundWindow
         self.coveredWindow.makeKeyAndVisible()
-        presentingViewController.present(playNavigationController,
-                                         animated: true, completion: nil)
         
+        coveredNavigationController = AliasLightNavigationController(rootViewController: viewController)
+        coveredRootViewController.present(coveredNavigationController, animated: animated, completion: nil)
         UIView.animate(withDuration: 0.3, animations: {
             self.mainWindow.transform = CGAffineTransform(scaleX: 0.8, y: 0.8).translatedBy(x: 0, y: -UIScreen.main.bounds.height * 0.13)
         }, completion: { finished in
@@ -46,8 +52,7 @@ class AliasTransitionSupport {
     func performAliasUntransition() {
         // Eсли менялся размер экрана при Split View
         let secondSavedFrame = coveredWindow.frame
-        coveredWindow.rootViewController!.dismiss(animated: true, completion: {
-            self.coveredWindow.rootViewController = nil
+        coveredRootViewController.dismiss(animated: true, completion: {
             self.coveredWindow.isHidden = true
         })
         mainWindow.makeKey()
@@ -64,12 +69,3 @@ class AliasTransitionSupport {
     }
     
 }
-
-//let xInsets = mainWindow.frame.width * 0.2
-//let yInsets = mainWindow.frame.height * 0.2
-//let frame = mainWindow.frame
-//    .insetBy(dx: xInsets, dy: yInsets)
-//    .offsetBy(dx: 0, dy: -UIScreen.main.bounds.height * 0.13)
-//UIView.animate(withDuration: 0.3, animations: {
-//    self.mainWindow.frame = frame
-//}, completion: nil)

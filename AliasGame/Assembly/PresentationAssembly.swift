@@ -22,6 +22,8 @@ protocol PresentationAssemblyProtocol {
     
     func startModule() -> StartView
     
+    func prePlayModule() -> PrePlayView
+    
     func playModule(mode: AliasGameMode) -> PlayView
     
     func recordsModule() -> RecordsView
@@ -75,6 +77,30 @@ class PresentationAssembly: PresentationAssemblyProtocol {
             } else {
                 #if DEBUG
                 debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию StartRouterInput")
+                #endif
+            }
+        } else {
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: router не задан")
+            #endif
+        }
+        return view
+    }
+    
+    func prePlayModule() -> PrePlayView {
+        let interactor = PrePlayInteractor()
+        let presenter = PrePlayPresenter(interactor: interactor)
+        let view = PrePlayView(presenter: presenter)
+        
+        interactor.output = presenter
+        presenter.output = view
+        
+        if let router = router {
+            if let router = router as? PrePlayRouterInput {
+                presenter.router = router
+            } else {
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию PlayRouterInput")
                 #endif
             }
         } else {
