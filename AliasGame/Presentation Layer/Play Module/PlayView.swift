@@ -42,6 +42,10 @@ class PlayView: AliasLightViewController {
         layoutScoreLabel()
     }
     
+    // MARK: - Элементы синхронизации
+    
+    let locker = NSLock()
+    
     // MARK: - Элементы UI
     
     let stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: nil, action: nil)
@@ -61,11 +65,26 @@ class PlayView: AliasLightViewController {
     
     let mainWordLabel = UILabel(frame: .zero)
     
-    let centerImageView = UIImageView(frame: .zero)
+    // На repeating не заменять! (Потому что классы это reference type)
+    var imageViews = [UIImageView(), .init(), .init(), .init()]
     
-    let rightImageView = UIImageView(frame: .zero)
+    var topImageViewIndex = 0
     
-    let rightRightImageView = UIImageView(frame: .zero)
+    var zeroImageView: UIImageView {
+        return imageViews[(topImageViewIndex) % imageViews.count]
+    }
+    
+    var firstImageView: UIImageView {
+        return imageViews[(topImageViewIndex + 1) % imageViews.count]
+    }
+
+    var secondImageView: UIImageView {
+        return imageViews[(topImageViewIndex + 2) % imageViews.count]
+    }
+
+    var thirdImageView: UIImageView {
+        return imageViews[(topImageViewIndex + 3) % imageViews.count]
+    }
     
     // MARK: - Настройка элементов UI
     
@@ -98,10 +117,6 @@ class PlayView: AliasLightViewController {
     
     /// Настройка картинок
     private func setupImageViews() {
-        let imageViews = [rightRightImageView,
-                          rightImageView,
-                          centerImageView]
-        
         for imageView in imageViews {
             view.addSubview(imageView)
             imageView.backgroundColor = .groupTableViewBackground
@@ -109,7 +124,6 @@ class PlayView: AliasLightViewController {
             imageView.clipsToBounds = true
             imageView.contentMode = .scaleAspectFill
             imageView.backgroundColor = .clear
-        
             /*
             imageView.layer.shadowOpacity = 0.5
             imageView.layer.shadowColor = UIColor.black.cgColor
@@ -119,13 +133,6 @@ class PlayView: AliasLightViewController {
             imageView.layer.rasterizationScale = UIScreen.main.scale
             */
         }
-        /*
-        centerImageView.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-        rightImageView.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
-        leftImageView.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-        rightRightImageView.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-        leftLeftImageView.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
-        */
     }
     
     /// Настройка клавиш ╋ и ━
@@ -164,34 +171,59 @@ class PlayView: AliasLightViewController {
     }
     
     private func layoutImageViews() {
-        let mainImageViewWidth = 3 * view.frame.width / 4
-        centerImageView.frame = CGRect(x: 0, y: 0, width: mainImageViewWidth,
-                                       height: mainImageViewWidth)
-        centerImageView.center = CGPoint(x: view.center.x,
-                                         y: mainWordLabel.frame.maxY
-                                            + mainImageViewWidth / 2 + 24.0)
-        let mainFrame = centerImageView.frame
+        view.bringSubviewToFront(thirdImageView)
+        view.bringSubviewToFront(secondImageView)
+        view.bringSubviewToFront(firstImageView)
+        view.bringSubviewToFront(zeroImageView)
         
-        rightImageView.frame = mainFrame
-        rightRightImageView.frame = mainFrame
+        zeroImageView.alpha = 0.0
         
-        let xTranslation = view.frame.width / 10
+        let cornerRadius: CGFloat = 16.0
+        let scale: CGFloat = 0.95
         
-        let scale: CGFloat = 0.9
-        rightImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
-            .translatedBy(x: 0, y: xTranslation)
+        let firstImageViewWidth = 3 * view.frame.width / 4
+        let firstImageViewX = (view.frame.width - firstImageViewWidth) / 2
+        let firstImageViewY = mainWordLabel.frame.maxY + 24.0
+        let firstImageViewFrame = CGRect(x: firstImageViewX,
+                                      y: firstImageViewY,
+                                      width: firstImageViewWidth,
+                                      height: firstImageViewWidth)
+        
+        let secondImageViewInset = (1 - scale) * firstImageViewFrame.width
+        let secondImageViewYOffset = secondImageViewInset + 24.0 * scale
+        let secondImageViewFrame = firstImageViewFrame
+            .insetBy(dx: secondImageViewInset, dy: secondImageViewInset)
+            .offsetBy(dx: 0, dy: secondImageViewYOffset)
+        
+        let thirdImageViewInset = (1 - scale) * secondImageViewFrame.width
+        let thirdImageViewYOffset = thirdImageViewInset + 24.0 * scale * scale
+        let thirdImageViewFrame = secondImageViewFrame
+            .insetBy(dx: thirdImageViewInset, dy: thirdImageViewInset)
+            .offsetBy(dx: 0, dy: thirdImageViewYOffset)
+        
+        let zeroImageViewInset = -(1 - scale) * firstImageViewFrame.width
+        let zeroImageViewYOffset = -(secondImageViewInset + 24.0 * scale)
+        let zeroImageViewFrame = firstImageViewFrame
+            .insetBy(dx: zeroImageViewInset, dy: zeroImageViewInset)
+            .offsetBy(dx: 0, dy: zeroImageViewYOffset)
+        
+        zeroImageView.frame = zeroImageViewFrame
+        firstImageView.frame = firstImageViewFrame
+        secondImageView.frame = secondImageViewFrame
+        thirdImageView.frame = thirdImageViewFrame
+        
+        zeroImageView.layer.cornerRadius = cornerRadius / scale
+        firstImageView.layer.cornerRadius = cornerRadius
+        secondImageView.layer.cornerRadius = cornerRadius * scale
+        thirdImageView.layer.cornerRadius = cornerRadius * scale * scale
 
-        let scaleSquared = scale * scale
-        rightRightImageView.transform = CGAffineTransform(scaleX: scaleSquared, y: scaleSquared)
-            .translatedBy(x: 0, y: (1 + scale) * xTranslation)
-        let imageViews = [rightRightImageView, rightImageView, centerImageView]
         for imageView in imageViews {
             imageView.layer.shadowPath = UIBezierPath(roundedRect: imageView.bounds, cornerRadius: 16.0).cgPath
         }
     }
     
     private func layoutButtons() {
-        let mainFrame = centerImageView.frame
+        let mainFrame = firstImageView.frame
         successButton.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         failureButton.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         
@@ -242,25 +274,46 @@ class PlayView: AliasLightViewController {
 
 extension PlayView: PlayPresenterOutput {
     
-    func performSlide() {
-        UIView.animate(withDuration: 0.5) {
-            
+    func performSlide(images: [UIImage?]) {
+        DispatchQueue.main.async {
+            self.locker.lock()
+            self.topImageViewIndex += 1
+            self.locker.unlock()
+            UIView.animate(withDuration: 0.3, animations: {
+                self.layoutImageViews()
+            }, completion: { finished in
+                self.setImages(images: images, animated: true)
+                UIView.animate(withDuration: 0.3) {
+                    self.firstImageView.alpha = 1.0
+                    self.secondImageView.alpha = 1.0
+                    self.thirdImageView.alpha = 1.0
+                }
+            })
         }
-        
-        let xTranslation = view.frame.width / 7
-        
-        let scale: CGFloat = 0.9
-        rightImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
-            .translatedBy(x: 0, y: -xTranslation)
-        
-        let scaleSquared = scale * scale
-        rightRightImageView.transform = CGAffineTransform(scaleX: scaleSquared, y: scaleSquared)
-            .translatedBy(x: 0, y: -((1 + scale) * xTranslation))
     }
     
     func setCurrentWord(word: String) {
         DispatchQueue.main.async {
             self.mainWordLabel.text = word.uppercasedFirstLetter()
+        }
+    }
+    
+    func setImages(images: [UIImage?], animated: Bool) {
+        let orderedImageViews = [firstImageView, secondImageView, thirdImageView]
+        guard orderedImageViews.count == images.count else {
+            assertionFailure("[PlayView]: orderedImageViews.count != images.count")
+            return
+        }
+        DispatchQueue.main.async {
+            for (imageView, image) in zip(orderedImageViews, images) {
+                if animated {
+                    UIView.transition(with: imageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                        imageView.image = image
+                    }, completion: nil)
+                } else {
+                    imageView.image = image
+                }
+            }
         }
     }
     
@@ -273,24 +326,6 @@ extension PlayView: PlayPresenterOutput {
     func setCurrentRound(number: Int) {
         DispatchQueue.main.async {
             self.title = "Раунд \(number)"
-        }
-    }
-    
-    func setCenterImage(image: UIImage?) {
-        DispatchQueue.main.async {
-            self.centerImageView.image = image
-        }
-    }
-    
-    func setRightImage(image: UIImage?) {
-        DispatchQueue.main.async {
-            self.rightImageView.image = image
-        }
-    }
-    
-    func setRightRightImage(image: UIImage?) {
-        DispatchQueue.main.async {
-            self.rightRightImageView.image = image
         }
     }
     

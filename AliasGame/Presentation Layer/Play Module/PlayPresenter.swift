@@ -34,11 +34,9 @@ protocol PlayPresenterOutput: class {
     
     func setCurrentRound(number: Int)
     
-    func setCenterImage(image: UIImage?)
+    func setImages(images: [UIImage?], animated: Bool)
     
-    func setRightImage(image: UIImage?)
-    
-    func setRightRightImage(image: UIImage?)
+    func performSlide(images: [UIImage?])
     
     func showAlert(with message: String, completion: @escaping () -> Void)
     
@@ -63,9 +61,14 @@ class PlayPresenter: PlayPresenterInput {
         self.interactor = interactor
     }
     
+    // MARK: - Элементы синхронизации
+    
+    let locker = NSLock()
+    
+    let queue = DispatchQueue.global(qos: .userInitiated)
+    
     func viewDidLoad() {
         interactor.loadWords()
-        updateUI()
     }
     
     func pauseButtonTapped() {
@@ -77,48 +80,75 @@ class PlayPresenter: PlayPresenterInput {
     private var notGuessedWords: [AliasWord] = []
     
     func successButtonTapped() {
-        nextWord(previousWasGuessed: true)
+        wordGuessed(true)
+        nextWord()
     }
     
     func failureButtonTapped() {
-        nextWord(previousWasGuessed: false)
+        wordGuessed(false)
+        nextWord()
     }
     
     private func updateUI() {
         guard let output = output else {
-            assertionFailure("[PlayPresenter]: output is nil")
+            debugPrint("[PlayPresenter]: output is nil")
             return
         }
-        output.setCurrentRound(number: interactor.round + 1)
         let teamName = "Команда \(interactor.team + 1)"
+        let roundNumber = interactor.round + 1
+        
+        output.setCurrentRound(number: roundNumber)
         output.setCurrentTeam(name: teamName)
+        guard interactor.words.count >= 3 else {
+            assertionFailure("[PlayPresenter]: Недостаточно слов")
+            return
+        }
+        output.setCurrentWord(word: interactor.words[currentWordIndex].word)
+        output.setImages(images: [firstImage, secondImage, thirdImage], animated: false)
     }
     
-    var currentWordIndex = -1
+    var currentWordIndex = 0
     
-    private func nextWord(previousWasGuessed: Bool) {
+    var defaultImage: UIImage? {
+        return UIImage(color: getRandomColor())
+    }
+    
+    var firstImage: UIImage? {
+        return interactor.words[currentWordIndex].image ?? defaultImage
+    }
+    
+    var secondImage: UIImage? {
+        return currentWordIndex + 1 < interactor.words.count ? interactor.words[currentWordIndex + 1].image ?? defaultImage : nil
+    }
+    
+    var thirdImage: UIImage? {
+        return currentWordIndex + 2 < interactor.words.count ? interactor.words[currentWordIndex + 2].image ?? defaultImage: nil
+    }
+    
+    private func wordGuessed(_ guessed: Bool) {
+        let word = interactor.words[currentWordIndex]
+        if guessed {
+            guessedWords.append(word)
+        } else {
+            notGuessedWords.append(word)
+        }
+    }
+    
+    private func nextWord() {
         guard let output = output else {
             assertionFailure("[PlayPresenter]: output is nil")
             return
         }
+        locker.lock()
         currentWordIndex += 1
+        let currentWordIndex = self.currentWordIndex
+        locker.unlock()
         if currentWordIndex >= interactor.words.count {
             output.showAlert(with: "Слова закончились", completion: { self.router?.exitFromPlayModule() })
-            
             return
         }
-        if currentWordIndex != 0 {
-            if previousWasGuessed {
-                guessedWords.append(interactor.words[currentWordIndex - 1])
-            } else {
-                notGuessedWords.append(interactor.words[currentWordIndex - 1])
-            }
-        }
-        let defaultImage = UIImage(color: getRandomColor())
-        output    .setCurrentWord(word: interactor.words[currentWordIndex].word)
-        output    .setCenterImage(image: interactor.words[currentWordIndex].image ?? defaultImage)
-        output     .setRightImage(image: currentWordIndex + 1 < interactor.words.count ? interactor.words[currentWordIndex + 1].image ?? defaultImage : nil)
-        output.setRightRightImage(image: currentWordIndex + 2 < interactor.words.count ? interactor.words[currentWordIndex + 2].image ?? defaultImage: nil)
+        output.setCurrentWord(word: interactor.words[currentWordIndex].word)
+        output.performSlide(images: [firstImage, secondImage, thirdImage])
     }
     
     func exitTapped() {
@@ -150,7 +180,7 @@ extension PlayPresenter: PlayInteractorOutput {
     }
     
     func interactorDidLoadWords() {
-        nextWord(previousWasGuessed: true)
+        updateUI()
     }
     
     func interactorDidNotLoadWords() {

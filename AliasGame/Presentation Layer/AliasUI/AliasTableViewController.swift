@@ -9,6 +9,8 @@
 import UIKit
 
 class AliasTableViewController: AliasDarkViewController {
+    
+    let fixedWidth: CGFloat = 640
 
     let tableView = UITableView(frame: .zero)
 
@@ -40,7 +42,14 @@ class AliasTableViewController: AliasDarkViewController {
     }
     
     private func layoutTableView() {
-        tableView.frame = view.bounds
+        let frame: CGRect
+        if fixedWidth > 0 && view.frame.width > fixedWidth {
+            frame = CGRect(x: view.bounds.width / 2 - fixedWidth / 2, y: 0, width: fixedWidth, height: view.bounds.height)
+            navigationItem.largeTitleDisplayMode = .never
+        } else {
+            frame = view.bounds
+        }
+        tableView.frame = frame
             .inset(by: aliasInsets)
             .inset(by: view.safeAreaInsets)
     }
