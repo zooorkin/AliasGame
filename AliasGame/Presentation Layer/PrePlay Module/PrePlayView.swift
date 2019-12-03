@@ -26,34 +26,84 @@ class PrePlayView: AliasLightViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupScrollView()
+        setupPageControl()
         setupBarButtons()
-        setupFirstLabel()
-        setupFirstImageView()
-        setupStartGameButton()
-        setupTextLabel()
+        setupScreenViews()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        layoutFirstLabel()
-        layoutFirstImageView()
-        layoutStartGameButton()
-        layoutTextLabel()
+        layoutScrollView()
+        layoutPageControl()
+        layoutScreenViews()
     }
     
     // MARK: - Элементы UI
     
+    let scrollView = UIScrollView(frame: .zero)
+    
+    let pageControl = UIPageControl(frame: .zero)
+    
     let stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: nil, action: nil)
     
-    let firstLabel = UILabel(frame: .zero)
+    var screenViews: [SingleScreenView] = []
     
-    let firstImageView = UIImageView(frame: .zero)
+    private let firstText = "Чтобы начать игру, нажмите Далее"
+    private let secondText = "Здесь будут написаны правила игры"
+    private let thirdText = "Выберите количество раундов"
+    private let fourthText = "Выберите количество времени"
+    private let fivethText = "Начинает [Имя]"
     
-    let textLabel = UILabel(frame: .zero)
-    
-    let startGameButton = UIButton(frame: .zero)
+    lazy var models = [SingleScreenModel(title: "Начало игры", text: firstText, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), buttonTitle: "Далее"),
+                       SingleScreenModel(title: "Правила игры", text: secondText, color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), buttonTitle: "Далее"),
+                       SingleScreenModel(title: "Раундов", text: thirdText, color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), buttonTitle: "Далее"),
+                       SingleScreenModel(title: "Время", text: fourthText, color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), buttonTitle: "Далее"),
+                       SingleScreenModel(title: "Приготовьтесь", text: fivethText, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), buttonTitle: "Старт"),
+    ]
     
     // MARK: - Настройка элементов UI
+    
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.delegate = self
+    }
+    
+    private func setupPageControl() {
+        view.addSubview(pageControl)
+        pageControl.pageIndicatorTintColor = .groupTableViewBackground
+        pageControl.currentPageIndicatorTintColor = models[0].color
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = models.count
+    }
+    
+    private func setupScreenViews() {
+        for (index, model) in models.enumerated() {
+            let customView: UIView
+            switch index {
+            case 0: customView = FirstView(image: #imageLiteral(resourceName: "game-mode-2"))
+            case 1: customView = SecondView(image: #imageLiteral(resourceName: "game-mode-3"))
+            case 2: customView = ThirdView(image: #imageLiteral(resourceName: "game-mode-5"))
+            case 3: customView = FourthView(image: #imageLiteral(resourceName: "game-mode-6"))
+            case 4: customView = FifthView(emoji: "🚀")
+            default: customView = .init()
+            }
+            let singleScreenView = SingleScreenView(model: model, customView: customView)
+            scrollView.addSubview(singleScreenView)
+            switch index {
+            case 0: fallthrough
+            case 1: fallthrough
+            case 2: fallthrough
+            case 3: singleScreenView.button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+            case 4: singleScreenView.button.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
+            default: break
+            }
+            screenViews.append(singleScreenView)
+        }
+    }
     
     /// Настройка кнопок паузы и выхода
     private func setupBarButtons() {
@@ -63,70 +113,27 @@ class PrePlayView: AliasLightViewController {
         self.navigationItem.largeTitleDisplayMode = .never
     }
     
-    /// Настройка слова
-    private func setupFirstLabel() {
-        firstLabel.text = "Начало игры"
-        firstLabel.font = .systemFont(ofSize: 37.0, weight: .bold)
-        firstLabel.textAlignment = .center
-        view.addSubview(firstLabel)
-    }
-    
-    /// Настройка картинок
-    private func setupFirstImageView() {
-        view.addSubview(firstImageView)
-        firstImageView.layer.cornerRadius = 16.0
-        firstImageView.clipsToBounds = true
-        firstImageView.contentMode = .scaleAspectFill
-        firstImageView.backgroundColor = .clear
-        firstImageView.contentMode = .scaleAspectFill
-        firstImageView.image = #imageLiteral(resourceName: "game-mode-2")
-    }
-    
-    private func setupTextLabel() {
-        view.addSubview(textLabel)
-        textLabel.text = "Чтобы начать игру, нажмите Далее"
-        textLabel.textAlignment = .center
-        textLabel.numberOfLines = 0
-    }
-    
-    private func setupStartGameButton() {
-        view.addSubview(startGameButton)
-        startGameButton.setTitle("Далее", for: .normal)
-        startGameButton.setTitleColor(#colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), for: .normal)
-        startGameButton.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
-    }
-    
     // MARK: - Настройка layout
     
-    private func layoutFirstLabel() {
-        let topSafeInset = view.safeAreaInsets.top
-        let firstLabelIntrinsicSize = firstLabel.intrinsicContentSize
-        firstLabel.frame = CGRect(x: 0,
-                                     y: topSafeInset + firstLabelIntrinsicSize.height / 2 + 32.0,
-                                     width: view.frame.width,
-                                     height: firstLabelIntrinsicSize.height)
+    private func layoutScrollView() {
+        scrollView.frame = view.bounds.inset(by: view.safeAreaInsets)
+        let height = scrollView.frame.height
+        let width = CGFloat(integerLiteral: screenViews.count) * view.frame.width
+        scrollView.contentSize = CGSize(width: width, height: height)
+        let contentOffset = CGPoint(x: 0, y: 0)
+        scrollView.setContentOffset(contentOffset, animated: false)
     }
     
-    private func layoutFirstImageView() {
-        let firstImageViewWidth = view.frame.width * 0.30
-        let firstImageViewX = (view.frame.width - firstImageViewWidth) / 2
-        let firstImageViewY = firstLabel.frame.maxY + 48.0
-        let firstImageViewFrame = CGRect(x: firstImageViewX,
-                                         y: firstImageViewY,
-                                         width: firstImageViewWidth,
-                                         height: firstImageViewWidth)
-       firstImageView.frame = firstImageViewFrame
+    private func layoutPageControl() {
+        pageControl.frame = CGRect(x: 0, y: 0.90 * view.bounds.height,
+                                   width: view.bounds.width, height: 80)
     }
     
-    private func layoutTextLabel() {
-        textLabel.frame = CGRect(x: view.frame.width / 4,
-                                 y: firstImageView.frame.maxY + 32.0,
-                                 width: view.frame.width / 2,
-                                 height: 80)
-    }
-    
-    private func layoutStartGameButton() {
-        startGameButton.frame = CGRect(x: 0, y: 640, width: view.frame.width, height: 80)
+    private func layoutScreenViews() {
+        for (index, screenView) in screenViews.enumerated() {
+            let screenViewXOffset = CGFloat(integerLiteral: index) * scrollView.bounds.width
+            screenView.frame = scrollView.bounds.offsetBy(dx: screenViewXOffset, dy: 0)
+        }
     }
     
     // MARK: - Обработка нажатий клавиш
@@ -139,8 +146,24 @@ class PrePlayView: AliasLightViewController {
         presenter.startGameButtonTapped()
     }
     
+    @objc func nextButtonTapped() {
+        let currentPageIndex = Int((scrollView.contentOffset.x + view.bounds.width / 2) / view.bounds.width)
+        let contentOffset = CGPoint(x: (CGFloat(integerLiteral: currentPageIndex) + 1) * view.bounds.width, y: 0)
+        scrollView.setContentOffset(contentOffset, animated: true)
+    }
+    
 }
 
 extension PrePlayView: PrePlayPresenterOutput {
 
+}
+
+extension PrePlayView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentPageIndex = Int((scrollView.contentOffset.x + view.bounds.width / 2) / view.bounds.width)
+        if currentPageIndex < models.count {
+            pageControl.currentPage = currentPageIndex
+            pageControl.currentPageIndicatorTintColor = models[currentPageIndex].color
+        }
+    }
 }

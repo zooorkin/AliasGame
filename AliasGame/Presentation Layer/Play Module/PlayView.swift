@@ -120,7 +120,6 @@ class PlayView: AliasLightViewController {
     private func setupImageViews() {
         for imageView in imageViews {
             view.addSubview(imageView)
-            imageView.layer.cornerRadius = 16.0
             imageView.clipsToBounds = true
             imageView.contentMode = .scaleAspectFill
             imageView.backgroundColor = .clear
@@ -190,24 +189,28 @@ class PlayView: AliasLightViewController {
                                       height: firstImageViewWidth)
         
         let secondImageViewInset = (1 - scale) * firstImageViewFrame.width
-        let secondImageViewYOffset = secondImageViewInset + 24.0 * scale
+        let secondImageViewYOffset = secondImageViewInset + 16.0 * scale
         let secondImageViewFrame = firstImageViewFrame
             .insetBy(dx: secondImageViewInset, dy: secondImageViewInset)
             .offsetBy(dx: 0, dy: secondImageViewYOffset)
         
         let thirdImageViewInset = (1 - scale) * secondImageViewFrame.width
-        let thirdImageViewYOffset = thirdImageViewInset + 24.0 * scale * scale
+        let thirdImageViewYOffset = thirdImageViewInset + 16.0 * scale * scale
         let thirdImageViewFrame = secondImageViewFrame
             .insetBy(dx: thirdImageViewInset, dy: thirdImageViewInset)
             .offsetBy(dx: 0, dy: thirdImageViewYOffset)
         
+        /*
+        // Вместо zeroImageViewFrame используется firstImageViewFrame
+        //
         let zeroImageViewInset = -(1 - scale) * firstImageViewFrame.width
-        let zeroImageViewYOffset = -(secondImageViewInset + 24.0 * scale)
+        let zeroImageViewYOffset = -(secondImageViewInset + 16.0 * scale)
         let zeroImageViewFrame = firstImageViewFrame
             .insetBy(dx: zeroImageViewInset, dy: zeroImageViewInset)
             .offsetBy(dx: 0, dy: zeroImageViewYOffset)
+                                                                        */
         
-        zeroImageView.frame = zeroImageViewFrame
+        zeroImageView.frame = firstImageViewFrame
         firstImageView.frame = firstImageViewFrame
         secondImageView.frame = secondImageViewFrame
         thirdImageView.frame = thirdImageViewFrame
@@ -216,6 +219,11 @@ class PlayView: AliasLightViewController {
         firstImageView.layer.cornerRadius = cornerRadius
         secondImageView.layer.cornerRadius = cornerRadius * scale
         thirdImageView.layer.cornerRadius = cornerRadius * scale * scale
+        
+        zeroImageView.layer.cornerRadius = zeroImageView.bounds.width / 32.0
+        firstImageView.layer.cornerRadius = firstImageView.bounds.width / 32.0
+        secondImageView.layer.cornerRadius = secondImageView.bounds.width / 32.0
+        thirdImageView.layer.cornerRadius = thirdImageView.bounds.width / 32.0
 
         for imageView in imageViews {
             imageView.layer.shadowPath = UIBezierPath(roundedRect: imageView.bounds, cornerRadius: 16.0).cgPath
@@ -279,11 +287,11 @@ extension PlayView: PlayPresenterOutput {
             self.locker.lock()
             self.topImageViewIndex += 1
             self.locker.unlock()
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations: {
                 self.layoutImageViews()
             }, completion: { finished in
                 self.setImages(images: images, animated: true)
-                UIView.animate(withDuration: 0.3) {
+                UIView.animate(withDuration: 0.1) {
                     self.firstImageView.alpha = 1.0
                     self.secondImageView.alpha = 1.0
                     self.thirdImageView.alpha = 1.0

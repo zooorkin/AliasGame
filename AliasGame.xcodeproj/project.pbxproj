@@ -24,6 +24,7 @@
 		880B802F239575AD0036211B /* PrePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B802E239575AD0036211B /* PrePlayView.swift */; };
 		880B8032239587680036211B /* PrePlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8031239587680036211B /* PrePlayPresenter.swift */; };
 		880B8034239587B30036211B /* PrePlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8033239587B30036211B /* PrePlayInteractor.swift */; };
+		880B8038239662730036211B /* SingleScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8037239662730036211B /* SingleScreenView.swift */; };
 		881216802386F3620091B5C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8812167F2386F3620091B5C4 /* AppDelegate.swift */; };
 		8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881216882386F3630091B5C4 /* LaunchScreen.storyboard */; };
 		881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C12386FDF90091B5C4 /* CoreAssembly.swift */; };
@@ -70,6 +71,11 @@
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
+		8863685F2396D077001DDDA8 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8863685E2396D077001DDDA8 /* SecondView.swift */; };
+		886368612396D097001DDDA8 /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368602396D097001DDDA8 /* ThirdView.swift */; };
+		886368632396D09E001DDDA8 /* FourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368622396D09E001DDDA8 /* FourthView.swift */; };
+		886368652396D233001DDDA8 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368642396D233001DDDA8 /* FirstView.swift */; };
+		886368682396DEED001DDDA8 /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368672396DEED001DDDA8 /* FifthView.swift */; };
 		88E36F412391594200F8F8F3 /* SafeTranslaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */; };
 		88E36F442391607D00F8F8F3 /* SafeTranslater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F432391607D00F8F8F3 /* SafeTranslater.swift */; };
 		88E36F46239165C200F8F8F3 /* RandomWordAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */; };
@@ -106,6 +112,7 @@
 		880B802E239575AD0036211B /* PrePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayView.swift; sourceTree = "<group>"; };
 		880B8031239587680036211B /* PrePlayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayPresenter.swift; sourceTree = "<group>"; };
 		880B8033239587B30036211B /* PrePlayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayInteractor.swift; sourceTree = "<group>"; };
+		880B8037239662730036211B /* SingleScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleScreenView.swift; sourceTree = "<group>"; };
 		8812167C2386F3620091B5C4 /* AliasGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AliasGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8812167F2386F3620091B5C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		881216892386F3630091B5C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -156,6 +163,11 @@
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		8863685E2396D077001DDDA8 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		886368602396D097001DDDA8 /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
+		886368622396D09E001DDDA8 /* FourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthView.swift; sourceTree = "<group>"; };
+		886368642396D233001DDDA8 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		886368672396DEED001DDDA8 /* FifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthView.swift; sourceTree = "<group>"; };
 		88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeTranslaterTests.swift; sourceTree = "<group>"; };
 		88E36F432391607D00F8F8F3 /* SafeTranslater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeTranslater.swift; sourceTree = "<group>"; };
 		88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordAPI.swift; sourceTree = "<group>"; };
@@ -218,6 +230,7 @@
 		880B8030239586B90036211B /* PrePlay Module */ = {
 			isa = PBXGroup;
 			children = (
+				886368662396D6A9001DDDA8 /* Custom Elements */,
 				880B802E239575AD0036211B /* PrePlayView.swift */,
 				880B8031239587680036211B /* PrePlayPresenter.swift */,
 				880B8033239587B30036211B /* PrePlayInteractor.swift */,
@@ -427,6 +440,19 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		886368662396D6A9001DDDA8 /* Custom Elements */ = {
+			isa = PBXGroup;
+			children = (
+				880B8037239662730036211B /* SingleScreenView.swift */,
+				886368642396D233001DDDA8 /* FirstView.swift */,
+				8863685E2396D077001DDDA8 /* SecondView.swift */,
+				886368602396D097001DDDA8 /* ThirdView.swift */,
+				886368622396D09E001DDDA8 /* FourthView.swift */,
+				886368672396DEED001DDDA8 /* FifthView.swift */,
+			);
+			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
 		88E36F47239165C900F8F8F3 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +589,7 @@
 				881217162386FDFA0091B5C4 /* PlayInteractor.swift in Sources */,
 				8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */,
 				88E36F4923917B8F00F8F8F3 /* StringHelper.swift in Sources */,
+				886368682396DEED001DDDA8 /* FifthView.swift in Sources */,
 				880B8023239409A40036211B /* FlickrAPI.swift in Sources */,
 				881C8CDD23902E4B00A6E8DE /* GameModeCollectionCell.swift in Sources */,
 				880B80092393DB600036211B /* Word+CoreDataClass.swift in Sources */,
@@ -587,6 +614,7 @@
 				881216FA2386FDFA0091B5C4 /* Networking.swift in Sources */,
 				881C8CCC238EFDB400A6E8DE /* LightStatusBarViewController.swift in Sources */,
 				881216FB2386FDFA0091B5C4 /* MachineLearning.swift in Sources */,
+				886368612396D097001DDDA8 /* ThirdView.swift in Sources */,
 				881217172386FDFA0091B5C4 /* PlayView.swift in Sources */,
 				881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */,
 				88E36F46239165C200F8F8F3 /* RandomWordAPI.swift in Sources */,
@@ -603,6 +631,8 @@
 				880B8032239587680036211B /* PrePlayPresenter.swift in Sources */,
 				881C8CDF23903CD700A6E8DE /* RandomColor.swift in Sources */,
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
+				8863685F2396D077001DDDA8 /* SecondView.swift in Sources */,
+				886368652396D233001DDDA8 /* FirstView.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,
 				881C8CD2238FBE0000A6E8DE /* AliasDarkNavigationController.swift in Sources */,
@@ -613,11 +643,13 @@
 				881217072386FDFA0091B5C4 /* PresentationAssembly.swift in Sources */,
 				880B800A2393DB600036211B /* Word+CoreDataProperties.swift in Sources */,
 				881217012386FDFA0091B5C4 /* SettingsView.swift in Sources */,
+				880B8038239662730036211B /* SingleScreenView.swift in Sources */,
 				880B802F239575AD0036211B /* PrePlayView.swift in Sources */,
 				881217132386FDFA0091B5C4 /* AboutView.swift in Sources */,
 				880B80112393DEA20036211B /* WordsProviderProtocol.swift in Sources */,
 				881217052386FDFA0091B5C4 /* RecordsView.swift in Sources */,
 				881C8CC5238EDA2E00A6E8DE /* AliasDarkViewController.swift in Sources */,
+				886368632396D09E001DDDA8 /* FourthView.swift in Sources */,
 				880B800D2393DC6C0036211B /* Word+AliasProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

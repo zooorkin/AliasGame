@@ -15,7 +15,6 @@ class GameModeCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.cornerRadius = 16
         clipsToBounds = true
         backgroundColor = #colorLiteral(red: 0.9117276424, green: 0.9130286635, blue: 0.9328820709, alpha: 1)
         backgroundColor = getRandomColor()
@@ -38,6 +37,7 @@ class GameModeCollectionCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.frame = bounds
+        layer.cornerRadius = layer.bounds.width / 6.0
     }
     
 }
