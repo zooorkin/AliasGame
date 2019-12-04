@@ -16,6 +16,8 @@ protocol PlayPresenterInput {
     
     func viewDidLoad()
     
+    func viewDidAppear()
+    
     func pauseButtonTapped()
     
     func successButtonTapped()
@@ -44,7 +46,13 @@ protocol PlayPresenterOutput: class {
 
 protocol PlayRouterInput: class {
     
+    func showResult(teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?)
+    
     func exitFromPlayModule()
+    
+    func playModuleDidLoadWords()
+    
+    func playModuleDidNotLoadWords()
 
 }
 
@@ -66,6 +74,10 @@ class PlayPresenter: PlayPresenterInput {
     let locker = NSLock()
     
     let queue = DispatchQueue.global(qos: .userInitiated)
+    
+    func viewDidAppear() {
+        interactor.startTimer()
+    }
     
     func viewDidLoad() {
         interactor.loadWords()
@@ -89,7 +101,7 @@ class PlayPresenter: PlayPresenterInput {
         nextWord()
     }
     
-    private func updateUI() {
+    private func updateUI(animated: Bool) {
         guard let output = output else {
             debugPrint("[PlayPresenter]: output is nil")
             return
@@ -104,7 +116,7 @@ class PlayPresenter: PlayPresenterInput {
             return
         }
         output.setCurrentWord(word: interactor.words[currentWordIndex].word)
-        output.setImages(images: [firstImage, secondImage, thirdImage], animated: false)
+        output.setImages(images: [firstImage, secondImage, thirdImage], animated: animated)
     }
     
     var currentWordIndex = 0
@@ -144,7 +156,6 @@ class PlayPresenter: PlayPresenterInput {
         let currentWordIndex = self.currentWordIndex
         locker.unlock()
         if currentWordIndex >= interactor.words.count {
-            output.showAlert(with: "Слова закончились", completion: { self.router?.exitFromPlayModule() })
             return
         }
         output.setCurrentWord(word: interactor.words[currentWordIndex].word)
@@ -152,6 +163,7 @@ class PlayPresenter: PlayPresenterInput {
     }
     
     func exitTapped() {
+        interactor.stopTimer()
         if let router = router {
             router.exitFromPlayModule()
         } else {
@@ -180,7 +192,15 @@ extension PlayPresenter: PlayInteractorOutput {
     }
     
     func interactorDidLoadWords() {
-        updateUI()
+        currentWordIndex = 0
+        guard let router = router else {
+            debugPrint("[PlayPresenter]: router is nil")
+            return
+        }
+        updateUI(animated: false)
+        DispatchQueue.main.async {
+            router.playModuleDidLoadWords()
+        }
     }
     
     func interactorDidNotLoadWords() {
@@ -188,13 +208,18 @@ extension PlayPresenter: PlayInteractorOutput {
             debugPrint("[PlayPresenter]: router is nil")
             return
         }
-        guard let output = output else {
-            assertionFailure("[PlayPresenter]: output is nil")
+        DispatchQueue.main.async {
+            router.playModuleDidNotLoadWords()
+        }
+    }
+    
+    func timeIsOver() {
+        guard let router = router else {
+            debugPrint("[PlayPresenter]: router is nil")
             return
         }
-        output.showAlert(with: "Не удалось загрузить слова") {
-            router.exitFromPlayModule()
-        }
+        router.showResult(teamResult: .init(), roundResult: nil, gameResult: nil)
+        interactor.loadWords()
     }
     
 }

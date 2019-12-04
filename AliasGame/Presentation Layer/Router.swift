@@ -10,17 +10,34 @@ import UIKit
 
 protocol RouterInput {
     
+    var delegate: RouterDelegate? { get set }
+    
     var viewController: UIViewController { get }
     
     func start()
     
 }
 
+protocol RouterDelegate {
+    
+    func wordsDidLoad()
+    
+}
+
 class Router: AliasTransitionSupport, RouterInput {
+    
+    
+    var delegate: RouterDelegate?
+    
+    var wordsDidLoad = false
+    
+    var preparingPlayModule: PlayView?
     
     var viewController: UIViewController {
         return navigationController
     }
+    
+    private var secondCoveredNavigationController: UINavigationController!
 
     private let presentationAssembly: PresentationAssemblyProtocol
 
@@ -72,16 +89,88 @@ extension Router: PrePlayRouterInput {
     }
     
     func startGameFromPrePlayModule() {
-        let playView = presentationAssembly.playModule(mode: .twoTeams)
-        coveredNavigationController.pushViewController(playView, animated: true)
+        // FIXME: - .playModule(mode: .twoPlayers)
+        preparingPlayModule = presentationAssembly.playModule(mode: .twoPlayers)
+        let readyView = presentationAssembly.readyModule()
+        coveredNavigationController.pushViewController(readyView, animated: true)
     }
     
 }
 
 extension Router: PlayRouterInput {
     
+    func showResult(teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?) {
+        let resultView = presentationAssembly.resultModule()
+        secondCoveredNavigationController = AliasLightNavigationController(rootViewController: resultView)
+        coveredNavigationController.present(secondCoveredNavigationController, animated: true, completion: nil)
+    }
+    
     func exitFromPlayModule() {
         performAliasUntransition()
+    }
+    
+    func playModuleDidLoadWords() {
+        wordsDidLoad = true
+        guard let delegate = delegate else {
+            debugPrint("[Router]: delegate is nil")
+            return
+        }
+        delegate.wordsDidLoad()
+    }
+    
+    func playModuleDidNotLoadWords() {
+        preparingPlayModule = nil
+        
+        if coveredNavigationController.topViewController is ReadyView {
+            performAliasUntransition()
+        } else {
+            coveredNavigationController.dismiss(animated: true, completion: {
+                self.performAliasUntransition()
+            })
+        }
+        
+    }
+    
+}
+
+extension Router: ReadyRouterInput {
+    
+    func exitFromReadyModule() {
+        performAliasUntransition()
+    }
+    
+    func letsPlayFromReadyModule() {
+        if coveredNavigationController.topViewController is ReadyView {
+            guard let preparingPlayModule = preparingPlayModule else {
+                assertionFailure("[Router]: Модуль Play, для которого должны были настроиться слова, is nil")
+                return
+            }
+            coveredNavigationController.pushViewController(preparingPlayModule, animated: true)
+        } else {
+            coveredNavigationController.dismiss(animated: true, completion: nil)
+        }
+        wordsDidLoad = false
+    }
+    
+    
+}
+
+extension Router: ResultRouterInput {
+    
+    func exitFromResultModule() {
+        performAliasUntransition()
+    }
+    
+    func nextFromResultModule() {
+        let readyView = presentationAssembly.readyModule()
+        if wordsDidLoad {
+            if let delegate = delegate {
+                delegate.wordsDidLoad()
+            } else {
+                debugPrint("[Router]: delegate is nil")
+            }
+        }
+        secondCoveredNavigationController.pushViewController(readyView, animated: true)
     }
     
 }
@@ -111,10 +200,10 @@ extension Router: AboutRouterInput {
 }
 
 extension Router: ReservedRouterInput {
+    
     func exitFromReservedModule() {
         navigationController.popViewController(animated: true)
     }
     
-
 }
 

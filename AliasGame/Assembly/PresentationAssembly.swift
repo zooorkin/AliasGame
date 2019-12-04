@@ -24,7 +24,13 @@ protocol PresentationAssemblyProtocol {
     
     func prePlayModule() -> PrePlayView
     
+    func loadingView() -> LoadingView
+    
+    func readyModule() -> ReadyView
+    
     func playModule(mode: AliasGameMode) -> PlayView
+    
+    func resultModule() -> ResultView
     
     func recordsModule() -> RecordsView
     
@@ -110,6 +116,10 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         }
         return view
     }
+    
+    func loadingView() -> LoadingView {
+        return LoadingView()
+    }
 
     func playModule(mode: AliasGameMode) -> PlayView {
         let wordsProvider = servicesAssembly.storedWordsProvider
@@ -117,8 +127,11 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         let translater = servicesAssembly.translater
         let imageClassificator = servicesAssembly.imageClassificator
         let gameDataSaver = servicesAssembly.gameDataSaver
+        
+        // FIXME: - numberOfRounds: 3, time: 5
+        let configuration = AliasGameConfiguration(mode: mode, numberOfRounds: 3, time: 5)
 
-        let interactor = PlayInteractor(mode: mode,
+        let interactor = PlayInteractor(configuration: configuration,
                                         wordsProvider: wordsProvider,
                                         imageProvider: imageProvider,
                                         translater: translater,
@@ -126,7 +139,7 @@ class PresentationAssembly: PresentationAssemblyProtocol {
                                         gameDataSaver: gameDataSaver)
         let presenter = PlayPresenter(interactor: interactor)
         let view = PlayView(presenter: presenter)
-
+        
         interactor.output = presenter
         presenter.output = view
 
@@ -136,6 +149,56 @@ class PresentationAssembly: PresentationAssemblyProtocol {
             } else {
                 #if DEBUG
                 debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию PlayRouterInput")
+                #endif
+            }
+        } else {
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: router не задан")
+            #endif
+        }
+        view.loadViewIfNeeded()
+        return view
+    }
+    
+    lazy var readyView: ReadyView = {
+        let presenter = ReadyPresenter()
+        let view = ReadyView(presenter: presenter)
+        
+        presenter.output = view
+        
+        if var router = router {
+            router.delegate = presenter
+            if let router = router as? ReadyRouterInput {
+                presenter.router = router
+            } else {
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию ReadyRouterInput")
+                #endif
+            }
+        } else {
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: router не задан")
+            #endif
+        }
+        return view
+    }()
+    
+    func readyModule() -> ReadyView {
+        return readyView
+    }
+    
+    func resultModule() -> ResultView {
+        let presenter = ResultPresenter()
+        let view = ResultView(presenter: presenter)
+        
+        presenter.output = view
+        
+        if let router = router {
+            if let router = router as? ResultRouterInput {
+                presenter.router = router
+            } else {
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию ResultRouterInput")
                 #endif
             }
         } else {

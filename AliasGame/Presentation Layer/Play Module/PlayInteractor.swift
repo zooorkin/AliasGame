@@ -14,6 +14,10 @@ protocol PlayInteractorInput {
     
     func loadWords()
     
+    func startTimer()
+    
+    func stopTimer()
+    
     var words: [AliasWord] { get }
     
     var team: Int { get }
@@ -29,18 +33,17 @@ protocol PlayInteractorOutput: class {
     func interactorDidLoadWords()
     
     func interactorDidNotLoadWords()
+    
+    func timeIsOver()
 
 }
 
 class PlayInteractor: PlayInteractorInput {
     
-    private let wordsCountForSet = 40
+    private let wordsCountForSet = 50
     
 
     weak var output: PlayInteractorOutput?
-    
-    private var gameMode: AliasGameMode
-    
 
     private var wordsProvider: WordsProviderProtocol
     
@@ -56,14 +59,19 @@ class PlayInteractor: PlayInteractorInput {
     
     private var currentImage: UIImage?
     
+    
+    var configuration: AliasGameConfiguration
+    
     var team: Int = 0
     
     var round: Int = 0
+
+    var timer: Timer?
     
     private var configurationToTranslate = false
     
-    init(mode: AliasGameMode, wordsProvider: WordsProviderProtocol, imageProvider: ImageProviderProtocol, translater: TranslaterProtocol, imageClassificator: ImageClassificatorProtocol, gameDataSaver: GameDataSaverProtocol) {
-        self.gameMode = mode
+    init(configuration: AliasGameConfiguration, wordsProvider: WordsProviderProtocol, imageProvider: ImageProviderProtocol, translater: TranslaterProtocol, imageClassificator: ImageClassificatorProtocol, gameDataSaver: GameDataSaverProtocol) {
+        self.configuration = configuration
         self.wordsProvider = wordsProvider
         self.imageProvider = imageProvider
         self.translater = translater
@@ -79,6 +87,27 @@ class PlayInteractor: PlayInteractorInput {
         DispatchQueue.global(qos: .userInitiated).async {
             self.wordsProvider.getWords(number: self.wordsCountForSet, language: .russian, category: .noun)
         }
+    }
+    
+    func startTimer() {
+        DispatchQueue.main.async {
+            self.timer = .scheduledTimer(withTimeInterval: Double(self.configuration.time), repeats: false) {
+                [weak self] timer in
+                
+                guard let output = self?.output else {
+                    assertionFailure("[PlayInteractor]: output is nil")
+                    return
+                }
+                output.timeIsOver()
+            }
+        }
+    }
+    
+    func stopTimer() {
+        if let timer = timer {
+            timer.invalidate()
+        }
+        timer = nil
     }
     
 }
@@ -133,6 +162,7 @@ extension PlayInteractor: WordsProviderDelegate {
     
     func wordsProviderDidNotGetWords() {
         if let output = output {
+            output.interactorDidNotLoadWords()
             output.interactorFailedAction(with: "Не удалось загрузить слова")
         } else {
             assertionFailure("[PlayInteractor]: output is nil")
