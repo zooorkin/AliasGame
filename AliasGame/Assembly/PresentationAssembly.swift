@@ -24,13 +24,11 @@ protocol PresentationAssemblyProtocol {
     
     func prePlayModule(mode: AliasGameMode) -> PrePlayView
     
-    func loadingView() -> LoadingView
-    
     func readyModule() -> ReadyView
     
     func playModule(configuration: AliasGameConfiguration) -> PlayView
     
-    func resultModule(configuration: AliasGameConfiguration, teamResult: TeamResult, nextTeam: Int) -> ResultView
+    func teamResultModule(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void) -> TeamResultView
     
     func recordsModule() -> RecordsView
     
@@ -116,10 +114,6 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         }
         return view
     }
-    
-    func loadingView() -> LoadingView {
-        return LoadingView()
-    }
 
     func playModule(configuration: AliasGameConfiguration) -> PlayView {
         let wordsProvider = servicesAssembly.storedWordsProvider
@@ -184,14 +178,14 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         return readyView
     }
     
-    func resultModule(configuration: AliasGameConfiguration, teamResult: TeamResult, nextTeam: Int) -> ResultView {
-        let presenter = ResultPresenter(configuration: configuration, teamResult: teamResult, nextTeam: nextTeam)
-        let view = ResultView(presenter: presenter)
+    func teamResultModule(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void) -> TeamResultView {
+        let presenter = TeamResultPresenter(configuration: configuration, teamResult: teamResult, completion: completion)
+        let view = TeamResultView(presenter: presenter)
         
         presenter.output = view
         
         if let router = router {
-            if let router = router as? ResultRouterInput {
+            if let router = router as? TeamResultRouterInput {
                 presenter.router = router
             } else {
                 #if DEBUG

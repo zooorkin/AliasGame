@@ -50,13 +50,15 @@ protocol PlayPresenterOutput: class {
 
 protocol PlayRouterInput: class {
     
-    func showResult(configuration: AliasGameConfiguration, nextTeam: Int, teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?)
+    func showResult(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void)
     
     func exitFromPlayModule()
     
     func playModuleDidLoadWords()
     
     func playModuleDidNotLoadWords()
+    
+    func readyFromPlayModule(configuration: AliasGameConfiguration, nextTeam: Int)
 
 }
 
@@ -180,6 +182,9 @@ class PlayPresenter: PlayPresenterInput {
     }
     
     private func wordGuessed(_ guessed: Bool) {
+        if currentWordIndex >= interactor.words.count - 1 {
+            return
+        }
         let word = interactor.words[currentWordIndex]
         if guessed {
             guessedWords.append(word)
@@ -257,10 +262,12 @@ extension PlayPresenter: PlayInteractorOutput {
             return
         }
         let configuration = interactor.configuration
+        let teamResult = TeamResult(configuration: configuration, score: score, team: interactor.team)
         let nextTeam = interactor.team + 1
-        let teamResult = TeamResult(score: score)
         // FIXME: - Здесь должны исчезнуть все данные прошедшего сета
-        router.showResult(configuration: configuration, nextTeam: nextTeam,  teamResult: teamResult, roundResult: nil, gameResult: nil)
+        router.showResult(configuration: configuration, teamResult: teamResult, completion: {
+            router.readyFromPlayModule(configuration: configuration, nextTeam: nextTeam)
+        })
         prepareForReuse()
         interactor.nextTeam()
         interactor.loadWords()

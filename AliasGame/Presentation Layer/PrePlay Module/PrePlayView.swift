@@ -76,6 +76,7 @@ class PrePlayView: AliasLightViewController {
         pageControl.currentPageIndicatorTintColor = models[0].color
         pageControl.currentPage = 0
         pageControl.numberOfPages = models.count
+        pageControl.isEnabled = false
     }
     
     private func setupScreenViews() {
@@ -97,7 +98,7 @@ class PrePlayView: AliasLightViewController {
             case 0: fallthrough
             case 1: fallthrough
             case 2: fallthrough
-            case 3: singleScreenView.button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+            case 3: break /* singleScreenView.button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside) */
             case 4: singleScreenView.button.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
             default: break
             }

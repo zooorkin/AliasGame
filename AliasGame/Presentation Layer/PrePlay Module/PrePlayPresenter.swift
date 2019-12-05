@@ -49,7 +49,7 @@ class PrePlayPresenter: PrePlayPresenterInput {
         self.interactor = interactor
     }
     
-    private let firstText = "Чтобы начать игру, нажмите Далее"
+    private let firstText = "Чтобы начать игру, выполните 5 шагов"
     private let secondText = "Здесь будут написаны правила игры"
     private let thirdText = "Выберите количество раундов"
     private let fourthText = "Выберите количество времени"
@@ -60,11 +60,11 @@ class PrePlayPresenter: PrePlayPresenterInput {
         "Времени на сет: \(configuration.timeForSet) секунд"
     }
     
-    lazy var models = [SingleScreenModel(title: "Начало игры", text: firstText, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Правила игры", text: secondText, color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Раундов", text: thirdText, color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Время", text: fourthText, color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Игра настроена", text: fivethText, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), buttonTitle: "К игре")
+    lazy var models = [SingleScreenModel(title: "Начало игры", text: firstText, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), buttonTitle: "Шаг 1 из 5"),
+                       SingleScreenModel(title: "Правила игры", text: secondText, color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), buttonTitle: "Шаг 2 из 5"),
+                       SingleScreenModel(title: "Раундов", text: thirdText, color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), buttonTitle: "Шаг 3 из 5"),
+                       SingleScreenModel(title: "Время", text: fourthText, color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), buttonTitle: "Шаг 4 из 5"),
+                       SingleScreenModel(title: "Игра настроена", text: fivethText, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), buttonTitle: "Начать играть")
     ]
     
     func viewDidLoad() {

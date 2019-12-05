@@ -9,15 +9,21 @@
 import UIKit
 
 struct TeamResult {
+    let configuration: AliasGameConfiguration
     let score: Int
+    let team: Int
 }
 
 struct RoundResult {
-    
+    let configuration: AliasGameConfiguration
+    let scores: [Int]
+    let round: Int
 }
 
 struct GameResult {
-    
+    let configuration: AliasGameConfiguration
+    let scores: [Int]
+    let round: Int
 }
 
 /// Настройки игры

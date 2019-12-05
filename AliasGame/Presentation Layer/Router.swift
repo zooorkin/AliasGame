@@ -99,8 +99,8 @@ extension Router: PrePlayRouterInput {
 
 extension Router: PlayRouterInput {
     
-    func showResult(configuration: AliasGameConfiguration, nextTeam: Int, teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?) {
-        let resultView = presentationAssembly.resultModule(configuration: configuration, teamResult: teamResult, nextTeam: nextTeam)
+    func showResult(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void) {
+        let resultView = presentationAssembly.teamResultModule(configuration: configuration, teamResult: teamResult, completion: completion)
         secondCoveredNavigationController = AliasLightNavigationController(rootViewController: resultView)
         coveredNavigationController.present(secondCoveredNavigationController, animated: true, completion: nil)
     }
@@ -131,6 +131,19 @@ extension Router: PlayRouterInput {
         
     }
     
+    func readyFromPlayModule(configuration: AliasGameConfiguration, nextTeam: Int) {
+        let readyView = presentationAssembly.readyModule()
+        readyView.setConfiguration(configuration, nextTeam: nextTeam)
+        if wordsDidLoad {
+            if let delegate = delegate {
+                delegate.wordsDidLoad()
+            } else {
+                debugPrint("[Router]: delegate is nil")
+            }
+        }
+        secondCoveredNavigationController.pushViewController(readyView, animated: true)
+    }
+    
 }
 
 extension Router: ReadyRouterInput {
@@ -155,23 +168,10 @@ extension Router: ReadyRouterInput {
     
 }
 
-extension Router: ResultRouterInput {
+extension Router: TeamResultRouterInput {
     
-    func exitFromResultModule() {
+    func exitFromTeamResultModule() {
         performAliasUntransition()
-    }
-    
-    func nextFromResultModule(configuration: AliasGameConfiguration, nextTeam: Int) {
-        let readyView = presentationAssembly.readyModule()
-        readyView.setConfiguration(configuration, nextTeam: nextTeam)
-        if wordsDidLoad {
-            if let delegate = delegate {
-                delegate.wordsDidLoad()
-            } else {
-                debugPrint("[Router]: delegate is nil")
-            }
-        }
-        secondCoveredNavigationController.pushViewController(readyView, animated: true)
     }
     
 }

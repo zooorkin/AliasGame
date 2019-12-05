@@ -189,7 +189,7 @@ extension PlayInteractor: WordsProviderDelegate {
             }
         }
         let image = UIImage(color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
-        self.words.append(AliasWord(word: "Огонь! 🔥", translate: nil, image: image))
+        self.words.append(AliasWord(word: "Слова закончились", translate: nil, image: image))
         group.wait()
         output.interactorDidLoadWords()
     }

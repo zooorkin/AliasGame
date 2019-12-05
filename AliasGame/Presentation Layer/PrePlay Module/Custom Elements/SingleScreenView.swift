@@ -139,12 +139,12 @@ class SingleScreenView: UIView {
             textLabel.frame = CGRect(x: 0,
                                      y: customView.frame.maxY + 32.0,
                                      width: frame.width,
-                                     height: 80).insetBy(dx: 32.0, dy: 0)
+                                     height: 128).insetBy(dx: 32.0, dy: 0)
         } else {
                 textLabel.frame = CGRect(x: 0,
                                  y: titleLabel.frame.maxY + 48.0,
                                  width: frame.width,
-                                 height: 80).insetBy(dx: 32.0, dy: 0)
+                                 height: 128).insetBy(dx: 32.0, dy: 0)
         }
     }
     
