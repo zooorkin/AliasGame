@@ -12,17 +12,23 @@ protocol PlayInteractorInput {
 
     var output: PlayInteractorOutput? { get set }
     
-    func loadWords()
-    
-    func startTimer()
-    
-    func stopTimer()
+    var configuration: AliasGameConfiguration { get }
     
     var words: [AliasWord] { get }
     
     var team: Int { get }
     
     var round: Int { get }
+    
+    func nextTeam()
+    
+    func nextRound()
+    
+    func loadWords()
+    
+    func startTimer()
+    
+    func stopTimer()
 
 }
 
@@ -91,7 +97,7 @@ class PlayInteractor: PlayInteractorInput {
     
     func startTimer() {
         DispatchQueue.main.async {
-            self.timer = .scheduledTimer(withTimeInterval: Double(self.configuration.time), repeats: false) {
+            self.timer = .scheduledTimer(withTimeInterval: Double(self.configuration.timeForSet), repeats: false) {
                 [weak self] timer in
                 
                 guard let output = self?.output else {
@@ -108,6 +114,14 @@ class PlayInteractor: PlayInteractorInput {
             timer.invalidate()
         }
         timer = nil
+    }
+    
+    func nextTeam() {
+        team += 1
+    }
+    
+    func nextRound() {
+        round += 1
     }
     
 }

@@ -22,7 +22,7 @@ protocol ResultRouterInput: class {
     
     func exitFromResultModule()
     
-    func nextFromResultModule()
+    func nextFromResultModule(configuration: AliasGameConfiguration, nextTeam: Int)
     
 }
 
@@ -32,10 +32,19 @@ class ResultPresenter: ResultPresenterInput {
     
     weak var output: ResultPresenterOutput?
     
+    let configuration: AliasGameConfiguration
+    
+    let nextTeam: Int
+    
+    init(configuration: AliasGameConfiguration, nextTeam: Int) {
+        self.configuration = configuration
+        self.nextTeam = nextTeam
+    }
+    
     
     func buttonTapped() {
         if let router = router {
-            router.nextFromResultModule()
+            router.nextFromResultModule(configuration: configuration, nextTeam: nextTeam)
         } else {
             #if DEBUG
             debugPrint("[ResultPresenter]: router is nil")

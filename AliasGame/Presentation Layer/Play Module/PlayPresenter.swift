@@ -46,7 +46,7 @@ protocol PlayPresenterOutput: class {
 
 protocol PlayRouterInput: class {
     
-    func showResult(teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?)
+    func showResult(configuration: AliasGameConfiguration, nextTeam: Int, teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?)
     
     func exitFromPlayModule()
     
@@ -218,7 +218,10 @@ extension PlayPresenter: PlayInteractorOutput {
             debugPrint("[PlayPresenter]: router is nil")
             return
         }
-        router.showResult(teamResult: .init(), roundResult: nil, gameResult: nil)
+        let configuration = interactor.configuration
+        let nextTeam = interactor.team + 1
+        router.showResult(configuration: configuration, nextTeam: nextTeam,  teamResult: .init(), roundResult: nil, gameResult: nil)
+        interactor.nextTeam()
         interactor.loadWords()
     }
     

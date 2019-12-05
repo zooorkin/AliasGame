@@ -22,15 +22,15 @@ protocol PresentationAssemblyProtocol {
     
     func startModule() -> StartView
     
-    func prePlayModule() -> PrePlayView
+    func prePlayModule(mode: AliasGameMode) -> PrePlayView
     
     func loadingView() -> LoadingView
     
     func readyModule() -> ReadyView
     
-    func playModule(mode: AliasGameMode) -> PlayView
+    func playModule(configuration: AliasGameConfiguration) -> PlayView
     
-    func resultModule() -> ResultView
+    func resultModule(configuration: AliasGameConfiguration, nextTeam: Int) -> ResultView
     
     func recordsModule() -> RecordsView
     
@@ -93,8 +93,8 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         return view
     }
     
-    func prePlayModule() -> PrePlayView {
-        let interactor = PrePlayInteractor()
+    func prePlayModule(mode: AliasGameMode) -> PrePlayView {
+        let interactor = PrePlayInteractor(mode: mode)
         let presenter = PrePlayPresenter(interactor: interactor)
         let view = PrePlayView(presenter: presenter)
         
@@ -121,15 +121,12 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         return LoadingView()
     }
 
-    func playModule(mode: AliasGameMode) -> PlayView {
+    func playModule(configuration: AliasGameConfiguration) -> PlayView {
         let wordsProvider = servicesAssembly.storedWordsProvider
         let imageProvider = servicesAssembly.imageProvider
         let translater = servicesAssembly.translater
         let imageClassificator = servicesAssembly.imageClassificator
         let gameDataSaver = servicesAssembly.gameDataSaver
-        
-        // FIXME: - numberOfRounds: 3, time: 5
-        let configuration = AliasGameConfiguration(mode: mode, numberOfRounds: 3, time: 5)
 
         let interactor = PlayInteractor(configuration: configuration,
                                         wordsProvider: wordsProvider,
@@ -187,8 +184,8 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         return readyView
     }
     
-    func resultModule() -> ResultView {
-        let presenter = ResultPresenter()
+    func resultModule(configuration: AliasGameConfiguration, nextTeam: Int) -> ResultView {
+        let presenter = ResultPresenter(configuration: configuration, nextTeam: nextTeam)
         let view = ResultView(presenter: presenter)
         
         presenter.output = view

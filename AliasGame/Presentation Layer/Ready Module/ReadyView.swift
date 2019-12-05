@@ -9,10 +9,8 @@
 import UIKit
 
 class ReadyView: UIViewController {
-    
-    let loadingIndicator = UIActivityIndicatorView()
-    
-    let button = UIButton(frame: .zero)
+
+    lazy var singleScreenView = SingleScreenView()
     
     private let presenter: ReadyPresenterInput
     
@@ -29,65 +27,41 @@ class ReadyView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Ready"
         view.backgroundColor = .white
-        button.setTitle("Играть", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        view.addSubview(button)
-        
-        view.backgroundColor = .white
-        loadingIndicator.color = .black
-        loadingIndicator.style = .gray
-        view.addSubview(loadingIndicator)
-        
+        navigationItem.largeTitleDisplayMode = .never
+        singleScreenView.button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         disableButton()
+        navigationItem.hidesBackButton = true
+        view.addSubview(singleScreenView)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        button.frame = CGRect(origin: .zero, size: button.intrinsicContentSize)
-        button.center = view.center
-        
-        loadingIndicator.frame = CGRect(origin: .zero, size: loadingIndicator.intrinsicContentSize)
-        loadingIndicator.center = view.center
+        singleScreenView.frame = view.bounds.inset(by: view.safeAreaInsets)
     }
     
     @objc func buttonTapped() {
         presenter.buttonTapped()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func setConfiguration(_ configuration: AliasGameConfiguration, nextTeam: Int) {
+        let text = "Начинает \(configuration.mode.teamType) \(nextTeam + 1)"
+        let model = SingleScreenModel(title: "Приготовьтесь", text: text, color: .black, buttonTitle: "Начать")
+        singleScreenView.loadModel(model: model)
+        singleScreenView.loadCustimView(customView: FifthView(emoji: "🚀"))
+    }
     
 }
 
 extension ReadyView: ReadyPresenterOutput {
     
     func enableButton() {
-        DispatchQueue.main.async {
-            self.loadingIndicator.stopAnimating()
-            self.loadingIndicator.isHidden = true
-            self.button.isHidden = false
-            self.button.isEnabled = true
-        }
+        singleScreenView.enableButton()
         
     }
     
     func disableButton() {
-        DispatchQueue.main.async {
-            self.loadingIndicator.startAnimating()
-            self.loadingIndicator.isHidden = false
-            self.button.isHidden = true
-            self.button.isEnabled = false
-        }
+        singleScreenView.disableButton()
     }
     
 }

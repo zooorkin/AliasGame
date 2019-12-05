@@ -12,6 +12,8 @@ class PrePlayView: AliasLightViewController {
 
     private let presenter: PrePlayPresenterInput
     
+    var models: [SingleScreenModel] = []
+    
     
     init(presenter: PrePlayPresenterInput) {
         self.presenter = presenter
@@ -26,10 +28,19 @@ class PrePlayView: AliasLightViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.navigationItem.largeTitleDisplayMode = .never
         setupScrollView()
-        setupPageControl()
-        setupBarButtons()
-        setupScreenViews()
+        presenter.viewDidLoad()
+
+    }
+    
+    func setSingleScreens(models: [SingleScreenModel]) {
+        self.models = models
+        DispatchQueue.main.async {
+            self.setupPageControl()
+            self.setupBarButtons()
+            self.setupScreenViews()
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -48,19 +59,6 @@ class PrePlayView: AliasLightViewController {
     let stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: nil, action: nil)
     
     var screenViews: [SingleScreenView] = []
-    
-    private let firstText = "Чтобы начать игру, нажмите Далее"
-    private let secondText = "Здесь будут написаны правила игры"
-    private let thirdText = "Выберите количество раундов"
-    private let fourthText = "Выберите количество времени"
-    private let fivethText = "Начинает [Имя]"
-    
-    lazy var models = [SingleScreenModel(title: "Начало игры", text: firstText, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Правила игры", text: secondText, color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Раундов", text: thirdText, color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Время", text: fourthText, color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), buttonTitle: "Далее"),
-                       SingleScreenModel(title: "Приготовьтесь", text: fivethText, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), buttonTitle: "Старт"),
-    ]
     
     // MARK: - Настройка элементов UI
     
@@ -88,10 +86,12 @@ class PrePlayView: AliasLightViewController {
             case 1: customView = SecondView(image: #imageLiteral(resourceName: "game-mode-3"))
             case 2: customView = ThirdView(image: #imageLiteral(resourceName: "game-mode-5"))
             case 3: customView = FourthView(image: #imageLiteral(resourceName: "game-mode-6"))
-            case 4: customView = FifthView(emoji: "🚀")
+            case 4: customView = FifthView(emoji: "👍")
             default: customView = .init()
             }
-            let singleScreenView = SingleScreenView(model: model, customView: customView)
+            let singleScreenView = SingleScreenView()
+            singleScreenView.loadModel(model: model)
+            singleScreenView.loadCustimView(customView: customView)
             scrollView.addSubview(singleScreenView)
             switch index {
             case 0: fallthrough
@@ -110,7 +110,6 @@ class PrePlayView: AliasLightViewController {
         stopBarButtonItem.target = self
         stopBarButtonItem.action = #selector(stopBarButtonTapped)
         navigationItem.rightBarButtonItems = [stopBarButtonItem]
-        self.navigationItem.largeTitleDisplayMode = .never
     }
     
     // MARK: - Настройка layout

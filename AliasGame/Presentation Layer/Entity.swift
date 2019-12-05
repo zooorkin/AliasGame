@@ -20,13 +20,13 @@ struct GameResult {
     
 }
 
+/// Настройки игры
 struct AliasGameConfiguration {
-    
+    /// Режим игры
     let mode: AliasGameMode
-    
+    /// Количество команд
     var numberOfTeams: Int {
         switch mode {
-            
         case .twoPlayers: return 2
         case .threePlayers: return 3
         case .fourPlayers: return 4
@@ -35,16 +35,15 @@ struct AliasGameConfiguration {
         case .sevenPlayers: return 7
         case .eightPlayers: return 8
         case .ninePlayers: return 9
+            
         case .twoTeams: return 2
         case .threeTeams: return 3
         case .fourTeams: return 4
-            
         }
     }
-    
+    /// Тип команды
     var teamMode: Bool {
         switch mode {
-            
         case .twoPlayers: fallthrough
         case .threePlayers: fallthrough
         case .fourPlayers: fallthrough
@@ -57,13 +56,12 @@ struct AliasGameConfiguration {
         case .twoTeams: fallthrough
         case .threeTeams: fallthrough
         case .fourTeams: return true
-            
         }
     }
-    
+    /// Количество раундов
     let numberOfRounds: Int
-    
-    let time: Int
+    /// Времени на сет
+    let timeForSet: Int
     
 }
 
@@ -91,6 +89,40 @@ enum AliasGameMode {
     case twoTeams
     case threeTeams
     case fourTeams
+    
+    var name: String {
+        switch self {
+        case .twoPlayers: return "Два игрока"
+        case .threePlayers: return "Три игрока"
+        case .fourPlayers: return "Четыре игрока"
+        case .fivePlayers: return "Пять игроков"
+        case .sixPlayers: return "Шесть игроков"
+        case .sevenPlayers: return "Семь игроков"
+        case .eightPlayers: return "Восемь игроков"
+        case .ninePlayers: return "Девять игроков"
+            
+        case .twoTeams: return "Две команды"
+        case .threeTeams: return "Три команды"
+        case .fourTeams: return "Четыре команды"
+        }
+    }
+    
+    var teamType: String {
+        switch self {
+        case .twoPlayers: fallthrough
+        case .threePlayers: fallthrough
+        case .fourPlayers: fallthrough
+        case .fivePlayers: fallthrough
+        case .sixPlayers: fallthrough
+        case .sevenPlayers: fallthrough
+        case .eightPlayers: fallthrough
+        case .ninePlayers: return "Игрок"
+            
+        case .twoTeams: fallthrough
+        case .threeTeams: fallthrough
+        case .fourTeams: return "Команда"
+        }
+    }
 }
 
 /// Результат игры

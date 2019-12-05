@@ -27,7 +27,7 @@ class ResultView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Результат"
+        navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .white
         button.setTitle("Далее", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -45,16 +45,6 @@ class ResultView: UIViewController {
     @objc func buttonTapped() {
         presenter.buttonTapped()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

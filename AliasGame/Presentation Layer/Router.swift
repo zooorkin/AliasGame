@@ -61,7 +61,7 @@ class Router: AliasTransitionSupport, RouterInput {
 extension Router: StartRouterInput {
     
     func play(mode: AliasGameMode) {
-        let prePlayViewController = presentationAssembly.prePlayModule()
+        let prePlayViewController = presentationAssembly.prePlayModule(mode: mode)
         performAliasTransition(viewController: prePlayViewController, animated: true)
     }
     
@@ -88,10 +88,10 @@ extension Router: PrePlayRouterInput {
         performAliasUntransition()
     }
     
-    func startGameFromPrePlayModule() {
-        // FIXME: - .playModule(mode: .twoPlayers)
-        preparingPlayModule = presentationAssembly.playModule(mode: .twoPlayers)
+    func startGameFromPrePlayModule(configuration: AliasGameConfiguration, nextTeam: Int) {
+        preparingPlayModule = presentationAssembly.playModule(configuration: configuration)
         let readyView = presentationAssembly.readyModule()
+        readyView.setConfiguration(configuration, nextTeam: nextTeam)
         coveredNavigationController.pushViewController(readyView, animated: true)
     }
     
@@ -99,8 +99,8 @@ extension Router: PrePlayRouterInput {
 
 extension Router: PlayRouterInput {
     
-    func showResult(teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?) {
-        let resultView = presentationAssembly.resultModule()
+    func showResult(configuration: AliasGameConfiguration, nextTeam: Int, teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?) {
+        let resultView = presentationAssembly.resultModule(configuration: configuration, nextTeam: nextTeam)
         secondCoveredNavigationController = AliasLightNavigationController(rootViewController: resultView)
         coveredNavigationController.present(secondCoveredNavigationController, animated: true, completion: nil)
     }
@@ -161,8 +161,9 @@ extension Router: ResultRouterInput {
         performAliasUntransition()
     }
     
-    func nextFromResultModule() {
+    func nextFromResultModule(configuration: AliasGameConfiguration, nextTeam: Int) {
         let readyView = presentationAssembly.readyModule()
+        readyView.setConfiguration(configuration, nextTeam: nextTeam)
         if wordsDidLoad {
             if let delegate = delegate {
                 delegate.wordsDidLoad()
