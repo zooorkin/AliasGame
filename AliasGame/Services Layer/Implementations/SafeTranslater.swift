@@ -8,12 +8,6 @@
 
 import Foundation
 
-protocol TranslaterProtocol {
-    
-    func translate(englishWord: String, completion: @escaping (Result<String, Error>) -> Void)
-    
-}
-
 class SafeTranslater: TranslaterProtocol {
     
     let session: URLSession

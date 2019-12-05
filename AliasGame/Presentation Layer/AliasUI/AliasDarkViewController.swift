@@ -11,7 +11,7 @@ import UIKit
 class AliasDarkViewController: UIViewController {
 
     var aliasInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: view.safeAreaInsets.top, left: 8, bottom: view.safeAreaInsets.bottom, right: 8)
+        return UIEdgeInsets(top: view.safeAreaInsets.top, left: 8, bottom: view.safeAreaInsets.bottom + 8, right: 8)
     }
     
     let plainView = UIScrollView(frame: .zero)

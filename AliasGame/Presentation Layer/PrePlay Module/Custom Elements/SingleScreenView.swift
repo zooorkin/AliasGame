@@ -39,22 +39,32 @@ class SingleScreenView: UIView {
         layoutCustomView()
         layoutTextLabel()
         layoutButton()
+        layoutCustomControlView()
         layoutActivityIndicator()
     }
     
     func loadModel(model: SingleScreenModel) {
+        tintColor = model.color
         titleLabel.text = model.title
         textLabel.text = model.text
         button.setTitle(model.buttonTitle, for: .normal)
         button.setTitleColor(model.color, for: .normal)
     }
     
-    func loadCustimView(customView: UIView) {
+    func loadCustomView(customView: UIView) {
         if let oldCustomView = self.customView {
             oldCustomView.removeFromSuperview()
         }
         self.customView = customView
         setupCustomView()
+    }
+    
+    func loadCustomControl(customControl: UIView) {
+        if let oldCustomControl = self.customControl {
+            oldCustomControl.removeFromSuperview()
+        }
+        self.customControl = customControl
+        setupCustomControl()
     }
     
     // MARK: - Элементы UI
@@ -75,9 +85,11 @@ class SingleScreenView: UIView {
     
     var customView: UIView?
     
-    let textLabel = UILabel(frame: .zero)
+    let textLabel = UITextView(frame: .zero)
     
     let button = UIButton(frame: .zero)
+    
+    var customControl: UIView?
 
     // MARK: - Настройка элементов UI
     
@@ -91,7 +103,6 @@ class SingleScreenView: UIView {
     /// Настройка картинок
     private func setupCustomView() {
         guard let customView = customView else {
-            debugPrint("[SingleScreenView]: customView is nil")
             return
         }
         addSubview(customView)
@@ -100,7 +111,20 @@ class SingleScreenView: UIView {
     private func setupTextLabel() {
         addSubview(textLabel)
         textLabel.textAlignment = .center
-        textLabel.numberOfLines = 0
+        textLabel.isEditable = false
+        textLabel.isSelectable = false
+        textLabel.font = .systemFont(ofSize: 17.0, weight: .regular)
+        textLabel.textColor = .black
+    }
+    
+    private func setupCustomControl() {
+        guard let customControl = customControl else {
+            return
+        }
+        addSubview(customControl)
+        if let segmentedControl = customControl as? UISegmentedControl {
+            segmentedControl.tintColor = tintColor
+        }
     }
     
     private func setupButton() {
@@ -139,17 +163,36 @@ class SingleScreenView: UIView {
             textLabel.frame = CGRect(x: 0,
                                      y: customView.frame.maxY + 32.0,
                                      width: frame.width,
-                                     height: 128).insetBy(dx: 32.0, dy: 0)
+                                     height: 128.0)
+                .insetBy(dx: 32.0, dy: 0)
         } else {
                 textLabel.frame = CGRect(x: 0,
                                  y: titleLabel.frame.maxY + 48.0,
                                  width: frame.width,
-                                 height: 128).insetBy(dx: 32.0, dy: 0)
+                                 height: 128)
+                    .insetBy(dx: 32.0, dy: 0)
         }
     }
+
     
     private func layoutButton() {
-        button.frame = CGRect(x: 0, y: 0.8 * bounds.height, width: bounds.width, height: 80)
+        let buttonHeight: CGFloat = 80.0
+        let buttonBottomOffset: CGFloat = 80.0
+        let bottomInset = superview?.superview?.safeAreaInsets.bottom ?? 0.0
+        let buttonY = bounds.height - buttonHeight - buttonBottomOffset + bottomInset
+        button.frame = CGRect(x: 0, y: buttonY, width: bounds.width, height: buttonHeight)
+    }
+    
+    private func layoutCustomControlView() {
+        guard let customControl = customControl else {
+            return
+        }
+        let customControlY = button.frame.minY - 160.0
+        let customControlFrame = CGRect(x: 32.0,
+                                        y: customControlY,
+                                        width: frame.width - 2 * 32.0,
+                                        height: 48)
+        customControl.frame = customControlFrame
     }
     
     private func layoutActivityIndicator() {

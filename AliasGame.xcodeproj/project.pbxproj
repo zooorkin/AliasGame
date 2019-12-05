@@ -76,6 +76,8 @@
 		886368632396D09E001DDDA8 /* FourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368622396D09E001DDDA8 /* FourthView.swift */; };
 		886368652396D233001DDDA8 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368642396D233001DDDA8 /* FirstView.swift */; };
 		886368682396DEED001DDDA8 /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368672396DEED001DDDA8 /* FifthView.swift */; };
+		88AB13A52399565800A35154 /* AliasSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB13A42399565800A35154 /* AliasSegmentedControl.swift */; };
+		88AB13A923998A1200A35154 /* TranslaterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB13A823998A1200A35154 /* TranslaterProtocol.swift */; };
 		88B9948A2398309F00BDC38A /* TeamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B994892398309F00BDC38A /* TeamResultView.swift */; };
 		88B9948C239830AB00BDC38A /* TeamResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9948B239830AB00BDC38A /* TeamResultPresenter.swift */; };
 		88B9948F23983F6300BDC38A /* ReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9948E23983F6300BDC38A /* ReadyView.swift */; };
@@ -172,6 +174,8 @@
 		886368622396D09E001DDDA8 /* FourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthView.swift; sourceTree = "<group>"; };
 		886368642396D233001DDDA8 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		886368672396DEED001DDDA8 /* FifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthView.swift; sourceTree = "<group>"; };
+		88AB13A42399565800A35154 /* AliasSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasSegmentedControl.swift; sourceTree = "<group>"; };
+		88AB13A823998A1200A35154 /* TranslaterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslaterProtocol.swift; sourceTree = "<group>"; };
 		88B994892398309F00BDC38A /* TeamResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResultView.swift; sourceTree = "<group>"; };
 		88B9948B239830AB00BDC38A /* TeamResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResultPresenter.swift; sourceTree = "<group>"; };
 		88B9948E23983F6300BDC38A /* ReadyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyView.swift; sourceTree = "<group>"; };
@@ -394,16 +398,10 @@
 		881216ED2386FDFA0091B5C4 /* Services Layer */ = {
 			isa = PBXGroup;
 			children = (
+				88AB13A6239989B400A35154 /* Interfaces */,
+				88AB13A7239989BD00A35154 /* Implementations */,
 				88E36F4C23917EAF00F8F8F3 /* Helpers */,
-				880B802423940A870036211B /* ImageProviderProtocol.swift */,
-				881216F22386FDFA0091B5C4 /* FlickrImageProvider.swift */,
-				8827206A238DA560002E8648 /* GameDataSaver.swift */,
-				8827206C238DA5AA002E8648 /* GameDataProvider.swift */,
-				88E36F432391607D00F8F8F3 /* SafeTranslater.swift */,
-				881216F42386FDFA0091B5C4 /* ImageClassificator.swift */,
-				880B80102393DEA20036211B /* WordsProviderProtocol.swift */,
-				880B800E2393DE8C0036211B /* StoredWordsProvider.swift */,
-				881216F52386FDFA0091B5C4 /* InternetWordsProvider.swift */,
+				88AB13AA23998A3700A35154 /* Developing */,
 			);
 			path = "Services Layer";
 			sourceTree = "<group>";
@@ -461,8 +459,40 @@
 				886368602396D097001DDDA8 /* ThirdView.swift */,
 				886368622396D09E001DDDA8 /* FourthView.swift */,
 				886368672396DEED001DDDA8 /* FifthView.swift */,
+				88AB13A42399565800A35154 /* AliasSegmentedControl.swift */,
 			);
 			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
+		88AB13A6239989B400A35154 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				880B802423940A870036211B /* ImageProviderProtocol.swift */,
+				880B80102393DEA20036211B /* WordsProviderProtocol.swift */,
+				88AB13A823998A1200A35154 /* TranslaterProtocol.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		88AB13A7239989BD00A35154 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				881216F22386FDFA0091B5C4 /* FlickrImageProvider.swift */,
+				880B800E2393DE8C0036211B /* StoredWordsProvider.swift */,
+				881216F52386FDFA0091B5C4 /* InternetWordsProvider.swift */,
+				88E36F432391607D00F8F8F3 /* SafeTranslater.swift */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		88AB13AA23998A3700A35154 /* Developing */ = {
+			isa = PBXGroup;
+			children = (
+				8827206A238DA560002E8648 /* GameDataSaver.swift */,
+				8827206C238DA5AA002E8648 /* GameDataProvider.swift */,
+				881216F42386FDFA0091B5C4 /* ImageClassificator.swift */,
+			);
+			path = Developing;
 			sourceTree = "<group>";
 		};
 		88B994862398302900BDC38A /* RoundResult Module */ = {
@@ -642,6 +672,7 @@
 				8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */,
 				880B800F2393DE8C0036211B /* StoredWordsProvider.swift in Sources */,
 				8812171D2386FDFA0091B5C4 /* ImageClassificator.swift in Sources */,
+				88AB13A923998A1200A35154 /* TranslaterProtocol.swift in Sources */,
 				881217192386FDFA0091B5C4 /* ServicesAssembly.swift in Sources */,
 				88E36F502393D46800F8F8F3 /* DataModel.xcdatamodeld in Sources */,
 				880B802523940A870036211B /* ImageProviderProtocol.swift in Sources */,
@@ -660,6 +691,7 @@
 				881216FB2386FDFA0091B5C4 /* MachineLearning.swift in Sources */,
 				886368612396D097001DDDA8 /* ThirdView.swift in Sources */,
 				881217172386FDFA0091B5C4 /* PlayView.swift in Sources */,
+				88AB13A52399565800A35154 /* AliasSegmentedControl.swift in Sources */,
 				881216FE2386FDFA0091B5C4 /* SettingsInteractor.swift in Sources */,
 				88E36F46239165C200F8F8F3 /* RandomWordAPI.swift in Sources */,
 				881216FF2386FDFA0091B5C4 /* SettingsPresenter.swift in Sources */,

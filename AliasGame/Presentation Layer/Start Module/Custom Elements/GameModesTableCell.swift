@@ -101,19 +101,7 @@ class GameModesTableCell: UITableViewCell, UICollectionViewDataSource, UICollect
             return cell
         }
         let mode = gameModes[indexPath.row]
-        switch mode {
-        case .twoPlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-2")
-        case .threePlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-3")
-        case .fourPlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-4")
-        case .fivePlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-5")
-        case .sixPlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-6")
-        case .sevenPlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-7")
-        case .eightPlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-8")
-        case .ninePlayers: cell.imageView.image = #imageLiteral(resourceName: "game-mode-9")
-        case .twoTeams: cell.imageView.image = #imageLiteral(resourceName: "game-mode-teams-2")
-        case .threeTeams: cell.imageView.image = #imageLiteral(resourceName: "game-mode-teams-3")
-        case .fourTeams: cell.imageView.image = #imageLiteral(resourceName: "game-mode-teams-4")
-        }
+        cell.imageView.image = mode.image
         return cell
     }
     

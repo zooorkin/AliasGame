@@ -129,6 +129,39 @@ enum AliasGameMode {
         case .fourTeams: return "Команда"
         }
     }
+    
+    var image: UIImage {
+        switch self {
+        case .twoPlayers: return #imageLiteral(resourceName: "game-mode-2")
+        case .threePlayers: return #imageLiteral(resourceName: "game-mode-3")
+        case .fourPlayers: return #imageLiteral(resourceName: "game-mode-4")
+        case .fivePlayers: return #imageLiteral(resourceName: "game-mode-5")
+        case .sixPlayers: return #imageLiteral(resourceName: "game-mode-6")
+        case .sevenPlayers: return #imageLiteral(resourceName: "game-mode-7")
+        case .eightPlayers: return #imageLiteral(resourceName: "game-mode-8")
+        case .ninePlayers: return #imageLiteral(resourceName: "game-mode-9")
+        case .twoTeams: return #imageLiteral(resourceName: "game-mode-teams-2")
+        case .threeTeams: return #imageLiteral(resourceName: "game-mode-teams-3")
+        case .fourTeams: return #imageLiteral(resourceName: "game-mode-teams-4")
+        }
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .twoPlayers: return #colorLiteral(red: 1, green: 0.3921568627, blue: 0.3058823529, alpha: 1)
+        case .threePlayers: return #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        case .fourPlayers: return #colorLiteral(red: 0, green: 0.6588235294, blue: 0.6156862745, alpha: 1)
+        case .fivePlayers: return #colorLiteral(red: 0, green: 0.462745098, blue: 0.7294117647, alpha: 1)
+        case .sixPlayers: return #colorLiteral(red: 0.7960784314, green: 0.1607843137, blue: 0.4823529412, alpha: 1)
+        case .sevenPlayers: return #colorLiteral(red: 0.9725490196, green: 0.7294117647, blue: 0, alpha: 1)
+        case .eightPlayers: return #colorLiteral(red: 0.9725490196, green: 0.5058823529, blue: 0.1333333333, alpha: 1)
+        case .ninePlayers: return #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        case .twoTeams: return #colorLiteral(red: 1, green: 0.3921568627, blue: 0.3058823529, alpha: 1)
+        case .threeTeams: return #colorLiteral(red: 0, green: 0.462745098, blue: 0.7294117647, alpha: 1)
+        case .fourTeams: return #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        }
+    }
+    
 }
 
 /// Результат игры

@@ -54,7 +54,7 @@ extension TeamResultView: TeamResultPresenterOutput {
         let model = SingleScreenModel(title: title, text: text, color: .black, buttonTitle: "Далее")
         DispatchQueue.main.async {
             self.singleScreenView.loadModel(model: model)
-            self.singleScreenView.loadCustimView(customView: customView)
+            self.singleScreenView.loadCustomView(customView: customView)
             self.singleScreenView.layoutSubviews()
         }
     }

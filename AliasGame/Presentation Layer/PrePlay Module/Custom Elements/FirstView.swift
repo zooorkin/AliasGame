@@ -25,7 +25,7 @@ class FirstView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageView.frame = bounds.insetBy(dx: 8.0, dy: 8.0)
+        imageView.frame = bounds.insetBy(dx: 4.0, dy: 4.0)
         imageView.layer.cornerRadius = imageView.bounds.width / 6
     }
     

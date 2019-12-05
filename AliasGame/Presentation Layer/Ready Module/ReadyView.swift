@@ -49,7 +49,7 @@ class ReadyView: UIViewController {
         let model = SingleScreenModel(title: "Приготовьтесь", text: text, color: .black, buttonTitle: "Начать")
         singleScreenView.loadModel(model: model)
         let emoji = nextTeam == 0 ? "🚀" : configuration.teamMode ? "👫" : "🙋🏻‍♂️"
-        singleScreenView.loadCustimView(customView: FifthView(emoji: emoji))
+        singleScreenView.loadCustomView(customView: FifthView(emoji: emoji))
     }
     
 }

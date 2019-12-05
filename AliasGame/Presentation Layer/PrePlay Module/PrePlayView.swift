@@ -34,15 +34,6 @@ class PrePlayView: AliasLightViewController {
 
     }
     
-    func setSingleScreens(models: [SingleScreenModel]) {
-        self.models = models
-        DispatchQueue.main.async {
-            self.setupPageControl()
-            self.setupBarButtons()
-            self.setupScreenViews()
-        }
-    }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         layoutScrollView()
@@ -52,6 +43,8 @@ class PrePlayView: AliasLightViewController {
     
     // MARK: - Элементы UI
     
+    var gameInformationLabel: UITextView?
+    
     let scrollView = UIScrollView(frame: .zero)
     
     let pageControl = UIPageControl(frame: .zero)
@@ -60,7 +53,48 @@ class PrePlayView: AliasLightViewController {
     
     var screenViews: [SingleScreenView] = []
     
+    private var roundsCustomControl: AliasSegmentedControl?
+    private var timeForSetCustomControl: AliasSegmentedControl?
+    
     // MARK: - Настройка элементов UI
+    
+    private func setupScreenViews(mode: AliasGameMode) {
+        for (index, model) in models.enumerated() {
+            let singleScreenView = SingleScreenView()
+            let customView: UIView
+            var customControl: UIView?
+            switch index {
+            case 0: customView = FirstView(image: mode.image)
+            case 1: customView = SecondView(image: #imageLiteral(resourceName: "game-mode-3"))
+            case 2: customView = ThirdView(image: #imageLiteral(resourceName: "game-mode-5"))
+            let aliasSegmentedControl = AliasSegmentedControl(segments: ["3", "4", "5", "6", "7"], color: model.color)
+            customControl = aliasSegmentedControl
+            roundsCustomControl = aliasSegmentedControl
+            case 3: customView = FourthView(image: #imageLiteral(resourceName: "game-mode-6"))
+            let aliasSegmentedControl = AliasSegmentedControl(segments: ["15 с", "30 с", "1 м", "2 м", "3 м"], color: model.color)
+            customControl = aliasSegmentedControl
+            timeForSetCustomControl = aliasSegmentedControl
+            case 4: customView = FifthView(emoji: "🐣")
+            gameInformationLabel = singleScreenView.textLabel
+            default: customView = .init()
+            }
+            singleScreenView.loadModel(model: model)
+            singleScreenView.loadCustomView(customView: customView)
+            if let customControl = customControl {
+                singleScreenView.loadCustomControl(customControl: customControl)
+            }
+            scrollView.addSubview(singleScreenView)
+            switch index {
+            case 0: singleScreenView.button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+            case 1: fallthrough
+            case 2: fallthrough
+            case 3: break
+            case 4: singleScreenView.button.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
+            default: break
+            }
+            screenViews.append(singleScreenView)
+        }
+    }
     
     private func setupScrollView() {
         view.addSubview(scrollView)
@@ -77,33 +111,6 @@ class PrePlayView: AliasLightViewController {
         pageControl.currentPage = 0
         pageControl.numberOfPages = models.count
         pageControl.isEnabled = false
-    }
-    
-    private func setupScreenViews() {
-        for (index, model) in models.enumerated() {
-            let customView: UIView
-            switch index {
-            case 0: customView = FirstView(image: #imageLiteral(resourceName: "game-mode-2"))
-            case 1: customView = SecondView(image: #imageLiteral(resourceName: "game-mode-3"))
-            case 2: customView = ThirdView(image: #imageLiteral(resourceName: "game-mode-5"))
-            case 3: customView = FourthView(image: #imageLiteral(resourceName: "game-mode-6"))
-            case 4: customView = FifthView(emoji: "👍")
-            default: customView = .init()
-            }
-            let singleScreenView = SingleScreenView()
-            singleScreenView.loadModel(model: model)
-            singleScreenView.loadCustimView(customView: customView)
-            scrollView.addSubview(singleScreenView)
-            switch index {
-            case 0: fallthrough
-            case 1: fallthrough
-            case 2: fallthrough
-            case 3: break /* singleScreenView.button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside) */
-            case 4: singleScreenView.button.addTarget(self, action: #selector(startGameButtonTapped), for: .touchUpInside)
-            default: break
-            }
-            screenViews.append(singleScreenView)
-        }
     }
     
     /// Настройка кнопок паузы и выхода
@@ -125,8 +132,11 @@ class PrePlayView: AliasLightViewController {
     }
     
     private func layoutPageControl() {
-        pageControl.frame = CGRect(x: 0, y: 0.90 * view.bounds.height,
-                                   width: view.bounds.width, height: 80)
+        let height: CGFloat = 44.0
+        let yOffset = view.frame.height - height - 32
+        pageControl.frame = CGRect(x: 0, y: yOffset,
+                                   width: view.bounds.width,
+                                   height: height)
     }
     
     private func layoutScreenViews() {
@@ -155,6 +165,53 @@ class PrePlayView: AliasLightViewController {
 }
 
 extension PrePlayView: PrePlayPresenterOutput {
+    
+    func setSingleScreens(models: [SingleScreenModel], mode: AliasGameMode) {
+        self.models = models
+        DispatchQueue.main.async {
+            self.setupPageControl()
+            self.setupBarButtons()
+            self.setupScreenViews(mode: mode)
+        }
+    }
+
+    
+    func setGameInformationText(text: String) {
+        DispatchQueue.main.async {
+            guard let gameInformationLabel = self.gameInformationLabel else {
+                debugPrint("[PrePlayView]: gameInformationLabel is nil")
+                return
+            }
+            gameInformationLabel.text = text
+            if let lastScreenView = self.screenViews.last {
+                lastScreenView.layoutSubviews()
+            }
+        }
+    }
+    
+    
+    var configuredTimeForSet: Int {
+        let index = timeForSetCustomControl?.selectedSegmentIndex ?? 2
+        switch index {
+        case 0: return 15
+        case 1: return 30
+        case 2: return 60
+        case 3: return 120
+        case 4: return 180
+        default: return 60
+        }
+    }
+    var configuredNumberOfRounds: Int {
+        let index = roundsCustomControl?.selectedSegmentIndex ?? 2
+        switch index {
+        case 0: return 3
+        case 1: return 4
+        case 2: return 5
+        case 3: return 6
+        case 4: return 7
+        default: return 5
+        }
+    }
 
 }
 
@@ -164,6 +221,9 @@ extension PrePlayView: UIScrollViewDelegate {
         if currentPageIndex < models.count {
             pageControl.currentPage = currentPageIndex
             pageControl.currentPageIndicatorTintColor = models[currentPageIndex].color
+        }
+        if currentPageIndex == models.count - 1 {
+            presenter.didReachLastPage()
         }
     }
 }

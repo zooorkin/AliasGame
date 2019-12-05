@@ -48,6 +48,7 @@ class AliasTableViewController: AliasDarkViewController {
             navigationItem.largeTitleDisplayMode = .never
         } else {
             frame = view.bounds
+            navigationItem.largeTitleDisplayMode = .always
         }
         tableView.frame = frame
             .inset(by: aliasInsets)
