@@ -12,9 +12,13 @@ protocol ResultPresenterInput {
     
     func buttonTapped()
     
+    func viewDidLoad()
+    
 }
 
 protocol ResultPresenterOutput: class {
+    
+    func setTeamResult(score: Int)
     
 }
 
@@ -34,10 +38,13 @@ class ResultPresenter: ResultPresenterInput {
     
     let configuration: AliasGameConfiguration
     
+    let teamResult: TeamResult
+    
     let nextTeam: Int
     
-    init(configuration: AliasGameConfiguration, nextTeam: Int) {
+    init(configuration: AliasGameConfiguration, teamResult: TeamResult, nextTeam: Int) {
         self.configuration = configuration
+        self.teamResult = teamResult
         self.nextTeam = nextTeam
     }
     
@@ -50,6 +57,14 @@ class ResultPresenter: ResultPresenterInput {
             debugPrint("[ResultPresenter]: router is nil")
             #endif
         }
+    }
+    
+    func viewDidLoad() {
+        guard let output = output else {
+            debugPrint("[ResultPresenter]: output is nil")
+            return
+        }
+        output.setTeamResult(score: teamResult.score)
     }
     
 }

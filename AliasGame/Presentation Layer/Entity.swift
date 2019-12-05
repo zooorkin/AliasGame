@@ -9,7 +9,7 @@
 import UIKit
 
 struct TeamResult {
-    
+    let score: Int
 }
 
 struct RoundResult {

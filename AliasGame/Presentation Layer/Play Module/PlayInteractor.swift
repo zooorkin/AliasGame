@@ -20,6 +20,8 @@ protocol PlayInteractorInput {
     
     var round: Int { get }
     
+    var timeLeft: Int { get }
+    
     func nextTeam()
     
     func nextRound()
@@ -29,6 +31,8 @@ protocol PlayInteractorInput {
     func startTimer()
     
     func stopTimer()
+    
+    func setupTime()
 
 }
 
@@ -41,6 +45,8 @@ protocol PlayInteractorOutput: class {
     func interactorDidNotLoadWords()
     
     func timeIsOver()
+    
+    func tac()
 
 }
 
@@ -71,6 +77,8 @@ class PlayInteractor: PlayInteractorInput {
     var team: Int = 0
     
     var round: Int = 0
+    
+    var timeLeft: Int = 0
 
     var timer: Timer?
     
@@ -95,17 +103,29 @@ class PlayInteractor: PlayInteractorInput {
         }
     }
     
+    func setupTime() {
+        timeLeft = configuration.timeForSet * 10
+    }
+    
     func startTimer() {
         DispatchQueue.main.async {
-            self.timer = .scheduledTimer(withTimeInterval: Double(self.configuration.timeForSet), repeats: false) {
+            self.timer = .scheduledTimer(withTimeInterval: 0.1, repeats: true) {
                 [weak self] timer in
-                
-                guard let output = self?.output else {
-                    assertionFailure("[PlayInteractor]: output is nil")
-                    return
-                }
-                output.timeIsOver()
+                self?.tic()
             }
+        }
+    }
+    
+    func tic() {
+        timeLeft -= 1
+        guard let output = self.output else {
+            debugPrint("[PlayInteractor]: output is nil")
+            return
+        }
+        output.tac()
+        if timeLeft == 0 {
+            stopTimer()
+            output.timeIsOver()
         }
     }
     

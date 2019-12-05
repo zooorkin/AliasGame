@@ -57,7 +57,7 @@ class PrePlayPresenter: PrePlayPresenterInput {
         let configuration = interactor.configuration
         return "Режим игры: \(configuration.mode.name)\n" +
             "Количество раундов: \(configuration.numberOfRounds)\n" +
-        "Времени на сет: \(configuration.timeForSet) с"
+        "Времени на сет: \(configuration.timeForSet) секунд"
     }
     
     lazy var models = [SingleScreenModel(title: "Начало игры", text: firstText, color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), buttonTitle: "Далее"),

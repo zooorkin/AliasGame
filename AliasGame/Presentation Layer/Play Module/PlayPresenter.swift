@@ -34,13 +34,17 @@ protocol PlayPresenterOutput: class {
     
     func setCurrentTeam(name: String)
     
+    func setTimeLeft(timeLeft: String)
+    
     func setCurrentRound(number: Int)
+    
+    func setScore(_ score: Int)
     
     func setImages(images: [UIImage?], animated: Bool)
     
     func performSlide(images: [UIImage?])
     
-    func showAlert(with message: String, completion: @escaping () -> Void)
+    func showAlert(title: String, message: String, completion: @escaping () -> Void, destructive: (() -> Void)?)
     
 }
 
@@ -83,8 +87,36 @@ class PlayPresenter: PlayPresenterInput {
         interactor.loadWords()
     }
     
+    
+    func exitTapped() {
+        guard let output = output else {
+            debugPrint("[PlayPresenter]: output is nil")
+            return
+        }
+        interactor.stopTimer()
+        output.showAlert(title: "Завершить игру", message: "Результаты игры будут потеряны", completion: {
+            self.interactor.startTimer()
+        }){
+            if let router = self.router {
+                router.exitFromPlayModule()
+            } else {
+                #if DEBUG
+                debugPrint("[PlayPresenter]: router is nil")
+                #endif
+            }
+        }
+    }
+    
     func pauseButtonTapped() {
-        
+        guard let output = output else {
+            debugPrint("[PlayPresenter]: output is nil")
+            return
+        }
+        interactor.stopTimer()
+        let timeLeft = Double(interactor.timeLeft) / 10.0
+        output.showAlert(title: "Пауза", message: "Осталось времени: \(timeLeft) c", completion: {
+            self.interactor.startTimer()
+        }, destructive: nil)
     }
     
     private var guessedWords: [AliasWord] = []
@@ -101,16 +133,22 @@ class PlayPresenter: PlayPresenterInput {
         nextWord()
     }
     
+    private var timeLeftString: String {
+        return "\(Double(interactor.timeLeft) / 10.0)"
+    }
+    
     private func updateUI(animated: Bool) {
         guard let output = output else {
             debugPrint("[PlayPresenter]: output is nil")
             return
         }
-        let teamName = "Команда \(interactor.team + 1)"
+        let teamName = "\(interactor.configuration.mode.teamType) \(interactor.team + 1)"
         let roundNumber = interactor.round + 1
         
         output.setCurrentRound(number: roundNumber)
         output.setCurrentTeam(name: teamName)
+        output.setTimeLeft(timeLeft: timeLeftString)
+        output.setScore(0)
         guard interactor.words.count >= 3 else {
             assertionFailure("[PlayPresenter]: Недостаточно слов")
             return
@@ -137,6 +175,10 @@ class PlayPresenter: PlayPresenterInput {
         return currentWordIndex + 2 < interactor.words.count ? interactor.words[currentWordIndex + 2].image ?? defaultImage: nil
     }
     
+    var score: Int {
+        return guessedWords.count - notGuessedWords.count
+    }
+    
     private func wordGuessed(_ guessed: Bool) {
         let word = interactor.words[currentWordIndex]
         if guessed {
@@ -144,6 +186,12 @@ class PlayPresenter: PlayPresenterInput {
         } else {
             notGuessedWords.append(word)
         }
+        guard let output = output else {
+            debugPrint("[PlayPresenter]: output is nil")
+            return
+        }
+        let score = guessedWords.count - notGuessedWords.count
+        output.setScore(score)
     }
     
     private func nextWord() {
@@ -161,17 +209,6 @@ class PlayPresenter: PlayPresenterInput {
         output.setCurrentWord(word: interactor.words[currentWordIndex].word)
         output.performSlide(images: [firstImage, secondImage, thirdImage])
     }
-    
-    func exitTapped() {
-        interactor.stopTimer()
-        if let router = router {
-            router.exitFromPlayModule()
-        } else {
-            #if DEBUG
-            debugPrint("[PlayPresenter]: router is nil")
-            #endif
-        }
-    }
 
 }
 
@@ -179,13 +216,13 @@ extension PlayPresenter: PlayInteractorOutput {
 
     func interactorFailedAction(with message: String) {
         if let output = output {
-            output.showAlert(with: message) {
+            output.showAlert(title: "Ошибка", message: message, completion: {
                 if let router = self.router {
                     router.exitFromPlayModule()
                 } else {
                     assertionFailure("[PlayPresenter]: router is nil")
                 }
-            }
+            }, destructive: nil)
         } else {
             assertionFailure("[PlayPresenter]: output is nil")
         }
@@ -197,6 +234,7 @@ extension PlayPresenter: PlayInteractorOutput {
             debugPrint("[PlayPresenter]: router is nil")
             return
         }
+        interactor.setupTime()
         updateUI(animated: false)
         DispatchQueue.main.async {
             router.playModuleDidLoadWords()
@@ -220,9 +258,25 @@ extension PlayPresenter: PlayInteractorOutput {
         }
         let configuration = interactor.configuration
         let nextTeam = interactor.team + 1
-        router.showResult(configuration: configuration, nextTeam: nextTeam,  teamResult: .init(), roundResult: nil, gameResult: nil)
+        let teamResult = TeamResult(score: score)
+        // FIXME: - Здесь должны исчезнуть все данные прошедшего сета
+        router.showResult(configuration: configuration, nextTeam: nextTeam,  teamResult: teamResult, roundResult: nil, gameResult: nil)
+        prepareForReuse()
         interactor.nextTeam()
         interactor.loadWords()
+    }
+    
+    private func prepareForReuse() {
+        guessedWords = []
+        notGuessedWords = []
+    }
+    
+    func tac() {
+        guard let output = output else {
+            debugPrint("[PlayPresenter]: output is nil")
+            return
+        }
+        output.setTimeLeft(timeLeft: timeLeftString)
     }
     
 }

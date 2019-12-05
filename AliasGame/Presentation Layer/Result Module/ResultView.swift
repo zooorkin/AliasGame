@@ -33,6 +33,7 @@ class ResultView: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         view.addSubview(button)
+        presenter.viewDidLoad()
         
     }
     
@@ -49,6 +50,12 @@ class ResultView: UIViewController {
 }
 
 extension ResultView: ResultPresenterOutput {
+    
+    func setTeamResult(score: Int) {
+        DispatchQueue.main.async {
+            self.title = "Результат: \(score)"
+        }
+    }
     
 }
 

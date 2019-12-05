@@ -109,7 +109,7 @@ class PrePlayView: AliasLightViewController {
     private func setupBarButtons() {
         stopBarButtonItem.target = self
         stopBarButtonItem.action = #selector(stopBarButtonTapped)
-        navigationItem.rightBarButtonItems = [stopBarButtonItem]
+        navigationItem.leftBarButtonItem = stopBarButtonItem
     }
     
     // MARK: - Настройка layout

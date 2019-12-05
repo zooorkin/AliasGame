@@ -27,6 +27,8 @@ class PlayView: AliasLightViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupTeamNameLabel()
+        setupTimeLeftLabel()
         setupMainWordLabel()
         setupScoreLabel()
         setupImageViews()
@@ -41,6 +43,8 @@ class PlayView: AliasLightViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        layoutTeamNameLabel()
+        layoutTimeLeftLabel()
         layoutMainWordLabel()
         layoutImageViews()
         layoutButtons()
@@ -57,14 +61,13 @@ class PlayView: AliasLightViewController {
     
     let pauseBarButtonItem = UIBarButtonItem(barButtonSystemItem: .pause, target: nil, action: nil)
     
+    let teamNameLabel = UILabel(frame: .zero)
+    
+    let timeLeftLabel = UILabel(frame: .zero)
+    
     let successButton = UIButton(type: .custom)
     
     let failureButton = UIButton(type: .custom)
-    
-    
-    let teamLabel = UILabel(frame: .zero)
-    
-    let timeLabel = UILabel(frame: .zero)
     
     let scoreLabel = UILabel(frame: .zero)
     
@@ -99,9 +102,26 @@ class PlayView: AliasLightViewController {
         stopBarButtonItem.action = #selector(stopBarButtonTapped)
         pauseBarButtonItem.target = self
         pauseBarButtonItem.action = #selector(pauseBarButtonTapped)
-        navigationItem.rightBarButtonItems = [stopBarButtonItem, pauseBarButtonItem]
+        navigationItem.rightBarButtonItem = pauseBarButtonItem
+        navigationItem.leftBarButtonItem = stopBarButtonItem
         navigationItem.hidesBackButton = true
         self.navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    private func setupTeamNameLabel() {
+        teamNameLabel.text = "[TEAM]"
+        teamNameLabel.font = .systemFont(ofSize: 17.0, weight: .medium)
+        teamNameLabel.textColor = .black
+        teamNameLabel.textAlignment = .left
+        view.addSubview(teamNameLabel)
+    }
+    
+    private func setupTimeLeftLabel() {
+        timeLeftLabel.text = "[TIME]"
+        timeLeftLabel.font = .systemFont(ofSize: 17.0, weight: .medium)
+        timeLeftLabel.textColor = .black
+        timeLeftLabel.textAlignment = .right
+        view.addSubview(timeLeftLabel)
     }
     
     /// Настройка слова
@@ -165,11 +185,31 @@ class PlayView: AliasLightViewController {
     
     // MARK: - Настройка layout
     
-    private func layoutMainWordLabel() {
+    private let edgeInset: CGFloat = 16.0
+    
+    private func layoutTeamNameLabel() {
         let topSafeInset = view.safeAreaInsets.top
+        let intrinsicSize = teamNameLabel.intrinsicContentSize
+        teamNameLabel.frame = CGRect(x: edgeInset,
+                                     y: topSafeInset,
+                                     width: view.frame.width - 2 * edgeInset,
+                                     height: intrinsicSize.height)
+    }
+    
+    private func layoutTimeLeftLabel() {
+        let topSafeInset = view.safeAreaInsets.top
+        let intrinsicSize = timeLeftLabel.intrinsicContentSize
+        timeLeftLabel.frame = CGRect(x: edgeInset,
+                                     y: topSafeInset,
+                                     width: view.frame.width - 2 * edgeInset,
+                                     height: intrinsicSize.height)
+    }
+    
+    private func layoutMainWordLabel() {
+        let topOffset = teamNameLabel.frame.maxY
         let mainWordLabelIntrinsicSize = mainWordLabel.intrinsicContentSize
         mainWordLabel.frame = CGRect(x: 0,
-                                     y: topSafeInset + mainWordLabelIntrinsicSize.height / 2 + 8.0,
+                                     y: topOffset + mainWordLabelIntrinsicSize.height / 2 + 8.0,
                                      width: view.frame.width,
                                      height: mainWordLabelIntrinsicSize.height)
     }
@@ -256,18 +296,19 @@ class PlayView: AliasLightViewController {
     // MARK: - Обработка нажатий клавиш
     
     @objc func stopBarButtonTapped() {
-        let alertController = UIAlertController(title: "Завершить игру?",
-                                                message: "Резульаты игры будут потеряны",
-                                                preferredStyle: .alert)
-        let closeAction = UIAlertAction(title: "Да", style: .destructive) { _ in
-            self.presenter.exitTapped()
-        }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { _ in
-            
-        }
-        alertController.addAction(closeAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        presenter.exitTapped()
+//        let alertController = UIAlertController(title: "Завершить игру?",
+//                                                message: "Резульаты игры будут потеряны",
+//                                                preferredStyle: .alert)
+//        let closeAction = UIAlertAction(title: "Да", style: .destructive) { _ in
+//            self.presenter.exitTapped()
+//        }
+//        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { _ in
+//
+//        }
+//        alertController.addAction(closeAction)
+//        alertController.addAction(cancelAction)
+//        present(alertController, animated: true, completion: nil)
     }
     
     @objc func pauseBarButtonTapped() {
@@ -332,7 +373,13 @@ extension PlayView: PlayPresenterOutput {
     
     func setCurrentTeam(name: String) {
         DispatchQueue.main.async {
-            self.teamLabel.text = name
+            self.teamNameLabel.text = name
+        }
+    }
+    
+    func setTimeLeft(timeLeft: String) {
+        DispatchQueue.main.async {
+            self.timeLeftLabel.text = timeLeft
         }
     }
     
@@ -342,14 +389,31 @@ extension PlayView: PlayPresenterOutput {
         }
     }
     
-    func showAlert(with message: String, completion: @escaping () -> Void) {
-        let alertController = UIAlertController(title: "Уведомление",
+    func setScore(_ score: Int) {
+        DispatchQueue.main.async {
+            self.scoreLabel.text = String(score)
+        }
+    }
+    
+    func showAlert(title: String, message: String, completion: @escaping () -> Void, destructive: (() -> Void)?) {
+        let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            completion()
+        if let destructiveBlock = destructive {
+            let destructiveAction = UIAlertAction(title: "Завершить", style: .destructive) { _ in
+                destructiveBlock()
+            }
+            alertController.addAction(destructiveAction)
+            let okAction = UIAlertAction(title: "Отмена", style: .cancel) { _ in
+                completion()
+            }
+            alertController.addAction(okAction)
+        } else {
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                completion()
+            }
+            alertController.addAction(okAction)
         }
-        alertController.addAction(okAction)
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }

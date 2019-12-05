@@ -100,7 +100,7 @@ extension Router: PrePlayRouterInput {
 extension Router: PlayRouterInput {
     
     func showResult(configuration: AliasGameConfiguration, nextTeam: Int, teamResult: TeamResult, roundResult: RoundResult?, gameResult: GameResult?) {
-        let resultView = presentationAssembly.resultModule(configuration: configuration, nextTeam: nextTeam)
+        let resultView = presentationAssembly.resultModule(configuration: configuration, teamResult: teamResult, nextTeam: nextTeam)
         secondCoveredNavigationController = AliasLightNavigationController(rootViewController: resultView)
         coveredNavigationController.present(secondCoveredNavigationController, animated: true, completion: nil)
     }

@@ -30,7 +30,7 @@ protocol PresentationAssemblyProtocol {
     
     func playModule(configuration: AliasGameConfiguration) -> PlayView
     
-    func resultModule(configuration: AliasGameConfiguration, nextTeam: Int) -> ResultView
+    func resultModule(configuration: AliasGameConfiguration, teamResult: TeamResult, nextTeam: Int) -> ResultView
     
     func recordsModule() -> RecordsView
     
@@ -184,8 +184,8 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         return readyView
     }
     
-    func resultModule(configuration: AliasGameConfiguration, nextTeam: Int) -> ResultView {
-        let presenter = ResultPresenter(configuration: configuration, nextTeam: nextTeam)
+    func resultModule(configuration: AliasGameConfiguration, teamResult: TeamResult, nextTeam: Int) -> ResultView {
+        let presenter = ResultPresenter(configuration: configuration, teamResult: teamResult, nextTeam: nextTeam)
         let view = ResultView(presenter: presenter)
         
         presenter.output = view
