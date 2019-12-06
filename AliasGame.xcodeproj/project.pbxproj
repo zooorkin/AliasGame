@@ -88,6 +88,8 @@
 		88E36F4923917B8F00F8F8F3 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4823917B8F00F8F8F3 /* StringHelper.swift */; };
 		88E36F4B23917D0C00F8F8F3 /* ArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4A23917D0C00F8F8F3 /* ArrayHelper.swift */; };
 		88E36F502393D46800F8F8F3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4E2393D46800F8F8F3 /* DataModel.xcdatamodeld */; };
+		88F68A83239AA50F004839BB /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F68A82239AA50F004839BB /* ResultView.swift */; };
+		88F68A85239AA542004839BB /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F68A84239AA542004839BB /* ResultPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,8 @@
 		88E36F4823917B8F00F8F8F3 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		88E36F4A23917D0C00F8F8F3 /* ArrayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayHelper.swift; sourceTree = "<group>"; };
 		88E36F4F2393D46800F8F8F3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		88F68A82239AA50F004839BB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		88F68A84239AA542004839BB /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,8 +326,7 @@
 				881216E72386FDF90091B5C4 /* Play Module */,
 				88B9948D23983F4300BDC38A /* Ready Module */,
 				88B994882398306A00BDC38A /* TeamResult Module */,
-				88B994862398302900BDC38A /* RoundResult Module */,
-				88B994872398303300BDC38A /* GameResult Module */,
+				88F68A81239AA4F3004839BB /* Result Module */,
 				881216D02386FDF90091B5C4 /* Records Module */,
 				881216CB2386FDF90091B5C4 /* Settings Module */,
 				881216E22386FDF90091B5C4 /* About Module */,
@@ -495,20 +498,6 @@
 			path = Developing;
 			sourceTree = "<group>";
 		};
-		88B994862398302900BDC38A /* RoundResult Module */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "RoundResult Module";
-			sourceTree = "<group>";
-		};
-		88B994872398303300BDC38A /* GameResult Module */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "GameResult Module";
-			sourceTree = "<group>";
-		};
 		88B994882398306A00BDC38A /* TeamResult Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +540,16 @@
 				880B8028239433170036211B /* UIImageHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		88F68A81239AA4F3004839BB /* Result Module */ = {
+			isa = PBXGroup;
+			children = (
+				88F68A82239AA50F004839BB /* ResultView.swift */,
+				88F68A84239AA542004839BB /* ResultPresenter.swift */,
+			);
+			name = "Result Module";
+			path = "TeamResult Module/Result Module";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -678,6 +677,7 @@
 				880B802523940A870036211B /* ImageProviderProtocol.swift in Sources */,
 				881C8CD4238FC0BF00A6E8DE /* AliasLightViewController.swift in Sources */,
 				88E36F4B23917D0C00F8F8F3 /* ArrayHelper.swift in Sources */,
+				88F68A85239AA542004839BB /* ResultPresenter.swift in Sources */,
 				881C8CD8238FE82800A6E8DE /* RecordCell.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
 				8812171B2386FDFA0091B5C4 /* FlickrImageProvider.swift in Sources */,
@@ -719,6 +719,7 @@
 				881C8CD0238F030600A6E8DE /* AliasTransitionSupport.swift in Sources */,
 				881217142386FDFA0091B5C4 /* PlayPresenter.swift in Sources */,
 				881216FD2386FDFA0091B5C4 /* Router.swift in Sources */,
+				88F68A83239AA50F004839BB /* ResultView.swift in Sources */,
 				881C8CBD238E8DBF00A6E8DE /* AliasTableViewController.swift in Sources */,
 				881217072386FDFA0091B5C4 /* PresentationAssembly.swift in Sources */,
 				880B800A2393DB600036211B /* Word+CoreDataProperties.swift in Sources */,

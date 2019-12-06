@@ -141,6 +141,7 @@ class PlayInteractor: PlayInteractorInput {
     }
     
     func nextRound() {
+        team = 0
         round += 1
     }
     

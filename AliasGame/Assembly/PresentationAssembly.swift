@@ -30,6 +30,8 @@ protocol PresentationAssemblyProtocol {
     
     func teamResultModule(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void) -> TeamResultView
     
+    func resultModule(title: String, emoji: String, text: String, buttonTitle: String, completion: @escaping () -> Void) -> ResultView
+    
     func recordsModule() -> RecordsView
     
     func settingsModule() -> SettingsView
@@ -186,6 +188,28 @@ class PresentationAssembly: PresentationAssemblyProtocol {
         
         if let router = router {
             if let router = router as? TeamResultRouterInput {
+                presenter.router = router
+            } else {
+                #if DEBUG
+                debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию TeamResultRouterInput")
+                #endif
+            }
+        } else {
+            #if DEBUG
+            debugPrint("[PresentationAssembly]: router не задан")
+            #endif
+        }
+        return view
+    }
+    
+    func resultModule(title: String, emoji: String, text: String, buttonTitle: String, completion: @escaping () -> Void) -> ResultView {
+        let presenter = ResultPresenter(title: title, emoji: emoji, text: text, buttonTitle: buttonTitle, completion: completion)
+        let view = ResultView(presenter: presenter)
+        
+        presenter.output = view
+        
+        if let router = router {
+            if let router = router as? ResultRouterInput {
                 presenter.router = router
             } else {
                 #if DEBUG

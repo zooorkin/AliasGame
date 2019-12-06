@@ -50,7 +50,11 @@ protocol PlayPresenterOutput: class {
 
 protocol PlayRouterInput: class {
     
-    func showResult(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void)
+    func showRoundResult(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void)
+    
+    func showResult(title: String, emoji: String, text: String, buttonTitle: String, completion: @escaping () -> Void)
+    
+    func showTeamResult(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void)
     
     func exitFromPlayModule()
     
@@ -256,22 +260,50 @@ extension PlayPresenter: PlayInteractorOutput {
         }
     }
     
-    func timeIsOver() {
+    func timeIsOver() {        
         guard let router = router else {
             debugPrint("[PlayPresenter]: router is nil")
             return
         }
+        
+        // Результаты команды
         let configuration = interactor.configuration
         let teamResult = TeamResult(configuration: configuration, score: score, team: interactor.team)
-        let nextTeam = interactor.team + 1
-        // FIXME: - Здесь должны исчезнуть все данные прошедшего сета
-        router.showResult(configuration: configuration, teamResult: teamResult, completion: {
-            router.readyFromPlayModule(configuration: configuration, nextTeam: nextTeam)
+        router.showTeamResult(configuration: configuration, teamResult: teamResult, completion: {
+            self.interactor.nextTeam()
+            let team = self.interactor.team
+            if team < self.interactor.configuration.numberOfTeams {
+                
+                // Следующая команда
+                self.updateUI(animated: false)
+                router.readyFromPlayModule(configuration: configuration, nextTeam: team)
+            } else {
+                
+                // Результаты раунда
+                router.showResult(title: "Конец раунда", emoji: "🎯", text: "Информация о конце раунда...", buttonTitle: "Далее", completion: {
+                    self.interactor.nextRound()
+                    let round = self.interactor.round
+                    if round < self.interactor.configuration.numberOfRounds {
+                        
+                        // Следующий раунд
+                        let team = self.interactor.team
+                        self.updateUI(animated: false)
+                        router.readyFromPlayModule(configuration: configuration, nextTeam: team)
+                    } else {
+                        
+                        // Результаты игры
+                        router.showResult(title: "Конец игры", emoji: "🏆", text: "Информация о победителе", buttonTitle: "Завершить", completion: {
+                            // FIXME: - Будет рабоатать, или сначала нужно закрыть presenting controller
+                            router.exitFromPlayModule()
+                        })
+                    }
+                })
+            }
         })
         prepareForReuse()
-        interactor.nextTeam()
         interactor.loadWords()
     }
+
     
     private func prepareForReuse() {
         guessedWords = []
