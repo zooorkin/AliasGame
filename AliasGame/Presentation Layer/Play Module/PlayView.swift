@@ -246,16 +246,6 @@ class PlayView: AliasLightViewController {
             .insetBy(dx: thirdImageViewInset, dy: thirdImageViewInset)
             .offsetBy(dx: 0, dy: thirdImageViewYOffset)
         
-        /*
-        // Вместо zeroImageViewFrame используется firstImageViewFrame
-        //
-        let zeroImageViewInset = -(1 - scale) * firstImageViewFrame.width
-        let zeroImageViewYOffset = -(secondImageViewInset + 16.0 * scale)
-        let zeroImageViewFrame = firstImageViewFrame
-            .insetBy(dx: zeroImageViewInset, dy: zeroImageViewInset)
-            .offsetBy(dx: 0, dy: zeroImageViewYOffset)
-                                                                        */
-        
         zeroImageView.frame = firstImageViewFrame
         firstImageView.frame = firstImageViewFrame
         secondImageView.frame = secondImageViewFrame

@@ -13,7 +13,7 @@ class RecordsView: AliasTableViewController {
     
     private var presenter: RecordsPresenterInput
     
-    var data = ["Игра на двоих", "Игра на четверых", "Командная игра на двоих"]
+    var data = ["Сохранение недоступно"]
     
     
     init(presenter: RecordsPresenterInput) {
@@ -43,6 +43,7 @@ class RecordsView: AliasTableViewController {
             fatalError("[RecordsView]: cell is nil")
         }
         cell.gameModeLabel.text = data[indexPath.row]
+        cell.timeLabel.text = "Время игры..."
         cell.gameModeImageView.image = #imageLiteral(resourceName: "game-mode-2")
         return cell
     }

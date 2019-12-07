@@ -270,7 +270,8 @@ extension PlayPresenter: PlayInteractorOutput {
         let configuration = interactor.configuration
         let teamResult = TeamResult(configuration: configuration, score: score, team: interactor.team)
         router.showTeamResult(configuration: configuration, teamResult: teamResult, completion: {
-            self.interactor.nextTeam()
+            self.interactor.nextTeam(withSaving: self.score)
+            self.prepareForReuse()
             let team = self.interactor.team
             if team < self.interactor.configuration.numberOfTeams {
                 
@@ -280,7 +281,7 @@ extension PlayPresenter: PlayInteractorOutput {
             } else {
                 
                 // Результаты раунда
-                router.showResult(title: "Конец раунда", emoji: "🎯", text: "Информация о конце раунда...", buttonTitle: "Далее", completion: {
+                router.showResult(title: "Конец раунда", emoji: "🎯", text: self.roundResults, buttonTitle: "Далее", completion: {
                     self.interactor.nextRound()
                     let round = self.interactor.round
                     if round < self.interactor.configuration.numberOfRounds {
@@ -292,7 +293,7 @@ extension PlayPresenter: PlayInteractorOutput {
                     } else {
                         
                         // Результаты игры
-                        router.showResult(title: "Конец игры", emoji: "🏆", text: "Информация о победителе", buttonTitle: "Завершить", completion: {
+                        router.showResult(title: "Конец игры", emoji: "🏆", text: self.gameResults, buttonTitle: "Завершить", completion: {
                             // FIXME: - Будет рабоатать, или сначала нужно закрыть presenting controller
                             router.exitFromPlayModule()
                         })
@@ -300,13 +301,39 @@ extension PlayPresenter: PlayInteractorOutput {
                 })
             }
         })
-        prepareForReuse()
     }
 
     
     private func prepareForReuse() {
         guessedWords = []
         notGuessedWords = []
+    }
+    
+    private var roundResults: String {
+        let teamType = interactor.configuration.mode.teamType
+        var resultStrings: [String] = []
+        for team in 0 ..< interactor.configuration.numberOfTeams {
+            let teamScore = interactor.scores[team]
+            resultStrings += ["\(teamType) \(team + 1)\t\(teamScore)"]
+        }
+        return String(resultStrings.joined(separator: "\n\n"))
+    }
+    
+    private var gameResults: String {
+        let teamType = interactor.configuration.mode.teamType
+        let winString = interactor.configuration.teamMode ? "Победила" : "Победил"
+        if let maxValue = interactor.scores.max(), let winner = interactor.scores.firstIndex(of: maxValue) {
+            let friendship = interactor.scores.compactMap { $0 == maxValue ? true : nil}.count > 1
+            if friendship {
+                return "Победила дружба"
+            } else {
+                return "\(winString) \(teamType) \(winner + 1)"
+            }
+        } else {
+            assertionFailure("[PlayPresenter]: interactor.scores не содержал ни одного элемента")
+            return "Победитель неизвестен"
+        }
+        
     }
     
     func tac() {

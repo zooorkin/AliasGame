@@ -20,9 +20,11 @@ protocol PlayInteractorInput {
     
     var round: Int { get }
     
+    var scores: [Int] { get }
+    
     var timeLeft: Int { get }
     
-    func nextTeam()
+    func nextTeam(withSaving score: Int)
     
     func nextRound()
     
@@ -78,6 +80,8 @@ class PlayInteractor: PlayInteractorInput {
     
     var round: Int = 0
     
+    var scores: [Int]
+    
     var timeLeft: Int = 0
 
     var timer: Timer?
@@ -91,6 +95,8 @@ class PlayInteractor: PlayInteractorInput {
         self.translater = translater
         self.imageClassificator = imageClassificator
         self.gameDataSaver = gameDataSaver
+        self.scores = [Int](repeating: 0, count: configuration.numberOfTeams)
+        
         self.wordsProvider.delegate = self
         self.imageProvider.delegate = self
         self.imageClassificator.delegate = self
@@ -151,7 +157,8 @@ class PlayInteractor: PlayInteractorInput {
         timer = nil
     }
     
-    func nextTeam() {
+    func nextTeam(withSaving score: Int) {
+        scores[team] += score
         team += 1
     }
     

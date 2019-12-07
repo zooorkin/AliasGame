@@ -73,6 +73,7 @@
 		886368632396D09E001DDDA8 /* FourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368622396D09E001DDDA8 /* FourthView.swift */; };
 		886368652396D233001DDDA8 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368642396D233001DDDA8 /* FirstView.swift */; };
 		886368682396DEED001DDDA8 /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368672396DEED001DDDA8 /* FifthView.swift */; };
+		887FB91E239C40C700970AF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 887FB91D239C40C700970AF1 /* Assets.xcassets */; };
 		88AB13A52399565800A35154 /* AliasSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB13A42399565800A35154 /* AliasSegmentedControl.swift */; };
 		88AB13A923998A1200A35154 /* TranslaterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB13A823998A1200A35154 /* TranslaterProtocol.swift */; };
 		88B9948A2398309F00BDC38A /* TeamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B994892398309F00BDC38A /* TeamResultView.swift */; };
@@ -170,6 +171,7 @@
 		886368622396D09E001DDDA8 /* FourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthView.swift; sourceTree = "<group>"; };
 		886368642396D233001DDDA8 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		886368672396DEED001DDDA8 /* FifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthView.swift; sourceTree = "<group>"; };
+		887FB91D239C40C700970AF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88AB13A42399565800A35154 /* AliasSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasSegmentedControl.swift; sourceTree = "<group>"; };
 		88AB13A823998A1200A35154 /* TranslaterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslaterProtocol.swift; sourceTree = "<group>"; };
 		88B994892398309F00BDC38A /* TeamResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResultView.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		881216BD2386FDA10091B5C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				887FB91D239C40C700970AF1 /* Assets.xcassets */,
 				881216882386F3630091B5C4 /* LaunchScreen.storyboard */,
 				8812168B2386F3630091B5C4 /* Info.plist */,
 			);
@@ -402,6 +405,7 @@
 				881C8CC2238E98DA00A6E8DE /* AliasLightNavigationController.swift */,
 				881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */,
 				881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */,
+				880B8037239662730036211B /* SingleScreenView.swift */,
 				881C8CDE23903CD700A6E8DE /* RandomColor.swift */,
 			);
 			path = AliasUI;
@@ -439,7 +443,6 @@
 		886368662396D6A9001DDDA8 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
-				880B8037239662730036211B /* SingleScreenView.swift */,
 				886368642396D233001DDDA8 /* FirstView.swift */,
 				8863685E2396D077001DDDA8 /* SecondView.swift */,
 				886368602396D097001DDDA8 /* ThirdView.swift */,
@@ -623,6 +626,7 @@
 				8812168A2386F3630091B5C4 /* LaunchScreen.storyboard in Resources */,
 				880B801B2393EF420036211B /* russian_words_adjectives.csv in Resources */,
 				880B802B23945C430036211B /* russian_words_presentation.csv in Resources */,
+				887FB91E239C40C700970AF1 /* Assets.xcassets in Resources */,
 				880B801C2393EF420036211B /* russian_words_verbs.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -869,6 +873,7 @@
 		8812169A2386F3630091B5C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
 				INFOPLIST_FILE = "AliasGame/Supporting Files/Info.plist";
@@ -886,6 +891,7 @@
 		8812169B2386F3630091B5C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
 				INFOPLIST_FILE = "AliasGame/Supporting Files/Info.plist";
