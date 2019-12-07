@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol GameModesTableCellDelegate {
+protocol GameModesTableCellDelegate: class {
 
     func gameModesCell(_ gameModesTableCell: GameModesTableCell, didSelect gameMode: AliasGameMode)
 }
 
 class GameModesTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var delegate: GameModesTableCellDelegate?
+    weak var delegate: GameModesTableCellDelegate?
     
     var gameModes: [AliasGameMode]?
     

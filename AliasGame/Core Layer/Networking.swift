@@ -19,14 +19,14 @@ protocol NetworkingProtocol {
 }
 
 
-protocol NetworkingDelegate {
+protocol NetworkingDelegate: class {
 
 }
 
 
 class Networking: NetworkingProtocol {
 
-    var delegate: NetworkingDelegate?
+    weak var delegate: NetworkingDelegate?
     
     let session: URLSession
     

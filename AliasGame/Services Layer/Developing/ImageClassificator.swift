@@ -13,14 +13,14 @@ protocol ImageClassificatorProtocol {
 }
 
 
-protocol ImageClassificatorDelegate {
+protocol ImageClassificatorDelegate: class {
 
 }
 
 
 class ImageClassificator: ImageClassificatorProtocol {
 
-    var delegate: ImageClassificatorDelegate?
+    weak var delegate: ImageClassificatorDelegate?
 
     private var machineLearning: MachineLearningProtocol
 

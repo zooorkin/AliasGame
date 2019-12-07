@@ -25,14 +25,14 @@ protocol CoreDataStackProtocol {
 }
 
 
-protocol CoreDataStackDelegate {
+protocol CoreDataStackDelegate: class {
 
 }
 
 
 class CoreDataStack: CoreDataStackProtocol {
 
-    var delegate: CoreDataStackDelegate?
+    weak var delegate: CoreDataStackDelegate?
     
     static var shared: CoreDataStack = CoreDataStack()
     

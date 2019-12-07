@@ -38,8 +38,6 @@ protocol PresentationAssemblyProtocol {
     
     func aboutModule() -> AboutView
     
-    func reservedModule() -> ReservedView
-    
 }
 
 class PresentationAssembly: PresentationAssemblyProtocol {
@@ -288,30 +286,6 @@ class PresentationAssembly: PresentationAssemblyProtocol {
             } else {
                 #if DEBUG
                 debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию AboutRouterInput")
-                #endif
-            }
-        } else {
-            #if DEBUG
-            debugPrint("[PresentationAssembly]: router не задан")
-            #endif
-        }
-        return view
-    }
-
-    func reservedModule() -> ReservedView {
-        let interactor = ReservedInteractor()
-        let presenter = ReservedPresenter(interactor: interactor)
-        let view = ReservedView(presenter: presenter)
-
-        interactor.output = presenter
-        presenter.output = view
-
-        if let router = router {
-            if let router = router as? ReservedRouterInput {
-                presenter.router = router
-            } else {
-                #if DEBUG
-                debugPrint("[PresentationAssembly]: router не поддерживает маршрутизацию ReservedRouterInput")
                 #endif
             }
         } else {

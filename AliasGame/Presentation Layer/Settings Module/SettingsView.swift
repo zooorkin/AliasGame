@@ -13,12 +13,17 @@ class SettingsView: AliasTableViewController {
     
     private var presenter: SettingsPresenterInput
     
-    var data = ["Выход"]
+    var data = ["Для презентации",
+                "Существительные", "Глаголы", "Прилагательные",
+                "Nouns", "Verbs"]
     
+    var selectedIndex: Int
     
     init(presenter: SettingsPresenterInput) {
         self.presenter = presenter
+        self.selectedIndex = UserDefaults.standard.integer(forKey: "wordList")
         super.init(nibName: nil, bundle: nil)
+        assert(data.count == 6, "[SettingsView]: Количество ячеек не соответствует количеству списка слов")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,6 +43,9 @@ class SettingsView: AliasTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row]
+        if indexPath.row == selectedIndex {
+            cell.accessoryType = .checkmark
+        }
         cell.backgroundColor = .clear
         return cell
     }
@@ -47,10 +55,22 @@ class SettingsView: AliasTableViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0: presenter.exitTapped()
-        default: tableView.deselectRow(at: indexPath, animated: true)
+        // Сохранение
+        UserDefaults.standard.set(indexPath.row, forKey: "wordList")
+        // Unselect previous
+        if let cellToUncheckmark = tableView.cellForRow(at: IndexPath(row: selectedIndex, section: 0)) {
+            cellToUncheckmark.accessoryType = .none
+        } else {
+            debugPrint("[SettingsView]: cell is nil")
         }
+        selectedIndex = indexPath.row
+        // Select
+        if let cellToCheckmark = tableView.cellForRow(at: indexPath) {
+            cellToCheckmark.accessoryType = .checkmark
+        } else {
+            debugPrint("[SettingsView]: cell is nil")
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

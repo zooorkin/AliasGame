@@ -18,7 +18,7 @@ protocol RouterInput {
     
 }
 
-protocol RouterDelegate {
+protocol RouterDelegate: class {
     
     func wordsDidLoad()
     
@@ -27,7 +27,7 @@ protocol RouterDelegate {
 class Router: AliasTransitionSupport, RouterInput {
     
     
-    var delegate: RouterDelegate?
+    weak var delegate: RouterDelegate?
     
     var wordsDidLoad = false
     
@@ -77,7 +77,7 @@ extension Router: StartRouterInput {
     
     func aboutGame() {
         let aboutViewController = presentationAssembly.aboutModule()
-        performAliasTransition(viewController: aboutViewController, animated: true)
+        navigationController.pushViewController(aboutViewController, animated: true)
     }
     
 }
@@ -85,6 +85,7 @@ extension Router: StartRouterInput {
 extension Router: PrePlayRouterInput {
     
     func exitFromPrePlayModule() {
+        preparingPlayModule = nil
         performAliasUntransition()
     }
     
@@ -116,6 +117,7 @@ extension Router: PlayRouterInput {
     }
     
     func exitFromPlayModule() {
+        preparingPlayModule = nil
         performAliasUntransition()
     }
     
@@ -132,6 +134,7 @@ extension Router: PlayRouterInput {
         preparingPlayModule = nil
         
         if coveredNavigationController.topViewController is ReadyView {
+            debugPrint("[Router]: Слова не удалось загрузить, закрытие модулей PrePlay, Ready")
             performAliasUntransition()
         } else {
             coveredNavigationController.dismiss(animated: true, completion: {
@@ -159,6 +162,7 @@ extension Router: PlayRouterInput {
 extension Router: ReadyRouterInput {
     
     func exitFromReadyModule() {
+        preparingPlayModule = nil
         performAliasUntransition()
     }
     
@@ -181,6 +185,7 @@ extension Router: ReadyRouterInput {
 extension Router: TeamResultRouterInput {
     
     func exitFromTeamResultModule() {
+        preparingPlayModule = nil
         performAliasUntransition()
     }
     
@@ -205,16 +210,7 @@ extension Router: SettingsRouterInput {
 extension Router: AboutRouterInput {
     
     func exitFromAboutModule() {
-        performAliasUntransition()
-    }
-
-}
-
-extension Router: ReservedRouterInput {
-    
-    func exitFromReservedModule() {
         navigationController.popViewController(animated: true)
     }
-    
-}
 
+}

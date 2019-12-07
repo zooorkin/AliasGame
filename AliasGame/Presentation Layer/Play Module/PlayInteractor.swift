@@ -52,7 +52,7 @@ protocol PlayInteractorOutput: class {
 
 class PlayInteractor: PlayInteractorInput {
     
-    private let wordsCountForSet = 50
+    private let wordsCountForSet = 48 // Столько слов в наборе для презентации
     
 
     weak var output: PlayInteractorOutput?
@@ -99,7 +99,22 @@ class PlayInteractor: PlayInteractorInput {
     
     func loadWords() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.wordsProvider.getWords(number: self.wordsCountForSet, language: .russian, category: .noun)
+            let wordListIndex = UserDefaults.standard.integer(forKey: "wordList")
+            switch wordListIndex {
+                
+            case 0: self.wordsProvider.getWords(number: self.wordsCountForSet, language: .russian, category: .presentation)
+                
+            case 1: self.wordsProvider.getWords(number: self.wordsCountForSet, language: .russian, category: .noun)
+            case 2: self.wordsProvider.getWords(number: self.wordsCountForSet, language: .russian, category: .verb)
+            case 3: self.wordsProvider.getWords(number: self.wordsCountForSet, language: .russian, category: .adjective)
+                
+            case 4: self.wordsProvider.getWords(number: self.wordsCountForSet, language: .english, category: .noun)
+            case 5: self.wordsProvider.getWords(number: self.wordsCountForSet, language: .english, category: .verb)
+                
+            default:
+                assertionFailure("[PlayInteractor]: неизвестный индекс для списка слов")
+            }
+            
         }
     }
     
@@ -155,7 +170,9 @@ extension PlayInteractor: WordsProviderDelegate {
             return
         }
         guard words.count == wordsCountForSet else {
+            debugPrint("[PlayInteractor]: Количество полученных слов не соотвествует количеству запрошенных")
             output.interactorDidNotLoadWords()
+            output.interactorFailedAction(with: "Не удалось загрузить слова")
             return
         }
         

@@ -16,6 +16,6 @@ protocol ImageProviderProtocol {
     
 }
 
-protocol ImageProviderDelegate {
+protocol ImageProviderDelegate: class {
     
 }

@@ -42,9 +42,6 @@
 		881217092386FDFA0091B5C4 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DA2386FDF90091B5C4 /* StartView.swift */; };
 		8812170A2386FDFA0091B5C4 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DB2386FDF90091B5C4 /* StartPresenter.swift */; };
 		8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DC2386FDF90091B5C4 /* StartInteractor.swift */; };
-		8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DE2386FDF90091B5C4 /* ReservedView.swift */; };
-		8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DF2386FDF90091B5C4 /* ReservedInteractor.swift */; };
-		8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E12386FDF90091B5C4 /* ReservedPresenter.swift */; };
 		881217102386FDFA0091B5C4 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E32386FDF90091B5C4 /* AboutInteractor.swift */; };
 		881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E42386FDF90091B5C4 /* AboutPresenter.swift */; };
 		881217132386FDFA0091B5C4 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E62386FDF90091B5C4 /* AboutView.swift */; };
@@ -142,9 +139,6 @@
 		881216DA2386FDF90091B5C4 /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		881216DB2386FDF90091B5C4 /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		881216DC2386FDF90091B5C4 /* StartInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartInteractor.swift; sourceTree = "<group>"; };
-		881216DE2386FDF90091B5C4 /* ReservedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedView.swift; sourceTree = "<group>"; };
-		881216DF2386FDF90091B5C4 /* ReservedInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedInteractor.swift; sourceTree = "<group>"; };
-		881216E12386FDF90091B5C4 /* ReservedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedPresenter.swift; sourceTree = "<group>"; };
 		881216E32386FDF90091B5C4 /* AboutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
 		881216E42386FDF90091B5C4 /* AboutPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		881216E62386FDF90091B5C4 /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -330,7 +324,6 @@
 				881216D02386FDF90091B5C4 /* Records Module */,
 				881216CB2386FDF90091B5C4 /* Settings Module */,
 				881216E22386FDF90091B5C4 /* About Module */,
-				881216DD2386FDF90091B5C4 /* Reserved Module */,
 			);
 			path = "Presentation Layer";
 			sourceTree = "<group>";
@@ -365,16 +358,6 @@
 				881216DC2386FDF90091B5C4 /* StartInteractor.swift */,
 			);
 			path = "Start Module";
-			sourceTree = "<group>";
-		};
-		881216DD2386FDF90091B5C4 /* Reserved Module */ = {
-			isa = PBXGroup;
-			children = (
-				881216DE2386FDF90091B5C4 /* ReservedView.swift */,
-				881216E12386FDF90091B5C4 /* ReservedPresenter.swift */,
-				881216DF2386FDF90091B5C4 /* ReservedInteractor.swift */,
-			);
-			path = "Reserved Module";
 			sourceTree = "<group>";
 		};
 		881216E22386FDF90091B5C4 /* About Module */ = {
@@ -681,7 +664,6 @@
 				881C8CD8238FE82800A6E8DE /* RecordCell.swift in Sources */,
 				881217112386FDFA0091B5C4 /* AboutPresenter.swift in Sources */,
 				8812171B2386FDFA0091B5C4 /* FlickrImageProvider.swift in Sources */,
-				8812170D2386FDFA0091B5C4 /* ReservedInteractor.swift in Sources */,
 				881216F72386FDFA0091B5C4 /* CoreAssembly.swift in Sources */,
 				881217102386FDFA0091B5C4 /* AboutInteractor.swift in Sources */,
 				881217092386FDFA0091B5C4 /* StartView.swift in Sources */,
@@ -699,7 +681,6 @@
 				881C8CDB23902D0D00A6E8DE /* GameModesTableCell.swift in Sources */,
 				881216802386F3620091B5C4 /* AppDelegate.swift in Sources */,
 				88B9948A2398309F00BDC38A /* TeamResultView.swift in Sources */,
-				8812170C2386FDFA0091B5C4 /* ReservedView.swift in Sources */,
 				881C8CC3238E98DA00A6E8DE /* AliasLightNavigationController.swift in Sources */,
 				88E36F442391607D00F8F8F3 /* SafeTranslater.swift in Sources */,
 				880B8034239587B30036211B /* PrePlayInteractor.swift in Sources */,
@@ -713,7 +694,6 @@
 				88B9948F23983F6300BDC38A /* ReadyView.swift in Sources */,
 				886368652396D233001DDDA8 /* FirstView.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
-				8812170F2386FDFA0091B5C4 /* ReservedPresenter.swift in Sources */,
 				88B9948C239830AB00BDC38A /* TeamResultPresenter.swift in Sources */,
 				881C8CD2238FBE0000A6E8DE /* AliasDarkNavigationController.swift in Sources */,
 				881C8CD0238F030600A6E8DE /* AliasTransitionSupport.swift in Sources */,
@@ -899,7 +879,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.AliasGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -916,7 +896,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zooorkin.AliasGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

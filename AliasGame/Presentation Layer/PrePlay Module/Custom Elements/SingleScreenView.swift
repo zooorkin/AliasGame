@@ -187,7 +187,7 @@ class SingleScreenView: UIView {
         guard let customControl = customControl else {
             return
         }
-        let customControlY = button.frame.minY - 160.0
+        let customControlY = textLabel.frame.minY + 80.0
         let customControlFrame = CGRect(x: 32.0,
                                         y: customControlY,
                                         width: frame.width - 2 * 32.0,

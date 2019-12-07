@@ -14,8 +14,6 @@ protocol AboutPresenterInput {
     
     var output: AboutPresenterOutput? { get set }
     
-    func exitTapped()
-    
 }
 
 protocol AboutPresenterOutput: class {
@@ -39,16 +37,6 @@ class AboutPresenter: AboutPresenterInput {
     
     init(interactor: AboutInteractorInput) {
         self.interactor = interactor
-    }
-    
-    @objc func exitTapped() {
-        if let router = router {
-            router.exitFromAboutModule()
-        } else {
-            #if DEBUG
-            debugPrint("[AboutPresenter]: router is nil")
-            #endif
-        }
     }
     
 }

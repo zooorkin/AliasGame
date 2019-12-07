@@ -10,7 +10,7 @@ import Foundation
 
 class InternetWordsProvider: WordsProviderProtocol {
 
-    var delegate: WordsProviderDelegate?
+    weak var delegate: WordsProviderDelegate?
 
     private var session: URLSession
     

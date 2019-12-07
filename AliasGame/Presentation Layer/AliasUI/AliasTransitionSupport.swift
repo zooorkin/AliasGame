@@ -53,6 +53,7 @@ class AliasTransitionSupport {
         // Eсли менялся размер экрана при Split View
         let secondSavedFrame = coveredWindow.frame
         coveredRootViewController.dismiss(animated: true, completion: {
+            self.coveredNavigationController = nil
             self.coveredWindow.isHidden = true
         })
         mainWindow.makeKey()

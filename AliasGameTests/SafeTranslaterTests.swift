@@ -15,8 +15,11 @@ import XCTest
 //
 
 class FakeNetworking: NetworkingProtocol {
+    func getData(at path: URL, completion: @escaping (Data?) -> Void) {
+        fatalError("[FakeNetworking]: метод getData не реализован")
+    }
     
-    var delegate: NetworkingDelegate?
+    weak var delegate: NetworkingDelegate?
     
     var session: URLSession = URLSession.shared
     
@@ -45,7 +48,7 @@ class SafeTranslaterTests: XCTestCase {
 
         // Act
         group.enter()
-        safeTranslater.safeTranslate(englishWord: word) { (result) in
+        safeTranslater.translate(englishWord: word) { (result) in
             
             let realTranslation: String
             
@@ -68,7 +71,7 @@ class SafeTranslaterTests: XCTestCase {
         
         // Act
         group.enter()
-        safeTranslater.safeTranslate(englishWord: word) { (result) in
+        safeTranslater.translate(englishWord: word) { (result) in
             
             let realTranslation: String
             

@@ -13,13 +13,13 @@ protocol MachineLearningProtocol {
 }
 
 
-protocol MachineLearningDelegate {
+protocol MachineLearningDelegate: class {
 
 }
 
 
 class MachineLearning: MachineLearningProtocol {
 
-    var delegate: MachineLearningDelegate?
+    weak var delegate: MachineLearningDelegate?
 
 }

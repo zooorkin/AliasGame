@@ -10,7 +10,7 @@ import UIKit
 
 class FlickrImageProvider: ImageProviderProtocol {
     
-    var delegate: ImageProviderDelegate?
+    weak var delegate: ImageProviderDelegate?
 
     private var networking: NetworkingProtocol
 

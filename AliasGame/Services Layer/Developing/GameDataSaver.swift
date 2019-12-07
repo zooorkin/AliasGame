@@ -13,14 +13,14 @@ protocol GameDataSaverProtocol {
 }
 
 
-protocol GameDataSaverDelegate {
+protocol GameDataSaverDelegate: class {
     
 }
 
 
 class GameDataSaver: GameDataSaverProtocol {
     
-    var delegate: GameDataSaverDelegate?
+    weak var delegate: GameDataSaverDelegate?
     
     private var coreDataStack: CoreDataStackProtocol
     

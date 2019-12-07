@@ -13,14 +13,14 @@ protocol GameDataProviderProtocol {
 }
 
 
-protocol GameDataProviderDelegate {
+protocol GameDataProviderDelegate: class {
     
 }
 
 
 class GameDataProvider: GameDataProviderProtocol {
     
-    var delegate: GameDataProviderDelegate?
+    weak var delegate: GameDataProviderDelegate?
     
     private var coreDataStack: CoreDataStackProtocol
     

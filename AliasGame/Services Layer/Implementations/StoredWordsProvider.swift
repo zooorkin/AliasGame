@@ -17,7 +17,7 @@ class StoredWordsProvider: WordsProviderProtocol {
         let category: Word.Category
     }
     
-    var delegate: WordsProviderDelegate?
+    weak var delegate: WordsProviderDelegate?
     
     private var stack: CoreDataStackProtocol
     
@@ -36,6 +36,7 @@ class StoredWordsProvider: WordsProviderProtocol {
         if !UserDefaults.standard.bool(forKey: "wordsAvailable") {
             self.loadWords()
             UserDefaults.standard.set(true, forKey: "wordsAvailable")
+            UserDefaults.standard.set(1, forKey: "wordList")
         }
     }
     

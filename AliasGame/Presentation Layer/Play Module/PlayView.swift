@@ -226,12 +226,13 @@ class PlayView: AliasLightViewController {
         let scale: CGFloat = 0.95
         
         let firstImageViewWidth = 3 * view.frame.width / 4
+        let firstImageViewHeight = min(3 * view.frame.width / 4, view.frame.height - 512 + 32)
         let firstImageViewX = (view.frame.width - firstImageViewWidth) / 2
         let firstImageViewY = mainWordLabel.frame.maxY + 24.0
         let firstImageViewFrame = CGRect(x: firstImageViewX,
                                       y: firstImageViewY,
                                       width: firstImageViewWidth,
-                                      height: firstImageViewWidth)
+                                      height: firstImageViewHeight)
         
         let secondImageViewInset = (1 - scale) * firstImageViewFrame.width
         let secondImageViewYOffset = secondImageViewInset + 16.0 * scale

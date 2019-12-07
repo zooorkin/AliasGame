@@ -229,11 +229,11 @@ extension PlayPresenter: PlayInteractorOutput {
                 if let router = self.router {
                     router.exitFromPlayModule()
                 } else {
-                    assertionFailure("[PlayPresenter]: router is nil")
+                    debugPrint("[PlayPresenter]: router is nil")
                 }
             }, destructive: nil)
         } else {
-            assertionFailure("[PlayPresenter]: output is nil")
+            debugPrint("[PlayPresenter]: output is nil")
         }
     }
     
@@ -275,7 +275,7 @@ extension PlayPresenter: PlayInteractorOutput {
             if team < self.interactor.configuration.numberOfTeams {
                 
                 // Следующая команда
-                self.updateUI(animated: false)
+                self.interactor.loadWords()
                 router.readyFromPlayModule(configuration: configuration, nextTeam: team)
             } else {
                 
@@ -287,7 +287,7 @@ extension PlayPresenter: PlayInteractorOutput {
                         
                         // Следующий раунд
                         let team = self.interactor.team
-                        self.updateUI(animated: false)
+                        self.interactor.loadWords()
                         router.readyFromPlayModule(configuration: configuration, nextTeam: team)
                     } else {
                         
@@ -301,7 +301,6 @@ extension PlayPresenter: PlayInteractorOutput {
             }
         })
         prepareForReuse()
-        interactor.loadWords()
     }
 
     

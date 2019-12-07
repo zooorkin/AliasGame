@@ -16,7 +16,7 @@ protocol WordsProviderProtocol {
     
 }
 
-protocol WordsProviderDelegate {
+protocol WordsProviderDelegate: class {
     
     func wordsProviderDidGetWords(words: [String])
     
