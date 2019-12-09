@@ -70,7 +70,7 @@ class PrePlayPresenter: PrePlayPresenterInput {
     }
     
     private let firstText = "Чтобы начать игру, нажмите далее"
-    private let secondText = "Здесь будут написаны правила игры"
+    private let secondText = "Ваша задача объяснять слова. Например, слово телефон можно объяснить как средство связи, с помощью которого можно звонить."
     private let thirdText = "Выберите количество раундов"
     private let fourthText = "Выберите количество времени на сет"
     private var fivethText: String {

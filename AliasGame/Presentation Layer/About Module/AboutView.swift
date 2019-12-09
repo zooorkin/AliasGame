@@ -24,8 +24,19 @@ class AboutView: AliasDarkViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        plainView.addSubview(textView)
+        textView.font = .systemFont(ofSize: 17.0, weight: .regular)
+        textView.textColor = .black
+        textView.text = "Alias – игра для iPhone, в которой участникам предлагается поочередно или объяснять появляющиеся слова, или отгадывать их.\n\nПриложение является выпускным проектом в Сбербанк iOS школе.\n\nАвтор: Зорькин Андрей"
         title = "Об игре"
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textView.frame = plainView.bounds.insetBy(dx: 8, dy: 8)
+    }
+    
+    let textView = UITextView(frame: .zero)
     
 }
 
