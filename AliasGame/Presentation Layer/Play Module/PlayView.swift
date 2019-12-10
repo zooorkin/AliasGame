@@ -135,7 +135,6 @@ class PlayView: AliasLightViewController {
     /// Настройка счёта
     private func setupScoreLabel() {
         scoreLabel.text = "17"
-        scoreLabel.font = .systemFont(ofSize: 128.0, weight: .bold)
         scoreLabel.textColor = #colorLiteral(red: 0.9580479547, green: 0.9594150742, blue: 0.9802771338, alpha: 1)
         scoreLabel.textAlignment = .center
         view.addSubview(scoreLabel)
@@ -207,9 +206,10 @@ class PlayView: AliasLightViewController {
     
     private func layoutMainWordLabel() {
         let topOffset = teamNameLabel.frame.maxY
+        let yOffset: CGFloat = view.bounds.height > 600 ? 8.0 : 4.0
         let mainWordLabelIntrinsicSize = mainWordLabel.intrinsicContentSize
         mainWordLabel.frame = CGRect(x: 0,
-                                     y: topOffset + mainWordLabelIntrinsicSize.height / 2 + 8.0,
+                                     y: topOffset + mainWordLabelIntrinsicSize.height / 2 + yOffset,
                                      width: view.frame.width,
                                      height: mainWordLabelIntrinsicSize.height)
     }
@@ -225,8 +225,10 @@ class PlayView: AliasLightViewController {
         let cornerRadius: CGFloat = 16.0
         let scale: CGFloat = 0.95
         
+        
         let firstImageViewWidth = 3 * view.frame.width / 4
-        let firstImageViewHeight = min(3 * view.frame.width / 4, view.frame.height - 512 + 32)
+        let firstImageViewHeight = (view.bounds.height > 600) ? 3 * view.frame.width / 4 : 3 * view.frame.width / 5
+        //min(3 * view.frame.width / 4, view.frame.height - 512 + 32)
         let firstImageViewX = (view.frame.width - firstImageViewWidth) / 2
         let firstImageViewY = mainWordLabel.frame.maxY + 24.0
         let firstImageViewFrame = CGRect(x: firstImageViewX,
@@ -278,28 +280,26 @@ class PlayView: AliasLightViewController {
     }
     
     private func layoutScoreLabel() {
-        scoreLabel.frame = CGRect(x: 0,
-                                  y: view.frame.height * 0.80,
-                                  width: view.frame.width,
-                                  height: view.frame.height * 0.15)
+        if (view.bounds.height > 800) {
+            scoreLabel.font = .systemFont(ofSize: 128.0, weight: .bold)
+            scoreLabel.frame = CGRect(x: 0,
+                                      y: view.frame.height * 0.80,
+                                      width: view.frame.width,
+                                      height: view.frame.height * 0.15)
+        } else {
+            scoreLabel.font = .systemFont(ofSize: 48.0, weight: .bold)
+            scoreLabel.frame = CGRect(x: 0,
+                                      y: view.frame.height * 0.85,
+                                      width: view.frame.width,
+                                      height: view.frame.height * 0.15)
+        }
+        
     }
     
     // MARK: - Обработка нажатий клавиш
     
     @objc func stopBarButtonTapped() {
         presenter.exitTapped()
-//        let alertController = UIAlertController(title: "Завершить игру?",
-//                                                message: "Резульаты игры будут потеряны",
-//                                                preferredStyle: .alert)
-//        let closeAction = UIAlertAction(title: "Да", style: .destructive) { _ in
-//            self.presenter.exitTapped()
-//        }
-//        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { _ in
-//
-//        }
-//        alertController.addAction(closeAction)
-//        alertController.addAction(cancelAction)
-//        present(alertController, animated: true, completion: nil)
     }
     
     @objc func pauseBarButtonTapped() {

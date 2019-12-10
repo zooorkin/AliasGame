@@ -133,8 +133,8 @@ class PrePlayView: AliasLightViewController {
     
     private func layoutPageControl() {
         let height: CGFloat = 44.0
-        let yOffset = view.frame.height - height - 32
-        pageControl.frame = CGRect(x: 0, y: yOffset,
+        let yOffset: CGFloat = view.bounds.height > 600 ? 32.0 : 16.0
+        pageControl.frame = CGRect(x: 0, y:  view.frame.height - height - yOffset,
                                    width: view.bounds.width,
                                    height: height)
     }

@@ -137,8 +137,9 @@ class SingleScreenView: UIView {
     private func layoutTitleLabel() {
         let topSafeInset = safeAreaInsets.top
         let titleLabelIntrinsicSize = titleLabel.intrinsicContentSize
+        let titleLabelYOffset: CGFloat = bounds.height > 600 ? 32.0 : 16.0
         titleLabel.frame = CGRect(x: 0,
-                                  y: topSafeInset + titleLabelIntrinsicSize.height / 2 + 32.0,
+                                  y: topSafeInset + titleLabelIntrinsicSize.height / 2 + titleLabelYOffset,
                                   width: frame.width,
                                   height: titleLabelIntrinsicSize.height)
     }
@@ -150,7 +151,8 @@ class SingleScreenView: UIView {
         }
         let customViewWidth = frame.width * 0.30
         let customViewX = (frame.width - customViewWidth) / 2
-        let customViewY = titleLabel.frame.maxY + 48.0
+        let customViewYOffset: CGFloat = bounds.height > 600 ? 48.0 : 24.0
+        let customViewY = titleLabel.frame.maxY + customViewYOffset
         let customViewFrame = CGRect(x: customViewX,
                                          y: customViewY,
                                          width: customViewWidth,
@@ -160,14 +162,16 @@ class SingleScreenView: UIView {
     
     private func layoutTextLabel() {
         if let customView = customView  {
+            let yOffset: CGFloat = bounds.height > 600 ? 32.0 : 16.0
             textLabel.frame = CGRect(x: 0,
-                                     y: customView.frame.maxY + 32.0,
+                                     y: customView.frame.maxY + yOffset,
                                      width: frame.width,
                                      height: 128.0)
                 .insetBy(dx: 32.0, dy: 0)
         } else {
+            let yOffset: CGFloat = bounds.height > 600 ? 48.0 : 24.0
                 textLabel.frame = CGRect(x: 0,
-                                 y: titleLabel.frame.maxY + 48.0,
+                                 y: titleLabel.frame.maxY + yOffset,
                                  width: frame.width,
                                  height: 128)
                     .insetBy(dx: 32.0, dy: 0)
@@ -177,7 +181,7 @@ class SingleScreenView: UIView {
     
     private func layoutButton() {
         let buttonHeight: CGFloat = 80.0
-        let buttonBottomOffset: CGFloat = 80.0
+        let buttonBottomOffset: CGFloat = bounds.height > 600 ? 80.0 : 64.0
         let bottomInset = superview?.superview?.safeAreaInsets.bottom ?? 0.0
         let buttonY = bounds.height - buttonHeight - buttonBottomOffset + bottomInset
         button.frame = CGRect(x: 0, y: buttonY, width: bounds.width, height: buttonHeight)

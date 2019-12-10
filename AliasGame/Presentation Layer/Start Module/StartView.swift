@@ -12,7 +12,7 @@ class StartView: AliasTableViewController {
 
     private var presenter: StartPresenterInput
 
-    let data = ["Выберите режим игры", "Командные режим", "Рекорды", "Настройки", "Об игре"]
+    let data = ["Выберите режим игры", "Командные режимы", "Рекорды", "Настройки", "Об игре"]
     
     let generalGameModes: [AliasGameMode] = [.twoPlayers, .threePlayers, .fourPlayers, .fivePlayers, .sixPlayers, .sevenPlayers, .eightPlayers, .ninePlayers]
     
