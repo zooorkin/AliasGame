@@ -14,6 +14,7 @@ import XCTest
 //  Ввиду использования методов защиты от встраивания модуля в другие системы
 //
 
+///**********************************************************************************
 class FakeNetworking: NetworkingProtocol {
     func getData(at path: URL, completion: @escaping (Data?) -> Void) {
         fatalError("[FakeNetworking]: метод getData не реализован")
@@ -39,7 +40,32 @@ class SafeTranslaterTests: XCTestCase {
         safeTranslater = nil
         super.tearDown()
     }
+    
+    func test_SafeTranslaterDoesntWorkFromOtherTargets() {
+        // Arrange
+        let group = DispatchGroup()
+        let word = "Alias"
+        let expected = "[Error]"
+        
+        // Act
+        group.enter()
+        safeTranslater.translate(englishWord: word) { (result) in
+            
+            let realTranslation: String
+            
+            switch result {
+            case .success(let success): realTranslation = success
+            case .failure: realTranslation = "[Error]"
+            }
+            // Assert
+            XCTAssertEqual(realTranslation, expected)
+            group.leave()
+        }
+        group.wait()
+    }
 
+
+/*
     func test_SafeTranslaterTranslatesAliasAsPsevdonim() {
         // Arrange
         let group = DispatchGroup()
@@ -86,4 +112,5 @@ class SafeTranslaterTests: XCTestCase {
         group.wait()
     }
 
+     */
 }

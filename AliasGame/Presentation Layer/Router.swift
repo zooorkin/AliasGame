@@ -18,12 +18,6 @@ protocol RouterInput {
     
 }
 
-protocol RouterDelegate: class {
-    
-    func wordsDidLoad()
-    
-}
-
 class Router: AliasTransitionSupport, RouterInput {
     
     

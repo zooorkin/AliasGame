@@ -7,6 +7,119 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8800870223A0EAD8009092D1 /* StartPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800870123A0EAD8009092D1 /* StartPresenterTests.swift */; };
+		8800870523A0EB10009092D1 /* MockStartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800870423A0EB10009092D1 /* MockStartRouter.swift */; };
+		8800871A23A0EDD4009092D1 /* PrePlayPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800871923A0EDD4009092D1 /* PrePlayPresenterTests.swift */; };
+		8800871E23A0EE21009092D1 /* ReadyPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800871D23A0EE21009092D1 /* ReadyPresenterTests.swift */; };
+		8800872023A0EE47009092D1 /* TeamResultPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800871F23A0EE47009092D1 /* TeamResultPresenterTests.swift */; };
+		8800872223A0EE76009092D1 /* ResultPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800872123A0EE76009092D1 /* ResultPresenterTests.swift */; };
+		8800872423A0EE8A009092D1 /* RecordsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800872323A0EE8A009092D1 /* RecordsPresenterTests.swift */; };
+		8800872623A0EEAB009092D1 /* SettingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800872523A0EEAB009092D1 /* SettingsPresenterTests.swift */; };
+		8800872823A0EEBC009092D1 /* AboutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800872723A0EEBC009092D1 /* AboutPresenterTests.swift */; };
+		8800872C23A0EFCE009092D1 /* StubPrePlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800872B23A0EFCE009092D1 /* StubPrePlayInteractor.swift */; };
+		8800873423A0F00D009092D1 /* StubRecordsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800873323A0F00D009092D1 /* StubRecordsInteractor.swift */; };
+		8800873623A0F01B009092D1 /* StubSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800873523A0F01B009092D1 /* StubSettingsInteractor.swift */; };
+		8800873823A0F026009092D1 /* StubAboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800873723A0F026009092D1 /* StubAboutInteractor.swift */; };
+		8800873B23A0F322009092D1 /* MockPrePlayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800873A23A0F322009092D1 /* MockPrePlayRouter.swift */; };
+		8800873D23A0F407009092D1 /* MockReadyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800873C23A0F407009092D1 /* MockReadyRouter.swift */; };
+		8800873F23A0F48A009092D1 /* MockTeamResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800873E23A0F48A009092D1 /* MockTeamResultRouter.swift */; };
+		8800874123A0F4F0009092D1 /* MockResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800874023A0F4F0009092D1 /* MockResultRouter.swift */; };
+		8800874323A0F526009092D1 /* MockRecordsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800874223A0F526009092D1 /* MockRecordsRouter.swift */; };
+		8800874523A0F55F009092D1 /* MockSettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800874423A0F55F009092D1 /* MockSettingsRouter.swift */; };
+		8800874723A0F597009092D1 /* MockAboutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800874623A0F597009092D1 /* MockAboutRouter.swift */; };
+		8800874823A0F628009092D1 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DB2386FDF90091B5C4 /* StartPresenter.swift */; };
+		8800874923A0F645009092D1 /* PrePlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8031239587680036211B /* PrePlayPresenter.swift */; };
+		8800874A23A0F649009092D1 /* PlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E82386FDF90091B5C4 /* PlayPresenter.swift */; };
+		8800874B23A0F651009092D1 /* ReadyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9949023983F6B00BDC38A /* ReadyPresenter.swift */; };
+		8800874C23A0F658009092D1 /* TeamResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9948B239830AB00BDC38A /* TeamResultPresenter.swift */; };
+		8800874D23A0F65B009092D1 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F68A84239AA542004839BB /* ResultPresenter.swift */; };
+		8800874E23A0F65F009092D1 /* RecordsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D12386FDF90091B5C4 /* RecordsPresenter.swift */; };
+		8800874F23A0F662009092D1 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CD2386FDF90091B5C4 /* SettingsPresenter.swift */; };
+		8800875023A0F666009092D1 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E42386FDF90091B5C4 /* AboutPresenter.swift */; };
+		8800875223A0F6B6009092D1 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
+		8800875723A0F6E3009092D1 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CDE23903CD700A6E8DE /* RandomColor.swift */; };
+		8800875923A0F703009092D1 /* SingleScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8037239662730036211B /* SingleScreenView.swift */; };
+		8800875A23A0F70E009092D1 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EB2386FDF90091B5C4 /* PlayView.swift */; };
+		8800875F23A0F73A009092D1 /* AliasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CBC238E8DBF00A6E8DE /* AliasTableViewController.swift */; };
+		8800876023A0F73A009092D1 /* AliasDarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC4238EDA2E00A6E8DE /* AliasDarkViewController.swift */; };
+		8800876123A0F73A009092D1 /* AliasLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD3238FC0BF00A6E8DE /* AliasLightViewController.swift */; };
+		8800876223A0F73A009092D1 /* AliasDarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD1238FBE0000A6E8DE /* AliasDarkNavigationController.swift */; };
+		8800876323A0F73A009092D1 /* AliasLightNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CC2238E98DA00A6E8DE /* AliasLightNavigationController.swift */; };
+		8800876423A0F73A009092D1 /* AliasTransitionSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CCF238F030600A6E8DE /* AliasTransitionSupport.swift */; };
+		8800876523A0F73A009092D1 /* LightStatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CCB238EFDB400A6E8DE /* LightStatusBarViewController.swift */; };
+		8800876623A0F742009092D1 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DA2386FDF90091B5C4 /* StartView.swift */; };
+		8800876723A0F74B009092D1 /* PrePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B802E239575AD0036211B /* PrePlayView.swift */; };
+		8800876923A0F753009092D1 /* ReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9948E23983F6300BDC38A /* ReadyView.swift */; };
+		8800876A23A0F757009092D1 /* TeamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B994892398309F00BDC38A /* TeamResultView.swift */; };
+		8800876B23A0F75C009092D1 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F68A82239AA50F004839BB /* ResultView.swift */; };
+		8800876C23A0F760009092D1 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D42386FDF90091B5C4 /* RecordsView.swift */; };
+		8800876E23A0F771009092D1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CF2386FDF90091B5C4 /* SettingsView.swift */; };
+		8800876F23A0F776009092D1 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E62386FDF90091B5C4 /* AboutView.swift */; };
+		8800877323A0F80A009092D1 /* GameModeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CDC23902E4B00A6E8DE /* GameModeCollectionCell.swift */; };
+		8800877423A0F80A009092D1 /* GameModesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CDA23902D0D00A6E8DE /* GameModesTableCell.swift */; };
+		8800877523A0F80D009092D1 /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216DC2386FDF90091B5C4 /* StartInteractor.swift */; };
+		8800877623A0F813009092D1 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368642396D233001DDDA8 /* FirstView.swift */; };
+		8800877723A0F813009092D1 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8863685E2396D077001DDDA8 /* SecondView.swift */; };
+		8800877823A0F813009092D1 /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368602396D097001DDDA8 /* ThirdView.swift */; };
+		8800877923A0F813009092D1 /* FourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368622396D09E001DDDA8 /* FourthView.swift */; };
+		8800877A23A0F813009092D1 /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368672396DEED001DDDA8 /* FifthView.swift */; };
+		8800877B23A0F813009092D1 /* AliasSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB13A42399565800A35154 /* AliasSegmentedControl.swift */; };
+		8800877C23A0F818009092D1 /* PrePlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8033239587B30036211B /* PrePlayInteractor.swift */; };
+		8800877D23A0F81E009092D1 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4823917B8F00F8F8F3 /* StringHelper.swift */; };
+		8800877E23A0F81E009092D1 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8028239433170036211B /* UIImageHelper.swift */; };
+		8800877F23A0F821009092D1 /* PlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216EA2386FDF90091B5C4 /* PlayInteractor.swift */; };
+		8800878023A0F82F009092D1 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881C8CD7238FE82800A6E8DE /* RecordCell.swift */; };
+		8800878123A0F833009092D1 /* RecordsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216D32386FDF90091B5C4 /* RecordsInteractor.swift */; };
+		8800878223A0F837009092D1 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216CC2386FDF90091B5C4 /* SettingsInteractor.swift */; };
+		8800878323A0F83B009092D1 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216E32386FDF90091B5C4 /* AboutInteractor.swift */; };
+		8800878423A0F841009092D1 /* ImageProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B802423940A870036211B /* ImageProviderProtocol.swift */; };
+		8800878523A0F841009092D1 /* WordsProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B80102393DEA20036211B /* WordsProviderProtocol.swift */; };
+		8800878623A0F841009092D1 /* TranslaterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB13A823998A1200A35154 /* TranslaterProtocol.swift */; };
+		8800878723A0F848009092D1 /* FlickrImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F22386FDFA0091B5C4 /* FlickrImageProvider.swift */; };
+		8800878823A0F848009092D1 /* StoredWordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B800E2393DE8C0036211B /* StoredWordsProvider.swift */; };
+		8800878923A0F848009092D1 /* InternetWordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F52386FDFA0091B5C4 /* InternetWordsProvider.swift */; };
+		8800878A23A0F848009092D1 /* SafeTranslater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F432391607D00F8F8F3 /* SafeTranslater.swift */; };
+		8800878B23A0F84B009092D1 /* ArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4A23917D0C00F8F8F3 /* ArrayHelper.swift */; };
+		8800878C23A0F84E009092D1 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
+		8800878D23A0F84E009092D1 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
+		8800878E23A0F84E009092D1 /* ImageClassificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216F42386FDFA0091B5C4 /* ImageClassificator.swift */; };
+		8800878F23A0F857009092D1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C42386FDF90091B5C4 /* CoreDataStack.swift */; };
+		8800879023A0F85A009092D1 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B80072393DB600036211B /* Word+CoreDataClass.swift */; };
+		8800879123A0F85A009092D1 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B80082393DB600036211B /* Word+CoreDataProperties.swift */; };
+		8800879223A0F85A009092D1 /* Word+AliasProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B800C2393DC6C0036211B /* Word+AliasProperties.swift */; };
+		8800879423A0F868009092D1 /* RandomWordAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */; };
+		8800879523A0F868009092D1 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B8022239409A40036211B /* FlickrAPI.swift */; };
+		8800879623A0F86B009092D1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C52386FDF90091B5C4 /* Networking.swift */; };
+		8800879723A0F86B009092D1 /* MachineLearning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881216C62386FDF90091B5C4 /* MachineLearning.swift */; };
+		8800879923A0FF82009092D1 /* MockPlayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800879823A0FF82009092D1 /* MockPlayRouter.swift */; };
+		8800879B23A106FD009092D1 /* PlayPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800879A23A106FD009092D1 /* PlayPresenterTests.swift */; };
+		8800879D23A10745009092D1 /* MockPlayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800879C23A10745009092D1 /* MockPlayInteractor.swift */; };
+		8800879F23A108D1009092D1 /* MockPlayPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800879E23A108D1009092D1 /* MockPlayPresenterOutput.swift */; };
+		880087A223A10C8B009092D1 /* RouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087A123A10C8B009092D1 /* RouterDelegate.swift */; };
+		880087A323A10CA8009092D1 /* RouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087A123A10C8B009092D1 /* RouterDelegate.swift */; };
+		880087AD23A1104E009092D1 /* StartInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087AC23A1104E009092D1 /* StartInteractorTests.swift */; };
+		880087AF23A11184009092D1 /* PrePlayInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087AE23A11184009092D1 /* PrePlayInteractorTests.swift */; };
+		880087B123A111C3009092D1 /* PlayInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087B023A111C3009092D1 /* PlayInteractorTests.swift */; };
+		880087B423A1124D009092D1 /* MockWordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087B323A1124D009092D1 /* MockWordsProvider.swift */; };
+		880087B623A112FA009092D1 /* MockImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087B523A112FA009092D1 /* MockImageProvider.swift */; };
+		880087B823A1133B009092D1 /* MockImageClassificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087B723A1133B009092D1 /* MockImageClassificator.swift */; };
+		880087BA23A1136C009092D1 /* MockGameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087B923A1136C009092D1 /* MockGameDataSaver.swift */; };
+		880087BC23A113D3009092D1 /* MockTranslater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087BB23A113D3009092D1 /* MockTranslater.swift */; };
+		880087C123A1154A009092D1 /* RecordsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087C023A1154A009092D1 /* RecordsInteractorTests.swift */; };
+		880087C323A11556009092D1 /* SettingsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087C223A11556009092D1 /* SettingsInteractorTests.swift */; };
+		880087C523A11560009092D1 /* AboutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087C423A11560009092D1 /* AboutInteractorTests.swift */; };
+		880087C723A115AF009092D1 /* MockGameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087C623A115AF009092D1 /* MockGameDataProvider.swift */; };
+		880087C923A120FB009092D1 /* MockPlayInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087C823A120FB009092D1 /* MockPlayInteractorOutput.swift */; };
+		880087CC23A12CD0009092D1 /* InternetWordsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087CB23A12CD0009092D1 /* InternetWordsProviderTests.swift */; };
+		880087CF23A12EA7009092D1 /* MockWordsProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087CD23A12E9E009092D1 /* MockWordsProviderDelegate.swift */; };
+		880087D323A131C4009092D1 /* FlickrImageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087D223A131C4009092D1 /* FlickrImageProviderTests.swift */; };
+		880087D723A13C1A009092D1 /* StoredWordsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880087D623A13C1A009092D1 /* StoredWordsProviderTests.swift */; };
+		880087DE23A13E97009092D1 /* russian_words_presentation.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B802A23945C430036211B /* russian_words_presentation.csv */; };
+		880087DF23A1403A009092D1 /* russian_words_nouns.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80182393EF410036211B /* russian_words_nouns.csv */; };
+		880087E023A1403A009092D1 /* russian_words_verbs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80172393EF410036211B /* russian_words_verbs.csv */; };
+		880087E123A1403A009092D1 /* russian_words_adjectives.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80162393EF410036211B /* russian_words_adjectives.csv */; };
+		880087E223A1403A009092D1 /* english_words_nouns.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80142393EF410036211B /* english_words_nouns.csv */; };
+		880087E323A1403A009092D1 /* english_words_verbs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 880B80152393EF410036211B /* english_words_verbs.csv */; };
 		880B80092393DB600036211B /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B80072393DB600036211B /* Word+CoreDataClass.swift */; };
 		880B800A2393DB600036211B /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B80082393DB600036211B /* Word+CoreDataProperties.swift */; };
 		880B800D2393DC6C0036211B /* Word+AliasProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880B800C2393DC6C0036211B /* Word+AliasProperties.swift */; };
@@ -68,6 +181,7 @@
 		8827206B238DA561002E8648 /* GameDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206A238DA560002E8648 /* GameDataSaver.swift */; };
 		8827206D238DA5AA002E8648 /* GameDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206C238DA5AA002E8648 /* GameDataProvider.swift */; };
 		88272070238DA9F8002E8648 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827206F238DA9F8002E8648 /* Entity.swift */; };
+		882AB83123A1470A00174333 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F4E2393D46800F8F8F3 /* DataModel.xcdatamodeld */; };
 		8863685F2396D077001DDDA8 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8863685E2396D077001DDDA8 /* SecondView.swift */; };
 		886368612396D097001DDDA8 /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368602396D097001DDDA8 /* ThirdView.swift */; };
 		886368632396D09E001DDDA8 /* FourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886368622396D09E001DDDA8 /* FourthView.swift */; };
@@ -80,6 +194,9 @@
 		88B9948C239830AB00BDC38A /* TeamResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9948B239830AB00BDC38A /* TeamResultPresenter.swift */; };
 		88B9948F23983F6300BDC38A /* ReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9948E23983F6300BDC38A /* ReadyView.swift */; };
 		88B9949123983F6B00BDC38A /* ReadyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B9949023983F6B00BDC38A /* ReadyPresenter.swift */; };
+		88C584F523A15810001DD640 /* StringHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882AB83323A148CC00174333 /* StringHelperTests.swift */; };
+		88C584F623A15810001DD640 /* ArrayHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882AB83523A14A1500174333 /* ArrayHelperTests.swift */; };
+		88C584F823A15AAA001DD640 /* MockAboutPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C584F723A15AAA001DD640 /* MockAboutPresenterOutput.swift */; };
 		88E36F412391594200F8F8F3 /* SafeTranslaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */; };
 		88E36F442391607D00F8F8F3 /* SafeTranslater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F432391607D00F8F8F3 /* SafeTranslater.swift */; };
 		88E36F46239165C200F8F8F3 /* RandomWordAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */; };
@@ -101,6 +218,48 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8800870123A0EAD8009092D1 /* StartPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPresenterTests.swift; sourceTree = "<group>"; };
+		8800870423A0EB10009092D1 /* MockStartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStartRouter.swift; sourceTree = "<group>"; };
+		8800871923A0EDD4009092D1 /* PrePlayPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayPresenterTests.swift; sourceTree = "<group>"; };
+		8800871D23A0EE21009092D1 /* ReadyPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyPresenterTests.swift; sourceTree = "<group>"; };
+		8800871F23A0EE47009092D1 /* TeamResultPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResultPresenterTests.swift; sourceTree = "<group>"; };
+		8800872123A0EE76009092D1 /* ResultPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenterTests.swift; sourceTree = "<group>"; };
+		8800872323A0EE8A009092D1 /* RecordsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsPresenterTests.swift; sourceTree = "<group>"; };
+		8800872523A0EEAB009092D1 /* SettingsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterTests.swift; sourceTree = "<group>"; };
+		8800872723A0EEBC009092D1 /* AboutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenterTests.swift; sourceTree = "<group>"; };
+		8800872B23A0EFCE009092D1 /* StubPrePlayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPrePlayInteractor.swift; sourceTree = "<group>"; };
+		8800873323A0F00D009092D1 /* StubRecordsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRecordsInteractor.swift; sourceTree = "<group>"; };
+		8800873523A0F01B009092D1 /* StubSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSettingsInteractor.swift; sourceTree = "<group>"; };
+		8800873723A0F026009092D1 /* StubAboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAboutInteractor.swift; sourceTree = "<group>"; };
+		8800873A23A0F322009092D1 /* MockPrePlayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPrePlayRouter.swift; sourceTree = "<group>"; };
+		8800873C23A0F407009092D1 /* MockReadyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReadyRouter.swift; sourceTree = "<group>"; };
+		8800873E23A0F48A009092D1 /* MockTeamResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamResultRouter.swift; sourceTree = "<group>"; };
+		8800874023A0F4F0009092D1 /* MockResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResultRouter.swift; sourceTree = "<group>"; };
+		8800874223A0F526009092D1 /* MockRecordsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecordsRouter.swift; sourceTree = "<group>"; };
+		8800874423A0F55F009092D1 /* MockSettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettingsRouter.swift; sourceTree = "<group>"; };
+		8800874623A0F597009092D1 /* MockAboutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAboutRouter.swift; sourceTree = "<group>"; };
+		8800879823A0FF82009092D1 /* MockPlayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayRouter.swift; sourceTree = "<group>"; };
+		8800879A23A106FD009092D1 /* PlayPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPresenterTests.swift; sourceTree = "<group>"; };
+		8800879C23A10745009092D1 /* MockPlayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayInteractor.swift; sourceTree = "<group>"; };
+		8800879E23A108D1009092D1 /* MockPlayPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayPresenterOutput.swift; sourceTree = "<group>"; };
+		880087A123A10C8B009092D1 /* RouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDelegate.swift; sourceTree = "<group>"; };
+		880087AC23A1104E009092D1 /* StartInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInteractorTests.swift; sourceTree = "<group>"; };
+		880087AE23A11184009092D1 /* PrePlayInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePlayInteractorTests.swift; sourceTree = "<group>"; };
+		880087B023A111C3009092D1 /* PlayInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayInteractorTests.swift; sourceTree = "<group>"; };
+		880087B323A1124D009092D1 /* MockWordsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWordsProvider.swift; sourceTree = "<group>"; };
+		880087B523A112FA009092D1 /* MockImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageProvider.swift; sourceTree = "<group>"; };
+		880087B723A1133B009092D1 /* MockImageClassificator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageClassificator.swift; sourceTree = "<group>"; };
+		880087B923A1136C009092D1 /* MockGameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGameDataSaver.swift; sourceTree = "<group>"; };
+		880087BB23A113D3009092D1 /* MockTranslater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTranslater.swift; sourceTree = "<group>"; };
+		880087C023A1154A009092D1 /* RecordsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsInteractorTests.swift; sourceTree = "<group>"; };
+		880087C223A11556009092D1 /* SettingsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractorTests.swift; sourceTree = "<group>"; };
+		880087C423A11560009092D1 /* AboutInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractorTests.swift; sourceTree = "<group>"; };
+		880087C623A115AF009092D1 /* MockGameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGameDataProvider.swift; sourceTree = "<group>"; };
+		880087C823A120FB009092D1 /* MockPlayInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayInteractorOutput.swift; sourceTree = "<group>"; };
+		880087CB23A12CD0009092D1 /* InternetWordsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetWordsProviderTests.swift; sourceTree = "<group>"; };
+		880087CD23A12E9E009092D1 /* MockWordsProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWordsProviderDelegate.swift; sourceTree = "<group>"; };
+		880087D223A131C4009092D1 /* FlickrImageProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrImageProviderTests.swift; sourceTree = "<group>"; };
+		880087D623A13C1A009092D1 /* StoredWordsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredWordsProviderTests.swift; sourceTree = "<group>"; };
 		880B80072393DB600036211B /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		880B80082393DB600036211B /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		880B800C2393DC6C0036211B /* Word+AliasProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+AliasProperties.swift"; sourceTree = "<group>"; };
@@ -166,6 +325,8 @@
 		8827206A238DA560002E8648 /* GameDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataSaver.swift; sourceTree = "<group>"; };
 		8827206C238DA5AA002E8648 /* GameDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataProvider.swift; sourceTree = "<group>"; };
 		8827206F238DA9F8002E8648 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		882AB83323A148CC00174333 /* StringHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperTests.swift; sourceTree = "<group>"; };
+		882AB83523A14A1500174333 /* ArrayHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayHelperTests.swift; sourceTree = "<group>"; };
 		8863685E2396D077001DDDA8 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		886368602396D097001DDDA8 /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
 		886368622396D09E001DDDA8 /* FourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthView.swift; sourceTree = "<group>"; };
@@ -178,6 +339,7 @@
 		88B9948B239830AB00BDC38A /* TeamResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamResultPresenter.swift; sourceTree = "<group>"; };
 		88B9948E23983F6300BDC38A /* ReadyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyView.swift; sourceTree = "<group>"; };
 		88B9949023983F6B00BDC38A /* ReadyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyPresenter.swift; sourceTree = "<group>"; };
+		88C584F723A15AAA001DD640 /* MockAboutPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAboutPresenterOutput.swift; sourceTree = "<group>"; };
 		88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeTranslaterTests.swift; sourceTree = "<group>"; };
 		88E36F432391607D00F8F8F3 /* SafeTranslater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeTranslater.swift; sourceTree = "<group>"; };
 		88E36F45239165C200F8F8F3 /* RandomWordAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordAPI.swift; sourceTree = "<group>"; };
@@ -206,6 +368,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8800870323A0EAE2009092D1 /* Mock Routers */ = {
+			isa = PBXGroup;
+			children = (
+				8800870423A0EB10009092D1 /* MockStartRouter.swift */,
+				8800873A23A0F322009092D1 /* MockPrePlayRouter.swift */,
+				8800879823A0FF82009092D1 /* MockPlayRouter.swift */,
+				8800873C23A0F407009092D1 /* MockReadyRouter.swift */,
+				8800873E23A0F48A009092D1 /* MockTeamResultRouter.swift */,
+				8800874023A0F4F0009092D1 /* MockResultRouter.swift */,
+				8800874223A0F526009092D1 /* MockRecordsRouter.swift */,
+				8800874423A0F55F009092D1 /* MockSettingsRouter.swift */,
+				8800874623A0F597009092D1 /* MockAboutRouter.swift */,
+			);
+			path = "Mock Routers";
+			sourceTree = "<group>";
+		};
+		880087A023A108DB009092D1 /* Mock Presenter Outputs */ = {
+			isa = PBXGroup;
+			children = (
+				8800879E23A108D1009092D1 /* MockPlayPresenterOutput.swift */,
+				88C584F723A15AAA001DD640 /* MockAboutPresenterOutput.swift */,
+			);
+			path = "Mock Presenter Outputs";
+			sourceTree = "<group>";
+		};
+		880087B223A111E6009092D1 /* Mock Services */ = {
+			isa = PBXGroup;
+			children = (
+				880087B323A1124D009092D1 /* MockWordsProvider.swift */,
+				880087B523A112FA009092D1 /* MockImageProvider.swift */,
+				880087BB23A113D3009092D1 /* MockTranslater.swift */,
+				880087B723A1133B009092D1 /* MockImageClassificator.swift */,
+				880087B923A1136C009092D1 /* MockGameDataSaver.swift */,
+				880087C623A115AF009092D1 /* MockGameDataProvider.swift */,
+			);
+			path = "Mock Services";
+			sourceTree = "<group>";
+		};
+		880087BD23A114C6009092D1 /* Presenter Tests (Модульные) */ = {
+			isa = PBXGroup;
+			children = (
+				8800870123A0EAD8009092D1 /* StartPresenterTests.swift */,
+				8800871923A0EDD4009092D1 /* PrePlayPresenterTests.swift */,
+				8800879A23A106FD009092D1 /* PlayPresenterTests.swift */,
+				8800871D23A0EE21009092D1 /* ReadyPresenterTests.swift */,
+				8800871F23A0EE47009092D1 /* TeamResultPresenterTests.swift */,
+				8800872123A0EE76009092D1 /* ResultPresenterTests.swift */,
+				8800872323A0EE8A009092D1 /* RecordsPresenterTests.swift */,
+				8800872523A0EEAB009092D1 /* SettingsPresenterTests.swift */,
+				8800872723A0EEBC009092D1 /* AboutPresenterTests.swift */,
+			);
+			path = "Presenter Tests (Модульные)";
+			sourceTree = "<group>";
+		};
+		880087BE23A114D6009092D1 /* Interactor Tests (Модульные) */ = {
+			isa = PBXGroup;
+			children = (
+				880087AC23A1104E009092D1 /* StartInteractorTests.swift */,
+				880087AE23A11184009092D1 /* PrePlayInteractorTests.swift */,
+				880087B023A111C3009092D1 /* PlayInteractorTests.swift */,
+				880087C023A1154A009092D1 /* RecordsInteractorTests.swift */,
+				880087C223A11556009092D1 /* SettingsInteractorTests.swift */,
+				880087C423A11560009092D1 /* AboutInteractorTests.swift */,
+			);
+			path = "Interactor Tests (Модульные)";
+			sourceTree = "<group>";
+		};
+		880087CA23A12101009092D1 /* Mock Interactor Outputs */ = {
+			isa = PBXGroup;
+			children = (
+				880087C823A120FB009092D1 /* MockPlayInteractorOutput.swift */,
+			);
+			path = "Mock Interactor Outputs";
+			sourceTree = "<group>";
+		};
+		880087D023A12EB1009092D1 /* Services Tests (Интеграционные) */ = {
+			isa = PBXGroup;
+			children = (
+				880087CB23A12CD0009092D1 /* InternetWordsProviderTests.swift */,
+				880087D623A13C1A009092D1 /* StoredWordsProviderTests.swift */,
+				880087D223A131C4009092D1 /* FlickrImageProviderTests.swift */,
+				88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */,
+			);
+			path = "Services Tests (Интеграционные)";
+			sourceTree = "<group>";
+		};
 		880B800B2393DBDF0036211B /* Core Data Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,7 +533,11 @@
 		881216932386F3630091B5C4 /* AliasGameTests */ = {
 			isa = PBXGroup;
 			children = (
-				88E36F402391594200F8F8F3 /* SafeTranslaterTests.swift */,
+				88655D7523A15E6F005CD955 /* Test Doubles */,
+				882AB83223A148A600174333 /* Helper Functions Tests (Модульные) */,
+				880087BD23A114C6009092D1 /* Presenter Tests (Модульные) */,
+				880087BE23A114D6009092D1 /* Interactor Tests (Модульные) */,
+				880087D023A12EB1009092D1 /* Services Tests (Интеграционные) */,
 				881216962386F3630091B5C4 /* Info.plist */,
 			);
 			path = AliasGameTests;
@@ -317,6 +569,7 @@
 			children = (
 				881C8CCA238EE13800A6E8DE /* AliasUI */,
 				8827206F238DA9F8002E8648 /* Entity.swift */,
+				880087A123A10C8B009092D1 /* RouterDelegate.swift */,
 				881216C92386FDF90091B5C4 /* Router.swift */,
 				881216D82386FDF90091B5C4 /* Start Module */,
 				880B8030239586B90036211B /* PrePlay Module */,
@@ -440,6 +693,15 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		882AB83223A148A600174333 /* Helper Functions Tests (Модульные) */ = {
+			isa = PBXGroup;
+			children = (
+				882AB83323A148CC00174333 /* StringHelperTests.swift */,
+				882AB83523A14A1500174333 /* ArrayHelperTests.swift */,
+			);
+			path = "Helper Functions Tests (Модульные)";
+			sourceTree = "<group>";
+		};
 		886368662396D6A9001DDDA8 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +713,39 @@
 				88AB13A42399565800A35154 /* AliasSegmentedControl.swift */,
 			);
 			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
+		88655D7323A15E31005CD955 /* Mock Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				8800879C23A10745009092D1 /* MockPlayInteractor.swift */,
+			);
+			path = "Mock Interactors";
+			sourceTree = "<group>";
+		};
+		88655D7423A15E3D005CD955 /* Stub Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				8800872B23A0EFCE009092D1 /* StubPrePlayInteractor.swift */,
+				8800873323A0F00D009092D1 /* StubRecordsInteractor.swift */,
+				8800873523A0F01B009092D1 /* StubSettingsInteractor.swift */,
+				8800873723A0F026009092D1 /* StubAboutInteractor.swift */,
+			);
+			path = "Stub Interactors";
+			sourceTree = "<group>";
+		};
+		88655D7523A15E6F005CD955 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				8800870323A0EAE2009092D1 /* Mock Routers */,
+				88655D7323A15E31005CD955 /* Mock Interactors */,
+				88655D7423A15E3D005CD955 /* Stub Interactors */,
+				880087A023A108DB009092D1 /* Mock Presenter Outputs */,
+				880087CA23A12101009092D1 /* Mock Interactor Outputs */,
+				880087B223A111E6009092D1 /* Mock Services */,
+				880087CD23A12E9E009092D1 /* MockWordsProviderDelegate.swift */,
+			);
+			path = "Test Doubles";
 			sourceTree = "<group>";
 		};
 		88AB13A6239989B400A35154 /* Interfaces */ = {
@@ -591,7 +886,6 @@
 					};
 					8812168F2386F3630091B5C4 = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = 8812167B2386F3620091B5C4;
 					};
 				};
 			};
@@ -635,6 +929,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880087DF23A1403A009092D1 /* russian_words_nouns.csv in Resources */,
+				880087DE23A13E97009092D1 /* russian_words_presentation.csv in Resources */,
+				880087E323A1403A009092D1 /* english_words_verbs.csv in Resources */,
+				880087E123A1403A009092D1 /* russian_words_adjectives.csv in Resources */,
+				880087E223A1403A009092D1 /* english_words_nouns.csv in Resources */,
+				880087E023A1403A009092D1 /* russian_words_verbs.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +996,7 @@
 				881217182386FDFA0091B5C4 /* RootAssembly.swift in Sources */,
 				8863685F2396D077001DDDA8 /* SecondView.swift in Sources */,
 				88B9948F23983F6300BDC38A /* ReadyView.swift in Sources */,
+				880087A223A10C8B009092D1 /* RouterDelegate.swift in Sources */,
 				886368652396D233001DDDA8 /* FirstView.swift in Sources */,
 				8812170B2386FDFA0091B5C4 /* StartInteractor.swift in Sources */,
 				88B9948C239830AB00BDC38A /* TeamResultPresenter.swift in Sources */,
@@ -723,7 +1024,117 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8800877823A0F813009092D1 /* ThirdView.swift in Sources */,
+				880087A323A10CA8009092D1 /* RouterDelegate.swift in Sources */,
+				8800876F23A0F776009092D1 /* AboutView.swift in Sources */,
+				8800872C23A0EFCE009092D1 /* StubPrePlayInteractor.swift in Sources */,
+				8800879023A0F85A009092D1 /* Word+CoreDataClass.swift in Sources */,
+				8800878123A0F833009092D1 /* RecordsInteractor.swift in Sources */,
+				88C584F623A15810001DD640 /* ArrayHelperTests.swift in Sources */,
+				8800876623A0F742009092D1 /* StartView.swift in Sources */,
+				8800877A23A0F813009092D1 /* FifthView.swift in Sources */,
+				8800877523A0F80D009092D1 /* StartInteractor.swift in Sources */,
+				8800874323A0F526009092D1 /* MockRecordsRouter.swift in Sources */,
+				8800879523A0F868009092D1 /* FlickrAPI.swift in Sources */,
+				8800879D23A10745009092D1 /* MockPlayInteractor.swift in Sources */,
+				8800870523A0EB10009092D1 /* MockStartRouter.swift in Sources */,
+				880087B823A1133B009092D1 /* MockImageClassificator.swift in Sources */,
+				8800876723A0F74B009092D1 /* PrePlayView.swift in Sources */,
+				8800878423A0F841009092D1 /* ImageProviderProtocol.swift in Sources */,
+				8800874C23A0F658009092D1 /* TeamResultPresenter.swift in Sources */,
+				880087B123A111C3009092D1 /* PlayInteractorTests.swift in Sources */,
+				8800872023A0EE47009092D1 /* TeamResultPresenterTests.swift in Sources */,
+				8800873F23A0F48A009092D1 /* MockTeamResultRouter.swift in Sources */,
+				8800871E23A0EE21009092D1 /* ReadyPresenterTests.swift in Sources */,
+				8800878B23A0F84B009092D1 /* ArrayHelper.swift in Sources */,
+				880087C523A11560009092D1 /* AboutInteractorTests.swift in Sources */,
+				880087CF23A12EA7009092D1 /* MockWordsProviderDelegate.swift in Sources */,
+				8800877923A0F813009092D1 /* FourthView.swift in Sources */,
+				8800872423A0EE8A009092D1 /* RecordsPresenterTests.swift in Sources */,
+				8800878723A0F848009092D1 /* FlickrImageProvider.swift in Sources */,
+				8800873623A0F01B009092D1 /* StubSettingsInteractor.swift in Sources */,
+				8800876B23A0F75C009092D1 /* ResultView.swift in Sources */,
+				8800877423A0F80A009092D1 /* GameModesTableCell.swift in Sources */,
+				8800873D23A0F407009092D1 /* MockReadyRouter.swift in Sources */,
+				8800878623A0F841009092D1 /* TranslaterProtocol.swift in Sources */,
+				880087BA23A1136C009092D1 /* MockGameDataSaver.swift in Sources */,
+				8800873823A0F026009092D1 /* StubAboutInteractor.swift in Sources */,
+				8800877723A0F813009092D1 /* SecondView.swift in Sources */,
+				8800876E23A0F771009092D1 /* SettingsView.swift in Sources */,
+				880087D723A13C1A009092D1 /* StoredWordsProviderTests.swift in Sources */,
+				880087C323A11556009092D1 /* SettingsInteractorTests.swift in Sources */,
+				8800878223A0F837009092D1 /* SettingsInteractor.swift in Sources */,
+				8800874A23A0F649009092D1 /* PlayPresenter.swift in Sources */,
+				8800876A23A0F757009092D1 /* TeamResultView.swift in Sources */,
+				8800877623A0F813009092D1 /* FirstView.swift in Sources */,
+				8800874823A0F628009092D1 /* StartPresenter.swift in Sources */,
+				8800872823A0EEBC009092D1 /* AboutPresenterTests.swift in Sources */,
+				8800876523A0F73A009092D1 /* LightStatusBarViewController.swift in Sources */,
 				88E36F412391594200F8F8F3 /* SafeTranslaterTests.swift in Sources */,
+				8800875023A0F666009092D1 /* AboutPresenter.swift in Sources */,
+				8800876323A0F73A009092D1 /* AliasLightNavigationController.swift in Sources */,
+				8800871A23A0EDD4009092D1 /* PrePlayPresenterTests.swift in Sources */,
+				8800876023A0F73A009092D1 /* AliasDarkViewController.swift in Sources */,
+				8800875F23A0F73A009092D1 /* AliasTableViewController.swift in Sources */,
+				8800874123A0F4F0009092D1 /* MockResultRouter.swift in Sources */,
+				880087B623A112FA009092D1 /* MockImageProvider.swift in Sources */,
+				880087AD23A1104E009092D1 /* StartInteractorTests.swift in Sources */,
+				8800877E23A0F81E009092D1 /* UIImageHelper.swift in Sources */,
+				8800878523A0F841009092D1 /* WordsProviderProtocol.swift in Sources */,
+				8800879F23A108D1009092D1 /* MockPlayPresenterOutput.swift in Sources */,
+				8800875A23A0F70E009092D1 /* PlayView.swift in Sources */,
+				880087BC23A113D3009092D1 /* MockTranslater.swift in Sources */,
+				8800878E23A0F84E009092D1 /* ImageClassificator.swift in Sources */,
+				880087D323A131C4009092D1 /* FlickrImageProviderTests.swift in Sources */,
+				8800874B23A0F651009092D1 /* ReadyPresenter.swift in Sources */,
+				8800876C23A0F760009092D1 /* RecordsView.swift in Sources */,
+				8800877D23A0F81E009092D1 /* StringHelper.swift in Sources */,
+				8800872623A0EEAB009092D1 /* SettingsPresenterTests.swift in Sources */,
+				8800876223A0F73A009092D1 /* AliasDarkNavigationController.swift in Sources */,
+				8800878F23A0F857009092D1 /* CoreDataStack.swift in Sources */,
+				8800875923A0F703009092D1 /* SingleScreenView.swift in Sources */,
+				8800874923A0F645009092D1 /* PrePlayPresenter.swift in Sources */,
+				882AB83123A1470A00174333 /* DataModel.xcdatamodeld in Sources */,
+				8800873423A0F00D009092D1 /* StubRecordsInteractor.swift in Sources */,
+				8800876123A0F73A009092D1 /* AliasLightViewController.swift in Sources */,
+				8800874723A0F597009092D1 /* MockAboutRouter.swift in Sources */,
+				8800872223A0EE76009092D1 /* ResultPresenterTests.swift in Sources */,
+				8800877C23A0F818009092D1 /* PrePlayInteractor.swift in Sources */,
+				8800879623A0F86B009092D1 /* Networking.swift in Sources */,
+				880087AF23A11184009092D1 /* PrePlayInteractorTests.swift in Sources */,
+				8800878823A0F848009092D1 /* StoredWordsProvider.swift in Sources */,
+				8800879423A0F868009092D1 /* RandomWordAPI.swift in Sources */,
+				8800874E23A0F65F009092D1 /* RecordsPresenter.swift in Sources */,
+				880087C123A1154A009092D1 /* RecordsInteractorTests.swift in Sources */,
+				8800878323A0F83B009092D1 /* AboutInteractor.swift in Sources */,
+				8800879123A0F85A009092D1 /* Word+CoreDataProperties.swift in Sources */,
+				8800878023A0F82F009092D1 /* RecordCell.swift in Sources */,
+				880087C923A120FB009092D1 /* MockPlayInteractorOutput.swift in Sources */,
+				8800874D23A0F65B009092D1 /* ResultPresenter.swift in Sources */,
+				8800878923A0F848009092D1 /* InternetWordsProvider.swift in Sources */,
+				8800877323A0F80A009092D1 /* GameModeCollectionCell.swift in Sources */,
+				8800878C23A0F84E009092D1 /* GameDataSaver.swift in Sources */,
+				8800879923A0FF82009092D1 /* MockPlayRouter.swift in Sources */,
+				8800878D23A0F84E009092D1 /* GameDataProvider.swift in Sources */,
+				880087C723A115AF009092D1 /* MockGameDataProvider.swift in Sources */,
+				880087B423A1124D009092D1 /* MockWordsProvider.swift in Sources */,
+				88C584F523A15810001DD640 /* StringHelperTests.swift in Sources */,
+				8800874F23A0F662009092D1 /* SettingsPresenter.swift in Sources */,
+				880087CC23A12CD0009092D1 /* InternetWordsProviderTests.swift in Sources */,
+				8800875223A0F6B6009092D1 /* Entity.swift in Sources */,
+				8800870223A0EAD8009092D1 /* StartPresenterTests.swift in Sources */,
+				8800875723A0F6E3009092D1 /* RandomColor.swift in Sources */,
+				8800876423A0F73A009092D1 /* AliasTransitionSupport.swift in Sources */,
+				8800878A23A0F848009092D1 /* SafeTranslater.swift in Sources */,
+				88C584F823A15AAA001DD640 /* MockAboutPresenterOutput.swift in Sources */,
+				8800873B23A0F322009092D1 /* MockPrePlayRouter.swift in Sources */,
+				8800879223A0F85A009092D1 /* Word+AliasProperties.swift in Sources */,
+				8800874523A0F55F009092D1 /* MockSettingsRouter.swift in Sources */,
+				8800879723A0F86B009092D1 /* MachineLearning.swift in Sources */,
+				8800876923A0F753009092D1 /* ReadyView.swift in Sources */,
+				8800877B23A0F813009092D1 /* AliasSegmentedControl.swift in Sources */,
+				8800877F23A0F821009092D1 /* PlayInteractor.swift in Sources */,
+				8800879B23A106FD009092D1 /* PlayPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,7 +1321,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
 				INFOPLIST_FILE = AliasGameTests/Info.plist;
@@ -923,7 +1333,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AliasGame.app/AliasGame";
 			};
 			name = Debug;
 		};
@@ -931,7 +1340,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68427LK7H9;
 				INFOPLIST_FILE = AliasGameTests/Info.plist;
@@ -944,7 +1352,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AliasGame.app/AliasGame";
 			};
 			name = Release;
 		};

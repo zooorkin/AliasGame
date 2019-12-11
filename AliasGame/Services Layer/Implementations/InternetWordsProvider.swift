@@ -25,7 +25,11 @@ class InternetWordsProvider: WordsProviderProtocol {
             assertionFailure("[InternetWordsProvider]: delegate is nil")
             return
         }
-        guard language != .english && category != .any else {
+        guard number >= 0 else {
+            delegate.wordsProviderDidNotGetWords()
+            return
+        }
+        guard language == .english && category == .any else {
             delegate.wordsProviderDidNotGetWords()
             return
         }

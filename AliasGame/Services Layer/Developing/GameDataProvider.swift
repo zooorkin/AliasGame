@@ -27,12 +27,6 @@ class GameDataProvider: GameDataProviderProtocol {
     
     init(coreDataStack: CoreDataStackProtocol) {
         self.coreDataStack = coreDataStack
-        self.coreDataStack.delegate = self
     }
-    
-    
-}
-
-extension GameDataProvider: CoreDataStackDelegate {
     
 }

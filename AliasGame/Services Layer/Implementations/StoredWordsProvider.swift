@@ -51,16 +51,25 @@ class StoredWordsProvider: WordsProviderProtocol {
         }
         
         let numberOfAvailableWords = fetchedResultsController.sections?.first?.numberOfObjects ?? 0
+        
         guard let delegate = delegate else {
             assertionFailure("[StoredWordsProvider]: delegate is nil")
             return
         }
+        
+        guard numberOfAvailableWords >= number else {
+            delegate.wordsProviderDidNotGetWords()
+            return
+        }
+        
         var words: [Word] = []
+    
         for _ in 0..<min(number, numberOfAvailableWords) {
             let randomRowIndex = Int(arc4random_uniform(UInt32(numberOfAvailableWords)))
             let wordIndexPath = IndexPath(row: randomRowIndex, section: 0)
             words += [fetchedResultsController.object(at: wordIndexPath)]
         }
+        
         delegate.wordsProviderDidGetWords(words: words.map{ $0.word })
     }
     
@@ -71,7 +80,7 @@ class StoredWordsProvider: WordsProviderProtocol {
     }
     
     private func loadWords(from file: WordListFile) {
-        if let fileURL = Bundle.main.url(forResource: file.fileName, withExtension: "csv") {
+        if let fileURL = Bundle(for: type(of: self)).url(forResource: file.fileName, withExtension: "csv") {
             do {
                 let words = try String(contentsOf: fileURL)
                 for wordString in words.split(separator: ",") {

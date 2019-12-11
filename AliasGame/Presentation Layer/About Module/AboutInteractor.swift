@@ -10,6 +10,10 @@ protocol AboutInteractorInput {
     
     var output: AboutInteractorOutput? { get set }
     
+    var text: String { get }
+    
+    var title: String { get }
+    
 }
 
 protocol AboutInteractorOutput: class {
@@ -19,9 +23,10 @@ protocol AboutInteractorOutput: class {
 class AboutInteractor: AboutInteractorInput {
     
     weak var output: AboutInteractorOutput?
+    
+    let text = "Alias – игра для iPhone, в которой участникам предлагается поочередно или объяснять появляющиеся слова, или отгадывать их.\n\nПриложение является выпускным проектом в Сбербанк iOS школе.\n\nАвтор: Зорькин Андрей"
+    
+    let title = "Об игре"
 
-    init() {
-        
-    }
     
 }

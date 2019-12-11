@@ -14,9 +14,15 @@ protocol AboutPresenterInput {
     
     var output: AboutPresenterOutput? { get set }
     
+    func viewDidLoad()
+    
 }
 
 protocol AboutPresenterOutput: class {
+    
+    func setText(text: String)
+    
+    func setTitle(title: String)
     
 }
 
@@ -37,6 +43,15 @@ class AboutPresenter: AboutPresenterInput {
     
     init(interactor: AboutInteractorInput) {
         self.interactor = interactor
+    }
+    
+    func viewDidLoad() {
+        if let output = output {
+            output.setTitle(title: interactor.title)
+            output.setText(text: interactor.text)
+        } else {
+            debugPrint("[AboutPresenter]: output is nil")
+        }
     }
     
 }

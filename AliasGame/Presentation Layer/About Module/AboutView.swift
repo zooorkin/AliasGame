@@ -24,11 +24,11 @@ class AboutView: AliasDarkViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Об игре"
         plainView.addSubview(textView)
         textView.font = .systemFont(ofSize: 17.0, weight: .regular)
         textView.textColor = .black
-        textView.text = "Alias – игра для iPhone, в которой участникам предлагается поочередно или объяснять появляющиеся слова, или отгадывать их.\n\nПриложение является выпускным проектом в Сбербанк iOS школе.\n\nАвтор: Зорькин Андрей"
-        title = "Об игре"
+        presenter.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,5 +42,18 @@ class AboutView: AliasDarkViewController {
 
 
 extension AboutView: AboutPresenterOutput {
+    
+    func setText(text: String) {
+        DispatchQueue.main.async {
+            self.textView.text = text
+            self.viewDidLayoutSubviews()
+        }
+    }
+    
+    func setTitle(title: String) {
+        DispatchQueue.main.async {
+            self.title = title
+        }
+    }
     
 }

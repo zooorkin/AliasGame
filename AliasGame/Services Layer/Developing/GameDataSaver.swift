@@ -27,12 +27,7 @@ class GameDataSaver: GameDataSaverProtocol {
     
     init(coreDataStack: CoreDataStackProtocol) {
         self.coreDataStack = coreDataStack
-        self.coreDataStack.delegate = self
     }
     
-    
-}
-
-extension GameDataSaver: CoreDataStackDelegate {
     
 }

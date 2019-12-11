@@ -20,8 +20,6 @@ protocol StartPresenterInput {
     
     func aboutGameButtonTapped()
     
-    func reservedButtonTapped()
-    
 }
 
 protocol StartPresenterOutput: class {
@@ -46,10 +44,10 @@ class StartPresenter: StartPresenterInput {
 
     weak var output: StartPresenterOutput?
 
-    private var interactor: StartInteractor
+    private var interactor: StartInteractorInput
 
 
-    init(interactor: StartInteractor) {
+    init(interactor: StartInteractorInput) {
         self.interactor = interactor
     }
     

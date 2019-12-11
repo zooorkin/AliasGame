@@ -69,6 +69,10 @@ struct AliasGameConfiguration {
     /// Времени на сет
     let timeForSet: Int
     
+    static var `default`: AliasGameConfiguration {
+        return .init(mode: .twoPlayers, numberOfRounds: 3, timeForSet: 60)
+    }
+    
 }
 
 /// Alias-слово
