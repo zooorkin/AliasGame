@@ -18,6 +18,13 @@ Alias – игра для iPhone, в которой участникам пре�
 - English nouns
 - English verbs
 
+### Архитектура
+- SOA + VIPER modules
+
+<p align="left">
+<img width="600" src="pictures/soa.jpg">
+</p>
+
 ### Статистика проекта
 
 | Объект                               | Количество |
@@ -70,10 +77,6 @@ a5eb124e21e295077a18aa3cbb2c49aff80f336d
 | Deployment Target – 12\.2, Release, \- libswiftRemoteMirror\.dylib \- Disable Safety Checks \- nibs \+ manual layout \- metadata \+ objc direct call presenters methods                                                             | 347 KB        | 22:28 |
 | Deployment Target – 12\.2, Release, \- libswiftRemoteMirror\.dylib \- Disable Safety Checks \- nibs \+ manual layout \- metadata \+ objc direct call presenters methods \- empty assets \- empty icon                               | 347 KB        | 22:34 |
 | Deployment Target – 12\.2, Release, \- libswiftRemoteMirror\.dylib \- Disable Safety Checks \- nibs \+ manual layout \- metadata \+ objc direct call presenters methods \- empty assets \- empty icon \+ if def debug \+ debugPrint | 345 KB        | 22:53 |
-
-## Технические особенности
-- архитектура приложения – SOA (Service-Oriented Architecture)
-- архитектура слоя представления – VIPER
 
 ## Список литературы
 * [iOS Школа - SberGraduate](https://sbergraduate.ru/ios-school/)
