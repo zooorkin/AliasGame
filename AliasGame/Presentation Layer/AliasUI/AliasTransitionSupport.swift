@@ -41,6 +41,7 @@ class AliasTransitionSupport {
         self.coveredWindow.makeKeyAndVisible()
         
         coveredNavigationController = AliasLightNavigationController(rootViewController: viewController)
+		coveredNavigationController.modalPresentationStyle = .fullScreen
         coveredRootViewController.present(coveredNavigationController, animated: animated, completion: nil)
         UIView.animate(withDuration: 0.3, animations: {
             self.mainWindow.transform = CGAffineTransform(scaleX: 0.8, y: 0.8).translatedBy(x: 0, y: -UIScreen.main.bounds.height * 0.13)

@@ -107,6 +107,7 @@ extension Router: PlayRouterInput {
     func showTeamResult(configuration: AliasGameConfiguration, teamResult: TeamResult, completion: @escaping () -> Void) {
         let resultView = presentationAssembly.teamResultModule(configuration: configuration, teamResult: teamResult, completion: completion)
         secondCoveredNavigationController = AliasLightNavigationController(rootViewController: resultView)
+		secondCoveredNavigationController.modalPresentationStyle = .fullScreen
         coveredNavigationController.present(secondCoveredNavigationController, animated: true, completion: nil)
     }
     
